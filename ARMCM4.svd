@@ -5633,6 +5633,7 @@
               <description>Operation done</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
+              <modifiedWriteValues>oneToClear</modifiedWriteValues>
             </field>
             <field>
               <name>READ_NUM_DONE</name>

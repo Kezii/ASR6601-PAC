@@ -5,7 +5,7 @@ pub type W = crate::W<SrSpec>;
 #[doc = "Field `OPERATION_DONE` reader - Operation done"]
 pub type OperationDoneR = crate::BitReader;
 #[doc = "Field `OPERATION_DONE` writer - Operation done"]
-pub type OperationDoneW<'a, REG> = crate::BitWriter<'a, REG>;
+pub type OperationDoneW<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `READ_NUM_DONE` reader - Read num done"]
 pub type ReadNumDoneR = crate::BitReader;
 #[doc = "Field `READ_NUM_DONE` writer - Read num done"]
@@ -72,4 +72,5 @@ impl crate::Readable for SrSpec {}
 #[doc = "`write(|w| ..)` method takes [`sr::W`](W) writer structure"]
 impl crate::Writable for SrSpec {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x01;
 }
