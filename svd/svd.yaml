@@ -6,14 +6,14 @@ device:
   version: '1.1'
   description: ASR6601 LPWAN SoC family with Arm China STAR-MC1 processor. ASR6601SE
     has 256 KiB Flash and 64 KiB SRAM; ASR6601CB has 128 KiB Flash and 16 KiB SRAM.
-  licenseText: Reverse-engineered device description derived from the ASR6601 datasheet
-    and the ASR6601 SDK register declarations. Verify undocumented behavior against
-    target hardware.
+  licenseText: Official TREMO v1.6.2 SVD (Silicon Labs Zlib) as canonical reference,
+    enriched with ASR6601 datasheet and SDK register declarations. Verify undocumented
+    behavior against target hardware.
   cpu:
     name: CM4
     revision: r0p1
     endian: little
-    mpuPresent: 'false'
+    mpuPresent: 'true'
     fpuPresent: 'true'
     vtorPresent: 'true'
     nvicPrioBits: '3'

@@ -98,8 +98,8 @@ registers:
             description: pin[15:0] output data clear
             bitOffset: '0'
             bitWidth: '16'
-    - name: BSR
-      description: 'bit set register'
+    - name: BSRR
+      description: 'bit set-clear register'
       addressOffset: '0x20'
       size: '32'
       access: 'write-only'

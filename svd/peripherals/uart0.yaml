@@ -37,11 +37,11 @@ registers:
             description: overrun error flag
             bitOffset: '11'
             bitWidth: '1'
-    - name: RSC_ECR
+    - name: RSR_ECR
       description: receive status register / error clear register
       addressOffset: '0x4'
       size: '32'
-      access: read-only
+      access: read-write
       fields:
         field:
           - name: FE
