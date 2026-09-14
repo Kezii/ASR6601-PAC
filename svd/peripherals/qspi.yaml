@@ -1,0 +1,11 @@
+name: QSPI
+description: Quad SPI controller
+baseAddress: '0x40021000'
+addressBlock:
+  offset: '0'
+  size: '0x0'
+  usage: registers
+interrupt:
+  name: QSPI
+  value: '12'
+registers: ''

@@ -1,0 +1,354 @@
+name: EFC
+description: Embedded flash controller
+baseAddress: '0x40020000'
+addressBlock:
+  offset: '0'
+  size: '0x50'
+  usage: registers
+interrupt:
+  name: EFC
+  value: '3'
+registers:
+  register:
+    - name: CR
+      description: control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: MASS_ERASE_EN
+            description: Mass erase en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: PAGE_ERASE_EN
+            description: Page erase en
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: PROG_EN
+            description: Prog en
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: PROG_MODE
+            description: flash program mode selection
+            bitOffset: '3'
+            bitWidth: '1'
+            enumeratedValues:
+              enumeratedValue:
+                - name: SINGLE
+                  description: single programming mode
+                  value: '0x0'
+                - name: WL_CONTINUOUS
+                  description: word line continuous programming mode
+                  value: '0x1'
+          - name: READ_ACC_EN
+            description: Read acc en
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: PREFETCH_EN
+            description: Prefetch en
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: WRITE_RELEASE_EN
+            description: Write release en
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: OPTION_OPR_EN
+            description: Option operation enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: ECC_DIS
+            description: ECC encoding disable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: INFO_BYTE_LOAD
+            description: Info byte load reset request
+            bitOffset: '31'
+            bitWidth: '1'
+    - name: INT_EN
+      description: interrupt enable register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: OPERATION_DONE_INT_EN
+            description: Operation done interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: PROG_DATA_WAIT_INT_EN
+            description: Prog data wait interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: FLASHBUSY_ERR_INT_EN
+            description: Flash busy error interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: OPTION_WR_ERR_INT_EN
+            description: Option write error interrupt enable
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: PAGE_ERASE_ERR_INT_EN
+            description: Page erase error interrupt enable
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: PROG_ERR_INT_EN
+            description: Prog error interrupt enable
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: ONE_BIT_CORRECT_INT_EN
+            description: One bit correct interrupt enable
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: TWO_BIT_ERROR_INT_EN
+            description: Two bit error interrupt enable
+            bitOffset: '8'
+            bitWidth: '1'
+    - name: SR
+      description: status register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: OPERATION_DONE
+            description: Operation done
+            bitOffset: '0'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: READ_NUM_DONE
+            description: Read num done
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: PROG_DATA_WAIT
+            description: Prog data wait
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: FLASHBUSY_ERR
+            description: Flash busy error
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: OPTION_WR_ERR
+            description: Option write error
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: PAGE_ERASE_ERR
+            description: Page erase error
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: PROG_ERR
+            description: Prog error
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: ONE_BIT_CORRECT
+            description: One bit correct
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: TWO_BIT_ERROR
+            description: Two bit error
+            bitOffset: '8'
+            bitWidth: '1'
+    - name: PROGRAM_DATA0
+      description: program data0 register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: PROG_DATA0
+            description: Program data 0
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: PROGRAM_DATA1
+      description: program data1 register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: PROG_DATA1
+            description: Program data 1
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: TIMING_CFG
+      description: timing config register
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          name: READ_NUM
+          description: Read num
+          bitOffset: '16'
+          bitWidth: '4'
+    - name: PROTECT_SEQ
+      description: protect sequence register
+      addressOffset: '0x18'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          - name: PROTECT_SEQ
+            description: Protection sequence
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: SN_L
+      description: serial number low register
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: SERIAL_NUM_LOW
+            description: Less significant 32 bits of the chip serial number
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: SN_H
+      description: serial number high register
+      addressOffset: '0x30'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: SERIAL_NUM_HIGH
+            description: More significant 32 bits of the chip serial number
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: OPTION_CSR_BYTES
+      description: option control and status register
+      addressOffset: '0x3C'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: FLASH_BOOT0
+            description: Flash boot 0
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: USE_FLASH_BOOT0
+            description: Use flash boot 0
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: FLASH_BOOT1
+            description: Flash boot 1
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: SYS_SRAM_RST
+            description: Clear system sram during system startup
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: SECURE_AREA_EN
+            description: Flash secure area status flag
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: DEBUG_LEVEL
+            description: Debug level setting
+            bitOffset: '5'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: LEVEL_0
+                  description: Level 0
+                  value: '0x0'
+                - name: LEVEL_1
+                  description: Level 1
+                  value: '0x1'
+                - name: LEVEL_2
+                  description: Level 2
+                  value: '0x2'
+    - name: OPTION_EO_BYTES
+      description: option exe-only bytes register
+      addressOffset: '0x40'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: EXE_ONLY1_START
+            description: Exe only 1 area start offset
+            bitOffset: '0'
+            bitWidth: '6'
+          - name: EXE_ONLY1_END
+            description: Exe only 1 area end offset
+            bitOffset: '6'
+            bitWidth: '6'
+          - name: EXE_ONLY2_START
+            description: Exe only 2 area start offset
+            bitOffset: '12'
+            bitWidth: '6'
+          - name: EXE_ONLY2_END
+            description: Exe only 2 area end offset
+            bitOffset: '18'
+            bitWidth: '6'
+          - name: EXE_ONLY_KEEP
+            description: Keep exe only area when debug level changes
+            bitOffset: '24'
+            bitWidth: '1'
+    - name: OPTION_WP_BYTES
+      description: option write-protect bytes register
+      addressOffset: '0x44'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: WRPROTECT_START
+            description: Write-protected area start offset
+            bitOffset: '0'
+            bitWidth: '6'
+          - name: WRPROTECT_END
+            description: Write-protected area end offset
+            bitOffset: '6'
+            bitWidth: '6'
+    - name: OPTION_SEC_BYTES0
+      description: option secure byte 0 register
+      addressOffset: '0x48'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: FLASH_SECURE_START
+            description: Flash secure area start
+            bitOffset: '0'
+            bitWidth: '6'
+          - name: FLASH_SECURE_END
+            description: Flash secure area end
+            bitOffset: '6'
+            bitWidth: '6'
+          - name: SYSRAM_SECURE_START
+            description: Sysram secure area start
+            bitOffset: '12'
+            bitWidth: '6'
+          - name: SYSRAM_SECURE_END
+            description: Sysram secure area end
+            bitOffset: '18'
+            bitWidth: '6'
+    - name: OPTION_SEC_BYTES1
+      description: option secure byte 1 register
+      addressOffset: '0x4C'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: RETRAM_SECURE_START
+            description: Retram secure area start
+            bitOffset: '0'
+            bitWidth: '5'
+          - name: RETRAM_SECURE_END
+            description: Retram secure area end
+            bitOffset: '5'
+            bitWidth: '5'
+          - name: FLASH_HIDE_START
+            description: Flash hide area start
+            bitOffset: '10'
+            bitWidth: '6'
+          - name: FLASH_HIDE_ENABLE
+            description: Flash hide area enable control
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: SYSRAM_HIDE_START
+            description: Sysram hide area start
+            bitOffset: '17'
+            bitWidth: '6'
+          - name: SYSRAM_HIDE_ENABLE
+            description: Sysram hide area enable control
+            bitOffset: '23'
+            bitWidth: '1'

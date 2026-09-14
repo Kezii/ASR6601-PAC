@@ -101,7 +101,7 @@ impl RegisterBlock {
     pub const fn mosi_cr(&self) -> &MosiCr {
         &self.mosi_cr
     }
-    #[doc = "0x118 - miso control register"]
+    #[doc = "0x118 - miso status register"]
     #[inline(always)]
     pub const fn miso_sr(&self) -> &MisoSr {
         &self.miso_sr
@@ -147,7 +147,7 @@ pub mod ssp_ris;
 pub type SspMis = crate::Reg<ssp_mis::SspMisSpec>;
 #[doc = "ssp masked interrupt status register"]
 pub mod ssp_mis;
-#[doc = "SSP_ICR (rw) register accessor: ssp interrupt clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`ssp_icr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ssp_icr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ssp_icr`] module"]
+#[doc = "SSP_ICR (w) register accessor: ssp interrupt clear register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ssp_icr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ssp_icr`] module"]
 #[doc(alias = "SSP_ICR")]
 pub type SspIcr = crate::Reg<ssp_icr::SspIcrSpec>;
 #[doc = "ssp interrupt clear register"]
@@ -187,8 +187,8 @@ pub mod sck_cr;
 pub type MosiCr = crate::Reg<mosi_cr::MosiCrSpec>;
 #[doc = "mosi control register"]
 pub mod mosi_cr;
-#[doc = "MISO_SR (rw) register accessor: miso control register\n\nYou can [`read`](crate::Reg::read) this register and get [`miso_sr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`miso_sr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@miso_sr`] module"]
+#[doc = "MISO_SR (r) register accessor: miso status register\n\nYou can [`read`](crate::Reg::read) this register and get [`miso_sr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@miso_sr`] module"]
 #[doc(alias = "MISO_SR")]
 pub type MisoSr = crate::Reg<miso_sr::MisoSrSpec>;
-#[doc = "miso control register"]
+#[doc = "miso status register"]
 pub mod miso_sr;

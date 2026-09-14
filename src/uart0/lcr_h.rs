@@ -2,6 +2,10 @@
 pub type R = crate::R<LcrHSpec>;
 #[doc = "Register `LCR_H` writer"]
 pub type W = crate::W<LcrHSpec>;
+#[doc = "Field `BRK` reader - send break"]
+pub type BrkR = crate::BitReader;
+#[doc = "Field `BRK` writer - send break"]
+pub type BrkW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `PEN` reader - Pen"]
 pub type PenR = crate::BitReader;
 #[doc = "Field `PEN` writer - Pen"]
@@ -154,6 +158,11 @@ where
     }
 }
 impl R {
+    #[doc = "Bit 0 - send break"]
+    #[inline(always)]
+    pub fn brk(&self) -> BrkR {
+        BrkR::new((self.bits & 1) != 0)
+    }
     #[doc = "Bit 1 - Pen"]
     #[inline(always)]
     pub fn pen(&self) -> PenR {
@@ -181,6 +190,11 @@ impl R {
     }
 }
 impl W {
+    #[doc = "Bit 0 - send break"]
+    #[inline(always)]
+    pub fn brk(&mut self) -> BrkW<'_, LcrHSpec> {
+        BrkW::new(self, 0)
+    }
     #[doc = "Bit 1 - Pen"]
     #[inline(always)]
     pub fn pen(&mut self) -> PenW<'_, LcrHSpec> {

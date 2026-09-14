@@ -1,0 +1,96 @@
+name: BSTIMER0
+description: Bstimer0
+baseAddress: '0x4000C000'
+addressBlock:
+  offset: '0'
+  size: '0x30'
+  usage: registers
+interrupt:
+  name: BSTIMER0
+  value: '27'
+registers:
+  register:
+    - name: CR1
+      description: control register 1
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: CEN
+            description: Cen
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: UDIS
+            description: Udis
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: URS
+            description: Urs
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: OPM
+            description: Opm
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: ARPE
+            description: Arpe
+            bitOffset: '7'
+            bitWidth: '1'
+    - name: CR2
+      description: control register 2
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+    - name: DIER
+      description: DMA/interrupt enable register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: UIE
+            description: Uie
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: UDE
+            description: Ude
+            bitOffset: '8'
+            bitWidth: '1'
+    - name: SR
+      description: status register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          name: UIF
+          description: Uif
+          bitOffset: '0'
+          bitWidth: '1'
+    - name: EGR
+      description: event generation register
+      addressOffset: '0x14'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          name: UG
+          description: Ug
+          bitOffset: '0'
+          bitWidth: '1'
+    - name: CNT
+      description: counter
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+    - name: PSC
+      description: prescaler
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+    - name: ARR
+      description: auto-reload register
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-write

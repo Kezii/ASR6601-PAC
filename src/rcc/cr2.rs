@@ -260,92 +260,6 @@ where
         self.variant(AdcClkSel::Sysclk)
     }
 }
-#[doc = "Scc clk sel"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-#[repr(u8)]
-pub enum SccClkSel {
-    #[doc = "3: Ext"]
-    Ext = 3,
-    #[doc = "0: Pclk1"]
-    Pclk1 = 0,
-    #[doc = "2: Pll"]
-    Pll = 2,
-    #[doc = "1: Sysclk"]
-    Sysclk = 1,
-}
-impl From<SccClkSel> for u8 {
-    #[inline(always)]
-    fn from(variant: SccClkSel) -> Self {
-        variant as _
-    }
-}
-impl crate::FieldSpec for SccClkSel {
-    type Ux = u8;
-}
-impl crate::IsEnum for SccClkSel {}
-#[doc = "Field `SCC_CLK_SEL` reader - Scc clk sel"]
-pub type SccClkSelR = crate::FieldReader<SccClkSel>;
-impl SccClkSelR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> SccClkSel {
-        match self.bits {
-            3 => SccClkSel::Ext,
-            0 => SccClkSel::Pclk1,
-            2 => SccClkSel::Pll,
-            1 => SccClkSel::Sysclk,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Ext"]
-    #[inline(always)]
-    pub fn is_ext(&self) -> bool {
-        *self == SccClkSel::Ext
-    }
-    #[doc = "Pclk1"]
-    #[inline(always)]
-    pub fn is_pclk1(&self) -> bool {
-        *self == SccClkSel::Pclk1
-    }
-    #[doc = "Pll"]
-    #[inline(always)]
-    pub fn is_pll(&self) -> bool {
-        *self == SccClkSel::Pll
-    }
-    #[doc = "Sysclk"]
-    #[inline(always)]
-    pub fn is_sysclk(&self) -> bool {
-        *self == SccClkSel::Sysclk
-    }
-}
-#[doc = "Field `SCC_CLK_SEL` writer - Scc clk sel"]
-pub type SccClkSelW<'a, REG> = crate::FieldWriter<'a, REG, 2, SccClkSel, crate::Safe>;
-impl<'a, REG> SccClkSelW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Ext"]
-    #[inline(always)]
-    pub fn ext(self) -> &'a mut crate::W<REG> {
-        self.variant(SccClkSel::Ext)
-    }
-    #[doc = "Pclk1"]
-    #[inline(always)]
-    pub fn pclk1(self) -> &'a mut crate::W<REG> {
-        self.variant(SccClkSel::Pclk1)
-    }
-    #[doc = "Pll"]
-    #[inline(always)]
-    pub fn pll(self) -> &'a mut crate::W<REG> {
-        self.variant(SccClkSel::Pll)
-    }
-    #[doc = "Sysclk"]
-    #[inline(always)]
-    pub fn sysclk(self) -> &'a mut crate::W<REG> {
-        self.variant(SccClkSel::Sysclk)
-    }
-}
 #[doc = "Uart3 clk sel"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -706,11 +620,6 @@ impl R {
     pub fn adc_clk_sel(&self) -> AdcClkSelR {
         AdcClkSelR::new(((self.bits >> 5) & 3) as u8)
     }
-    #[doc = "Bits 7:8 - Scc clk sel"]
-    #[inline(always)]
-    pub fn scc_clk_sel(&self) -> SccClkSelR {
-        SccClkSelR::new(((self.bits >> 7) & 3) as u8)
-    }
     #[doc = "Bits 9:10 - Uart3 clk sel"]
     #[inline(always)]
     pub fn uart3_clk_sel(&self) -> Uart3ClkSelR {
@@ -747,11 +656,6 @@ impl W {
     #[inline(always)]
     pub fn adc_clk_sel(&mut self) -> AdcClkSelW<'_, Cr2Spec> {
         AdcClkSelW::new(self, 5)
-    }
-    #[doc = "Bits 7:8 - Scc clk sel"]
-    #[inline(always)]
-    pub fn scc_clk_sel(&mut self) -> SccClkSelW<'_, Cr2Spec> {
-        SccClkSelW::new(self, 7)
     }
     #[doc = "Bits 9:10 - Uart3 clk sel"]
     #[inline(always)]

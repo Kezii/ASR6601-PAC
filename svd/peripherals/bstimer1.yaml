@@ -1,0 +1,7 @@
+name: BSTIMER1
+description: BSTIMER1 instance
+baseAddress: '0x4001C000'
+interrupt:
+  name: BSTIMER1
+  value: '28'
+_derivedFrom: BSTIMER0

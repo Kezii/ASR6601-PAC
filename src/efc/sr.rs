@@ -10,14 +10,34 @@ pub type OperationDoneW<'a, REG> = crate::BitWriter1C<'a, REG>;
 pub type ReadNumDoneR = crate::BitReader;
 #[doc = "Field `READ_NUM_DONE` writer - Read num done"]
 pub type ReadNumDoneW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `PROGRAM_DATA_WAIT` reader - Program data wait"]
-pub type ProgramDataWaitR = crate::BitReader;
-#[doc = "Field `PROGRAM_DATA_WAIT` writer - Program data wait"]
-pub type ProgramDataWaitW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `OPTION_WRITE_ERROR` reader - Option write error"]
-pub type OptionWriteErrorR = crate::BitReader;
-#[doc = "Field `OPTION_WRITE_ERROR` writer - Option write error"]
-pub type OptionWriteErrorW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PROG_DATA_WAIT` reader - Prog data wait"]
+pub type ProgDataWaitR = crate::BitReader;
+#[doc = "Field `PROG_DATA_WAIT` writer - Prog data wait"]
+pub type ProgDataWaitW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `FLASHBUSY_ERR` reader - Flash busy error"]
+pub type FlashbusyErrR = crate::BitReader;
+#[doc = "Field `FLASHBUSY_ERR` writer - Flash busy error"]
+pub type FlashbusyErrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `OPTION_WR_ERR` reader - Option write error"]
+pub type OptionWrErrR = crate::BitReader;
+#[doc = "Field `OPTION_WR_ERR` writer - Option write error"]
+pub type OptionWrErrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PAGE_ERASE_ERR` reader - Page erase error"]
+pub type PageEraseErrR = crate::BitReader;
+#[doc = "Field `PAGE_ERASE_ERR` writer - Page erase error"]
+pub type PageEraseErrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `PROG_ERR` reader - Prog error"]
+pub type ProgErrR = crate::BitReader;
+#[doc = "Field `PROG_ERR` writer - Prog error"]
+pub type ProgErrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `ONE_BIT_CORRECT` reader - One bit correct"]
+pub type OneBitCorrectR = crate::BitReader;
+#[doc = "Field `ONE_BIT_CORRECT` writer - One bit correct"]
+pub type OneBitCorrectW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `TWO_BIT_ERROR` reader - Two bit error"]
+pub type TwoBitErrorR = crate::BitReader;
+#[doc = "Field `TWO_BIT_ERROR` writer - Two bit error"]
+pub type TwoBitErrorW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Operation done"]
     #[inline(always)]
@@ -29,15 +49,40 @@ impl R {
     pub fn read_num_done(&self) -> ReadNumDoneR {
         ReadNumDoneR::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 2 - Program data wait"]
+    #[doc = "Bit 2 - Prog data wait"]
     #[inline(always)]
-    pub fn program_data_wait(&self) -> ProgramDataWaitR {
-        ProgramDataWaitR::new(((self.bits >> 2) & 1) != 0)
+    pub fn prog_data_wait(&self) -> ProgDataWaitR {
+        ProgDataWaitR::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - Flash busy error"]
+    #[inline(always)]
+    pub fn flashbusy_err(&self) -> FlashbusyErrR {
+        FlashbusyErrR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bit 4 - Option write error"]
     #[inline(always)]
-    pub fn option_write_error(&self) -> OptionWriteErrorR {
-        OptionWriteErrorR::new(((self.bits >> 4) & 1) != 0)
+    pub fn option_wr_err(&self) -> OptionWrErrR {
+        OptionWrErrR::new(((self.bits >> 4) & 1) != 0)
+    }
+    #[doc = "Bit 5 - Page erase error"]
+    #[inline(always)]
+    pub fn page_erase_err(&self) -> PageEraseErrR {
+        PageEraseErrR::new(((self.bits >> 5) & 1) != 0)
+    }
+    #[doc = "Bit 6 - Prog error"]
+    #[inline(always)]
+    pub fn prog_err(&self) -> ProgErrR {
+        ProgErrR::new(((self.bits >> 6) & 1) != 0)
+    }
+    #[doc = "Bit 7 - One bit correct"]
+    #[inline(always)]
+    pub fn one_bit_correct(&self) -> OneBitCorrectR {
+        OneBitCorrectR::new(((self.bits >> 7) & 1) != 0)
+    }
+    #[doc = "Bit 8 - Two bit error"]
+    #[inline(always)]
+    pub fn two_bit_error(&self) -> TwoBitErrorR {
+        TwoBitErrorR::new(((self.bits >> 8) & 1) != 0)
     }
 }
 impl W {
@@ -51,15 +96,40 @@ impl W {
     pub fn read_num_done(&mut self) -> ReadNumDoneW<'_, SrSpec> {
         ReadNumDoneW::new(self, 1)
     }
-    #[doc = "Bit 2 - Program data wait"]
+    #[doc = "Bit 2 - Prog data wait"]
     #[inline(always)]
-    pub fn program_data_wait(&mut self) -> ProgramDataWaitW<'_, SrSpec> {
-        ProgramDataWaitW::new(self, 2)
+    pub fn prog_data_wait(&mut self) -> ProgDataWaitW<'_, SrSpec> {
+        ProgDataWaitW::new(self, 2)
+    }
+    #[doc = "Bit 3 - Flash busy error"]
+    #[inline(always)]
+    pub fn flashbusy_err(&mut self) -> FlashbusyErrW<'_, SrSpec> {
+        FlashbusyErrW::new(self, 3)
     }
     #[doc = "Bit 4 - Option write error"]
     #[inline(always)]
-    pub fn option_write_error(&mut self) -> OptionWriteErrorW<'_, SrSpec> {
-        OptionWriteErrorW::new(self, 4)
+    pub fn option_wr_err(&mut self) -> OptionWrErrW<'_, SrSpec> {
+        OptionWrErrW::new(self, 4)
+    }
+    #[doc = "Bit 5 - Page erase error"]
+    #[inline(always)]
+    pub fn page_erase_err(&mut self) -> PageEraseErrW<'_, SrSpec> {
+        PageEraseErrW::new(self, 5)
+    }
+    #[doc = "Bit 6 - Prog error"]
+    #[inline(always)]
+    pub fn prog_err(&mut self) -> ProgErrW<'_, SrSpec> {
+        ProgErrW::new(self, 6)
+    }
+    #[doc = "Bit 7 - One bit correct"]
+    #[inline(always)]
+    pub fn one_bit_correct(&mut self) -> OneBitCorrectW<'_, SrSpec> {
+        OneBitCorrectW::new(self, 7)
+    }
+    #[doc = "Bit 8 - Two bit error"]
+    #[inline(always)]
+    pub fn two_bit_error(&mut self) -> TwoBitErrorW<'_, SrSpec> {
+        TwoBitErrorW::new(self, 8)
     }
 }
 #[doc = "status register\n\nYou can [`read`](crate::Reg::read) this register and get [`sr::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

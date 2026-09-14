@@ -1,0 +1,284 @@
+name: ADC
+description: 12-bit analog-to-digital converter
+baseAddress: '0x40017000'
+addressBlock:
+  offset: '0'
+  size: '0x2C'
+  usage: registers
+interrupt:
+  name: ADC
+  value: '16'
+registers:
+  register:
+    - name: CR
+      description: control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: EN
+            description: adc enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: DIS
+            description: adc disable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: START
+            description: adc start conversion command
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: STOP
+            description: adc stop conversion command
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: CFGR
+      description: configuration register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: CLK_DIV
+            description: adcclk prescale
+            bitOffset: '0'
+            bitWidth: '12'
+          - name: DMA_EN
+            description: dma enable
+            bitOffset: '12'
+            bitWidth: '1'
+          - name: EXT_TRIG_SEL
+            description: external trigger selection
+            bitOffset: '13'
+            bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: GPIO47
+                  description: GPIO47
+                  value: '0x5'
+                - name: GPIO31
+                  description: GPIO31
+                  value: '0x6'
+                - name: GPIO19
+                  description: GPIO19
+                  value: '0x7'
+                - name: GPIO10
+                  description: GPIO10
+                  value: '0x8'
+                - name: GPTIM1_TRGO
+                  description: GPTIM1 TRGO
+                  value: '0x9'
+                - name: GPTIM0_CH2_OUT
+                  description: GPTIM0 CH2 output
+                  value: '0xA'
+                - name: GPTIM3_TRGO
+                  description: GPTIM3 TRGO
+                  value: '0xB'
+                - name: GPTIM0_CH3_OUT
+                  description: GPTIM0 CH3 output
+                  value: '0xC'
+                - name: GPTIM0_TRGO
+                  description: GPTIM0 TRGO
+                  value: '0xD'
+                - name: GPTIM2_CH1_OUT
+                  description: GPTIM2 CH1 output
+                  value: '0xE'
+          - name: TRIG_SEL
+            description: trigger mode and polarity selection
+            bitOffset: '17'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: SW
+                  description: software trigger
+                  value: '0x0'
+                - name: HW_RISING
+                  description: hardware trigger rising edge
+                  value: '0x1'
+                - name: HW_FALLING
+                  description: hardware trigger falling edge
+                  value: '0x2'
+                - name: HW_BOTH
+                  description: hardware trigger both edges
+                  value: '0x3'
+          - name: OVERRUN_MODE
+            description: overrun management mode
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: CONV_MODE
+            description: conversion mode selection
+            bitOffset: '20'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: SINGLE
+                  description: single conversion mode
+                  value: '0x0'
+                - name: CONTINUOUS
+                  description: continuous conversion mode
+                  value: '0x1'
+                - name: DISCONTINUOUS
+                  description: discontinuous conversion mode
+                  value: '0x2'
+          - name: WAIT_MODE
+            description: wait conversion mode
+            bitOffset: '22'
+            bitWidth: '1'
+    - name: SEQR0
+      description: sequence0 register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SEL0
+            description: sequence 0 channel select
+            bitOffset: '0'
+            bitWidth: '4'
+          - name: SEL1
+            description: sequence 1 channel select
+            bitOffset: '4'
+            bitWidth: '4'
+          - name: SEL2
+            description: sequence 2 channel select
+            bitOffset: '8'
+            bitWidth: '4'
+          - name: SEL3
+            description: sequence 3 channel select
+            bitOffset: '12'
+            bitWidth: '4'
+          - name: SEL4
+            description: sequence 4 channel select
+            bitOffset: '16'
+            bitWidth: '4'
+          - name: SEL5
+            description: sequence 5 channel select
+            bitOffset: '20'
+            bitWidth: '4'
+          - name: SEL6
+            description: sequence 6 channel select
+            bitOffset: '24'
+            bitWidth: '4'
+          - name: SEL7
+            description: sequence 7 channel select
+            bitOffset: '28'
+            bitWidth: '4'
+    - name: SEQR1
+      description: sequence1 register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SEL8
+            description: sequence 8 channel select
+            bitOffset: '0'
+            bitWidth: '4'
+          - name: SEL9
+            description: sequence 9 channel select
+            bitOffset: '4'
+            bitWidth: '4'
+          - name: SEL10
+            description: sequence 10 channel select
+            bitOffset: '8'
+            bitWidth: '4'
+          - name: SEL11
+            description: sequence 11 channel select
+            bitOffset: '12'
+            bitWidth: '4'
+          - name: SEL12
+            description: sequence 12 channel select
+            bitOffset: '16'
+            bitWidth: '4'
+          - name: SEL13
+            description: sequence 13 channel select
+            bitOffset: '20'
+            bitWidth: '4'
+          - name: SEL14
+            description: sequence 14 channel select
+            bitOffset: '24'
+            bitWidth: '4'
+          - name: SEL15
+            description: sequence 15 channel select
+            bitOffset: '28'
+            bitWidth: '4'
+    - name: DIFFSEL
+      description: difference register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SEL0
+            description: differential or single-ended mode selection for channels 1 to 8
+            bitOffset: '1'
+            bitWidth: '8'
+          - name: SEL1
+            description: channels 9 to 15 internal channels, single-ended only
+            bitOffset: '9'
+            bitWidth: '7'
+    - name: ISR
+      description: interrupt status register
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: EOC
+            description: end of conversion flag
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: EOS
+            description: end of sequence flag
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: OVERRUN
+            description: overrun flag
+            bitOffset: '2'
+            bitWidth: '1'
+    - name: IER
+      description: interrupt enable register
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: EOC_INT_EN
+            description: end of conversion interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: EOS_INT_EN
+            description: end of sequence interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: OVERRUN_INT_EN
+            description: overrun interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+    - name: DR
+      description: data register
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: DATA
+            description: adc converted data, bit 11 is sign in differential mode
+            bitOffset: '0'
+            bitWidth: '12'
+    - name: AWD0_CFGR
+      description: AWD0 register
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+    - name: AWD1_CFGR
+      description: AWD1 register
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+    - name: AWD2_CFGR
+      description: AWD2 register
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write

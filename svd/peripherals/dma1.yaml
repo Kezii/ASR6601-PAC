@@ -1,0 +1,7 @@
+name: DMA1
+description: DMA1 instance
+baseAddress: '0x40024000'
+interrupt:
+  name: DMA1
+  value: '19'
+_derivedFrom: DMA0

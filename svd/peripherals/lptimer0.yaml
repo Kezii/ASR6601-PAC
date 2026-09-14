@@ -1,0 +1,186 @@
+name: LPTIMER0
+description: Lptimer0
+baseAddress: '0x4000D000'
+addressBlock:
+  offset: '0'
+  size: '0x28'
+  usage: registers
+interrupt:
+  name: LPTIMER0
+  value: '29'
+registers:
+  register:
+    - name: ISR
+      description: LPTIMER flag and status register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CMPM
+            description: Cmpm
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: ARRM
+            description: Arrm
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: EXTTRIG
+            description: Exttrig
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CMPOK
+            description: Cmpok
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: ARROK
+            description: Arrok
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: UP
+            description: Up
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: DOWN
+            description: Down
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: CFGROK
+            description: Cfgrok
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: CROK
+            description: Crok
+            bitOffset: '8'
+            bitWidth: '1'
+    - name: ICR
+      description: LPTIMER flag clear register
+      addressOffset: '0x4'
+      size: '32'
+      access: write-only
+    - name: IER
+      description: LPTIMER interrupt enable register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+    - name: CFGR
+      description: LPTIMER configuration register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: CKFLT_EN
+            description: Ckflt en
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: TRGFLT_EN
+            description: Trgflt en
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: TIMEOUT
+            description: Timeout
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: WAVE
+            description: Wave
+            bitOffset: '20'
+            bitWidth: '1'
+          - name: WAVPOL
+            description: Wavpol
+            bitOffset: '21'
+            bitWidth: '1'
+          - name: PRELOAD
+            description: Preload
+            bitOffset: '22'
+            bitWidth: '1'
+          - name: COUNTMODE
+            description: Countmode
+            bitOffset: '23'
+            bitWidth: '1'
+          - name: ENC
+            description: Enc
+            bitOffset: '24'
+            bitWidth: '1'
+          - name: CMPM_WKUP
+            description: Cmpm wkup
+            bitOffset: '25'
+            bitWidth: '1'
+          - name: ARRM_WKUP
+            description: Arrm wkup
+            bitOffset: '26'
+            bitWidth: '1'
+          - name: EXTTRIG_WKUP
+            description: Exttrig wkup
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: UP_WKUP
+            description: Up wkup
+            bitOffset: '28'
+            bitWidth: '1'
+          - name: DOWN_WKUP
+            description: Down wkup
+            bitOffset: '29'
+            bitWidth: '1'
+          - name: OUT_WKUP
+            description: Out wkup
+            bitOffset: '30'
+            bitWidth: '1'
+    - name: CR
+      description: LPTIMER control register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          name: ENABLE
+          description: Enable
+          bitOffset: '0'
+          bitWidth: '1'
+    - name: CMP
+      description: LPTIMER compare register
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+    - name: ARR
+      description: LPTIMER autoreload register
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+    - name: CNT
+      description: LPTIMER counter register
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-only
+    - name: CSR
+      description: LPTIMER CSR register
+      addressOffset: '0x20'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CMPM
+            description: Cmpm
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: ARRM
+            description: Arrm
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: EXTTRIG
+            description: Exttrig
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: UP
+            description: Up
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: DOWN
+            description: Down
+            bitOffset: '4'
+            bitWidth: '1'
+    - name: SR1
+      description: LPTIMER SR1 register
+      addressOffset: '0x24'
+      size: '32'
+      access: read-only

@@ -1,0 +1,453 @@
+name: RTC
+description: Real-time clock
+baseAddress: '0x4000E000'
+addressBlock:
+  offset: '0'
+  size: '0x4C'
+  usage: registers
+interrupt:
+  name: RTC
+  value: '1'
+registers:
+  register:
+    - name: CTRL
+      description: control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: WAKEUP2_FILTER_CFG
+            description: Wakeup2 filter cfg
+            bitOffset: '0'
+            bitWidth: '2'
+          - name: WAKEUP2_WKEN1
+            description: Wakeup2 sr wakeup enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: WAKEUP2_WKEN0
+            description: Wakeup2 level wakeup enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: WAKEUP2_LEVEL_SEL
+            description: Wakeup2 active level selection
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: WAKEUP2_EN
+            description: Wakeup2 enable
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: WAKEUP1_FILTER_CFG
+            description: Wakeup1 filter cfg
+            bitOffset: '6'
+            bitWidth: '2'
+          - name: WAKEUP1_WKEN1
+            description: Wakeup1 sr wakeup enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: WAKEUP1_WKEN0
+            description: Wakeup1 level wakeup enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: WAKEUP1_LEVEL_SEL
+            description: Wakeup1 active level selection
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: WAKEUP1_EN
+            description: Wakeup1 enable
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: WAKEUP0_FILTER_CFG
+            description: Wakeup0 filter cfg
+            bitOffset: '12'
+            bitWidth: '2'
+          - name: WAKEUP0_WKEN1
+            description: Wakeup0 sr wakeup enable
+            bitOffset: '14'
+            bitWidth: '1'
+          - name: WAKEUP0_WKEN0
+            description: Wakeup0 level wakeup enable
+            bitOffset: '15'
+            bitWidth: '1'
+          - name: WAKEUP0_LEVEL_SEL
+            description: Wakeup0 active level selection
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: WAKEUP0_EN
+            description: Wakeup0 enable
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: TAMPER_FILTER_CFG
+            description: Tamper filter cfg
+            bitOffset: '18'
+            bitWidth: '2'
+          - name: TAMPER_WKEN1
+            description: Tamper sr wakeup enable
+            bitOffset: '20'
+            bitWidth: '1'
+          - name: TAMPER_WKEN0
+            description: Tamper level wakeup enable
+            bitOffset: '21'
+            bitWidth: '1'
+          - name: TAMPER_LEVEL_SEL
+            description: Tamper active level selection
+            bitOffset: '22'
+            bitWidth: '1'
+          - name: TAMPER_EN
+            description: Tamper enable
+            bitOffset: '23'
+            bitWidth: '1'
+          - name: CYC_START_COUNTER
+            description: Periodic counter enable
+            bitOffset: '24'
+            bitWidth: '1'
+          - name: CYC_WKEN
+            description: Cyc sr wakeup enable
+            bitOffset: '25'
+            bitWidth: '1'
+          - name: RTC_ALARM1_WKEN
+            description: Alarm1 sr wakeup enable
+            bitOffset: '26'
+            bitWidth: '1'
+          - name: RTC_ALARM0_WKEN
+            description: Alarm0 sr wakeup enable
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: RTC_START_RTC
+            description: Rtc calendar enable
+            bitOffset: '28'
+            bitWidth: '1'
+    - name: ALARM0
+      description: alarm 0
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: ALARM0_VALUE
+            description: Alarm 0 value
+            bitOffset: '0'
+            bitWidth: '26'
+          - name: ALARM0_MASK
+            description: Alarm 0 mask
+            bitOffset: '26'
+            bitWidth: '4'
+          - name: ALARM0_WEEK_SEL
+            description: Alarm 0 date or day of week selection
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: ALARM0_EN
+            description: Alarm 0 enable
+            bitOffset: '31'
+            bitWidth: '1'
+    - name: ALARM1
+      description: alarm 1
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: ALARM1_VALUE
+            description: Alarm 1 value
+            bitOffset: '0'
+            bitWidth: '26'
+          - name: ALARM1_MASK
+            description: Alarm 1 mask
+            bitOffset: '26'
+            bitWidth: '4'
+          - name: ALARM1_WEEK_SEL
+            description: Alarm 1 date or day of week selection
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: ALARM1_EN
+            description: Alarm 1 enable
+            bitOffset: '31'
+            bitWidth: '1'
+    - name: PPM_ADJUST
+      description: ppm adjust value
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: PPMADJUST_VALUE
+            description: Ppm adjust value
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: CALENDAR
+      description: time hour/minute/second
+      addressOffset: '0x10'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          - name: CALENDAR_VALUE
+            description: Calendar value
+            bitOffset: '0'
+            bitWidth: '20'
+    - name: CALENDAR_H
+      description: time year/month/date
+      addressOffset: '0x14'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          - name: CALENDAR_H_VALUE
+            description: Calendar high value
+            bitOffset: '0'
+            bitWidth: '22'
+    - name: CYC_MAX
+      description: cyc max value
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: CYC_MAX_VALUE
+            description: Cyc max value
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: SR
+      description: status register
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: WAKEUP2_SR
+            description: Wakeup2 status
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: WAKEUP1_SR
+            description: Wakeup1 status
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: WAKEUP0_SR
+            description: Wakeup0 status
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: TAMPER_SR
+            description: Tamper status
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: CYC_SR
+            description: Cyc status
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: ALARM1_SR
+            description: Alarm1 status
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: ALARM0_SR
+            description: Alarm0 status
+            bitOffset: '6'
+            bitWidth: '1'
+    - name: ASYN_DATA
+      description: asynchronization time hour/minute/second
+      addressOffset: '0x20'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: SYN_DATA
+            description: Synchronization time hour/minute/second
+            bitOffset: '0'
+            bitWidth: '20'
+    - name: ASYN_DATA_H
+      description: asynchronization time year/month/date
+      addressOffset: '0x24'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: SYN_DATA_H
+            description: Synchronization time year/month/date
+            bitOffset: '0'
+            bitWidth: '22'
+    - name: CR1
+      description: control register 1
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: WAKEUP2_SR_INT_EN
+            description: Wakeup2 sr interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: WAKEUP1_SR_INT_EN
+            description: Wakeup1 sr interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: WAKEUP0_SR_INT_EN
+            description: Wakeup0 sr interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: TAMPER_SR_INT_EN
+            description: Tamper sr interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: CYC_SR_INT_EN
+            description: Cyc sr interrupt enable
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: ALARM1_SR_INT_EN
+            description: Alarm1 sr interrupt enable
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: ALARM0_SR_INT_EN
+            description: Alarm0 sr interrupt enable
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: SECOND_SR_INT_EN
+            description: Second sr interrupt enable
+            bitOffset: '7'
+            bitWidth: '1'
+    - name: SR1
+      description: status register 1
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: READ_CALENDAR_DONE
+            description: Read calendar done
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: WRITE_RTCSR_DONE
+            description: Write rtc sr done
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: WRITE_CYC_MAX_VALUE_DONE
+            description: Write cyc max value done
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: WRITE_CALENDAR_DONE
+            description: Write calendar done
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: WRITE_PPMADJUST_DONE
+            description: Write ppm adjust done
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: WRITE_ALARM1_DONE
+            description: Write alarm1 done
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: WRITE_ALARM0_DONE
+            description: Write alarm0 done
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: WRITE_RTCCR_DONE
+            description: Write rtc cr done
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: WRITE_RTCCR2_DONE
+            description: Write rtc cr2 done
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: SECOND_SR
+            description: Second status
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: WRITE_ALARM1_SUB_DONE
+            description: Write alarm1 sub done
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: WRITE_ALARM0_SUB_DONE
+            description: Write alarm0 sub done
+            bitOffset: '11'
+            bitWidth: '1'
+    - name: CR2
+      description: control register 2
+      addressOffset: '0x30'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: RTC_RET_SRAM_ERASE_EN
+            description: Rtc retention sram erase enable
+            bitOffset: '0'
+            bitWidth: '4'
+          - name: RTC_OUT_SEL
+            description: Rtc output selection
+            bitOffset: '4'
+            bitWidth: '3'
+          - name: RTC_OUT_POL
+            description: Rtc output polarity
+            bitOffset: '7'
+            bitWidth: '1'
+    - name: SUB_SECOND_CNT
+      description: subsecond counter
+      addressOffset: '0x34'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: RTC_SUB_SECOND_VALUE
+            description: Rtc subsecond value
+            bitOffset: '0'
+            bitWidth: '15'
+    - name: CYC_CNT
+      description: cyc counter
+      addressOffset: '0x38'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CYC_CNT_VALUE
+            description: Cyc count value
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: ALARM0_SUBSECOND
+      description: alarm0 subsecond
+      addressOffset: '0x3C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: RTC_ALARM0_SUB_VALUE
+            description: Alarm0 subsecond value
+            bitOffset: '0'
+            bitWidth: '15'
+          - name: RTC_ALARM0_SUB_MASK
+            description: Alarm0 subsecond mask
+            bitOffset: '16'
+            bitWidth: '4'
+    - name: ALARM1_SUBSECOND
+      description: alarm1 subsecond
+      addressOffset: '0x40'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: RTC_ALARM1_SUB_VALUE
+            description: Alarm1 subsecond value
+            bitOffset: '0'
+            bitWidth: '15'
+          - name: RTC_ALARM1_SUB_MASK
+            description: Alarm1 subsecond mask
+            bitOffset: '16'
+            bitWidth: '4'
+    - name: CALENDAR_R
+      description: read time hour/minute/second
+      addressOffset: '0x44'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CALENDAR_SYNC
+            description: Calendar sync value
+            bitOffset: '0'
+            bitWidth: '20'
+    - name: CALENDAR_R_H
+      description: read time year/month/date
+      addressOffset: '0x48'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CALENDAR_H_SYNC
+            description: Calendar high sync value
+            bitOffset: '0'
+            bitWidth: '22'

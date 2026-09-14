@@ -14,178 +14,22 @@ pub type SirEnW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type SirLpirdaEnR = crate::BitReader;
 #[doc = "Field `SIR_LPIRDA_EN` writer - Sir lpirda en"]
 pub type SirLpirdaEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Uart mode"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-#[repr(u8)]
-pub enum UartMode {
-    #[doc = "0: None"]
-    None = 0,
-    #[doc = "2: Rx"]
-    Rx = 2,
-    #[doc = "1: Tx"]
-    Tx = 1,
-    #[doc = "3: Txrx"]
-    Txrx = 3,
-}
-impl From<UartMode> for u8 {
-    #[inline(always)]
-    fn from(variant: UartMode) -> Self {
-        variant as _
-    }
-}
-impl crate::FieldSpec for UartMode {
-    type Ux = u8;
-}
-impl crate::IsEnum for UartMode {}
-#[doc = "Field `UART_MODE` reader - Uart mode"]
-pub type UartModeR = crate::FieldReader<UartMode>;
-impl UartModeR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> UartMode {
-        match self.bits {
-            0 => UartMode::None,
-            2 => UartMode::Rx,
-            1 => UartMode::Tx,
-            3 => UartMode::Txrx,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "None"]
-    #[inline(always)]
-    pub fn is_none(&self) -> bool {
-        *self == UartMode::None
-    }
-    #[doc = "Rx"]
-    #[inline(always)]
-    pub fn is_rx(&self) -> bool {
-        *self == UartMode::Rx
-    }
-    #[doc = "Tx"]
-    #[inline(always)]
-    pub fn is_tx(&self) -> bool {
-        *self == UartMode::Tx
-    }
-    #[doc = "Txrx"]
-    #[inline(always)]
-    pub fn is_txrx(&self) -> bool {
-        *self == UartMode::Txrx
-    }
-}
-#[doc = "Field `UART_MODE` writer - Uart mode"]
-pub type UartModeW<'a, REG> = crate::FieldWriter<'a, REG, 2, UartMode, crate::Safe>;
-impl<'a, REG> UartModeW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "None"]
-    #[inline(always)]
-    pub fn none(self) -> &'a mut crate::W<REG> {
-        self.variant(UartMode::None)
-    }
-    #[doc = "Rx"]
-    #[inline(always)]
-    pub fn rx(self) -> &'a mut crate::W<REG> {
-        self.variant(UartMode::Rx)
-    }
-    #[doc = "Tx"]
-    #[inline(always)]
-    pub fn tx(self) -> &'a mut crate::W<REG> {
-        self.variant(UartMode::Tx)
-    }
-    #[doc = "Txrx"]
-    #[inline(always)]
-    pub fn txrx(self) -> &'a mut crate::W<REG> {
-        self.variant(UartMode::Txrx)
-    }
-}
-#[doc = "Flow ctrl"]
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-#[repr(u8)]
-pub enum FlowCtrl {
-    #[doc = "2: Cts"]
-    Cts = 2,
-    #[doc = "3: Cts rts"]
-    CtsRts = 3,
-    #[doc = "0: None"]
-    None = 0,
-    #[doc = "1: Rts"]
-    Rts = 1,
-}
-impl From<FlowCtrl> for u8 {
-    #[inline(always)]
-    fn from(variant: FlowCtrl) -> Self {
-        variant as _
-    }
-}
-impl crate::FieldSpec for FlowCtrl {
-    type Ux = u8;
-}
-impl crate::IsEnum for FlowCtrl {}
-#[doc = "Field `FLOW_CTRL` reader - Flow ctrl"]
-pub type FlowCtrlR = crate::FieldReader<FlowCtrl>;
-impl FlowCtrlR {
-    #[doc = "Get enumerated values variant"]
-    #[inline(always)]
-    pub const fn variant(&self) -> FlowCtrl {
-        match self.bits {
-            2 => FlowCtrl::Cts,
-            3 => FlowCtrl::CtsRts,
-            0 => FlowCtrl::None,
-            1 => FlowCtrl::Rts,
-            _ => unreachable!(),
-        }
-    }
-    #[doc = "Cts"]
-    #[inline(always)]
-    pub fn is_cts(&self) -> bool {
-        *self == FlowCtrl::Cts
-    }
-    #[doc = "Cts rts"]
-    #[inline(always)]
-    pub fn is_cts_rts(&self) -> bool {
-        *self == FlowCtrl::CtsRts
-    }
-    #[doc = "None"]
-    #[inline(always)]
-    pub fn is_none(&self) -> bool {
-        *self == FlowCtrl::None
-    }
-    #[doc = "Rts"]
-    #[inline(always)]
-    pub fn is_rts(&self) -> bool {
-        *self == FlowCtrl::Rts
-    }
-}
-#[doc = "Field `FLOW_CTRL` writer - Flow ctrl"]
-pub type FlowCtrlW<'a, REG> = crate::FieldWriter<'a, REG, 2, FlowCtrl, crate::Safe>;
-impl<'a, REG> FlowCtrlW<'a, REG>
-where
-    REG: crate::Writable + crate::RegisterSpec,
-    REG::Ux: From<u8>,
-{
-    #[doc = "Cts"]
-    #[inline(always)]
-    pub fn cts(self) -> &'a mut crate::W<REG> {
-        self.variant(FlowCtrl::Cts)
-    }
-    #[doc = "Cts rts"]
-    #[inline(always)]
-    pub fn cts_rts(self) -> &'a mut crate::W<REG> {
-        self.variant(FlowCtrl::CtsRts)
-    }
-    #[doc = "None"]
-    #[inline(always)]
-    pub fn none(self) -> &'a mut crate::W<REG> {
-        self.variant(FlowCtrl::None)
-    }
-    #[doc = "Rts"]
-    #[inline(always)]
-    pub fn rts(self) -> &'a mut crate::W<REG> {
-        self.variant(FlowCtrl::Rts)
-    }
-}
+#[doc = "Field `TXE` reader - transmit enable"]
+pub type TxeR = crate::BitReader;
+#[doc = "Field `TXE` writer - transmit enable"]
+pub type TxeW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RXE` reader - receive enable"]
+pub type RxeR = crate::BitReader;
+#[doc = "Field `RXE` writer - receive enable"]
+pub type RxeW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `RTSEn` reader - rts hardware flow control enable"]
+pub type RtsenR = crate::BitReader;
+#[doc = "Field `RTSEn` writer - rts hardware flow control enable"]
+pub type RtsenW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `CTSEn` reader - cts hardware flow control enable"]
+pub type CtsenR = crate::BitReader;
+#[doc = "Field `CTSEn` writer - cts hardware flow control enable"]
+pub type CtsenW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Uart en"]
     #[inline(always)]
@@ -202,15 +46,25 @@ impl R {
     pub fn sir_lpirda_en(&self) -> SirLpirdaEnR {
         SirLpirdaEnR::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bits 8:9 - Uart mode"]
+    #[doc = "Bit 8 - transmit enable"]
     #[inline(always)]
-    pub fn uart_mode(&self) -> UartModeR {
-        UartModeR::new(((self.bits >> 8) & 3) as u8)
+    pub fn txe(&self) -> TxeR {
+        TxeR::new(((self.bits >> 8) & 1) != 0)
     }
-    #[doc = "Bits 14:15 - Flow ctrl"]
+    #[doc = "Bit 9 - receive enable"]
     #[inline(always)]
-    pub fn flow_ctrl(&self) -> FlowCtrlR {
-        FlowCtrlR::new(((self.bits >> 14) & 3) as u8)
+    pub fn rxe(&self) -> RxeR {
+        RxeR::new(((self.bits >> 9) & 1) != 0)
+    }
+    #[doc = "Bit 14 - rts hardware flow control enable"]
+    #[inline(always)]
+    pub fn rtsen(&self) -> RtsenR {
+        RtsenR::new(((self.bits >> 14) & 1) != 0)
+    }
+    #[doc = "Bit 15 - cts hardware flow control enable"]
+    #[inline(always)]
+    pub fn ctsen(&self) -> CtsenR {
+        CtsenR::new(((self.bits >> 15) & 1) != 0)
     }
 }
 impl W {
@@ -229,15 +83,25 @@ impl W {
     pub fn sir_lpirda_en(&mut self) -> SirLpirdaEnW<'_, CrSpec> {
         SirLpirdaEnW::new(self, 2)
     }
-    #[doc = "Bits 8:9 - Uart mode"]
+    #[doc = "Bit 8 - transmit enable"]
     #[inline(always)]
-    pub fn uart_mode(&mut self) -> UartModeW<'_, CrSpec> {
-        UartModeW::new(self, 8)
+    pub fn txe(&mut self) -> TxeW<'_, CrSpec> {
+        TxeW::new(self, 8)
     }
-    #[doc = "Bits 14:15 - Flow ctrl"]
+    #[doc = "Bit 9 - receive enable"]
     #[inline(always)]
-    pub fn flow_ctrl(&mut self) -> FlowCtrlW<'_, CrSpec> {
-        FlowCtrlW::new(self, 14)
+    pub fn rxe(&mut self) -> RxeW<'_, CrSpec> {
+        RxeW::new(self, 9)
+    }
+    #[doc = "Bit 14 - rts hardware flow control enable"]
+    #[inline(always)]
+    pub fn rtsen(&mut self) -> RtsenW<'_, CrSpec> {
+        RtsenW::new(self, 14)
+    }
+    #[doc = "Bit 15 - cts hardware flow control enable"]
+    #[inline(always)]
+    pub fn ctsen(&mut self) -> CtsenW<'_, CrSpec> {
+        CtsenW::new(self, 15)
     }
 }
 #[doc = "control register\n\nYou can [`read`](crate::Reg::read) this register and get [`cr::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

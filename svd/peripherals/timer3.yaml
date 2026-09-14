@@ -1,0 +1,7 @@
+name: TIMER3
+description: TIMER3 instance
+baseAddress: '0x4001B000'
+interrupt:
+  name: TIMER3
+  value: '26'
+_derivedFrom: TIMER0

@@ -38,10 +38,6 @@ pub type AfecClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type AdcClkEnR = crate::BitReader;
 #[doc = "Field `ADC_CLK_EN` writer - Adc clk en"]
 pub type AdcClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SCC_CLK_EN` reader - Scc clk en"]
-pub type SccClkEnR = crate::BitReader;
-#[doc = "Field `SCC_CLK_EN` writer - Scc clk en"]
-pub type SccClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `I2C2_CLK_EN` reader - I2c2 clk en"]
 pub type I2c2ClkEnR = crate::BitReader;
 #[doc = "Field `I2C2_CLK_EN` writer - I2c2 clk en"]
@@ -175,11 +171,6 @@ impl R {
     #[inline(always)]
     pub fn adc_clk_en(&self) -> AdcClkEnR {
         AdcClkEnR::new(((self.bits >> 8) & 1) != 0)
-    }
-    #[doc = "Bit 9 - Scc clk en"]
-    #[inline(always)]
-    pub fn scc_clk_en(&self) -> SccClkEnR {
-        SccClkEnR::new(((self.bits >> 9) & 1) != 0)
     }
     #[doc = "Bit 10 - I2c2 clk en"]
     #[inline(always)]
@@ -337,11 +328,6 @@ impl W {
     #[inline(always)]
     pub fn adc_clk_en(&mut self) -> AdcClkEnW<'_, Cgr0Spec> {
         AdcClkEnW::new(self, 8)
-    }
-    #[doc = "Bit 9 - Scc clk en"]
-    #[inline(always)]
-    pub fn scc_clk_en(&mut self) -> SccClkEnW<'_, Cgr0Spec> {
-        SccClkEnW::new(self, 9)
     }
     #[doc = "Bit 10 - I2c2 clk en"]
     #[inline(always)]

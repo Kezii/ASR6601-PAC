@@ -153,7 +153,7 @@ pub mod ris;
 pub type Mis = crate::Reg<mis::MisSpec>;
 #[doc = "masked interrupt status register"]
 pub mod mis;
-#[doc = "ICR (rw) register accessor: interrupt clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`icr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@icr`] module"]
+#[doc = "ICR (w) register accessor: interrupt clear register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@icr`] module"]
 #[doc(alias = "ICR")]
 pub type Icr = crate::Reg<icr::IcrSpec>;
 #[doc = "interrupt clear register"]

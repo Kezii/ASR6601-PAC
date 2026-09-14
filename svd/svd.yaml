@@ -1,0 +1,73 @@
+device:
+  vendor: ASR Microelectronics
+  vendorID: ASR
+  name: ASR6601
+  series: ASR6601
+  version: '1.1'
+  description: ASR6601 LPWAN SoC family with Arm China STAR-MC1 processor. ASR6601SE
+    has 256 KiB Flash and 64 KiB SRAM; ASR6601CB has 128 KiB Flash and 16 KiB SRAM.
+  licenseText: Reverse-engineered device description derived from the ASR6601 datasheet
+    and the ASR6601 SDK register declarations. Verify undocumented behavior against
+    target hardware.
+  cpu:
+    name: CM4
+    revision: r0p1
+    endian: little
+    mpuPresent: 'false'
+    fpuPresent: 'true'
+    vtorPresent: 'true'
+    nvicPrioBits: '3'
+    vendorSystickConfig: 'false'
+  addressUnitBits: '8'
+  width: '32'
+  size: '32'
+  access: read-write
+  _xmlns:xsi: http://www.w3.org/2001/XMLSchema-instance
+  _schemaVersion: '1.3'
+  _xsi:noNamespaceSchemaLocation: CMSIS-SVD.xsd
+  peripherals:
+    - rcc.yaml
+    - syscfg.yaml
+    - pwr.yaml
+    - i2s.yaml
+    - uart0.yaml
+    - uart1.yaml
+    - lpuart.yaml
+    - ssp0.yaml
+    - i2c0.yaml
+    - afec.yaml
+    - lorac.yaml
+    - timer0.yaml
+    - timer2.yaml
+    - bstimer0.yaml
+    - lptimer0.yaml
+    - lptimer1.yaml
+    - rtc.yaml
+    - sec.yaml
+    - uart2.yaml
+    - uart3.yaml
+    - ssp1.yaml
+    - ssp2.yaml
+    - i2c1.yaml
+    - i2c2.yaml
+    - adc.yaml
+    - lcd.yaml
+    - dac.yaml
+    - timer1.yaml
+    - timer3.yaml
+    - bstimer1.yaml
+    - iwdg.yaml
+    - wdg.yaml
+    - gpioa.yaml
+    - gpiob.yaml
+    - gpioc.yaml
+    - gpiod.yaml
+    - efc.yaml
+    - qspi.yaml
+    - crc.yaml
+    - dma0.yaml
+    - dma1.yaml
+    - sae.yaml
+    - rng.yaml
+    - crypto_aram_mix.yaml
+    - crypto_aram_along.yaml

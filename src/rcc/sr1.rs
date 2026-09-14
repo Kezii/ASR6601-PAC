@@ -28,8 +28,6 @@ pub type QspiClkEnSyncR = crate::BitReader;
 pub type Lptimer0ClkEnSyncR = crate::BitReader;
 #[doc = "Field `ADC_CLK_EN_SYNC` reader - Adc clk en sync"]
 pub type AdcClkEnSyncR = crate::BitReader;
-#[doc = "Field `SCC_CLK_EN_SYNC` reader - Scc clk en sync"]
-pub type SccClkEnSyncR = crate::BitReader;
 #[doc = "Field `UART3_CLK_EN_SYNC` reader - Uart3 clk en sync"]
 pub type Uart3ClkEnSyncR = crate::BitReader;
 #[doc = "Field `UART2_CLK_EN_SYNC` reader - Uart2 clk en sync"]
@@ -112,11 +110,6 @@ impl R {
     #[inline(always)]
     pub fn adc_clk_en_sync(&self) -> AdcClkEnSyncR {
         AdcClkEnSyncR::new(((self.bits >> 13) & 1) != 0)
-    }
-    #[doc = "Bit 14 - Scc clk en sync"]
-    #[inline(always)]
-    pub fn scc_clk_en_sync(&self) -> SccClkEnSyncR {
-        SccClkEnSyncR::new(((self.bits >> 14) & 1) != 0)
     }
     #[doc = "Bit 15 - Uart3 clk en sync"]
     #[inline(always)]

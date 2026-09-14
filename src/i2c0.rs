@@ -141,7 +141,7 @@ pub mod rst_cycl;
 pub type Bmr = crate::Reg<bmr::BmrSpec>;
 #[doc = "bus monitor register"]
 pub mod bmr;
-#[doc = "WFIFO (rw) register accessor: write fifo register\n\nYou can [`read`](crate::Reg::read) this register and get [`wfifo::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wfifo::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wfifo`] module"]
+#[doc = "WFIFO (w) register accessor: write fifo register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wfifo::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wfifo`] module"]
 #[doc(alias = "WFIFO")]
 pub type Wfifo = crate::Reg<wfifo::WfifoSpec>;
 #[doc = "write fifo register"]
@@ -156,12 +156,12 @@ pub mod wfifo_wptr;
 pub type WfifoRptr = crate::Reg<wfifo_rptr::WfifoRptrSpec>;
 #[doc = "write fifo read pointer register"]
 pub mod wfifo_rptr;
-#[doc = "RFIFO (rw) register accessor: read fifo register\n\nYou can [`read`](crate::Reg::read) this register and get [`rfifo::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rfifo::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rfifo`] module"]
+#[doc = "RFIFO (r) register accessor: read fifo register\n\nYou can [`read`](crate::Reg::read) this register and get [`rfifo::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rfifo`] module"]
 #[doc(alias = "RFIFO")]
 pub type Rfifo = crate::Reg<rfifo::RfifoSpec>;
 #[doc = "read fifo register"]
 pub mod rfifo;
-#[doc = "RFIFO_WPTR (rw) register accessor: read fifo write pointer register\n\nYou can [`read`](crate::Reg::read) this register and get [`rfifo_wptr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rfifo_wptr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rfifo_wptr`] module"]
+#[doc = "RFIFO_WPTR (r) register accessor: read fifo write pointer register\n\nYou can [`read`](crate::Reg::read) this register and get [`rfifo_wptr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rfifo_wptr`] module"]
 #[doc(alias = "RFIFO_WPTR")]
 pub type RfifoWptr = crate::Reg<rfifo_wptr::RfifoWptrSpec>;
 #[doc = "read fifo write pointer register"]

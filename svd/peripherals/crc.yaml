@@ -1,0 +1,79 @@
+name: CRC
+description: CRC calculation unit
+baseAddress: '0x40022000'
+addressBlock:
+  offset: '0'
+  size: '0x10'
+  usage: registers
+registers:
+  register:
+    - name: CR
+      description: control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: REVERSE_OUT_EN
+            description: Reverse out en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: REVERSE_IN
+            description: Reverse in
+            bitOffset: '1'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BYTE
+                  description: Byte
+                  value: '0x1'
+                - name: HWORD
+                  description: Hword
+                  value: '0x2'
+                - name: NONE
+                  description: None
+                  value: '0x0'
+                - name: WORD
+                  description: Word
+                  value: '0x3'
+          - name: POLY_SIZE
+            description: Poly size
+            bitOffset: '3'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_16
+                  description: Value 16
+                  value: '0x1'
+                - name: VALUE_32
+                  description: Value 32
+                  value: '0x0'
+                - name: VALUE_7
+                  description: Value 7
+                  value: '0x3'
+                - name: VALUE_8
+                  description: Value 8
+                  value: '0x2'
+          - name: CALC_INIT
+            description: Calc init
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: CALC_FLAG
+            description: Calc flag
+            bitOffset: '6'
+            bitWidth: '1'
+    - name: DR
+      description: data register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+    - name: INIT
+      description: init value register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+    - name: POLY
+      description: polynomial register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write

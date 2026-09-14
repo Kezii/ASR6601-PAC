@@ -498,15 +498,15 @@ impl core::fmt::Debug for Gpioc {
 }
 #[doc = "GPIOC instance"]
 pub use self::gpioa as gpioc;
-#[doc = "GPIOD instance"]
-pub type Gpiod = crate::Periph<gpioa::RegisterBlock, 0x4001_fc00>;
+#[doc = "Gpioa"]
+pub type Gpiod = crate::Periph<gpiod::RegisterBlock, 0x4001_fc00>;
 impl core::fmt::Debug for Gpiod {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("Gpiod").finish()
     }
 }
-#[doc = "GPIOD instance"]
-pub use self::gpioa as gpiod;
+#[doc = "Gpioa"]
+pub mod gpiod;
 #[doc = "Embedded flash controller"]
 pub type Efc = crate::Periph<efc::RegisterBlock, 0x4002_0000>;
 impl core::fmt::Debug for Efc {

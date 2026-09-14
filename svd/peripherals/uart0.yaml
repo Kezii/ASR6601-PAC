@@ -1,0 +1,528 @@
+name: UART0
+description: Uart0
+baseAddress: '0x40003000'
+addressBlock:
+  offset: '0'
+  size: '0x1000'
+  usage: registers
+interrupt:
+  name: UART0
+  value: '6'
+registers:
+  register:
+    - name: DR
+      description: data register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: DATA
+            description: transmit data character / receive data character
+            bitOffset: '0'
+            bitWidth: '8'
+          - name: FE
+            description: framing error flag
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: PE
+            description: parity error flag
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: BE
+            description: break error flag
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: OE
+            description: overrun error flag
+            bitOffset: '11'
+            bitWidth: '1'
+    - name: RSC_ECR
+      description: receive status register / error clear register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: FE
+            description: framing error flag
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: PE
+            description: parity error flag
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: BE
+            description: break error flag
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: OE
+            description: overrun error flag
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: FR
+      description: flag register
+      addressOffset: '0x18'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: BUSY
+            description: uart busy
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: RXFE
+            description: receive fifo empty
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TXFF
+            description: transmit fifo full
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: RXFF
+            description: receive fifo full
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: TXFE
+            description: transmit fifo empty
+            bitOffset: '7'
+            bitWidth: '1'
+    - name: ILPR
+      description: IRDA low power counter register
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: ILPDVSR
+            description: Irda low power divisor
+            bitOffset: '0'
+            bitWidth: '8'
+    - name: IBRD
+      description: integer baudrate register
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: BAUD_DIVINT
+            description: baud rate divisor integer part
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: FBRD
+      description: fractional baudrate register
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: BAUD_DIVFRAC
+            description: baud rate divisor fractional part
+            bitOffset: '0'
+            bitWidth: '6'
+    - name: LCR_H
+      description: line control register
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: BRK
+            description: send break
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: PEN
+            description: Pen
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: EPS_EVEN
+            description: Eps even
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: STOP
+            description: Stop
+            bitOffset: '3'
+            bitWidth: '1'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: Value 1
+                  value: '0x0'
+                - name: VALUE_2
+                  description: Value 2
+                  value: '0x1'
+          - name: FEN
+            description: Fen
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: WLEN
+            description: Wlen
+            bitOffset: '5'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_5
+                  description: Value 5
+                  value: '0x0'
+                - name: VALUE_6
+                  description: Value 6
+                  value: '0x1'
+                - name: VALUE_7
+                  description: Value 7
+                  value: '0x2'
+                - name: VALUE_8
+                  description: Value 8
+                  value: '0x3'
+    - name: CR
+      description: control register
+      addressOffset: '0x30'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: UART_EN
+            description: Uart en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: SIR_EN
+            description: Sir en
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: SIR_LPIRDA_EN
+            description: Sir lpirda en
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: TXE
+            description: transmit enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: RXE
+            description: receive enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: RTSEn
+            description: rts hardware flow control enable
+            bitOffset: '14'
+            bitWidth: '1'
+          - name: CTSEn
+            description: cts hardware flow control enable
+            bitOffset: '15'
+            bitWidth: '1'
+    - name: IFLS
+      description: interrupt fifo level select register
+      addressOffset: '0x34'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: TX
+            description: Tx
+            bitOffset: '0'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1_2
+                  description: Value 1 2
+                  value: '0x2'
+                - name: VALUE_1_4
+                  description: Value 1 4
+                  value: '0x1'
+                - name: VALUE_1_8
+                  description: Value 1 8
+                  value: '0x0'
+                - name: VALUE_3_4
+                  description: Value 3 4
+                  value: '0x3'
+                - name: VALUE_7_8
+                  description: Value 7 8
+                  value: '0x4'
+          - name: RX
+            description: Rx
+            bitOffset: '3'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1_2
+                  description: Value 1 2
+                  value: '0x2'
+                - name: VALUE_1_4
+                  description: Value 1 4
+                  value: '0x1'
+                - name: VALUE_1_8
+                  description: Value 1 8
+                  value: '0x0'
+                - name: VALUE_3_4
+                  description: Value 3 4
+                  value: '0x3'
+                - name: VALUE_7_8
+                  description: Value 7 8
+                  value: '0x4'
+    - name: IMSC
+      description: interrupt mask set/clear register
+      addressOffset: '0x38'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: RXIM
+            description: receive interrupt mask control
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TXIM
+            description: transmit interrupt mask control
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: RTIM
+            description: receive timeout interrupt mask control
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: FEIM
+            description: framing error interrupt mask control
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: PEIM
+            description: parity error interrupt mask control
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: BEIM
+            description: break error interrupt mask control
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: OEIM
+            description: overrun error interrupt mask control
+            bitOffset: '10'
+            bitWidth: '1'
+    - name: RIS
+      description: raw interrupt status register
+      addressOffset: '0x3C'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: RXRIS
+            description: receive interrupt raw status
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TXRIS
+            description: transmit interrupt raw status
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: RTRIS
+            description: receive timeout interrupt raw status
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: FERIS
+            description: framing error interrupt raw status
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: PERIS
+            description: parity error interrupt raw status
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: BERIS
+            description: break error interrupt raw status
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: OERIS
+            description: overrun error interrupt raw status
+            bitOffset: '10'
+            bitWidth: '1'
+    - name: MIS
+      description: masked interrupt status register
+      addressOffset: '0x40'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: RXMIS
+            description: receive interrupt masked status
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TXMIS
+            description: transmit interrupt masked status
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: RTMIS
+            description: receive timeout interrupt masked status
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: FEMIS
+            description: framing error interrupt masked status
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: PEMIS
+            description: parity error interrupt masked status
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: BEMIS
+            description: break error interrupt masked status
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: OEMIS
+            description: overrun error interrupt masked status
+            bitOffset: '10'
+            bitWidth: '1'
+    - name: ICR
+      description: interrupt clear register
+      addressOffset: '0x44'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          - name: RXIC
+            description: receive interrupt clear
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TXIC
+            description: transmit interrupt clear
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: RTIC
+            description: receive timeout interrupt clear
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: FEIC
+            description: framing error interrupt clear
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: PEIC
+            description: parity error interrupt clear
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: BEIC
+            description: break error interrupt clear
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: OEIC
+            description: overrun error interrupt clear
+            bitOffset: '10'
+            bitWidth: '1'
+    - name: DMACR
+      description: DMA control register
+      addressOffset: '0x48'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: RX_EN
+            description: Rx en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: TX_EN
+            description: Tx en
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: ONERR_EN
+            description: Onerr en
+            bitOffset: '2'
+            bitWidth: '1'
+    - name: PeriphID0
+      description: peripheral ID register 0
+      addressOffset: '0xFE0'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: PARTNUMBER0
+            description: part number 0, fixed 0x11
+            bitOffset: '0'
+            bitWidth: '8'
+    - name: PeriphID1
+      description: peripheral ID register 1
+      addressOffset: '0xFE4'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: PARTNUMBER1
+            description: part number 1, fixed 0x0
+            bitOffset: '0'
+            bitWidth: '4'
+          - name: DESIGNER0
+            description: designer 0, fixed 0x1
+            bitOffset: '4'
+            bitWidth: '4'
+    - name: PeriphID2
+      description: peripheral ID register 2
+      addressOffset: '0xFE8'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: DESIGNER1
+            description: designer 1, fixed 0x0
+            bitOffset: '0'
+            bitWidth: '4'
+          - name: REVISION0
+            description: revision 0
+            bitOffset: '4'
+            bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: R1P0
+                  description: r1p0
+                  value: '0x0'
+                - name: R1P1
+                  description: r1p1
+                  value: '0x1'
+                - name: R1P3_4
+                  description: r1p3/r1p4
+                  value: '0x2'
+                - name: R1P5
+                  description: r1p5
+                  value: '0x3'
+    - name: PeriphID3
+      description: peripheral ID register 3
+      addressOffset: '0xFEC'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CONFIGURATION
+            description: configuration, fixed 0x00
+            bitOffset: '0'
+            bitWidth: '8'
+    - name: PCellID0
+      description: primecell ID register 0
+      addressOffset: '0xFD0'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CellID0
+            description: primecell ID 0, fixed 0x0d
+            bitOffset: '0'
+            bitWidth: '8'
+    - name: PCellID1
+      description: primecell ID register 1
+      addressOffset: '0xFD4'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CellID1
+            description: primecell ID 1, fixed 0xf0
+            bitOffset: '0'
+            bitWidth: '8'
+    - name: PCellID2
+      description: primecell ID register 2
+      addressOffset: '0xFD8'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CellID2
+            description: primecell ID 2, fixed 0x05
+            bitOffset: '0'
+            bitWidth: '8'
+    - name: PCellID3
+      description: primecell ID register 3
+      addressOffset: '0xFDC'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: CellID3
+            description: primecell ID 3, fixed 0xb1
+            bitOffset: '0'
+            bitWidth: '8'

@@ -1,0 +1,151 @@
+name: SAE
+description: Security algorithm engine
+baseAddress: '0x40032000'
+addressBlock:
+  offset: '0'
+  size: '0x38'
+  usage: registers
+interrupt:
+  name: SAC
+  description: SDK SAC interrupt vector; SDK does not state MMIO ownership
+  value: '30'
+registers:
+  register:
+    - name: SAECR
+      description: Common control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: WORD_WRITE
+            description: Word write
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: ENDIAN_TRANSFORM
+            description: Endian transform
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: DMA_MODE_ENABLE
+            description: Dma mode enable
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: INTERRUPT_ENABLE
+            description: Interrupt enable
+            bitOffset: '7'
+            bitWidth: '1'
+    - name: SAEHCR
+      description: Security control register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: RAM_CLEAR
+            description: Ram clear
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: KEY_UPDATE_ENABLE
+            description: Key update enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: SCRAMBLER_CLOCK_ENABLE
+            description: Scrambler clock enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: SAE_CLOCK_ENABLE
+            description: Sae clock enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: SCRAMBLER_LEVEL
+            description: Scrambler level
+            bitOffset: '4'
+            bitWidth: '4'
+    - name: SAESR
+      description: Status register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: CRYPTO_DONE
+            description: Crypto done
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: GLUE_ERROR
+            description: Glue error
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: COMMAND_ERROR
+            description: Command error
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: ALGORITHM_RUNNING
+            description: Algorithm running
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: FLOW_BUSY
+            description: Flow busy
+            bitOffset: '4'
+            bitWidth: '1'
+    - name: SAEGPR0
+      description: General-purpose register 0
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+    - name: SAEGPR1
+      description: General-purpose register 1
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+    - name: SAEGPR2
+      description: General-purpose register 2
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+    - name: SAEGPR3
+      description: General-purpose register 3
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+    - name: SAEGPR4
+      description: General-purpose register 4
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-write
+    - name: SAEGPR5
+      description: General-purpose register 5
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+    - name: SAEMASKCR
+      description: Mask control register
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          name: MASK_ENABLE
+          description: Mask enable
+          bitOffset: '0'
+          bitWidth: '1'
+    - name: SAEMASKDAT0
+      description: Mask data register 0
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+    - name: SAEMASKDAT1
+      description: Mask data register 1
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-write
+    - name: SAEMASKDAT2
+      description: Mask data register 2
+      addressOffset: '0x30'
+      size: '32'
+      access: read-write
+    - name: SAEBUFCR
+      description: Buffer control register
+      addressOffset: '0x34'
+      size: '32'
+      access: read-write

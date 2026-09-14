@@ -1,0 +1,4 @@
+name: GPIOB
+description: GPIOB instance
+baseAddress: '0x4001F400'
+_derivedFrom: GPIOA

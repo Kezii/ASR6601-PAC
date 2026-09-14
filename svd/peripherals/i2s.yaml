@@ -1,0 +1,157 @@
+name: I2S
+description: Inter-IC sound interface
+baseAddress: '0x40002000'
+addressBlock:
+  offset: '0'
+  size: '0x200'
+  usage: registers
+interrupt:
+  name: I2S
+  value: '32'
+registers:
+  register:
+    - name: IER
+      description: enable register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+    - name: IRER
+      description: receiver block enable register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+    - name: ITER
+      description: transmitter block enable register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+    - name: CER
+      description: clock enable register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+    - name: CCR
+      description: clock configuration register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+    - name: RXFFR
+      description: receiver block FIFO reset register
+      addressOffset: '0x14'
+      size: '32'
+      access: write-only
+    - name: TXFFR
+      description: transmitter block FIFO reset register
+      addressOffset: '0x18'
+      size: '32'
+      access: write-only
+    - name: LRBR_LTHR
+      description: right receive buffer register
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+    - name: RRBR_RTHR
+      description: right transmit holding register
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+    - name: RER
+      description: receiver enable register
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+    - name: TER
+      description: transmitter enable register
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-write
+    - name: RCR
+      description: receiver configuration register
+      addressOffset: '0x30'
+      size: '32'
+      access: read-write
+    - name: TCR
+      description: transmitter configuration register
+      addressOffset: '0x34'
+      size: '32'
+      access: read-write
+    - name: ISR
+      description: interrupt status register
+      addressOffset: '0x38'
+      size: '32'
+      access: read-only
+    - name: IMR
+      description: interrupt mask register
+      addressOffset: '0x3C'
+      size: '32'
+      access: read-write
+    - name: ROR
+      description: receiver overrun register
+      addressOffset: '0x40'
+      size: '32'
+      access: read-only
+    - name: TOR
+      description: transmitter overrun register
+      addressOffset: '0x44'
+      size: '32'
+      access: read-only
+    - name: RFCR
+      description: receiver FIFO configuration register
+      addressOffset: '0x48'
+      size: '32'
+      access: read-write
+    - name: TFCR
+      description: transmitter FIFO configuration register
+      addressOffset: '0x4C'
+      size: '32'
+      access: read-write
+    - name: RFF
+      description: receiver FIFO flush register
+      addressOffset: '0x50'
+      size: '32'
+      access: write-only
+    - name: TFF
+      description: transmitter FIFO flush register
+      addressOffset: '0x54'
+      size: '32'
+      access: write-only
+    - name: RXDMA
+      description: receiver block dma register
+      addressOffset: '0x1C0'
+      size: '32'
+      access: read-write
+    - name: RRXDMA
+      description: reset receiver block dma register
+      addressOffset: '0x1C4'
+      size: '32'
+      access: write-only
+    - name: TXDMA
+      description: transmitter block dma register
+      addressOffset: '0x1C8'
+      size: '32'
+      access: read-write
+    - name: RTXDMA
+      description: reset transmitter block dma register
+      addressOffset: '0x1CC'
+      size: '32'
+      access: write-only
+    - name: I2S_COMP_PARAM_2
+      description: component parameter register 2
+      addressOffset: '0x1F0'
+      size: '32'
+      access: read-only
+    - name: I2S_COMP_PARAM_1
+      description: component parameter register 1
+      addressOffset: '0x1F4'
+      size: '32'
+      access: read-only
+    - name: I2S_COMP_VERSION
+      description: component version register
+      addressOffset: '0x1F8'
+      size: '32'
+      access: read-only
+    - name: I2S_COMP_TYPE
+      description: component type register
+      addressOffset: '0x1FC'
+      size: '32'
+      access: read-only

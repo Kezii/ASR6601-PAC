@@ -2,50 +2,50 @@
 pub type R = crate::R<IerSpec>;
 #[doc = "Register `IER` writer"]
 pub type W = crate::W<IerSpec>;
-#[doc = "Field `EOC` reader - Eoc"]
-pub type EocR = crate::BitReader;
-#[doc = "Field `EOC` writer - Eoc"]
-pub type EocW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `EOS` reader - Eos"]
-pub type EosR = crate::BitReader;
-#[doc = "Field `EOS` writer - Eos"]
-pub type EosW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `OVERRUN` reader - Overrun"]
-pub type OverrunR = crate::BitReader;
-#[doc = "Field `OVERRUN` writer - Overrun"]
-pub type OverrunW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `EOC_INT_EN` reader - end of conversion interrupt enable"]
+pub type EocIntEnR = crate::BitReader;
+#[doc = "Field `EOC_INT_EN` writer - end of conversion interrupt enable"]
+pub type EocIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `EOS_INT_EN` reader - end of sequence interrupt enable"]
+pub type EosIntEnR = crate::BitReader;
+#[doc = "Field `EOS_INT_EN` writer - end of sequence interrupt enable"]
+pub type EosIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `OVERRUN_INT_EN` reader - overrun interrupt enable"]
+pub type OverrunIntEnR = crate::BitReader;
+#[doc = "Field `OVERRUN_INT_EN` writer - overrun interrupt enable"]
+pub type OverrunIntEnW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - Eoc"]
+    #[doc = "Bit 0 - end of conversion interrupt enable"]
     #[inline(always)]
-    pub fn eoc(&self) -> EocR {
-        EocR::new((self.bits & 1) != 0)
+    pub fn eoc_int_en(&self) -> EocIntEnR {
+        EocIntEnR::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1 - Eos"]
+    #[doc = "Bit 1 - end of sequence interrupt enable"]
     #[inline(always)]
-    pub fn eos(&self) -> EosR {
-        EosR::new(((self.bits >> 1) & 1) != 0)
+    pub fn eos_int_en(&self) -> EosIntEnR {
+        EosIntEnR::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 2 - Overrun"]
+    #[doc = "Bit 2 - overrun interrupt enable"]
     #[inline(always)]
-    pub fn overrun(&self) -> OverrunR {
-        OverrunR::new(((self.bits >> 2) & 1) != 0)
+    pub fn overrun_int_en(&self) -> OverrunIntEnR {
+        OverrunIntEnR::new(((self.bits >> 2) & 1) != 0)
     }
 }
 impl W {
-    #[doc = "Bit 0 - Eoc"]
+    #[doc = "Bit 0 - end of conversion interrupt enable"]
     #[inline(always)]
-    pub fn eoc(&mut self) -> EocW<'_, IerSpec> {
-        EocW::new(self, 0)
+    pub fn eoc_int_en(&mut self) -> EocIntEnW<'_, IerSpec> {
+        EocIntEnW::new(self, 0)
     }
-    #[doc = "Bit 1 - Eos"]
+    #[doc = "Bit 1 - end of sequence interrupt enable"]
     #[inline(always)]
-    pub fn eos(&mut self) -> EosW<'_, IerSpec> {
-        EosW::new(self, 1)
+    pub fn eos_int_en(&mut self) -> EosIntEnW<'_, IerSpec> {
+        EosIntEnW::new(self, 1)
     }
-    #[doc = "Bit 2 - Overrun"]
+    #[doc = "Bit 2 - overrun interrupt enable"]
     #[inline(always)]
-    pub fn overrun(&mut self) -> OverrunW<'_, IerSpec> {
-        OverrunW::new(self, 2)
+    pub fn overrun_int_en(&mut self) -> OverrunIntEnW<'_, IerSpec> {
+        OverrunIntEnW::new(self, 2)
     }
 }
 #[doc = "interrupt enable register\n\nYou can [`read`](crate::Reg::read) this register and get [`ier::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ier::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

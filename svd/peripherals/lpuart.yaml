@@ -1,0 +1,212 @@
+name: LPUART
+description: Low-power UART
+baseAddress: '0x40005000'
+addressBlock:
+  offset: '0'
+  size: '0x14'
+  usage: registers
+interrupt:
+  name: LPUART
+  value: '9'
+registers:
+  register:
+    - name: CR0
+      description: control register 0
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: LPUART_DATA_LEN
+            description: Lpuart data length, data width = value + 5
+            bitOffset: '0'
+            bitWidth: '2'
+          - name: LPUART_PARITY_CFG
+            description: Lpuart parity bit configuration
+            bitOffset: '2'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: EVEN
+                  description: even parity
+                  value: '0x0'
+                - name: ODD
+                  description: odd parity
+                  value: '0x1'
+                - name: BIT0
+                  description: parity bit is 0
+                  value: '0x2'
+                - name: BIT1
+                  description: parity bit is 1
+                  value: '0x3'
+                - name: NONE
+                  description: no parity
+                  value: '0x4'
+          - name: LPUART_STOP_LEN
+            description: Lpuart stop bits configuration
+            bitOffset: '5'
+            bitWidth: '1'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: 1 stop bit
+                  value: '0x0'
+                - name: VALUE_2
+                  description: 2 stop bits
+                  value: '0x1'
+          - name: LPUART_BAUD_RATE_FRA
+            description: Lpuart baud rate divisor fractional part
+            bitOffset: '6'
+            bitWidth: '4'
+          - name: LPUART_BAUD_RATE_INT
+            description: Lpuart baud rate divisor integer part
+            bitOffset: '10'
+            bitWidth: '12'
+          - name: LOW_LEVEL_WAKEUP
+            description: Low level wakeup
+            bitOffset: '22'
+            bitWidth: '1'
+          - name: START_WAKEUP
+            description: Start wakeup
+            bitOffset: '23'
+            bitWidth: '1'
+          - name: RX_DONE_WAKEUP
+            description: Rx done wakeup
+            bitOffset: '24'
+            bitWidth: '1'
+          - name: RX_ENABLE
+            description: Rx enable
+            bitOffset: '25'
+            bitWidth: '1'
+          - name: RTS_ENABLE
+            description: Rts enable
+            bitOffset: '26'
+            bitWidth: '1'
+    - name: CR1
+      description: control register 1
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: START_VALID_INT
+            description: Start valid int
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RX_DONE_INT
+            description: Rx done int
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: START_INVALID_INT
+            description: Start invalid int
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: PARITY_ERR_INT
+            description: Parity err int
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: STOP_ERR_INT
+            description: Stop err int
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: RX_OVERFLOW_INT
+            description: Rx overflow int
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: RX_NOT_EMPTY_INT
+            description: Rx not empty int
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: TX_EMPTY_INT
+            description: Tx empty int
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: TX_DONE_INT
+            description: Tx done int
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: TX_ENABLE
+            description: Tx enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: TX_DMA
+            description: Tx dma
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: RX_DMA
+            description: Rx dma
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: CTS_ENABLE
+            description: Cts enable
+            bitOffset: '12'
+            bitWidth: '1'
+    - name: SR0
+      description: status register 0
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: START_VALID_STATE
+            description: Start valid state
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RX_DONE_STATE
+            description: Rx done state
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: START_INVALID_STATE
+            description: Start invalid state
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: PARITY_ERR_STATE
+            description: Parity err state
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: STOP_ERR_STATE
+            description: Stop err state
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: RX_OVERFLOW_STATE
+            description: Rx overflow state
+            bitOffset: '5'
+            bitWidth: '1'
+    - name: SR1
+      description: status register 1
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: WRITE_SR0_STATE
+            description: Write sr0 state
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: WRITE_CR0_STATE
+            description: Write cr0 state
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: RX_NOT_EMPTY_STATE
+            description: Rx not empty state
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: TX_EMPTY_STATE
+            description: Tx empty state
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TX_DONE_STATE
+            description: Tx done state
+            bitOffset: '5'
+            bitWidth: '1'
+    - name: DATA
+      description: data register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: LPUART_DATA
+            description: Lpuart data
+            bitOffset: '0'
+            bitWidth: '8'

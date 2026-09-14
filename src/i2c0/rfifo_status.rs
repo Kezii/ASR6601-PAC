@@ -4,6 +4,8 @@ pub type R = crate::R<RfifoStatusSpec>;
 pub type OverunR = crate::BitReader;
 #[doc = "Field `HFULL` reader - Hfull"]
 pub type HfullR = crate::BitReader;
+#[doc = "Field `FULL` reader - Full"]
+pub type FullR = crate::BitReader;
 #[doc = "Field `EMPTY` reader - Empty"]
 pub type EmptyR = crate::BitReader;
 #[doc = "Field `SIZE` reader - Size"]
@@ -19,10 +21,15 @@ impl R {
     pub fn hfull(&self) -> HfullR {
         HfullR::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 2 - Empty"]
+    #[doc = "Bit 2 - Full"]
+    #[inline(always)]
+    pub fn full(&self) -> FullR {
+        FullR::new(((self.bits >> 2) & 1) != 0)
+    }
+    #[doc = "Bit 3 - Empty"]
     #[inline(always)]
     pub fn empty(&self) -> EmptyR {
-        EmptyR::new(((self.bits >> 2) & 1) != 0)
+        EmptyR::new(((self.bits >> 3) & 1) != 0)
     }
     #[doc = "Bits 4:7 - Size"]
     #[inline(always)]

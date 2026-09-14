@@ -17,8 +17,15 @@ pub struct RegisterBlock {
     mis: Mis,
     icr: Icr,
     dmacr: Dmacr,
-    _reserved14: [u8; 0x0f94],
-    id: [Id; 8],
+    _reserved14: [u8; 0x0f84],
+    pcell_id0: PcellId0,
+    pcell_id1: PcellId1,
+    pcell_id2: PcellId2,
+    pcell_id3: PcellId3,
+    periph_id0: PeriphId0,
+    periph_id1: PeriphId1,
+    periph_id2: PeriphId2,
+    periph_id3: PeriphId3,
 }
 impl RegisterBlock {
     #[doc = "0x00 - data register"]
@@ -91,16 +98,45 @@ impl RegisterBlock {
     pub const fn dmacr(&self) -> &Dmacr {
         &self.dmacr
     }
-    #[doc = "0xfe0..0x1000 - ID registers"]
+    #[doc = "0xfd0 - primecell ID register 0"]
     #[inline(always)]
-    pub const fn id(&self, n: usize) -> &Id {
-        &self.id[n]
+    pub const fn pcell_id0(&self) -> &PcellId0 {
+        &self.pcell_id0
     }
-    #[doc = "Iterator for array of:"]
-    #[doc = "0xfe0..0x1000 - ID registers"]
+    #[doc = "0xfd4 - primecell ID register 1"]
     #[inline(always)]
-    pub fn id_iter(&self) -> impl Iterator<Item = &Id> {
-        self.id.iter()
+    pub const fn pcell_id1(&self) -> &PcellId1 {
+        &self.pcell_id1
+    }
+    #[doc = "0xfd8 - primecell ID register 2"]
+    #[inline(always)]
+    pub const fn pcell_id2(&self) -> &PcellId2 {
+        &self.pcell_id2
+    }
+    #[doc = "0xfdc - primecell ID register 3"]
+    #[inline(always)]
+    pub const fn pcell_id3(&self) -> &PcellId3 {
+        &self.pcell_id3
+    }
+    #[doc = "0xfe0 - peripheral ID register 0"]
+    #[inline(always)]
+    pub const fn periph_id0(&self) -> &PeriphId0 {
+        &self.periph_id0
+    }
+    #[doc = "0xfe4 - peripheral ID register 1"]
+    #[inline(always)]
+    pub const fn periph_id1(&self) -> &PeriphId1 {
+        &self.periph_id1
+    }
+    #[doc = "0xfe8 - peripheral ID register 2"]
+    #[inline(always)]
+    pub const fn periph_id2(&self) -> &PeriphId2 {
+        &self.periph_id2
+    }
+    #[doc = "0xfec - peripheral ID register 3"]
+    #[inline(always)]
+    pub const fn periph_id3(&self) -> &PeriphId3 {
+        &self.periph_id3
     }
 }
 #[doc = "DR (rw) register accessor: data register\n\nYou can [`read`](crate::Reg::read) this register and get [`dr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dr`] module"]
@@ -108,7 +144,7 @@ impl RegisterBlock {
 pub type Dr = crate::Reg<dr::DrSpec>;
 #[doc = "data register"]
 pub mod dr;
-#[doc = "RSC_ECR (rw) register accessor: receive status register / error clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`rsc_ecr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rsc_ecr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rsc_ecr`] module"]
+#[doc = "RSC_ECR (r) register accessor: receive status register / error clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`rsc_ecr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rsc_ecr`] module"]
 #[doc(alias = "RSC_ECR")]
 pub type RscEcr = crate::Reg<rsc_ecr::RscEcrSpec>;
 #[doc = "receive status register / error clear register"]
@@ -173,8 +209,43 @@ pub mod icr;
 pub type Dmacr = crate::Reg<dmacr::DmacrSpec>;
 #[doc = "DMA control register"]
 pub mod dmacr;
-#[doc = "ID (r) register accessor: ID registers\n\nYou can [`read`](crate::Reg::read) this register and get [`id::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@id`] module"]
-#[doc(alias = "ID")]
-pub type Id = crate::Reg<id::IdSpec>;
-#[doc = "ID registers"]
-pub mod id;
+#[doc = "PeriphID0 (r) register accessor: peripheral ID register 0\n\nYou can [`read`](crate::Reg::read) this register and get [`periph_id0::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@periph_id0`] module"]
+#[doc(alias = "PeriphID0")]
+pub type PeriphId0 = crate::Reg<periph_id0::PeriphId0Spec>;
+#[doc = "peripheral ID register 0"]
+pub mod periph_id0;
+#[doc = "PeriphID1 (r) register accessor: peripheral ID register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`periph_id1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@periph_id1`] module"]
+#[doc(alias = "PeriphID1")]
+pub type PeriphId1 = crate::Reg<periph_id1::PeriphId1Spec>;
+#[doc = "peripheral ID register 1"]
+pub mod periph_id1;
+#[doc = "PeriphID2 (r) register accessor: peripheral ID register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`periph_id2::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@periph_id2`] module"]
+#[doc(alias = "PeriphID2")]
+pub type PeriphId2 = crate::Reg<periph_id2::PeriphId2Spec>;
+#[doc = "peripheral ID register 2"]
+pub mod periph_id2;
+#[doc = "PeriphID3 (r) register accessor: peripheral ID register 3\n\nYou can [`read`](crate::Reg::read) this register and get [`periph_id3::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@periph_id3`] module"]
+#[doc(alias = "PeriphID3")]
+pub type PeriphId3 = crate::Reg<periph_id3::PeriphId3Spec>;
+#[doc = "peripheral ID register 3"]
+pub mod periph_id3;
+#[doc = "PCellID0 (r) register accessor: primecell ID register 0\n\nYou can [`read`](crate::Reg::read) this register and get [`pcell_id0::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pcell_id0`] module"]
+#[doc(alias = "PCellID0")]
+pub type PcellId0 = crate::Reg<pcell_id0::PcellId0Spec>;
+#[doc = "primecell ID register 0"]
+pub mod pcell_id0;
+#[doc = "PCellID1 (r) register accessor: primecell ID register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`pcell_id1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pcell_id1`] module"]
+#[doc(alias = "PCellID1")]
+pub type PcellId1 = crate::Reg<pcell_id1::PcellId1Spec>;
+#[doc = "primecell ID register 1"]
+pub mod pcell_id1;
+#[doc = "PCellID2 (r) register accessor: primecell ID register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`pcell_id2::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pcell_id2`] module"]
+#[doc(alias = "PCellID2")]
+pub type PcellId2 = crate::Reg<pcell_id2::PcellId2Spec>;
+#[doc = "primecell ID register 2"]
+pub mod pcell_id2;
+#[doc = "PCellID3 (r) register accessor: primecell ID register 3\n\nYou can [`read`](crate::Reg::read) this register and get [`pcell_id3::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@pcell_id3`] module"]
+#[doc(alias = "PCellID3")]
+pub type PcellId3 = crate::Reg<pcell_id3::PcellId3Spec>;
+#[doc = "primecell ID register 3"]
+pub mod pcell_id3;

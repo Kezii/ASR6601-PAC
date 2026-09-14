@@ -36,8 +36,6 @@ pub type DmaEnW<'a, REG> = crate::BitWriter<'a, REG>;
 pub enum BusMode {
     #[doc = "1: Fast"]
     Fast = 1,
-    #[doc = "2: High"]
-    High = 2,
     #[doc = "0: Standard"]
     Standard = 0,
 }
@@ -59,7 +57,6 @@ impl BusModeR {
     pub const fn variant(&self) -> Option<BusMode> {
         match self.bits {
             1 => Some(BusMode::Fast),
-            2 => Some(BusMode::High),
             0 => Some(BusMode::Standard),
             _ => None,
         }
@@ -68,11 +65,6 @@ impl BusModeR {
     #[inline(always)]
     pub fn is_fast(&self) -> bool {
         *self == BusMode::Fast
-    }
-    #[doc = "High"]
-    #[inline(always)]
-    pub fn is_high(&self) -> bool {
-        *self == BusMode::High
     }
     #[doc = "Standard"]
     #[inline(always)]
@@ -91,11 +83,6 @@ where
     #[inline(always)]
     pub fn fast(self) -> &'a mut crate::W<REG> {
         self.variant(BusMode::Fast)
-    }
-    #[doc = "High"]
-    #[inline(always)]
-    pub fn high(self) -> &'a mut crate::W<REG> {
-        self.variant(BusMode::High)
     }
     #[doc = "Standard"]
     #[inline(always)]
@@ -135,10 +122,6 @@ pub type IdbrEmptyIntrEnW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type DbrFullIntrEnR = crate::BitReader;
 #[doc = "Field `DBR_FULL_INTR_EN` writer - Dbr full intr en"]
 pub type DbrFullIntrEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `GENERAL_CALL_DIS` reader - General call dis"]
-pub type GeneralCallDisR = crate::BitReader;
-#[doc = "Field `GENERAL_CALL_DIS` writer - General call dis"]
-pub type GeneralCallDisW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BUS_ERROR_INTR_EN` reader - Bus error intr en"]
 pub type BusErrorIntrEnR = crate::BitReader;
 #[doc = "Field `BUS_ERROR_INTR_EN` writer - Bus error intr en"]
@@ -259,11 +242,6 @@ impl R {
     #[inline(always)]
     pub fn dbr_full_intr_en(&self) -> DbrFullIntrEnR {
         DbrFullIntrEnR::new(((self.bits >> 20) & 1) != 0)
-    }
-    #[doc = "Bit 21 - General call dis"]
-    #[inline(always)]
-    pub fn general_call_dis(&self) -> GeneralCallDisR {
-        GeneralCallDisR::new(((self.bits >> 21) & 1) != 0)
     }
     #[doc = "Bit 22 - Bus error intr en"]
     #[inline(always)]
@@ -396,11 +374,6 @@ impl W {
     #[inline(always)]
     pub fn dbr_full_intr_en(&mut self) -> DbrFullIntrEnW<'_, CrSpec> {
         DbrFullIntrEnW::new(self, 20)
-    }
-    #[doc = "Bit 21 - General call dis"]
-    #[inline(always)]
-    pub fn general_call_dis(&mut self) -> GeneralCallDisW<'_, CrSpec> {
-        GeneralCallDisW::new(self, 21)
     }
     #[doc = "Bit 22 - Bus error intr en"]
     #[inline(always)]

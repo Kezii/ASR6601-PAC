@@ -1,0 +1,1003 @@
+name: RCC
+description: Reset and clock control
+baseAddress: '0x40000000'
+addressBlock:
+  offset: '0'
+  size: '0x34'
+  usage: registers
+registers:
+  register:
+    - name: CR0
+      description: control register 0
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: PCLK0_DIV
+            description: Pclk0 div
+            bitOffset: '5'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: Value 1
+                  value: '0x0'
+                - name: VALUE_16
+                  description: Value 16
+                  value: '0x4'
+                - name: VALUE_2
+                  description: Value 2
+                  value: '0x1'
+                - name: VALUE_4
+                  description: Value 4
+                  value: '0x2'
+                - name: VALUE_8
+                  description: Value 8
+                  value: '0x3'
+          - name: HCLK_DIV
+            description: Hclk div
+            bitOffset: '8'
+            bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: Value 1
+                  value: '0x0'
+                - name: VALUE_128
+                  description: Value 128
+                  value: '0x7'
+                - name: VALUE_16
+                  description: Value 16
+                  value: '0x4'
+                - name: VALUE_2
+                  description: Value 2
+                  value: '0x1'
+                - name: VALUE_256
+                  description: Value 256
+                  value: '0x8'
+                - name: VALUE_32
+                  description: Value 32
+                  value: '0x5'
+                - name: VALUE_4
+                  description: Value 4
+                  value: '0x2'
+                - name: VALUE_512
+                  description: Value 512
+                  value: '0x9'
+                - name: VALUE_64
+                  description: Value 64
+                  value: '0x6'
+                - name: VALUE_8
+                  description: Value 8
+                  value: '0x3'
+          - name: SYSCLK_SEL
+            description: Sysclk sel
+            bitOffset: '12'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PLL
+                  description: Pll
+                  value: '0x3'
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x1'
+                - name: RCO48M
+                  description: Rco48m
+                  value: '0x7'
+                - name: RCO48M_DIV2
+                  description: Rco48m div2
+                  value: '0x0'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x6'
+                - name: XO24M
+                  description: Xo24m
+                  value: '0x4'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x2'
+                - name: XO32M
+                  description: Xo32m
+                  value: '0x5'
+          - name: PCLK1_DIV
+            description: Pclk1 div
+            bitOffset: '15'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: Value 1
+                  value: '0x0'
+                - name: VALUE_16
+                  description: Value 16
+                  value: '0x4'
+                - name: VALUE_2
+                  description: Value 2
+                  value: '0x1'
+                - name: VALUE_4
+                  description: Value 4
+                  value: '0x2'
+                - name: VALUE_8
+                  description: Value 8
+                  value: '0x3'
+          - name: MCO_CLK_OUT_EN
+            description: Mco clk out en
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: MCO_CLK_SEL
+            description: Mco clk sel
+            bitOffset: '19'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PLL
+                  description: Pll
+                  value: '0x6'
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x0'
+                - name: RCO48M
+                  description: Rco48m
+                  value: '0x5'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x2'
+                - name: SYSCLK
+                  description: Sysclk
+                  value: '0x7'
+                - name: XO24M
+                  description: Xo24m
+                  value: '0x3'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x1'
+                - name: XO32M
+                  description: Xo32m
+                  value: '0x4'
+          - name: MCO_CLK_DIV
+            description: Mco clk div
+            bitOffset: '22'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: Value 1
+                  value: '0x0'
+                - name: VALUE_16
+                  description: Value 16
+                  value: '0x7'
+                - name: VALUE_2
+                  description: Value 2
+                  value: '0x4'
+                - name: VALUE_4
+                  description: Value 4
+                  value: '0x5'
+                - name: VALUE_8
+                  description: Value 8
+                  value: '0x6'
+          - name: STCLKEN_SEL
+            description: Stclken sel
+            bitOffset: '25'
+            bitWidth: '1'
+            enumeratedValues:
+              enumeratedValue:
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x1'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x0'
+    - name: CR1
+      description: control register 1
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: IWDG_CLK_SEL
+            description: Iwdg clk sel
+            bitOffset: '0'
+            bitWidth: '1'
+            enumeratedValues:
+              enumeratedValue:
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x1'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x0'
+          - name: RTC_CLK_SEL
+            description: Rtc clk sel
+            bitOffset: '1'
+            bitWidth: '1'
+            enumeratedValues:
+              enumeratedValue:
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x1'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x0'
+          - name: LPUART_CLK_SEL
+            description: Lpuart clk sel
+            bitOffset: '2'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x1'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x2'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x0'
+          - name: LCD_CLK_SEL
+            description: Lcd clk sel
+            bitOffset: '4'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x1'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x2'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x0'
+          - name: LPTIMER0_CLK_SEL
+            description: Lptimer0 clk sel
+            bitOffset: '6'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PCLK0
+                  description: Pclk0
+                  value: '0x0'
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x3'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x1'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x2'
+          - name: LPTIMER1_CLK_SEL
+            description: Lptimer1 clk sel
+            bitOffset: '8'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PCLK0
+                  description: Pclk0
+                  value: '0x0'
+                - name: RCO32K
+                  description: Rco32k
+                  value: '0x3'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x1'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x2'
+          - name: LPTIMER0_EXTCLK_SEL
+            description: Lptimer0 extclk sel
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: LPTIMER1_EXTCLK_SEL
+            description: Lptimer1 extclk sel
+            bitOffset: '11'
+            bitWidth: '1'
+    - name: CR2
+      description: control register 2
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: QSPI_CLK_SEL
+            description: Qspi clk sel
+            bitOffset: '0'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: HCLK
+                  description: Hclk
+                  value: '0x0'
+                - name: PLL
+                  description: Pll
+                  value: '0x2'
+                - name: SYSCLK
+                  description: Sysclk
+                  value: '0x1'
+          - name: I2S_CLK_SEL
+            description: I2s clk sel
+            bitOffset: '2'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: EXT_CLK
+                  description: Ext clk
+                  value: '0x4'
+                - name: PCLK0
+                  description: Pclk0
+                  value: '0x0'
+                - name: PLL
+                  description: Pll
+                  value: '0x2'
+                - name: XO24M
+                  description: Xo24m
+                  value: '0x1'
+                - name: XO32M
+                  description: Xo32m
+                  value: '0x3'
+          - name: ADC_CLK_SEL
+            description: Adc clk sel
+            bitOffset: '5'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PCLK1
+                  description: Pclk1
+                  value: '0x0'
+                - name: PLL
+                  description: Pll
+                  value: '0x2'
+                - name: RCO48M
+                  description: Rco48m
+                  value: '0x3'
+                - name: SYSCLK
+                  description: Sysclk
+                  value: '0x1'
+          - name: UART3_CLK_SEL
+            description: Uart3 clk sel
+            bitOffset: '9'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PCLK1
+                  description: Pclk1
+                  value: '0x0'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x1'
+                - name: XO24M
+                  description: Xo24m
+                  value: '0x3'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x2'
+          - name: UART2_CLK_SEL
+            description: Uart2 clk sel
+            bitOffset: '11'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PCLK1
+                  description: Pclk1
+                  value: '0x0'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x1'
+                - name: XO24M
+                  description: Xo24m
+                  value: '0x3'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x2'
+          - name: UART1_CLK_SEL
+            description: Uart1 clk sel
+            bitOffset: '13'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PCLK0
+                  description: Pclk0
+                  value: '0x0'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x1'
+                - name: XO24M
+                  description: Xo24m
+                  value: '0x3'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x2'
+          - name: UART0_CLK_SEL
+            description: Uart0 clk sel
+            bitOffset: '15'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PCLK0
+                  description: Pclk0
+                  value: '0x0'
+                - name: RCO4M
+                  description: Rco4m
+                  value: '0x1'
+                - name: XO24M
+                  description: Xo24m
+                  value: '0x3'
+                - name: XO32K
+                  description: Xo32k
+                  value: '0x2'
+    - name: CGR0
+      description: clock generation register 0
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: TIMER3_CLK_EN
+            description: Timer3 clk en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: TIMER2_CLK_EN
+            description: Timer2 clk en
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: TIMER1_CLK_EN
+            description: Timer1 clk en
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: TIMER0_CLK_EN
+            description: Timer0 clk en
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: LORA_CLK_EN
+            description: Lora clk en
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: DAC_CLK_EN
+            description: Dac clk en
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: LCD_CLK_EN
+            description: Lcd clk en
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: AFEC_CLK_EN
+            description: Afec clk en
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: ADC_CLK_EN
+            description: Adc clk en
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: I2C2_CLK_EN
+            description: I2c2 clk en
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: I2C1_CLK_EN
+            description: I2c1 clk en
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: I2C0_CLK_EN
+            description: I2c0 clk en
+            bitOffset: '12'
+            bitWidth: '1'
+          - name: SSP2_CLK_EN
+            description: Ssp2 clk en
+            bitOffset: '13'
+            bitWidth: '1'
+          - name: SSP1_CLK_EN
+            description: Ssp1 clk en
+            bitOffset: '14'
+            bitWidth: '1'
+          - name: SSP0_CLK_EN
+            description: Ssp0 clk en
+            bitOffset: '15'
+            bitWidth: '1'
+          - name: LPUART_CLK_EN
+            description: Lpuart clk en
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: UART3_CLK_EN
+            description: Uart3 clk en
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: UART2_CLK_EN
+            description: Uart2 clk en
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: UART1_CLK_EN
+            description: Uart1 clk en
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: UART0_CLK_EN
+            description: Uart0 clk en
+            bitOffset: '20'
+            bitWidth: '1'
+          - name: SYSCFG_CLK_EN
+            description: Syscfg clk en
+            bitOffset: '21'
+            bitWidth: '1'
+          - name: IOM3_CLK_EN
+            description: Iom3 clk en
+            bitOffset: '22'
+            bitWidth: '1'
+          - name: IOM2_CLK_EN
+            description: Iom2 clk en
+            bitOffset: '23'
+            bitWidth: '1'
+          - name: IOM1_CLK_EN
+            description: Iom1 clk en
+            bitOffset: '24'
+            bitWidth: '1'
+          - name: IOM0_CLK_EN
+            description: Iom0 clk en
+            bitOffset: '25'
+            bitWidth: '1'
+          - name: BSTIMER1_CLK_EN
+            description: Bstimer1 clk en
+            bitOffset: '26'
+            bitWidth: '1'
+          - name: BSTIMER0_CLK_EN
+            description: Bstimer0 clk en
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: CRC_CLK_EN
+            description: Crc clk en
+            bitOffset: '28'
+            bitWidth: '1'
+          - name: DMAC1_CLK_EN
+            description: Dmac1 clk en
+            bitOffset: '29'
+            bitWidth: '1'
+          - name: DMAC0_CLK_EN
+            description: Dmac0 clk en
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: PWR_CLK_EN
+            description: Pwr clk en
+            bitOffset: '31'
+            bitWidth: '1'
+    - name: CGR1
+      description: clock generation register 1
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SEC_CLK_EN
+            description: Sec clk en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RTC_CLK_EN
+            description: Rtc clk en
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: WDG_CLK_EN
+            description: Wdg clk en
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: IWDG_CLK_EN
+            description: Iwdg clk en
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: LPTIMER0_CLK_EN
+            description: Lptimer0 clk en
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: QSPI_CLK_EN
+            description: Qspi clk en
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: WDG_CNT_CLK_EN
+            description: Wdg cnt clk en
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: SAC_CLK_EN
+            description: Sac clk en
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: I2S_CLK_EN
+            description: I2s clk en
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: LPTIMER0_PCLK_EN
+            description: Lptimer0 pclk en
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: RNGC_CLK_EN
+            description: Rngc clk en
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: LPTIMER1_CLK_EN
+            description: Lptimer1 clk en
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: LPTIMER1_PCLK_EN
+            description: Lptimer1 pclk en
+            bitOffset: '12'
+            bitWidth: '1'
+    - name: CGR2
+      description: clock generation register 2
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: IWDG_CLK_EN
+            description: Iwdg clk en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RTC_AON_CLK_EN
+            description: Rtc aon clk en
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: LPUART_AON_CLK_EN
+            description: Lpuart aon clk en
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: LCD_AON_CLK_EN
+            description: Lcd aon clk en
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: LPTIMER0_AON_CLK_EN
+            description: Lptimer0 aon clk en
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: LPTIMER1_AON_CLK_EN
+            description: Lptimer1 aon clk en
+            bitOffset: '5'
+            bitWidth: '1'
+    - name: RST0
+      description: reset register 0
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SAC_RST_N
+            description: Sac rst n
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: SEC_RST_N
+            description: Sec rst n
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CRC_RST_N
+            description: Crc rst n
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: RTC_RST_N
+            description: Rtc rst n
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: WDG_RST_N
+            description: Wdg rst n
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: IWDG_RST_N
+            description: Iwdg rst n
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: LPTIMER0_RST_N
+            description: Lptimer0 rst n
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: BSTIMER1_RST_N
+            description: Bstimer1 rst n
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: BSTIMER0_RST_N
+            description: Bstimer0 rst n
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: TIMER3_RST_N
+            description: Timer3 rst n
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: TIMER2_RST_N
+            description: Timer2 rst n
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: TIMER1_RST_N
+            description: Timer1 rst n
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: TIMER0_RST_N
+            description: Timer0 rst n
+            bitOffset: '12'
+            bitWidth: '1'
+          - name: IOM_RST_N
+            description: Iom rst n
+            bitOffset: '13'
+            bitWidth: '1'
+          - name: LORA_RST_N
+            description: Lora rst n
+            bitOffset: '14'
+            bitWidth: '1'
+          - name: DAC_RST_N
+            description: Dac rst n
+            bitOffset: '15'
+            bitWidth: '1'
+          - name: LCD_RST_N
+            description: Lcd rst n
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: AFEC_RST_N
+            description: Afec rst n
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: ADC_RST_N
+            description: Adc rst n
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: I2C2_RST_N
+            description: I2c2 rst n
+            bitOffset: '20'
+            bitWidth: '1'
+          - name: I2C1_RST_N
+            description: I2c1 rst n
+            bitOffset: '21'
+            bitWidth: '1'
+          - name: I2C0_RST_N
+            description: I2c0 rst n
+            bitOffset: '22'
+            bitWidth: '1'
+          - name: QSPI_RST_N
+            description: Qspi rst n
+            bitOffset: '23'
+            bitWidth: '1'
+          - name: SSP2_RST_N
+            description: Ssp2 rst n
+            bitOffset: '24'
+            bitWidth: '1'
+          - name: SSP1_RST_N
+            description: Ssp1 rst n
+            bitOffset: '25'
+            bitWidth: '1'
+          - name: SSP0_RST_N
+            description: Ssp0 rst n
+            bitOffset: '26'
+            bitWidth: '1'
+          - name: LPUART_RST_N
+            description: Lpuart rst n
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: UART3_RST_N
+            description: Uart3 rst n
+            bitOffset: '28'
+            bitWidth: '1'
+          - name: UART2_RST_N
+            description: Uart2 rst n
+            bitOffset: '29'
+            bitWidth: '1'
+          - name: UART1_RST_N
+            description: Uart1 rst n
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: UART0_RST_N
+            description: Uart0 rst n
+            bitOffset: '31'
+            bitWidth: '1'
+    - name: RST1
+      description: reset register 1
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: DMAC1_RST_N
+            description: Dmac1 rst n
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: DMAC0_RST_N
+            description: Dmac0 rst n
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: I2S_RST_N
+            description: I2s rst n
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: RNGC_RST_N
+            description: Rngc rst n
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: LPTIMER1_RST_N
+            description: Lptimer1 rst n
+            bitOffset: '4'
+            bitWidth: '1'
+    - name: RST_SR
+      description: reset status register 0
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: STANDBY_RESET_SR
+            description: Standby reset sr
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: SEC_RESET_SR
+            description: Sec reset sr
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CPU_RESET_SR
+            description: Cpu reset sr
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: EFC_RESET_SR
+            description: Efc reset sr
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: WDG_RESET_SR
+            description: Wdg reset sr
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: IWDG_RESET_SR
+            description: Iwdg reset sr
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: BOR_RESET_SR
+            description: Bor reset sr
+            bitOffset: '6'
+            bitWidth: '1'
+    - name: RST_CR
+      description: reset control register 0
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SEC_RESET_REQ_EN
+            description: Sec reset req en
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CPU_RESET_REQ_EN
+            description: Cpu reset req en
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: EFC_RESET_REQ_EN
+            description: Efc reset req en
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: WDG_RESET_REQ_EN
+            description: Wdg reset req en
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: IWDG_RESET_REQ_EN
+            description: Iwdg reset req en
+            bitOffset: '5'
+            bitWidth: '1'
+    - name: SR
+      description: status register
+      addressOffset: '0x28'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: IWDG_AON_CLK_EN_DONE
+            description: Iwdg aon clk en done
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RTC_AON_CLK_EN_DONE
+            description: Rtc aon clk en done
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: LPUART_AON_CLK_EN_DONE
+            description: Lpuart aon clk en done
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: LCD_AON_CLK_EN_DONE
+            description: Lcd aon clk en done
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: LPTIM_AON_CLK_EN_DONE
+            description: Lptim aon clk en done
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: LPTIMER1_AON_CLK_EN_DONE
+            description: Lptimer1 aon clk en done
+            bitOffset: '5'
+            bitWidth: '1'
+    - name: SR1
+      description: status register 1
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: IWDG_AON_CLK_EN_SYNC
+            description: Iwdg aon clk en sync
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RTC_AON_CLK_EN_SYNC
+            description: Rtc aon clk en sync
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: LPUART_AON_CLK_EN_SYNC
+            description: Lpuart aon clk en sync
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: LCD_AON_CLK_EN_SYNC
+            description: Lcd aon clk en sync
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: LPTIMER0_AON_CLK_EN_SYNC
+            description: Lptimer0 aon clk en sync
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: I2S_CLK_EN_SYNC
+            description: I2s clk en sync
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: MCO_CLK_EN_SYNC
+            description: Mco clk en sync
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: RTC_CLK_EN_SYNC
+            description: Rtc clk en sync
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: IWDG_CLK_EN_SYNC
+            description: Iwdg clk en sync
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: LCD_CLK_EN_SYNC
+            description: Lcd clk en sync
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: LPUART_CLK_EN_SYNC
+            description: Lpuart clk en sync
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: QSPI_CLK_EN_SYNC
+            description: Qspi clk en sync
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: LPTIMER0_CLK_EN_SYNC
+            description: Lptimer0 clk en sync
+            bitOffset: '12'
+            bitWidth: '1'
+          - name: ADC_CLK_EN_SYNC
+            description: Adc clk en sync
+            bitOffset: '13'
+            bitWidth: '1'
+          - name: UART3_CLK_EN_SYNC
+            description: Uart3 clk en sync
+            bitOffset: '15'
+            bitWidth: '1'
+          - name: UART2_CLK_EN_SYNC
+            description: Uart2 clk en sync
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: UART1_CLK_EN_SYNC
+            description: Uart1 clk en sync
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: UART0_CLK_EN_SYNC
+            description: Uart0 clk en sync
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: LPTIMER1_AON_CLK_EN_SYNC
+            description: Lptimer1 aon clk en sync
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: LPTIMER1_CLK_EN_SYNC
+            description: Lptimer1 clk en sync
+            bitOffset: '20'
+            bitWidth: '1'
+    - name: CR3
+      description: control register 3
+      addressOffset: '0x30'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: I2S_SCLK_DIV
+            description: I2s sclk div
+            bitOffset: '0'
+            bitWidth: '8'
+          - name: I2S_MCLK_DIV
+            description: I2s mclk div
+            bitOffset: '8'
+            bitWidth: '8'

@@ -1,0 +1,304 @@
+name: SYSCFG
+description: System configuration controller
+baseAddress: '0x40001000'
+addressBlock:
+  offset: '0'
+  size: '0x2C'
+  usage: registers
+registers:
+  register:
+    - name: CR0
+      description: control register 0
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: DMAC0_HANDSHAKE3_SEL
+            description: dmac0 handshake 3 selection
+            bitOffset: '0'
+            bitWidth: '6'
+          - name: DMAC0_HANDSHAKE2_SEL
+            description: dmac0 handshake 2 selection
+            bitOffset: '8'
+            bitWidth: '6'
+          - name: DMAC0_HANDSHAKE1_SEL
+            description: dmac0 handshake 1 selection
+            bitOffset: '16'
+            bitWidth: '6'
+          - name: DMAC0_HANDSHAKE0_SEL
+            description: dmac0 handshake 0 selection
+            bitOffset: '24'
+            bitWidth: '6'
+    - name: CR1
+      description: control register 1
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: DMAC1_HANDSHAKE3_SEL
+            description: dmac1 handshake 3 selection
+            bitOffset: '0'
+            bitWidth: '6'
+          - name: DMAC1_HANDSHAKE2_SEL
+            description: dmac1 handshake 2 selection
+            bitOffset: '8'
+            bitWidth: '6'
+          - name: DMAC1_HANDSHAKE1_SEL
+            description: dmac1 handshake 1 selection
+            bitOffset: '16'
+            bitWidth: '6'
+          - name: DMAC1_HANDSHAKE0_SEL
+            description: dmac1 handshake 0 selection
+            bitOffset: '24'
+            bitWidth: '6'
+    - name: CR2
+      description: control register 2
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SSP_AFEC_DMA_CLR_SEL
+            description: ssp for afec dma clr signal selection
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: SSP2_DMA_CLR_SEL
+            description: ssp2 dma clr signal selection
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: SSP1_DMA_CLR_SEL
+            description: ssp1 dma clr signal selection
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: SSP0_DMA_CLR_SEL
+            description: ssp0 dma clr signal selection
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: UART3_DMA_CLR_SEL
+            description: uart3 dma clr signal selection
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: UART2_DMA_CLR_SEL
+            description: uart2 dma clr signal selection
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: UART1_DMA_CLR_SEL
+            description: uart1 dma clr signal selection
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: UART0_DMA_CLR_SEL
+            description: uart0 dma clr signal selection
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: SYSCFG_DBG_SLEEP
+            description: allow debug connection in deepsleep mode
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: CPU_STCALIB_SKEW
+            description: cpu systick skew configuration
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: QSPI_REMAP_ENABLE
+            description: qspi remap function enable
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: QSPI_MEM_ENCRYPT_EN
+            description: qspi memory encryption enable
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_BASICTIM1_EN
+            description: halt basictim1 counter when core is halted
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_BASICTIM0_EN
+            description: halt basictim0 counter when core is halted
+            bitOffset: '20'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_GPTIM3_EN
+            description: halt gptim3 counter when core is halted
+            bitOffset: '21'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_GPTIM2_EN
+            description: halt gptim2 counter when core is halted
+            bitOffset: '22'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_GPTIM1_EN
+            description: halt gptim1 counter when core is halted
+            bitOffset: '23'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_GPTIM0_EN
+            description: halt gptim0 counter when core is halted
+            bitOffset: '24'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_WWDG_EN
+            description: halt window watchdog counter when core is halted
+            bitOffset: '25'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_IWDG_EN
+            description: halt independent watchdog counter when core is halted
+            bitOffset: '26'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_LPTIM0_EN
+            description: halt lptim0 counter when core is halted
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: SYSCFG_HALTED_LPTIM1_EN
+            description: halt lptim1 counter when core is halted
+            bitOffset: '30'
+            bitWidth: '1'
+    - name: CR3
+      description: control register 3
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SYSCFG_DBG_STANDBY
+            description: allow debug connection in standby mode
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: SYSCFG_DBG_STOP
+            description: allow debug connection in stop mode
+            bitOffset: '1'
+            bitWidth: '1'
+    - name: CR4
+      description: control register 4
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: SYSCFG_CR4_REG
+            description: lptim1 in2 remapping enable
+            bitOffset: '31'
+            bitWidth: '1'
+    - name: CR5
+      description: control register 5
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+    - name: CR6
+      description: control register 6
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: DMAC0_MASTER_SECURE_LOCK
+            description: dmac0 master interface security lock
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: DMAC0_SLAVE_SECURE_LOCK
+            description: dmac0 slave interface security lock
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: SAC_SECURE_LOCK
+            description: sac security lock
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: SEC_SECURE_LOCK
+            description: sec security lock
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: ANALOG_MAIN_SECURE_LOCK
+            description: security lock for main domain configuration of afec
+            bitOffset: '5'
+            bitWidth: '10'
+          - name: RNGC_SECURE_LOCK
+            description: rngc security lock
+            bitOffset: '15'
+            bitWidth: '1'
+    - name: CR7
+      description: control register 7
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: RTC_TAMPER_SECURE_LOCK
+            description: tamper configuration security lock in rtc
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RTC_WAKEUP0_SECURE_LOCK
+            description: wakeup0 configuration security lock in rtc
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: RTC_WAKEUP1_SECURE_LOCK
+            description: wakeup1 configuration security lock in rtc
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: RTC_WAKEUP2_SECURE_LOCK
+            description: wakeup2 configuration security lock in rtc
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: RTC_CALENDAR_SECURE_LOCK
+            description: calendar configuration security lock in rtc
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: ANALOG_AON_SECURE_LOCK
+            description: security lock for aon domain configuration of afec
+            bitOffset: '5'
+            bitWidth: '10'
+    - name: CR8
+      description: control register 8
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: QSPI_MEM_ENCRYPT_KEY
+            description: encryption key for qspi memory
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: CR9
+      description: control register 9
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: QSPI_REMAP_DST_ADDR
+            description: qspi remap destination address, aligned in 1kb
+            bitOffset: '0'
+            bitWidth: '14'
+          - name: QSPI_REMAP_SRC_ADDR
+            description: qspi remap source address, aligned in 1kb
+            bitOffset: '14'
+            bitWidth: '14'
+    - name: CR10
+      description: control register 10
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: QSPI_REMAP_SIZE
+            description: address space for qspi remapping, aligned in 1kb
+            bitOffset: '0'
+            bitWidth: '14'
+          - name: I2S_MODE_SEL
+            description: i2s works in master or slave mode
+            bitOffset: '14'
+            bitWidth: '1'
+            enumeratedValues:
+              enumeratedValue:
+                - name: SLAVE
+                  description: slave mode
+                  value: '0x0'
+                - name: MASTER
+                  description: master mode
+                  value: '0x1'
+          - name: I2S_WS_LEN
+            description: i2s main interface resolution configuration
+            bitOffset: '15'
+            bitWidth: '7'
+          - name: I2S_WS_EN
+            description: i2s ws enable
+            bitOffset: '22'
+            bitWidth: '1'
+          - name: I2S_WS_SEL
+            description: i2s ws output delay enable
+            bitOffset: '23'
+            bitWidth: '1'

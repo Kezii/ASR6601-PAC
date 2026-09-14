@@ -1,0 +1,4 @@
+name: GPIOC
+description: GPIOC instance
+baseAddress: '0x4001F800'
+_derivedFrom: GPIOA

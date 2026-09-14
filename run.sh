@@ -3,7 +3,7 @@
 set -e
 
 
-svd2rust -i ARMCM4.svd
+svd2rust -i svd/ASR6601.svd
 
 rm -rf src
 

@@ -1,0 +1,7 @@
+name: SSP2
+description: SSP2 instance
+baseAddress: '0x40013000'
+interrupt:
+  name: SSP2
+  value: '18'
+_derivedFrom: SSP0

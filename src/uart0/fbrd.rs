@@ -2,12 +2,24 @@
 pub type R = crate::R<FbrdSpec>;
 #[doc = "Register `FBRD` writer"]
 pub type W = crate::W<FbrdSpec>;
-impl core::fmt::Debug for R {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(f, "{}", self.bits())
+#[doc = "Field `BAUD_DIVFRAC` reader - baud rate divisor fractional part"]
+pub type BaudDivfracR = crate::FieldReader;
+#[doc = "Field `BAUD_DIVFRAC` writer - baud rate divisor fractional part"]
+pub type BaudDivfracW<'a, REG> = crate::FieldWriter<'a, REG, 6>;
+impl R {
+    #[doc = "Bits 0:5 - baud rate divisor fractional part"]
+    #[inline(always)]
+    pub fn baud_divfrac(&self) -> BaudDivfracR {
+        BaudDivfracR::new((self.bits & 0x3f) as u8)
     }
 }
-impl W {}
+impl W {
+    #[doc = "Bits 0:5 - baud rate divisor fractional part"]
+    #[inline(always)]
+    pub fn baud_divfrac(&mut self) -> BaudDivfracW<'_, FbrdSpec> {
+        BaudDivfracW::new(self, 0)
+    }
+}
 #[doc = "fractional baudrate register\n\nYou can [`read`](crate::Reg::read) this register and get [`fbrd::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`fbrd::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct FbrdSpec;
 impl crate::RegisterSpec for FbrdSpec {

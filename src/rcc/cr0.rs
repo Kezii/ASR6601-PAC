@@ -518,8 +518,8 @@ pub enum McoClkSel {
     Rco48m = 5,
     #[doc = "2: Rco4m"]
     Rco4m = 2,
-    #[doc = "7: Sysclck"]
-    Sysclck = 7,
+    #[doc = "7: Sysclk"]
+    Sysclk = 7,
     #[doc = "3: Xo24m"]
     Xo24m = 3,
     #[doc = "1: Xo32k"]
@@ -548,7 +548,7 @@ impl McoClkSelR {
             0 => McoClkSel::Rco32k,
             5 => McoClkSel::Rco48m,
             2 => McoClkSel::Rco4m,
-            7 => McoClkSel::Sysclck,
+            7 => McoClkSel::Sysclk,
             3 => McoClkSel::Xo24m,
             1 => McoClkSel::Xo32k,
             4 => McoClkSel::Xo32m,
@@ -575,10 +575,10 @@ impl McoClkSelR {
     pub fn is_rco4m(&self) -> bool {
         *self == McoClkSel::Rco4m
     }
-    #[doc = "Sysclck"]
+    #[doc = "Sysclk"]
     #[inline(always)]
-    pub fn is_sysclck(&self) -> bool {
-        *self == McoClkSel::Sysclck
+    pub fn is_sysclk(&self) -> bool {
+        *self == McoClkSel::Sysclk
     }
     #[doc = "Xo24m"]
     #[inline(always)]
@@ -623,10 +623,10 @@ where
     pub fn rco4m(self) -> &'a mut crate::W<REG> {
         self.variant(McoClkSel::Rco4m)
     }
-    #[doc = "Sysclck"]
+    #[doc = "Sysclk"]
     #[inline(always)]
-    pub fn sysclck(self) -> &'a mut crate::W<REG> {
-        self.variant(McoClkSel::Sysclck)
+    pub fn sysclk(self) -> &'a mut crate::W<REG> {
+        self.variant(McoClkSel::Sysclk)
     }
     #[doc = "Xo24m"]
     #[inline(always)]

@@ -1,0 +1,7 @@
+name: UART1
+description: UART1 instance
+baseAddress: '0x40004000'
+interrupt:
+  name: UART1
+  value: '7'
+_derivedFrom: UART0

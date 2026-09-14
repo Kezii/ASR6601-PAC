@@ -1,0 +1,7 @@
+name: I2C2
+description: I2C2 instance
+baseAddress: '0x40015000'
+interrupt:
+  name: I2C2
+  value: '5'
+_derivedFrom: I2C0

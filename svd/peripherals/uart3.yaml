@@ -1,0 +1,7 @@
+name: UART3
+description: UART3 instance
+baseAddress: '0x40011000'
+interrupt:
+  name: UART3
+  value: '4'
+_derivedFrom: UART0

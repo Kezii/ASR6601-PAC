@@ -1,0 +1,7 @@
+name: CRYPTO_ARAM_ALONG
+description: Security algorithm working RAM window
+baseAddress: '0x40031000'
+addressBlock:
+  offset: '0'
+  size: '0x1000'
+  usage: buffer

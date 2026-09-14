@@ -2,10 +2,6 @@
 pub type R = crate::R<SrSpec>;
 #[doc = "Register `SR` writer"]
 pub type W = crate::W<SrSpec>;
-#[doc = "Field `RW_MODE` reader - Rw mode"]
-pub type RwModeR = crate::BitReader;
-#[doc = "Field `RW_MODE` writer - Rw mode"]
-pub type RwModeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACK_STATUS` reader - Ack status"]
 pub type AckStatusR = crate::BitReader;
 #[doc = "Field `ACK_STATUS` writer - Ack status"]
@@ -30,10 +26,6 @@ pub type IdbrEmptyW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type DbrFullR = crate::BitReader;
 #[doc = "Field `DBR_FULL` writer - Dbr full"]
 pub type DbrFullW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `GENERAL_CALL` reader - General call"]
-pub type GeneralCallR = crate::BitReader;
-#[doc = "Field `GENERAL_CALL` writer - General call"]
-pub type GeneralCallW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `BUS_ERROR` reader - Bus error"]
 pub type BusErrorR = crate::BitReader;
 #[doc = "Field `BUS_ERROR` writer - Bus error"]
@@ -71,11 +63,6 @@ pub type RfifoOverrunR = crate::BitReader;
 #[doc = "Field `RFIFO_OVERRUN` writer - Rfifo overrun"]
 pub type RfifoOverrunW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 13 - Rw mode"]
-    #[inline(always)]
-    pub fn rw_mode(&self) -> RwModeR {
-        RwModeR::new(((self.bits >> 13) & 1) != 0)
-    }
     #[doc = "Bit 14 - Ack status"]
     #[inline(always)]
     pub fn ack_status(&self) -> AckStatusR {
@@ -106,11 +93,6 @@ impl R {
     pub fn dbr_full(&self) -> DbrFullR {
         DbrFullR::new(((self.bits >> 20) & 1) != 0)
     }
-    #[doc = "Bit 21 - General call"]
-    #[inline(always)]
-    pub fn general_call(&self) -> GeneralCallR {
-        GeneralCallR::new(((self.bits >> 21) & 1) != 0)
-    }
     #[doc = "Bit 22 - Bus error"]
     #[inline(always)]
     pub fn bus_error(&self) -> BusErrorR {
@@ -126,10 +108,10 @@ impl R {
     pub fn slave_stop_det(&self) -> SlaveStopDetR {
         SlaveStopDetR::new(((self.bits >> 24) & 1) != 0)
     }
-    #[doc = "Bit 25 - Master stop det"]
+    #[doc = "Bit 26 - Master stop det"]
     #[inline(always)]
     pub fn master_stop_det(&self) -> MasterStopDetR {
-        MasterStopDetR::new(((self.bits >> 25) & 1) != 0)
+        MasterStopDetR::new(((self.bits >> 26) & 1) != 0)
     }
     #[doc = "Bit 27 - Trans done"]
     #[inline(always)]
@@ -158,11 +140,6 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bit 13 - Rw mode"]
-    #[inline(always)]
-    pub fn rw_mode(&mut self) -> RwModeW<'_, SrSpec> {
-        RwModeW::new(self, 13)
-    }
     #[doc = "Bit 14 - Ack status"]
     #[inline(always)]
     pub fn ack_status(&mut self) -> AckStatusW<'_, SrSpec> {
@@ -193,11 +170,6 @@ impl W {
     pub fn dbr_full(&mut self) -> DbrFullW<'_, SrSpec> {
         DbrFullW::new(self, 20)
     }
-    #[doc = "Bit 21 - General call"]
-    #[inline(always)]
-    pub fn general_call(&mut self) -> GeneralCallW<'_, SrSpec> {
-        GeneralCallW::new(self, 21)
-    }
     #[doc = "Bit 22 - Bus error"]
     #[inline(always)]
     pub fn bus_error(&mut self) -> BusErrorW<'_, SrSpec> {
@@ -213,10 +185,10 @@ impl W {
     pub fn slave_stop_det(&mut self) -> SlaveStopDetW<'_, SrSpec> {
         SlaveStopDetW::new(self, 24)
     }
-    #[doc = "Bit 25 - Master stop det"]
+    #[doc = "Bit 26 - Master stop det"]
     #[inline(always)]
     pub fn master_stop_det(&mut self) -> MasterStopDetW<'_, SrSpec> {
-        MasterStopDetW::new(self, 25)
+        MasterStopDetW::new(self, 26)
     }
     #[doc = "Bit 27 - Trans done"]
     #[inline(always)]

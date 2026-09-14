@@ -1,0 +1,281 @@
+name: TIMER0
+description: Timer0
+baseAddress: '0x4000A000'
+addressBlock:
+  offset: '0'
+  size: '0x54'
+  usage: registers
+interrupt:
+  name: TIMER0
+  value: '23'
+registers:
+  register:
+    - name: CR1
+      description: TIMER control register 1, Address
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+    - name: CR2
+      description: TIMER control register 2, Address
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+    - name: SMCR
+      description: TIMER slave Mode Control register, Address
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+    - name: DIER
+      description: TIMER DMA/interrupt enable register, Address
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: UIE
+            description: Uie
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CC0IE
+            description: Cc0ie
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CC1IE
+            description: Cc1ie
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CC2IE
+            description: Cc2ie
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: CC3IE
+            description: Cc3ie
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TIE
+            description: Tie
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: UDE
+            description: Ude
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: CC0DE
+            description: Cc0de
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: CC1DE
+            description: Cc1de
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: CC2DE
+            description: Cc2de
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: CC3DE
+            description: Cc3de
+            bitOffset: '12'
+            bitWidth: '1'
+          - name: TDE
+            description: Tde
+            bitOffset: '14'
+            bitWidth: '1'
+    - name: SR
+      description: TIMER status register, Address
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: UIF
+            description: Uif
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CC0IF
+            description: Cc0if
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CC1IF
+            description: Cc1if
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CC2IF
+            description: Cc2if
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: CC3IF
+            description: Cc3if
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TIF
+            description: Tif
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: CC0OF
+            description: Cc0of
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: CC1OF
+            description: Cc1of
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: CC2OF
+            description: Cc2of
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: CC3OF
+            description: Cc3of
+            bitOffset: '12'
+            bitWidth: '1'
+    - name: EGR
+      description: TIMER event generation register, Address
+      addressOffset: '0x14'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          - name: UG
+            description: Ug
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CC0G
+            description: Cc0g
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CC1G
+            description: Cc1g
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CC2G
+            description: Cc2g
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: CC3G
+            description: Cc3g
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: TG
+            description: Tg
+            bitOffset: '6'
+            bitWidth: '1'
+    - name: CCMR1
+      description: TIMER capture/compare mode register 1, Address
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+    - name: CCMR2
+      description: TIMER capture/compare mode register 2, Address
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-write
+    - name: CCER
+      description: TIMER capture/compare enable register, Address
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: CC0E
+            description: Cc0e
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CC0P
+            description: Cc0p
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CC0NP
+            description: Cc0np
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: CC1E
+            description: Cc1e
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: CC1P
+            description: Cc1p
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: CC1NP
+            description: Cc1np
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: CC2E
+            description: Cc2e
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: CC2P
+            description: Cc2p
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: CC2NP
+            description: Cc2np
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: CC3E
+            description: Cc3e
+            bitOffset: '12'
+            bitWidth: '1'
+          - name: CC3P
+            description: Cc3p
+            bitOffset: '13'
+            bitWidth: '1'
+          - name: CC3NP
+            description: Cc3np
+            bitOffset: '15'
+            bitWidth: '1'
+    - name: CNT
+      description: TIMER counter register, Address
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+    - name: PSC
+      description: TIMER prescaler register, Address
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+    - name: ARR
+      description: TIMER auto-reload register, Address
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-write
+    - name: CCR0
+      description: TIMER capture/compare register 0, Address
+      addressOffset: '0x34'
+      size: '32'
+      access: read-write
+    - name: CCR1
+      description: TIMER capture/compare register 1, Address
+      addressOffset: '0x38'
+      size: '32'
+      access: read-write
+    - name: CCR2
+      description: TIMER capture/compare register 2, Address
+      addressOffset: '0x3C'
+      size: '32'
+      access: read-write
+    - name: CCR3
+      description: TIMER capture/compare register 3, Address
+      addressOffset: '0x40'
+      size: '32'
+      access: read-write
+    - name: DCR
+      description: TIMER DMA control register, Address
+      addressOffset: '0x48'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          name: DBL_POSITION
+          description: Dbl position
+          bitOffset: '3'
+          bitWidth: '1'
+    - name: DMAR
+      description: TIMER DMA address for full transfer register, Address
+      addressOffset: '0x4C'
+      size: '32'
+      access: read-write
+    - name: OR
+      description: TIMER option register, Address
+      addressOffset: '0x50'
+      size: '32'
+      access: read-write

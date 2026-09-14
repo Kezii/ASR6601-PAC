@@ -1,0 +1,128 @@
+name: IWDG
+description: Independent watchdog
+baseAddress: '0x4001D000'
+addressBlock:
+  offset: '0'
+  size: '0x1C'
+  usage: registers
+interrupt:
+  name: IWDG
+  value: '36'
+registers:
+  register:
+    - name: CR
+      description: control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: START
+            description: Start
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: PREDIV
+            description: Prediv
+            bitOffset: '1'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_128
+                  description: Value 128
+                  value: '0x5'
+                - name: VALUE_16
+                  description: Value 16
+                  value: '0x2'
+                - name: VALUE_256
+                  description: Value 256
+                  value: '0x6'
+                - name: VALUE_32
+                  description: Value 32
+                  value: '0x3'
+                - name: VALUE_4
+                  description: Value 4
+                  value: '0x0'
+                - name: VALUE_64
+                  description: Value 64
+                  value: '0x4'
+                - name: VALUE_8
+                  description: Value 8
+                  value: '0x1'
+          - name: WKEN
+            description: Wken
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: RSTEN
+            description: Rsten
+            bitOffset: '5'
+            bitWidth: '1'
+    - name: MAX
+      description: max value register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+    - name: WIN
+      description: window value register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+    - name: SR
+      description: status register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: WRITE_CR_DONE
+            description: Write cr done
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: MAX_SET_DONE
+            description: Max set done
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: WIN_SET_DONE
+            description: Win set done
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: WRITE_SR2_DONE
+            description: Write sr2 done
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: SR1
+      description: status register 1
+      addressOffset: '0x10'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          name: RESET_REQ_SYNC
+          description: Reset req sync
+          bitOffset: '12'
+          bitWidth: '1'
+    - name: CR1
+      description: control register 1
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: RESET_REQ_INT_EN
+            description: Reset req int en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RESET_REQ_RST_EN
+            description: Reset req rst en
+            bitOffset: '1'
+            bitWidth: '1'
+    - name: SR2
+      description: status register 2
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          name: RESET_REQ_SR
+          description: Reset req sr
+          bitOffset: '0'
+          bitWidth: '1'

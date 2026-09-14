@@ -1,0 +1,41 @@
+name: AFEC
+description: Analog front-end controller digital registers
+baseAddress: '0x40008200'
+addressBlock:
+  offset: '0'
+  size: '0xC'
+  usage: registers
+interrupt:
+  name: AFEC
+  value: '17'
+registers:
+  register:
+    - name: CR
+      description: control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+    - name: INT_SR
+      description: interrupt status register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+    - name: RAW_SR
+      description: raw status register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: RCO24M_READY
+            description: Rco24m ready
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: PLL_UNLOCK
+            description: Pll unlock
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: RCO4M_READY
+            description: Rco4m ready
+            bitOffset: '31'
+            bitWidth: '1'

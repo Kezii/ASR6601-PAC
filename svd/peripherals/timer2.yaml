@@ -1,0 +1,7 @@
+name: TIMER2
+description: TIMER2 instance
+baseAddress: '0x4000B000'
+interrupt:
+  name: TIMER2
+  value: '25'
+_derivedFrom: TIMER0

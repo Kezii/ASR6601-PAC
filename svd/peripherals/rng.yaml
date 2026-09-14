@@ -1,0 +1,107 @@
+name: RNG
+description: Hardware random-number generator
+baseAddress: '0x40033000'
+addressBlock:
+  offset: '0'
+  size: '0x28'
+  usage: registers
+registers:
+  register:
+    - name: RNGDET
+      description: Detection control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: FLOW_REINITIALIZE
+            description: Flow reinitialize
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: POKER_SOURCE_DATA
+            description: Poker source data
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: POKER_ENABLE
+            description: Poker enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: DATA_CLOCK_ENABLE
+            description: Data clock enable
+            bitOffset: '0'
+            bitWidth: '1'
+    - name: RNGSR
+      description: Status register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: POKER_CHECK_END
+            description: Poker check end
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: DATA_CLOCK_ERROR
+            description: Data clock error
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: DATA_READY
+            description: Data ready
+            bitOffset: '0'
+            bitWidth: '1'
+    - name: RNGCLK
+      description: Clock control register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          name: CLOCK_ENABLE
+          description: Clock enable
+          bitOffset: '7'
+          bitWidth: '1'
+    - name: RNGCR
+      description: Control register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: ENABLE
+            description: Enable
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: TRUE_RANDOM_MODE
+            description: True random mode
+            bitOffset: '6'
+            bitWidth: '1'
+    - name: RNGRESEED
+      description: Reseed register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+    - name: RNGDATA
+      description: Random data register
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+    - name: RNGPKNUM
+      description: Poker test sample count
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+    - name: RNGPKRES0
+      description: Poker test result 0
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-write
+    - name: RNGPKRES1
+      description: Poker test result 1
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+    - name: RNGPKRES2
+      description: Poker test result 2
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write

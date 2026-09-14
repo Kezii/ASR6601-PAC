@@ -8,14 +8,10 @@ pub struct RegisterBlock {
     program_data1: ProgramData1,
     timing_cfg: TimingCfg,
     protect_seq: ProtectSeq,
-    _reserved7: [u8; 0x04],
-    chip_pattern: ChipPattern,
-    ip_trim_l: IpTrimL,
-    ip_trim_h: IpTrimH,
+    _reserved7: [u8; 0x10],
     sn_l: SnL,
     sn_h: SnH,
-    test_info_l: TestInfoL,
-    test_info_h: TestInfoH,
+    _reserved9: [u8; 0x08],
     option_csr_bytes: OptionCsrBytes,
     option_eo_bytes: OptionEoBytes,
     option_wp_bytes: OptionWpBytes,
@@ -58,21 +54,6 @@ impl RegisterBlock {
     pub const fn protect_seq(&self) -> &ProtectSeq {
         &self.protect_seq
     }
-    #[doc = "0x20 - chip pattern register"]
-    #[inline(always)]
-    pub const fn chip_pattern(&self) -> &ChipPattern {
-        &self.chip_pattern
-    }
-    #[doc = "0x24 - analog ip trimming low register"]
-    #[inline(always)]
-    pub const fn ip_trim_l(&self) -> &IpTrimL {
-        &self.ip_trim_l
-    }
-    #[doc = "0x28 - analog ip trimming high register"]
-    #[inline(always)]
-    pub const fn ip_trim_h(&self) -> &IpTrimH {
-        &self.ip_trim_h
-    }
     #[doc = "0x2c - serial number low register"]
     #[inline(always)]
     pub const fn sn_l(&self) -> &SnL {
@@ -82,16 +63,6 @@ impl RegisterBlock {
     #[inline(always)]
     pub const fn sn_h(&self) -> &SnH {
         &self.sn_h
-    }
-    #[doc = "0x34 - test info low register"]
-    #[inline(always)]
-    pub const fn test_info_l(&self) -> &TestInfoL {
-        &self.test_info_l
-    }
-    #[doc = "0x38 - test info high register"]
-    #[inline(always)]
-    pub const fn test_info_h(&self) -> &TestInfoH {
-        &self.test_info_h
     }
     #[doc = "0x3c - option control and status register"]
     #[inline(always)]
@@ -154,21 +125,6 @@ pub mod timing_cfg;
 pub type ProtectSeq = crate::Reg<protect_seq::ProtectSeqSpec>;
 #[doc = "protect sequence register"]
 pub mod protect_seq;
-#[doc = "CHIP_PATTERN (r) register accessor: chip pattern register\n\nYou can [`read`](crate::Reg::read) this register and get [`chip_pattern::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@chip_pattern`] module"]
-#[doc(alias = "CHIP_PATTERN")]
-pub type ChipPattern = crate::Reg<chip_pattern::ChipPatternSpec>;
-#[doc = "chip pattern register"]
-pub mod chip_pattern;
-#[doc = "IP_TRIM_L (r) register accessor: analog ip trimming low register\n\nYou can [`read`](crate::Reg::read) this register and get [`ip_trim_l::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ip_trim_l`] module"]
-#[doc(alias = "IP_TRIM_L")]
-pub type IpTrimL = crate::Reg<ip_trim_l::IpTrimLSpec>;
-#[doc = "analog ip trimming low register"]
-pub mod ip_trim_l;
-#[doc = "IP_TRIM_H (r) register accessor: analog ip trimming high register\n\nYou can [`read`](crate::Reg::read) this register and get [`ip_trim_h::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ip_trim_h`] module"]
-#[doc(alias = "IP_TRIM_H")]
-pub type IpTrimH = crate::Reg<ip_trim_h::IpTrimHSpec>;
-#[doc = "analog ip trimming high register"]
-pub mod ip_trim_h;
 #[doc = "SN_L (r) register accessor: serial number low register\n\nYou can [`read`](crate::Reg::read) this register and get [`sn_l::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sn_l`] module"]
 #[doc(alias = "SN_L")]
 pub type SnL = crate::Reg<sn_l::SnLSpec>;
@@ -179,16 +135,6 @@ pub mod sn_l;
 pub type SnH = crate::Reg<sn_h::SnHSpec>;
 #[doc = "serial number high register"]
 pub mod sn_h;
-#[doc = "TEST_INFO_L (r) register accessor: test info low register\n\nYou can [`read`](crate::Reg::read) this register and get [`test_info_l::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@test_info_l`] module"]
-#[doc(alias = "TEST_INFO_L")]
-pub type TestInfoL = crate::Reg<test_info_l::TestInfoLSpec>;
-#[doc = "test info low register"]
-pub mod test_info_l;
-#[doc = "TEST_INFO_H (r) register accessor: test info high register\n\nYou can [`read`](crate::Reg::read) this register and get [`test_info_h::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@test_info_h`] module"]
-#[doc(alias = "TEST_INFO_H")]
-pub type TestInfoH = crate::Reg<test_info_h::TestInfoHSpec>;
-#[doc = "test info high register"]
-pub mod test_info_h;
 #[doc = "OPTION_CSR_BYTES (r) register accessor: option control and status register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_csr_bytes::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@option_csr_bytes`] module"]
 #[doc(alias = "OPTION_CSR_BYTES")]
 pub type OptionCsrBytes = crate::Reg<option_csr_bytes::OptionCsrBytesSpec>;

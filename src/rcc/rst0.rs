@@ -78,10 +78,6 @@ pub type AfecRstNW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type AdcRstNR = crate::BitReader;
 #[doc = "Field `ADC_RST_N` writer - Adc rst n"]
 pub type AdcRstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `SCC_RST_N` reader - Scc rst n"]
-pub type SccRstNR = crate::BitReader;
-#[doc = "Field `SCC_RST_N` writer - Scc rst n"]
-pub type SccRstNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `I2C2_RST_N` reader - I2c2 rst n"]
 pub type I2c2RstNR = crate::BitReader;
 #[doc = "Field `I2C2_RST_N` writer - I2c2 rst n"]
@@ -225,11 +221,6 @@ impl R {
     #[inline(always)]
     pub fn adc_rst_n(&self) -> AdcRstNR {
         AdcRstNR::new(((self.bits >> 18) & 1) != 0)
-    }
-    #[doc = "Bit 19 - Scc rst n"]
-    #[inline(always)]
-    pub fn scc_rst_n(&self) -> SccRstNR {
-        SccRstNR::new(((self.bits >> 19) & 1) != 0)
     }
     #[doc = "Bit 20 - I2c2 rst n"]
     #[inline(always)]
@@ -387,11 +378,6 @@ impl W {
     #[inline(always)]
     pub fn adc_rst_n(&mut self) -> AdcRstNW<'_, Rst0Spec> {
         AdcRstNW::new(self, 18)
-    }
-    #[doc = "Bit 19 - Scc rst n"]
-    #[inline(always)]
-    pub fn scc_rst_n(&mut self) -> SccRstNW<'_, Rst0Spec> {
-        SccRstNW::new(self, 19)
     }
     #[doc = "Bit 20 - I2c2 rst n"]
     #[inline(always)]

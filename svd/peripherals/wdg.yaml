@@ -1,0 +1,117 @@
+name: WDG
+description: Watchdog timer
+baseAddress: '0x4001E000'
+addressBlock:
+  offset: '0'
+  size: '0x1000'
+  usage: registers
+interrupt:
+  name: WDG
+  value: '2'
+registers:
+  register:
+    - name: LOAD
+      description: load register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+    - name: VALUE
+      description: value register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-only
+    - name: CONTROL
+      description: control register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+    - name: INTCLR
+      description: clear interrupt register
+      addressOffset: '0xC'
+      size: '32'
+      access: write-only
+    - name: RIS
+      description: raw interrupt status register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-only
+    - name: MIS
+      description: interrupt status register
+      addressOffset: '0x14'
+      size: '32'
+      access: read-only
+    - name: LOCK
+      description: lock register
+      addressOffset: '0xC00'
+      size: '32'
+      access: read-write
+    - name: ITCR
+      description: integration test control register
+      addressOffset: '0xF00'
+      size: '32'
+      access: read-write
+    - name: ITOP
+      description: integration test output set register
+      addressOffset: '0xF04'
+      size: '32'
+      access: write-only
+    - name: PERIPHID4
+      description: peripheral id register 4
+      addressOffset: '0xFD0'
+      size: '32'
+      access: read-only
+    - name: PERIPHID5
+      description: peripheral id register 5
+      addressOffset: '0xFD4'
+      size: '32'
+      access: read-only
+    - name: PERIPHID6
+      description: peripheral id register 6
+      addressOffset: '0xFD8'
+      size: '32'
+      access: read-only
+    - name: PERIPHID7
+      description: peripheral id register 7
+      addressOffset: '0xFDC'
+      size: '32'
+      access: read-only
+    - name: PERIPHID0
+      description: peripheral id register 0
+      addressOffset: '0xFE0'
+      size: '32'
+      access: read-only
+    - name: PERIPHID1
+      description: peripheral id register 1
+      addressOffset: '0xFE4'
+      size: '32'
+      access: read-only
+    - name: PERIPHID2
+      description: peripheral id register 2
+      addressOffset: '0xFE8'
+      size: '32'
+      access: read-only
+    - name: PERIPHID3
+      description: peripheral id register 3
+      addressOffset: '0xFEC'
+      size: '32'
+      access: read-only
+    - name: PCELLID0
+      description: component id register 0
+      addressOffset: '0xFF0'
+      size: '32'
+      access: read-only
+    - name: PCELLID1
+      description: component id register 1
+      addressOffset: '0xFF4'
+      size: '32'
+      access: read-only
+    - name: PCELLID2
+      description: component id register 2
+      addressOffset: '0xFF8'
+      size: '32'
+      access: read-only
+    - name: PCELLID3
+      description: component id register 3
+      addressOffset: '0xFFC'
+      size: '32'
+      access: read-only

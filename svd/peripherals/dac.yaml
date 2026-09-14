@@ -1,0 +1,155 @@
+name: DAC
+description: 12-bit digital-to-analog converter
+baseAddress: '0x40019000'
+addressBlock:
+  offset: '0'
+  size: '0x14'
+  usage: registers
+interrupt:
+  name: DAC
+  value: '20'
+registers:
+  register:
+    - name: CR
+      description: control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: DAC_EN
+            description: Dac en
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: TRIG_EN
+            description: Trig en
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: TRIG_SRC_SEL
+            description: Trig src sel
+            bitOffset: '3'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BSTIMER0_TRGO
+                  description: Bstimer0 trgo
+                  value: '0x3'
+                - name: BSTIMER1_TRGO
+                  description: Bstimer1 trgo
+                  value: '0x2'
+                - name: GPIO24
+                  description: Gpio24
+                  value: '0x5'
+                - name: GPIO43
+                  description: Gpio43
+                  value: '0x6'
+                - name: GPIO6
+                  description: Gpio6
+                  value: '0x4'
+                - name: GPTIMER0_TRGO
+                  description: Gptimer0 trgo
+                  value: '0x1'
+                - name: GPTIMER1_TRGO
+                  description: Gptimer1 trgo
+                  value: '0x0'
+                - name: SOFTWARE
+                  description: Software
+                  value: '0x7'
+          - name: TRIG_TYPE_SEL
+            description: Trig type sel
+            bitOffset: '6'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FALLING_EDGE
+                  description: Falling edge
+                  value: '0x1'
+                - name: RISING_EDGE
+                  description: Rising edge
+                  value: '0x0'
+                - name: RISING_FALLING_EDGE
+                  description: Rising falling edge
+                  value: '0x2'
+          - name: WAVE_SEL
+            description: Wave sel
+            bitOffset: '8'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: NOISE
+                  description: Noise
+                  value: '0x1'
+                - name: NONE
+                  description: None
+                  value: '0x0'
+                - name: TRIANGLE
+                  description: Triangle
+                  value: '0x2'
+          - name: MASK_AMP_SEL
+            description: Mask amp sel
+            bitOffset: '10'
+            bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: Value 1
+                  value: '0x0'
+                - name: VALUE_1023
+                  description: Value 1023
+                  value: '0x9'
+                - name: VALUE_127
+                  description: Value 127
+                  value: '0x6'
+                - name: VALUE_15
+                  description: Value 15
+                  value: '0x3'
+                - name: VALUE_255
+                  description: Value 255
+                  value: '0x7'
+                - name: VALUE_3
+                  description: Value 3
+                  value: '0x1'
+                - name: VALUE_31
+                  description: Value 31
+                  value: '0x4'
+                - name: VALUE_511
+                  description: Value 511
+                  value: '0x8'
+                - name: VALUE_63
+                  description: Value 63
+                  value: '0x5'
+                - name: VALUE_7
+                  description: Value 7
+                  value: '0x2'
+          - name: DMA_EN
+            description: Dma en
+            bitOffset: '14'
+            bitWidth: '1'
+          - name: INTR_UNDERFLOW_EN
+            description: Intr underflow en
+            bitOffset: '15'
+            bitWidth: '1'
+          - name: INTR_EMPTY_EN
+            description: Intr empty en
+            bitOffset: '16'
+            bitWidth: '1'
+    - name: SWTRIGR
+      description: software trigger register
+      addressOffset: '0x4'
+      size: '32'
+      access: write-only
+    - name: DHR
+      description: data holding register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+    - name: DOR
+      description: data output register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-only
+    - name: SR
+      description: status register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write

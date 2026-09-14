@@ -138,12 +138,12 @@ pub mod alarm1;
 pub type PpmAdjust = crate::Reg<ppm_adjust::PpmAdjustSpec>;
 #[doc = "ppm adjust value"]
 pub mod ppm_adjust;
-#[doc = "CALENDAR (rw) register accessor: time hour/minute/second\n\nYou can [`read`](crate::Reg::read) this register and get [`calendar::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`calendar::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar`] module"]
+#[doc = "CALENDAR (w) register accessor: time hour/minute/second\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`calendar::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar`] module"]
 #[doc(alias = "CALENDAR")]
 pub type Calendar = crate::Reg<calendar::CalendarSpec>;
 #[doc = "time hour/minute/second"]
 pub mod calendar;
-#[doc = "CALENDAR_H (rw) register accessor: time year/month/date\n\nYou can [`read`](crate::Reg::read) this register and get [`calendar_h::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`calendar_h::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar_h`] module"]
+#[doc = "CALENDAR_H (w) register accessor: time year/month/date\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`calendar_h::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar_h`] module"]
 #[doc(alias = "CALENDAR_H")]
 pub type CalendarH = crate::Reg<calendar_h::CalendarHSpec>;
 #[doc = "time year/month/date"]
@@ -173,7 +173,7 @@ pub mod asyn_data_h;
 pub type Cr1 = crate::Reg<cr1::Cr1Spec>;
 #[doc = "control register 1"]
 pub mod cr1;
-#[doc = "SR1 (rw) register accessor: status register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`sr1::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sr1`] module"]
+#[doc = "SR1 (r) register accessor: status register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`sr1::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sr1`] module"]
 #[doc(alias = "SR1")]
 pub type Sr1 = crate::Reg<sr1::Sr1Spec>;
 #[doc = "status register 1"]
@@ -203,12 +203,12 @@ pub mod alarm0_subsecond;
 pub type Alarm1Subsecond = crate::Reg<alarm1_subsecond::Alarm1SubsecondSpec>;
 #[doc = "alarm1 subsecond"]
 pub mod alarm1_subsecond;
-#[doc = "CALENDAR_R (rw) register accessor: read time hour/minute/second\n\nYou can [`read`](crate::Reg::read) this register and get [`calendar_r::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`calendar_r::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar_r`] module"]
+#[doc = "CALENDAR_R (r) register accessor: read time hour/minute/second\n\nYou can [`read`](crate::Reg::read) this register and get [`calendar_r::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar_r`] module"]
 #[doc(alias = "CALENDAR_R")]
 pub type CalendarR = crate::Reg<calendar_r::CalendarRSpec>;
 #[doc = "read time hour/minute/second"]
 pub mod calendar_r;
-#[doc = "CALENDAR_R_H (rw) register accessor: read time year/month/date\n\nYou can [`read`](crate::Reg::read) this register and get [`calendar_r_h::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`calendar_r_h::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar_r_h`] module"]
+#[doc = "CALENDAR_R_H (r) register accessor: read time year/month/date\n\nYou can [`read`](crate::Reg::read) this register and get [`calendar_r_h::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar_r_h`] module"]
 #[doc(alias = "CALENDAR_R_H")]
 pub type CalendarRH = crate::Reg<calendar_r_h::CalendarRHSpec>;
 #[doc = "read time year/month/date"]

@@ -1,0 +1,583 @@
+name: GPIOA
+description: Gpioa
+baseAddress: '0x4001F000'
+addressBlock:
+  offset: '0'
+  size: '0x44'
+  usage: registers
+interrupt:
+  name: GPIO
+  value: '22'
+registers:
+  register:
+    - name: OER
+      description: output enable register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: OEN
+            description: pin[15:0] output enable
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: OTYPER
+      description: output type register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: OTYPE
+            description: pin[15:0] output type control
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: IER
+      description: input enable register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: IE
+            description: pin[15:0] input enable
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: PER
+      description: pull enable register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: PE
+            description: pin[15:0] pull-up/pull-down enable
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: PSR
+      description: pull select register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: PS
+            description: pin[15:0] pull-up/pull-down selection
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: IDR
+      description: input data register
+      addressOffset: '0x14'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: ID
+            description: pin[15:0] input
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: ODR
+      description: output data register
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: OD
+            description: pin[15:0] output
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: BRR
+      description: bit reset register
+      addressOffset: '0x1C'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          - name: BR
+            description: pin[15:0] output data clear
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: BSR
+      description: bit set register
+      addressOffset: '0x20'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          - name: BSR
+            description: pin[15:0] output data set
+            bitOffset: '0'
+            bitWidth: '16'
+          - name: BR
+            description: pin[15:0] output data clear
+            bitOffset: '16'
+            bitWidth: '16'
+    - name: DSR
+      description: drive strength register
+      addressOffset: '0x24'
+      size: '32'
+      access: write-only
+      fields:
+        field:
+          - name: DS
+            description: pin[15:0] output drive strength
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: ICR
+      description: interrupt control register
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: POS_INT_EN0
+            description: pin0 rising edge interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: NEG_INT_EN0
+            description: pin0 falling edge interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: POS_INT_EN1
+            description: pin1 rising edge interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: NEG_INT_EN1
+            description: pin1 falling edge interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: POS_INT_EN2
+            description: pin2 rising edge interrupt enable
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: NEG_INT_EN2
+            description: pin2 falling edge interrupt enable
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: POS_INT_EN3
+            description: pin3 rising edge interrupt enable
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: NEG_INT_EN3
+            description: pin3 falling edge interrupt enable
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: POS_INT_EN4
+            description: pin4 rising edge interrupt enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: NEG_INT_EN4
+            description: pin4 falling edge interrupt enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: POS_INT_EN5
+            description: pin5 rising edge interrupt enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: NEG_INT_EN5
+            description: pin5 falling edge interrupt enable
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: POS_INT_EN6
+            description: pin6 rising edge interrupt enable
+            bitOffset: '12'
+            bitWidth: '1'
+          - name: NEG_INT_EN6
+            description: pin6 falling edge interrupt enable
+            bitOffset: '13'
+            bitWidth: '1'
+          - name: POS_INT_EN7
+            description: pin7 rising edge interrupt enable
+            bitOffset: '14'
+            bitWidth: '1'
+          - name: NEG_INT_EN7
+            description: pin7 falling edge interrupt enable
+            bitOffset: '15'
+            bitWidth: '1'
+          - name: POS_INT_EN8
+            description: pin8 rising edge interrupt enable
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: NEG_INT_EN8
+            description: pin8 falling edge interrupt enable
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: POS_INT_EN9
+            description: pin9 rising edge interrupt enable
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: NEG_INT_EN9
+            description: pin9 falling edge interrupt enable
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: POS_INT_EN10
+            description: pin10 rising edge interrupt enable
+            bitOffset: '20'
+            bitWidth: '1'
+          - name: NEG_INT_EN10
+            description: pin10 falling edge interrupt enable
+            bitOffset: '21'
+            bitWidth: '1'
+          - name: POS_INT_EN11
+            description: pin11 rising edge interrupt enable
+            bitOffset: '22'
+            bitWidth: '1'
+          - name: NEG_INT_EN11
+            description: pin11 falling edge interrupt enable
+            bitOffset: '23'
+            bitWidth: '1'
+          - name: POS_INT_EN12
+            description: pin12 rising edge interrupt enable
+            bitOffset: '24'
+            bitWidth: '1'
+          - name: NEG_INT_EN12
+            description: pin12 falling edge interrupt enable
+            bitOffset: '25'
+            bitWidth: '1'
+          - name: POS_INT_EN13
+            description: pin13 rising edge interrupt enable
+            bitOffset: '26'
+            bitWidth: '1'
+          - name: NEG_INT_EN13
+            description: pin13 falling edge interrupt enable
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: POS_INT_EN14
+            description: pin14 rising edge interrupt enable
+            bitOffset: '28'
+            bitWidth: '1'
+          - name: NEG_INT_EN14
+            description: pin14 falling edge interrupt enable
+            bitOffset: '29'
+            bitWidth: '1'
+          - name: POS_INT_EN15
+            description: pin15 rising edge interrupt enable
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: NEG_INT_EN15
+            description: pin15 falling edge interrupt enable
+            bitOffset: '31'
+            bitWidth: '1'
+    - name: IFR
+      description: interrupt flag register
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: POS_F0
+            description: pin0 rising edge interrupt flag
+            bitOffset: '0'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F0
+            description: pin0 falling edge interrupt flag
+            bitOffset: '1'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F1
+            description: pin1 rising edge interrupt flag
+            bitOffset: '2'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F1
+            description: pin1 falling edge interrupt flag
+            bitOffset: '3'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F2
+            description: pin2 rising edge interrupt flag
+            bitOffset: '4'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F2
+            description: pin2 falling edge interrupt flag
+            bitOffset: '5'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F3
+            description: pin3 rising edge interrupt flag
+            bitOffset: '6'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F3
+            description: pin3 falling edge interrupt flag
+            bitOffset: '7'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F4
+            description: pin4 rising edge interrupt flag
+            bitOffset: '8'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F4
+            description: pin4 falling edge interrupt flag
+            bitOffset: '9'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F5
+            description: pin5 rising edge interrupt flag
+            bitOffset: '10'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F5
+            description: pin5 falling edge interrupt flag
+            bitOffset: '11'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F6
+            description: pin6 rising edge interrupt flag
+            bitOffset: '12'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F6
+            description: pin6 falling edge interrupt flag
+            bitOffset: '13'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F7
+            description: pin7 rising edge interrupt flag
+            bitOffset: '14'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F7
+            description: pin7 falling edge interrupt flag
+            bitOffset: '15'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F8
+            description: pin8 rising edge interrupt flag
+            bitOffset: '16'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F8
+            description: pin8 falling edge interrupt flag
+            bitOffset: '17'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F9
+            description: pin9 rising edge interrupt flag
+            bitOffset: '18'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F9
+            description: pin9 falling edge interrupt flag
+            bitOffset: '19'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F10
+            description: pin10 rising edge interrupt flag
+            bitOffset: '20'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F10
+            description: pin10 falling edge interrupt flag
+            bitOffset: '21'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F11
+            description: pin11 rising edge interrupt flag
+            bitOffset: '22'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F11
+            description: pin11 falling edge interrupt flag
+            bitOffset: '23'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F12
+            description: pin12 rising edge interrupt flag
+            bitOffset: '24'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F12
+            description: pin12 falling edge interrupt flag
+            bitOffset: '25'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F13
+            description: pin13 rising edge interrupt flag
+            bitOffset: '26'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F13
+            description: pin13 falling edge interrupt flag
+            bitOffset: '27'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F14
+            description: pin14 rising edge interrupt flag
+            bitOffset: '28'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F14
+            description: pin14 falling edge interrupt flag
+            bitOffset: '29'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: POS_F15
+            description: pin15 rising edge interrupt flag
+            bitOffset: '30'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+          - name: NEG_F15
+            description: pin15 falling edge interrupt flag
+            bitOffset: '31'
+            bitWidth: '1'
+            modifiedWriteValues: oneToClear
+    - name: WUCR
+      description: wakeup control register
+      addressOffset: '0x30'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: WU_EN
+            description: pin[15:0] wakeup enable from sleep/stop0-2
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: WULVL
+      description: wakeup level register
+      addressOffset: '0x34'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: WU_LVL
+            description: pin[15:0] wakeup level from sleep/stop0-2
+            bitOffset: '0'
+            bitWidth: '16'
+    - name: AFRL
+      description: alternate function low register
+      addressOffset: '0x38'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: AF0
+            description: pin0 function selection
+            bitOffset: '0'
+            bitWidth: '4'
+          - name: AF1
+            description: pin1 function selection
+            bitOffset: '4'
+            bitWidth: '4'
+          - name: AF2
+            description: pin2 function selection
+            bitOffset: '8'
+            bitWidth: '4'
+          - name: AF3
+            description: pin3 function selection
+            bitOffset: '12'
+            bitWidth: '4'
+          - name: AF4
+            description: pin4 function selection
+            bitOffset: '16'
+            bitWidth: '4'
+          - name: AF5
+            description: pin5 function selection
+            bitOffset: '20'
+            bitWidth: '4'
+          - name: AF6
+            description: pin6 function selection
+            bitOffset: '24'
+            bitWidth: '4'
+          - name: AF7
+            description: pin7 function selection
+            bitOffset: '28'
+            bitWidth: '4'
+    - name: AFRH
+      description: alternate function high register
+      addressOffset: '0x3C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: AF8
+            description: pin8 function selection
+            bitOffset: '0'
+            bitWidth: '4'
+          - name: AF9
+            description: pin9 function selection
+            bitOffset: '4'
+            bitWidth: '4'
+          - name: AF10
+            description: pin10 function selection
+            bitOffset: '8'
+            bitWidth: '4'
+          - name: AF11
+            description: pin11 function selection
+            bitOffset: '12'
+            bitWidth: '4'
+          - name: AF12
+            description: pin12 function selection
+            bitOffset: '16'
+            bitWidth: '4'
+          - name: AF13
+            description: pin13 function selection
+            bitOffset: '20'
+            bitWidth: '4'
+          - name: AF14
+            description: pin14 function selection
+            bitOffset: '24'
+            bitWidth: '4'
+          - name: AF15
+            description: pin15 function selection
+            bitOffset: '28'
+            bitWidth: '4'
+    - name: STOP3_WUCR
+      description: stop3 wakeup control register
+      addressOffset: '0x40'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: STOP3_WU_SEL_G0
+            description: group0 stop3 wakeup source selection
+            bitOffset: '0'
+            bitWidth: '2'
+          - name: STOP3_WU_LVL_G0
+            description: group0 stop3 wakeup level selection
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: STOP3_WU_EN_G0
+            description: group0 stop3 wakeup enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: STOP3_WU_SEL_G1
+            description: group1 stop3 wakeup source selection
+            bitOffset: '4'
+            bitWidth: '2'
+          - name: STOP3_WU_LVL_G1
+            description: group1 stop3 wakeup level selection
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: STOP3_WU_EN_G1
+            description: group1 stop3 wakeup enable
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: STOP3_WU_SEL_G2
+            description: group2 stop3 wakeup source selection
+            bitOffset: '8'
+            bitWidth: '2'
+          - name: STOP3_WU_LVL_G2
+            description: group2 stop3 wakeup level selection
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: STOP3_WU_EN_G2
+            description: group2 stop3 wakeup enable
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: STOP3_WU_SEL_G3
+            description: group3 stop3 wakeup source selection
+            bitOffset: '12'
+            bitWidth: '2'
+          - name: STOP3_WU_LVL_G3
+            description: group3 stop3 wakeup level selection
+            bitOffset: '14'
+            bitWidth: '1'
+          - name: STOP3_WU_EN_G3
+            description: group3 stop3 wakeup enable
+            bitOffset: '15'
+            bitWidth: '1'
