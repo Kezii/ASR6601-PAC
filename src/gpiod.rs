@@ -9,7 +9,7 @@ pub struct RegisterBlock {
     idr: Idr,
     odr: Odr,
     brr: Brr,
-    bsr: Bsr,
+    bsrr: Bsrr,
     dsr: Dsr,
     icr: Icr,
     ifr: Ifr,
@@ -60,10 +60,10 @@ impl RegisterBlock {
     pub const fn brr(&self) -> &Brr {
         &self.brr
     }
-    #[doc = "0x20 - bit set register"]
+    #[doc = "0x20 - bit set-clear register"]
     #[inline(always)]
-    pub const fn bsr(&self) -> &Bsr {
-        &self.bsr
+    pub const fn bsrr(&self) -> &Bsrr {
+        &self.bsrr
     }
     #[doc = "0x24 - drive strength register"]
     #[inline(always)]
@@ -146,11 +146,11 @@ pub mod odr;
 pub type Brr = crate::Reg<brr::BrrSpec>;
 #[doc = "bit reset register"]
 pub mod brr;
-#[doc = "BSR (w) register accessor: bit set register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`bsr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@bsr`] module"]
-#[doc(alias = "BSR")]
-pub type Bsr = crate::Reg<bsr::BsrSpec>;
-#[doc = "bit set register"]
-pub mod bsr;
+#[doc = "BSRR (w) register accessor: bit set-clear register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`bsrr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@bsrr`] module"]
+#[doc(alias = "BSRR")]
+pub type Bsrr = crate::Reg<bsrr::BsrrSpec>;
+#[doc = "bit set-clear register"]
+pub mod bsrr;
 #[doc = "DSR (w) register accessor: drive strength register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dsr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dsr`] module"]
 #[doc(alias = "DSR")]
 pub type Dsr = crate::Reg<dsr::DsrSpec>;
