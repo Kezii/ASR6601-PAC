@@ -6,11 +6,8 @@ addressBlock:
   size: '0x1C'
   usage: registers
 interrupt:
-  - name: SEC
-    value: '0'
-  - name: SCC
-    description: SDK SCC interrupt vector; SDK does not publish an SCC MMIO base
-    value: '15'
+  name: SEC
+  value: '0'
 registers:
   register:
     - name: INT

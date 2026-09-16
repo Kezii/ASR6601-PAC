@@ -3,9 +3,100 @@ description: Quad SPI controller
 baseAddress: '0x40021000'
 addressBlock:
   offset: '0'
-  size: '0x0'
+  size: '0x94'
   usage: registers
 interrupt:
   name: QSPI
   value: '12'
-registers: ''
+registers:
+  register:
+    - name: QSPI_CR
+      description: control register
+      addressOffset: '0x0'
+      size: '32'
+      access: read-write
+    - name: QSPI_DCR
+      description: device configuration register
+      addressOffset: '0x4'
+      size: '32'
+      access: read-write
+    - name: QSPI_SR
+      description: status register
+      addressOffset: '0x8'
+      size: '32'
+      access: read-write
+    - name: QSPI_FCR
+      description: flag clear register
+      addressOffset: '0xC'
+      size: '32'
+      access: read-write
+    - name: QSPI_DLR
+      description: data length register
+      addressOffset: '0x10'
+      size: '32'
+      access: read-write
+    - name: QSPI_CCR
+      description: communication configuration register
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+    - name: QSPI_AR
+      description: address register
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+    - name: QSPI_ABR
+      description: alternate byte register
+      addressOffset: '0x1C'
+      size: '32'
+      access: read-write
+    - name: QSPI_DR
+      description: data register
+      addressOffset: '0x20'
+      size: '32'
+      access: read-write
+    - name: QSPI_PSMKR
+      description: polling status mask register
+      addressOffset: '0x24'
+      size: '32'
+      access: read-write
+    - name: QSPI_PSMAR
+      description: polling status match register
+      addressOffset: '0x28'
+      size: '32'
+      access: read-write
+    - name: QSPI_PIR
+      description: polling interval register
+      addressOffset: '0x2C'
+      size: '32'
+      access: read-write
+    - name: QSPI_TOR
+      description: timeout register
+      addressOffset: '0x30'
+      size: '32'
+      access: read-write
+    - name: QSPI_HIT0R
+      description: hit0 times accumulator register
+      addressOffset: '0x80'
+      size: '32'
+      access: read-write
+    - name: QSPI_HIT1R
+      description: hit1 times accumulator register
+      addressOffset: '0x84'
+      size: '32'
+      access: read-write
+    - name: QSPI_MIR
+      description: miss times accumulator register
+      addressOffset: '0x88'
+      size: '32'
+      access: read-write
+    - name: QSPI_CFGR
+      description: configuration register
+      addressOffset: '0x8C'
+      size: '32'
+      access: read-write
+    - name: SBUS_START
+      description: start register
+      addressOffset: '0x90'
+      size: '32'
+      access: read-write

@@ -13,7 +13,6 @@ PROVIDE(SSP1 = DefaultHandler);
 PROVIDE(QSPI = DefaultHandler);
 PROVIDE(I2C0 = DefaultHandler);
 PROVIDE(I2C1 = DefaultHandler);
-PROVIDE(SCC = DefaultHandler);
 PROVIDE(ADC = DefaultHandler);
 PROVIDE(AFEC = DefaultHandler);
 PROVIDE(SSP2 = DefaultHandler);

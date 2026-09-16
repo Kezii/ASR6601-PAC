@@ -26,7 +26,6 @@ extern "C" {
     fn QSPI();
     fn I2C0();
     fn I2C1();
-    fn SCC();
     fn ADC();
     fn AFEC();
     fn SSP2();
@@ -75,7 +74,7 @@ pub static __INTERRUPTS: [Vector; 37] = [
     Vector { _handler: QSPI },
     Vector { _handler: I2C0 },
     Vector { _handler: I2C1 },
-    Vector { _handler: SCC },
+    Vector { _reserved: 0 },
     Vector { _handler: ADC },
     Vector { _handler: AFEC },
     Vector { _handler: SSP2 },
@@ -132,8 +131,6 @@ pub enum Interrupt {
     I2C0 = 13,
     #[doc = "14 - I2C1"]
     I2C1 = 14,
-    #[doc = "15 - SDK SCC interrupt vector; SDK does not publish an SCC MMIO base"]
-    SCC = 15,
     #[doc = "16 - ADC"]
     ADC = 16,
     #[doc = "17 - AFEC"]
@@ -516,6 +513,15 @@ impl core::fmt::Debug for Efc {
 }
 #[doc = "Embedded flash controller"]
 pub mod efc;
+#[doc = "Quad SPI controller"]
+pub type Qspi = crate::Periph<qspi::RegisterBlock, 0x4002_1000>;
+impl core::fmt::Debug for Qspi {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        f.debug_struct("Qspi").finish()
+    }
+}
+#[doc = "Quad SPI controller"]
+pub mod qspi;
 #[doc = "CRC calculation unit"]
 pub type Crc = crate::Periph<crc::RegisterBlock, 0x4002_2000>;
 impl core::fmt::Debug for Crc {
@@ -640,6 +646,8 @@ pub struct Peripherals {
     pub gpiod: Gpiod,
     #[doc = "EFC"]
     pub efc: Efc,
+    #[doc = "QSPI"]
+    pub qspi: Qspi,
     #[doc = "CRC"]
     pub crc: Crc,
     #[doc = "DMA0"]
@@ -709,6 +717,7 @@ impl Peripherals {
             gpioc: Gpioc::steal(),
             gpiod: Gpiod::steal(),
             efc: Efc::steal(),
+            qspi: Qspi::steal(),
             crc: Crc::steal(),
             dma0: Dma0::steal(),
             dma1: Dma1::steal(),

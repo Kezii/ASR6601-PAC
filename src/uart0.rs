@@ -2,7 +2,7 @@
 #[doc = "Register block"]
 pub struct RegisterBlock {
     dr: Dr,
-    rsc_ecr: RscEcr,
+    rsr_ecr: RsrEcr,
     _reserved2: [u8; 0x10],
     fr: Fr,
     _reserved3: [u8; 0x04],
@@ -35,8 +35,8 @@ impl RegisterBlock {
     }
     #[doc = "0x04 - receive status register / error clear register"]
     #[inline(always)]
-    pub const fn rsc_ecr(&self) -> &RscEcr {
-        &self.rsc_ecr
+    pub const fn rsr_ecr(&self) -> &RsrEcr {
+        &self.rsr_ecr
     }
     #[doc = "0x18 - flag register"]
     #[inline(always)]
@@ -144,11 +144,11 @@ impl RegisterBlock {
 pub type Dr = crate::Reg<dr::DrSpec>;
 #[doc = "data register"]
 pub mod dr;
-#[doc = "RSC_ECR (r) register accessor: receive status register / error clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`rsc_ecr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rsc_ecr`] module"]
-#[doc(alias = "RSC_ECR")]
-pub type RscEcr = crate::Reg<rsc_ecr::RscEcrSpec>;
+#[doc = "RSR_ECR (rw) register accessor: receive status register / error clear register\n\nYou can [`read`](crate::Reg::read) this register and get [`rsr_ecr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rsr_ecr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@rsr_ecr`] module"]
+#[doc(alias = "RSR_ECR")]
+pub type RsrEcr = crate::Reg<rsr_ecr::RsrEcrSpec>;
 #[doc = "receive status register / error clear register"]
-pub mod rsc_ecr;
+pub mod rsr_ecr;
 #[doc = "FR (r) register accessor: flag register\n\nYou can [`read`](crate::Reg::read) this register and get [`fr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@fr`] module"]
 #[doc(alias = "FR")]
 pub type Fr = crate::Reg<fr::FrSpec>;
