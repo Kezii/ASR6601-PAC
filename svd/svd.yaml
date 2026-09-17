@@ -40,8 +40,8 @@ device:
     - gptim0.yaml
     - gptim2.yaml
     - bstim0.yaml
-    - lptimer0.yaml
-    - lptimer1.yaml
+    - lptim0.yaml
+    - lptim1.yaml
     - rtc.yaml
     - sec.yaml
     - uart2.yaml

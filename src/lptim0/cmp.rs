@@ -8,7 +8,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {}
-#[doc = "LPTIMER compare register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmp::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmp::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "LPTIM compare register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmp::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmp::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CmpSpec;
 impl crate::RegisterSpec for CmpSpec {
     type Ux = u32;

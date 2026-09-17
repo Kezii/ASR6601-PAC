@@ -26,12 +26,12 @@ PROVIDE(GPTIM2 = DefaultHandler);
 PROVIDE(GPTIM3 = DefaultHandler);
 PROVIDE(BSTIM0 = DefaultHandler);
 PROVIDE(BSTIM1 = DefaultHandler);
-PROVIDE(LPTIMER0 = DefaultHandler);
+PROVIDE(LPTIM0 = DefaultHandler);
 PROVIDE(SAC = DefaultHandler);
 PROVIDE(DMA0 = DefaultHandler);
 PROVIDE(I2S = DefaultHandler);
 PROVIDE(LCD = DefaultHandler);
 PROVIDE(PWR = DefaultHandler);
-PROVIDE(LPTIMER1 = DefaultHandler);
+PROVIDE(LPTIM1 = DefaultHandler);
 PROVIDE(IWDG = DefaultHandler);
 

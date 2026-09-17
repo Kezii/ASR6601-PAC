@@ -6,7 +6,7 @@ impl core::fmt::Debug for crate::generic::Reg<IcrSpec> {
     }
 }
 impl W {}
-#[doc = "LPTIMER flag clear register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "LPTIM flag clear register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct IcrSpec;
 impl crate::RegisterSpec for IcrSpec {
     type Ux = u32;

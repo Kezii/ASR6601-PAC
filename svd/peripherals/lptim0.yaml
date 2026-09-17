@@ -1,17 +1,17 @@
-name: LPTIMER0
-description: Lptimer0
+name: LPTIM0
+description: Lptim0
 baseAddress: '0x4000D000'
 addressBlock:
   offset: '0'
   size: '0x28'
   usage: registers
 interrupt:
-  name: LPTIMER0
+  name: LPTIM0
   value: '29'
 registers:
   register:
     - name: ISR
-      description: LPTIMER flag and status register
+      description: LPTIM flag and status register
       addressOffset: '0x0'
       size: '32'
       access: read-only
@@ -54,17 +54,17 @@ registers:
             bitOffset: '8'
             bitWidth: '1'
     - name: ICR
-      description: LPTIMER flag clear register
+      description: LPTIM flag clear register
       addressOffset: '0x4'
       size: '32'
       access: write-only
     - name: IER
-      description: LPTIMER interrupt enable register
+      description: LPTIM interrupt enable register
       addressOffset: '0x8'
       size: '32'
       access: read-write
     - name: CFGR
-      description: LPTIMER configuration register
+      description: LPTIM configuration register
       addressOffset: '0xC'
       size: '32'
       access: read-write
@@ -127,7 +127,7 @@ registers:
             bitOffset: '30'
             bitWidth: '1'
     - name: CR
-      description: LPTIMER control register
+      description: LPTIM control register
       addressOffset: '0x10'
       size: '32'
       access: read-write
@@ -138,22 +138,22 @@ registers:
           bitOffset: '0'
           bitWidth: '1'
     - name: CMP
-      description: LPTIMER compare register
+      description: LPTIM compare register
       addressOffset: '0x14'
       size: '32'
       access: read-write
     - name: ARR
-      description: LPTIMER autoreload register
+      description: LPTIM autoreload register
       addressOffset: '0x18'
       size: '32'
       access: read-write
     - name: CNT
-      description: LPTIMER counter register
+      description: LPTIM counter register
       addressOffset: '0x1C'
       size: '32'
       access: read-only
     - name: CSR
-      description: LPTIMER CSR register
+      description: LPTIM CSR register
       addressOffset: '0x20'
       size: '32'
       access: read-only
@@ -180,7 +180,7 @@ registers:
             bitOffset: '4'
             bitWidth: '1'
     - name: SR1
-      description: LPTIMER SR1 register
+      description: LPTIM SR1 register
       addressOffset: '0x24'
       size: '32'
       access: read-only

@@ -37,7 +37,7 @@ impl R {
         DownR::new(((self.bits >> 4) & 1) != 0)
     }
 }
-#[doc = "LPTIMER CSR register\n\nYou can [`read`](crate::Reg::read) this register and get [`csr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "LPTIM CSR register\n\nYou can [`read`](crate::Reg::read) this register and get [`csr::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CsrSpec;
 impl crate::RegisterSpec for CsrSpec {
     type Ux = u32;

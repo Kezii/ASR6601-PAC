@@ -1,7 +1,0 @@
-name: LPTIMER1
-description: LPTIMER1 instance
-baseAddress: '0x4000D800'
-interrupt:
-  name: LPTIMER1
-  value: '35'
-_derivedFrom: LPTIMER0

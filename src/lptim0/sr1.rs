@@ -5,7 +5,7 @@ impl core::fmt::Debug for R {
         write!(f, "{}", self.bits())
     }
 }
-#[doc = "LPTIMER SR1 register\n\nYou can [`read`](crate::Reg::read) this register and get [`sr1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "LPTIM SR1 register\n\nYou can [`read`](crate::Reg::read) this register and get [`sr1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Sr1Spec;
 impl crate::RegisterSpec for Sr1Spec {
     type Ux = u32;
