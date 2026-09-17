@@ -1,5 +1,5 @@
-#[doc = "Register `OPTION_WP_BYTES` reader"]
-pub type R = crate::R<OptionWpBytesSpec>;
+#[doc = "Register `OPTION_WR_PROTECT_BYTES` reader"]
+pub type R = crate::R<OptionWrProtectBytesSpec>;
 #[doc = "Field `WRPROTECT_START` reader - Write-protected area start offset"]
 pub type WrprotectStartR = crate::FieldReader;
 #[doc = "Field `WRPROTECT_END` reader - Write-protected area end offset"]
@@ -16,10 +16,10 @@ impl R {
         WrprotectEndR::new(((self.bits >> 6) & 0x3f) as u8)
     }
 }
-#[doc = "option write-protect bytes register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_wp_bytes::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct OptionWpBytesSpec;
-impl crate::RegisterSpec for OptionWpBytesSpec {
+#[doc = "option write-protect bytes register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_wr_protect_bytes::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct OptionWrProtectBytesSpec;
+impl crate::RegisterSpec for OptionWrProtectBytesSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`option_wp_bytes::R`](R) reader structure"]
-impl crate::Readable for OptionWpBytesSpec {}
+#[doc = "`read()` method returns [`option_wr_protect_bytes::R`](R) reader structure"]
+impl crate::Readable for OptionWrProtectBytesSpec {}

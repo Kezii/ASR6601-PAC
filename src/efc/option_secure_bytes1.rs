@@ -1,5 +1,5 @@
-#[doc = "Register `OPTION_SEC_BYTES1` reader"]
-pub type R = crate::R<OptionSecBytes1Spec>;
+#[doc = "Register `OPTION_SECURE_BYTES1` reader"]
+pub type R = crate::R<OptionSecureBytes1Spec>;
 #[doc = "Field `RETRAM_SECURE_START` reader - Retram secure area start"]
 pub type RetramSecureStartR = crate::FieldReader;
 #[doc = "Field `RETRAM_SECURE_END` reader - Retram secure area end"]
@@ -44,10 +44,10 @@ impl R {
         SysramHideEnableR::new(((self.bits >> 23) & 1) != 0)
     }
 }
-#[doc = "option secure byte 1 register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_sec_bytes1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct OptionSecBytes1Spec;
-impl crate::RegisterSpec for OptionSecBytes1Spec {
+#[doc = "option secure byte 1 register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_secure_bytes1::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct OptionSecureBytes1Spec;
+impl crate::RegisterSpec for OptionSecureBytes1Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`option_sec_bytes1::R`](R) reader structure"]
-impl crate::Readable for OptionSecBytes1Spec {}
+#[doc = "`read()` method returns [`option_secure_bytes1::R`](R) reader structure"]
+impl crate::Readable for OptionSecureBytes1Spec {}

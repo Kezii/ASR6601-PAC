@@ -1,5 +1,5 @@
-#[doc = "Register `OPTION_EO_BYTES` reader"]
-pub type R = crate::R<OptionEoBytesSpec>;
+#[doc = "Register `OPTION_EXE_ONLY_BYTES` reader"]
+pub type R = crate::R<OptionExeOnlyBytesSpec>;
 #[doc = "Field `EXE_ONLY1_START` reader - Exe only 1 area start offset"]
 pub type ExeOnly1StartR = crate::FieldReader;
 #[doc = "Field `EXE_ONLY1_END` reader - Exe only 1 area end offset"]
@@ -37,10 +37,10 @@ impl R {
         ExeOnlyKeepR::new(((self.bits >> 24) & 1) != 0)
     }
 }
-#[doc = "option exe-only bytes register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_eo_bytes::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct OptionEoBytesSpec;
-impl crate::RegisterSpec for OptionEoBytesSpec {
+#[doc = "option exe-only bytes register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_exe_only_bytes::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct OptionExeOnlyBytesSpec;
+impl crate::RegisterSpec for OptionExeOnlyBytesSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`option_eo_bytes::R`](R) reader structure"]
-impl crate::Readable for OptionEoBytesSpec {}
+#[doc = "`read()` method returns [`option_exe_only_bytes::R`](R) reader structure"]
+impl crate::Readable for OptionExeOnlyBytesSpec {}

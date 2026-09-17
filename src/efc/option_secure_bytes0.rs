@@ -1,5 +1,5 @@
-#[doc = "Register `OPTION_SEC_BYTES0` reader"]
-pub type R = crate::R<OptionSecBytes0Spec>;
+#[doc = "Register `OPTION_SECURE_BYTES0` reader"]
+pub type R = crate::R<OptionSecureBytes0Spec>;
 #[doc = "Field `FLASH_SECURE_START` reader - Flash secure area start"]
 pub type FlashSecureStartR = crate::FieldReader;
 #[doc = "Field `FLASH_SECURE_END` reader - Flash secure area end"]
@@ -30,10 +30,10 @@ impl R {
         SysramSecureEndR::new(((self.bits >> 18) & 0x3f) as u8)
     }
 }
-#[doc = "option secure byte 0 register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_sec_bytes0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct OptionSecBytes0Spec;
-impl crate::RegisterSpec for OptionSecBytes0Spec {
+#[doc = "option secure byte 0 register\n\nYou can [`read`](crate::Reg::read) this register and get [`option_secure_bytes0::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct OptionSecureBytes0Spec;
+impl crate::RegisterSpec for OptionSecureBytes0Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`option_sec_bytes0::R`](R) reader structure"]
-impl crate::Readable for OptionSecBytes0Spec {}
+#[doc = "`read()` method returns [`option_secure_bytes0::R`](R) reader structure"]
+impl crate::Readable for OptionSecureBytes0Spec {}

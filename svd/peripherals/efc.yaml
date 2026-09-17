@@ -148,7 +148,7 @@ registers:
             description: Two bit error
             bitOffset: '8'
             bitWidth: '1'
-    - name: PROGRAM_DATA0
+    - name: PROG_DATA0
       description: program data0 register
       addressOffset: '0xC'
       size: '32'
@@ -159,7 +159,7 @@ registers:
             description: Program data 0
             bitOffset: '0'
             bitWidth: '32'
-    - name: PROGRAM_DATA1
+    - name: PROG_DATA1
       description: program data1 register
       addressOffset: '0x10'
       size: '32'
@@ -192,7 +192,40 @@ registers:
             description: Protection sequence
             bitOffset: '0'
             bitWidth: '32'
-    - name: SN_L
+    - name: CHIP_PATTERN
+      description: chip pattern register
+      addressOffset: '0x20'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: PATTERN
+            description: Chip pattern
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: IP_TRIM_L
+      description: analog ip trimming low register
+      addressOffset: '0x24'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: TRIM
+            description: Analog ip trimming low value
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: IP_TRIM_H
+      description: analog ip trimming high register
+      addressOffset: '0x28'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: TRIM
+            description: Analog ip trimming high value
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: SERIAL_NUM_LOW
       description: serial number low register
       addressOffset: '0x2C'
       size: '32'
@@ -203,7 +236,7 @@ registers:
             description: Less significant 32 bits of the chip serial number
             bitOffset: '0'
             bitWidth: '32'
-    - name: SN_H
+    - name: SERIAL_NUM_HIGH
       description: serial number high register
       addressOffset: '0x30'
       size: '32'
@@ -212,6 +245,28 @@ registers:
         field:
           - name: SERIAL_NUM_HIGH
             description: More significant 32 bits of the chip serial number
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: TEST_INFO_L
+      description: test info low register
+      addressOffset: '0x34'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: INFO
+            description: Test info low value
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: TEST_INFO_H
+      description: test info high register
+      addressOffset: '0x38'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: INFO
+            description: Test info high value
             bitOffset: '0'
             bitWidth: '32'
     - name: OPTION_CSR_BYTES
@@ -256,7 +311,7 @@ registers:
                 - name: LEVEL_2
                   description: Level 2
                   value: '0x2'
-    - name: OPTION_EO_BYTES
+    - name: OPTION_EXE_ONLY_BYTES
       description: option exe-only bytes register
       addressOffset: '0x40'
       size: '32'
@@ -283,7 +338,7 @@ registers:
             description: Keep exe only area when debug level changes
             bitOffset: '24'
             bitWidth: '1'
-    - name: OPTION_WP_BYTES
+    - name: OPTION_WR_PROTECT_BYTES
       description: option write-protect bytes register
       addressOffset: '0x44'
       size: '32'
@@ -298,7 +353,7 @@ registers:
             description: Write-protected area end offset
             bitOffset: '6'
             bitWidth: '6'
-    - name: OPTION_SEC_BYTES0
+    - name: OPTION_SECURE_BYTES0
       description: option secure byte 0 register
       addressOffset: '0x48'
       size: '32'
@@ -321,7 +376,7 @@ registers:
             description: Sysram secure area end
             bitOffset: '18'
             bitWidth: '6'
-    - name: OPTION_SEC_BYTES1
+    - name: OPTION_SECURE_BYTES1
       description: option secure byte 1 register
       addressOffset: '0x4C'
       size: '32'
