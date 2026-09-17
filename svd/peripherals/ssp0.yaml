@@ -253,7 +253,7 @@ registers:
             description: receive timeout interrupt clear
             bitOffset: '1'
             bitWidth: '1'
-    - name: DMA_CR
+    - name: DMACR
       description: DMA control register
       addressOffset: '0x24'
       size: '32'

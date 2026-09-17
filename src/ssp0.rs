@@ -10,7 +10,7 @@ pub struct RegisterBlock {
     ris: Ris,
     mis: Mis,
     icr: Icr,
-    dma_cr: DmaCr,
+    dmacr: Dmacr,
     _reserved10: [u8; 0x0fb8],
     periph_id0: PeriphId0,
     periph_id1: PeriphId1,
@@ -69,8 +69,8 @@ impl RegisterBlock {
     }
     #[doc = "0x24 - DMA control register"]
     #[inline(always)]
-    pub const fn dma_cr(&self) -> &DmaCr {
-        &self.dma_cr
+    pub const fn dmacr(&self) -> &Dmacr {
+        &self.dmacr
     }
     #[doc = "0xfe0 - peripheral identification register 0"]
     #[inline(always)]
@@ -158,11 +158,11 @@ pub mod mis;
 pub type Icr = crate::Reg<icr::IcrSpec>;
 #[doc = "interrupt clear register"]
 pub mod icr;
-#[doc = "DMA_CR (rw) register accessor: DMA control register\n\nYou can [`read`](crate::Reg::read) this register and get [`dma_cr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dma_cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dma_cr`] module"]
-#[doc(alias = "DMA_CR")]
-pub type DmaCr = crate::Reg<dma_cr::DmaCrSpec>;
+#[doc = "DMACR (rw) register accessor: DMA control register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmacr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmacr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmacr`] module"]
+#[doc(alias = "DMACR")]
+pub type Dmacr = crate::Reg<dmacr::DmacrSpec>;
 #[doc = "DMA control register"]
-pub mod dma_cr;
+pub mod dmacr;
 #[doc = "PERIPH_ID0 (r) register accessor: peripheral identification register 0\n\nYou can [`read`](crate::Reg::read) this register and get [`periph_id0::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@periph_id0`] module"]
 #[doc(alias = "PERIPH_ID0")]
 pub type PeriphId0 = crate::Reg<periph_id0::PeriphId0Spec>;
