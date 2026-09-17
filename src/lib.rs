@@ -262,7 +262,7 @@ impl core::fmt::Debug for I2c0 {
 #[doc = "I2c0"]
 pub mod i2c0;
 #[doc = "Analog front-end controller digital registers"]
-pub type Afec = crate::Periph<afec::RegisterBlock, 0x4000_8200>;
+pub type Afec = crate::Periph<afec::RegisterBlock, 0x4000_8000>;
 impl core::fmt::Debug for Afec {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("Afec").finish()
