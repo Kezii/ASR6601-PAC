@@ -8,7 +8,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {}
-#[doc = "control register 4\n\nYou can [`read`](crate::Reg::read) this register and get [`cr3::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "control register 3\n\nYou can [`read`](crate::Reg::read) this register and get [`cr3::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Cr3Spec;
 impl crate::RegisterSpec for Cr3Spec {
     type Ux = u32;
