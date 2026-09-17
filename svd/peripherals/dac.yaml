@@ -31,11 +31,11 @@ registers:
             bitWidth: '3'
             enumeratedValues:
               enumeratedValue:
-                - name: BSTIMER0_TRGO
-                  description: Bstimer0 trgo
+                - name: BSTIM0_TRGO
+                  description: Bstim0 trgo
                   value: '0x3'
-                - name: BSTIMER1_TRGO
-                  description: Bstimer1 trgo
+                - name: BSTIM1_TRGO
+                  description: Bstim1 trgo
                   value: '0x2'
                 - name: GPIO24
                   description: Gpio24
@@ -46,11 +46,11 @@ registers:
                 - name: GPIO6
                   description: Gpio6
                   value: '0x4'
-                - name: GPTIMER0_TRGO
-                  description: Gptimer0 trgo
+                - name: GPTIM0_TRGO
+                  description: Gptim0 trgo
                   value: '0x1'
-                - name: GPTIMER1_TRGO
-                  description: Gptimer1 trgo
+                - name: GPTIM1_TRGO
+                  description: Gptim1 trgo
                   value: '0x0'
                 - name: SOFTWARE
                   description: Software

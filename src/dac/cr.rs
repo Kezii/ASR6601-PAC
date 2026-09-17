@@ -14,20 +14,20 @@ pub type TrigEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
 pub enum TrigSrcSel {
-    #[doc = "3: Bstimer0 trgo"]
-    Bstimer0Trgo = 3,
-    #[doc = "2: Bstimer1 trgo"]
-    Bstimer1Trgo = 2,
+    #[doc = "3: Bstim0 trgo"]
+    Bstim0Trgo = 3,
+    #[doc = "2: Bstim1 trgo"]
+    Bstim1Trgo = 2,
     #[doc = "5: Gpio24"]
     Gpio24 = 5,
     #[doc = "6: Gpio43"]
     Gpio43 = 6,
     #[doc = "4: Gpio6"]
     Gpio6 = 4,
-    #[doc = "1: Gptimer0 trgo"]
-    Gptimer0Trgo = 1,
-    #[doc = "0: Gptimer1 trgo"]
-    Gptimer1Trgo = 0,
+    #[doc = "1: Gptim0 trgo"]
+    Gptim0Trgo = 1,
+    #[doc = "0: Gptim1 trgo"]
+    Gptim1Trgo = 0,
     #[doc = "7: Software"]
     Software = 7,
 }
@@ -48,26 +48,26 @@ impl TrigSrcSelR {
     #[inline(always)]
     pub const fn variant(&self) -> TrigSrcSel {
         match self.bits {
-            3 => TrigSrcSel::Bstimer0Trgo,
-            2 => TrigSrcSel::Bstimer1Trgo,
+            3 => TrigSrcSel::Bstim0Trgo,
+            2 => TrigSrcSel::Bstim1Trgo,
             5 => TrigSrcSel::Gpio24,
             6 => TrigSrcSel::Gpio43,
             4 => TrigSrcSel::Gpio6,
-            1 => TrigSrcSel::Gptimer0Trgo,
-            0 => TrigSrcSel::Gptimer1Trgo,
+            1 => TrigSrcSel::Gptim0Trgo,
+            0 => TrigSrcSel::Gptim1Trgo,
             7 => TrigSrcSel::Software,
             _ => unreachable!(),
         }
     }
-    #[doc = "Bstimer0 trgo"]
+    #[doc = "Bstim0 trgo"]
     #[inline(always)]
-    pub fn is_bstimer0_trgo(&self) -> bool {
-        *self == TrigSrcSel::Bstimer0Trgo
+    pub fn is_bstim0_trgo(&self) -> bool {
+        *self == TrigSrcSel::Bstim0Trgo
     }
-    #[doc = "Bstimer1 trgo"]
+    #[doc = "Bstim1 trgo"]
     #[inline(always)]
-    pub fn is_bstimer1_trgo(&self) -> bool {
-        *self == TrigSrcSel::Bstimer1Trgo
+    pub fn is_bstim1_trgo(&self) -> bool {
+        *self == TrigSrcSel::Bstim1Trgo
     }
     #[doc = "Gpio24"]
     #[inline(always)]
@@ -84,15 +84,15 @@ impl TrigSrcSelR {
     pub fn is_gpio6(&self) -> bool {
         *self == TrigSrcSel::Gpio6
     }
-    #[doc = "Gptimer0 trgo"]
+    #[doc = "Gptim0 trgo"]
     #[inline(always)]
-    pub fn is_gptimer0_trgo(&self) -> bool {
-        *self == TrigSrcSel::Gptimer0Trgo
+    pub fn is_gptim0_trgo(&self) -> bool {
+        *self == TrigSrcSel::Gptim0Trgo
     }
-    #[doc = "Gptimer1 trgo"]
+    #[doc = "Gptim1 trgo"]
     #[inline(always)]
-    pub fn is_gptimer1_trgo(&self) -> bool {
-        *self == TrigSrcSel::Gptimer1Trgo
+    pub fn is_gptim1_trgo(&self) -> bool {
+        *self == TrigSrcSel::Gptim1Trgo
     }
     #[doc = "Software"]
     #[inline(always)]
@@ -107,15 +107,15 @@ where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
 {
-    #[doc = "Bstimer0 trgo"]
+    #[doc = "Bstim0 trgo"]
     #[inline(always)]
-    pub fn bstimer0_trgo(self) -> &'a mut crate::W<REG> {
-        self.variant(TrigSrcSel::Bstimer0Trgo)
+    pub fn bstim0_trgo(self) -> &'a mut crate::W<REG> {
+        self.variant(TrigSrcSel::Bstim0Trgo)
     }
-    #[doc = "Bstimer1 trgo"]
+    #[doc = "Bstim1 trgo"]
     #[inline(always)]
-    pub fn bstimer1_trgo(self) -> &'a mut crate::W<REG> {
-        self.variant(TrigSrcSel::Bstimer1Trgo)
+    pub fn bstim1_trgo(self) -> &'a mut crate::W<REG> {
+        self.variant(TrigSrcSel::Bstim1Trgo)
     }
     #[doc = "Gpio24"]
     #[inline(always)]
@@ -132,15 +132,15 @@ where
     pub fn gpio6(self) -> &'a mut crate::W<REG> {
         self.variant(TrigSrcSel::Gpio6)
     }
-    #[doc = "Gptimer0 trgo"]
+    #[doc = "Gptim0 trgo"]
     #[inline(always)]
-    pub fn gptimer0_trgo(self) -> &'a mut crate::W<REG> {
-        self.variant(TrigSrcSel::Gptimer0Trgo)
+    pub fn gptim0_trgo(self) -> &'a mut crate::W<REG> {
+        self.variant(TrigSrcSel::Gptim0Trgo)
     }
-    #[doc = "Gptimer1 trgo"]
+    #[doc = "Gptim1 trgo"]
     #[inline(always)]
-    pub fn gptimer1_trgo(self) -> &'a mut crate::W<REG> {
-        self.variant(TrigSrcSel::Gptimer1Trgo)
+    pub fn gptim1_trgo(self) -> &'a mut crate::W<REG> {
+        self.variant(TrigSrcSel::Gptim1Trgo)
     }
     #[doc = "Software"]
     #[inline(always)]
