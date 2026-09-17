@@ -1,12 +1,12 @@
-name: BSTIMER0
-description: Bstimer0
+name: BSTIM0
+description: Bstim0
 baseAddress: '0x4000C000'
 addressBlock:
   offset: '0'
   size: '0x30'
   usage: registers
 interrupt:
-  name: BSTIMER0
+  name: BSTIM0
   value: '27'
 registers:
   register:

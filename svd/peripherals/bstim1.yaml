@@ -1,0 +1,7 @@
+name: BSTIM1
+description: BSTIM1 instance
+baseAddress: '0x4001C000'
+interrupt:
+  name: BSTIM1
+  value: '28'
+_derivedFrom: BSTIM0

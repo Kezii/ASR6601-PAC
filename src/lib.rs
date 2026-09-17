@@ -37,8 +37,8 @@ extern "C" {
     fn GPTIM1();
     fn GPTIM2();
     fn GPTIM3();
-    fn BSTIMER0();
-    fn BSTIMER1();
+    fn BSTIM0();
+    fn BSTIM1();
     fn LPTIMER0();
     fn SAC();
     fn DMA0();
@@ -86,8 +86,8 @@ pub static __INTERRUPTS: [Vector; 37] = [
     Vector { _handler: GPTIM1 },
     Vector { _handler: GPTIM2 },
     Vector { _handler: GPTIM3 },
-    Vector { _handler: BSTIMER0 },
-    Vector { _handler: BSTIMER1 },
+    Vector { _handler: BSTIM0 },
+    Vector { _handler: BSTIM1 },
     Vector { _handler: LPTIMER0 },
     Vector { _handler: SAC },
     Vector { _handler: DMA0 },
@@ -153,10 +153,10 @@ pub enum Interrupt {
     GPTIM2 = 25,
     #[doc = "26 - GPTIM3"]
     GPTIM3 = 26,
-    #[doc = "27 - BSTIMER0"]
-    BSTIMER0 = 27,
-    #[doc = "28 - BSTIMER1"]
-    BSTIMER1 = 28,
+    #[doc = "27 - BSTIM0"]
+    BSTIM0 = 27,
+    #[doc = "28 - BSTIM1"]
+    BSTIM1 = 28,
     #[doc = "29 - LPTIMER0"]
     LPTIMER0 = 29,
     #[doc = "30 - SDK SAC interrupt vector; SDK does not state MMIO ownership"]
@@ -297,15 +297,15 @@ impl core::fmt::Debug for Gptim2 {
 }
 #[doc = "GPTIM2 instance"]
 pub use self::gptim0 as gptim2;
-#[doc = "Bstimer0"]
-pub type Bstimer0 = crate::Periph<bstimer0::RegisterBlock, 0x4000_c000>;
-impl core::fmt::Debug for Bstimer0 {
+#[doc = "Bstim0"]
+pub type Bstim0 = crate::Periph<bstim0::RegisterBlock, 0x4000_c000>;
+impl core::fmt::Debug for Bstim0 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Bstimer0").finish()
+        f.debug_struct("Bstim0").finish()
     }
 }
-#[doc = "Bstimer0"]
-pub mod bstimer0;
+#[doc = "Bstim0"]
+pub mod bstim0;
 #[doc = "Lptimer0"]
 pub type Lptimer0 = crate::Periph<lptimer0::RegisterBlock, 0x4000_d000>;
 impl core::fmt::Debug for Lptimer0 {
@@ -441,15 +441,15 @@ impl core::fmt::Debug for Gptim3 {
 }
 #[doc = "GPTIM3 instance"]
 pub use self::gptim0 as gptim3;
-#[doc = "BSTIMER1 instance"]
-pub type Bstimer1 = crate::Periph<bstimer0::RegisterBlock, 0x4001_c000>;
-impl core::fmt::Debug for Bstimer1 {
+#[doc = "BSTIM1 instance"]
+pub type Bstim1 = crate::Periph<bstim0::RegisterBlock, 0x4001_c000>;
+impl core::fmt::Debug for Bstim1 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Bstimer1").finish()
+        f.debug_struct("Bstim1").finish()
     }
 }
-#[doc = "BSTIMER1 instance"]
-pub use self::bstimer0 as bstimer1;
+#[doc = "BSTIM1 instance"]
+pub use self::bstim0 as bstim1;
 #[doc = "Independent watchdog"]
 pub type Iwdg = crate::Periph<iwdg::RegisterBlock, 0x4001_d000>;
 impl core::fmt::Debug for Iwdg {
@@ -598,8 +598,8 @@ pub struct Peripherals {
     pub gptim0: Gptim0,
     #[doc = "GPTIM2"]
     pub gptim2: Gptim2,
-    #[doc = "BSTIMER0"]
-    pub bstimer0: Bstimer0,
+    #[doc = "BSTIM0"]
+    pub bstim0: Bstim0,
     #[doc = "LPTIMER0"]
     pub lptimer0: Lptimer0,
     #[doc = "LPTIMER1"]
@@ -630,8 +630,8 @@ pub struct Peripherals {
     pub gptim1: Gptim1,
     #[doc = "GPTIM3"]
     pub gptim3: Gptim3,
-    #[doc = "BSTIMER1"]
-    pub bstimer1: Bstimer1,
+    #[doc = "BSTIM1"]
+    pub bstim1: Bstim1,
     #[doc = "IWDG"]
     pub iwdg: Iwdg,
     #[doc = "WDG"]
@@ -693,7 +693,7 @@ impl Peripherals {
             lorac: Lorac::steal(),
             gptim0: Gptim0::steal(),
             gptim2: Gptim2::steal(),
-            bstimer0: Bstimer0::steal(),
+            bstim0: Bstim0::steal(),
             lptimer0: Lptimer0::steal(),
             lptimer1: Lptimer1::steal(),
             rtc: Rtc::steal(),
@@ -709,7 +709,7 @@ impl Peripherals {
             dac: Dac::steal(),
             gptim1: Gptim1::steal(),
             gptim3: Gptim3::steal(),
-            bstimer1: Bstimer1::steal(),
+            bstim1: Bstim1::steal(),
             iwdg: Iwdg::steal(),
             wdg: Wdg::steal(),
             gpioa: Gpioa::steal(),

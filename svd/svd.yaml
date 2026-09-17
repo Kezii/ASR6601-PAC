@@ -39,7 +39,7 @@ device:
     - lorac.yaml
     - gptim0.yaml
     - gptim2.yaml
-    - bstimer0.yaml
+    - bstim0.yaml
     - lptimer0.yaml
     - lptimer1.yaml
     - rtc.yaml
@@ -55,7 +55,7 @@ device:
     - dac.yaml
     - gptim1.yaml
     - gptim3.yaml
-    - bstimer1.yaml
+    - bstim1.yaml
     - iwdg.yaml
     - wdg.yaml
     - gpioa.yaml
