@@ -1,4 +1,4 @@
-name: SAE
+name: SAC
 description: Security algorithm engine
 baseAddress: '0x40032000'
 addressBlock:

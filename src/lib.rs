@@ -550,14 +550,14 @@ impl core::fmt::Debug for Dmac1 {
 #[doc = "DMAC1 instance"]
 pub use self::dmac0 as dmac1;
 #[doc = "Security algorithm engine"]
-pub type Sae = crate::Periph<sae::RegisterBlock, 0x4003_2000>;
-impl core::fmt::Debug for Sae {
+pub type Sac = crate::Periph<sac::RegisterBlock, 0x4003_2000>;
+impl core::fmt::Debug for Sac {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Sae").finish()
+        f.debug_struct("Sac").finish()
     }
 }
 #[doc = "Security algorithm engine"]
-pub mod sae;
+pub mod sac;
 #[doc = "Hardware random-number generator"]
 pub type Rng = crate::Periph<rng::RegisterBlock, 0x4003_3000>;
 impl core::fmt::Debug for Rng {
@@ -654,8 +654,8 @@ pub struct Peripherals {
     pub dmac0: Dmac0,
     #[doc = "DMAC1"]
     pub dmac1: Dmac1,
-    #[doc = "SAE"]
-    pub sae: Sae,
+    #[doc = "SAC"]
+    pub sac: Sac,
     #[doc = "RNG"]
     pub rng: Rng,
 }
@@ -721,7 +721,7 @@ impl Peripherals {
             crc: Crc::steal(),
             dmac0: Dmac0::steal(),
             dmac1: Dmac1::steal(),
-            sae: Sae::steal(),
+            sac: Sac::steal(),
             rng: Rng::steal(),
         }
     }

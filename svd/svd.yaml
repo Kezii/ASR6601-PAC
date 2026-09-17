@@ -67,7 +67,7 @@ device:
     - crc.yaml
     - dmac0.yaml
     - dmac1.yaml
-    - sae.yaml
+    - sac.yaml
     - rng.yaml
     - crypto_aram_mix.yaml
     - crypto_aram_along.yaml
