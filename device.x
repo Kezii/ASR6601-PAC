@@ -10,7 +10,6 @@ PROVIDE(UART2 = DefaultHandler);
 PROVIDE(LPUART = DefaultHandler);
 PROVIDE(SSP0 = DefaultHandler);
 PROVIDE(SSP1 = DefaultHandler);
-PROVIDE(QSPI = DefaultHandler);
 PROVIDE(I2C0 = DefaultHandler);
 PROVIDE(I2C1 = DefaultHandler);
 PROVIDE(ADC = DefaultHandler);

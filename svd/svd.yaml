@@ -63,7 +63,6 @@ device:
     - gpioc.yaml
     - gpiod.yaml
     - efc.yaml
-    - qspi.yaml
     - crc.yaml
     - dmac0.yaml
     - dmac1.yaml
