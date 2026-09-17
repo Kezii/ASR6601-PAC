@@ -1,7 +1,7 @@
-#[doc = "Register `CTRL` reader"]
-pub type R = crate::R<CtrlSpec>;
-#[doc = "Register `CTRL` writer"]
-pub type W = crate::W<CtrlSpec>;
+#[doc = "Register `CR` reader"]
+pub type R = crate::R<CrSpec>;
+#[doc = "Register `CR` writer"]
+pub type W = crate::W<CrSpec>;
 #[doc = "Field `WAKEUP2_FILTER_CFG` reader - Wakeup2 filter cfg"]
 pub type Wakeup2FilterCfgR = crate::FieldReader;
 #[doc = "Field `WAKEUP2_FILTER_CFG` writer - Wakeup2 filter cfg"]
@@ -232,138 +232,138 @@ impl R {
 impl W {
     #[doc = "Bits 0:1 - Wakeup2 filter cfg"]
     #[inline(always)]
-    pub fn wakeup2_filter_cfg(&mut self) -> Wakeup2FilterCfgW<'_, CtrlSpec> {
+    pub fn wakeup2_filter_cfg(&mut self) -> Wakeup2FilterCfgW<'_, CrSpec> {
         Wakeup2FilterCfgW::new(self, 0)
     }
     #[doc = "Bit 2 - Wakeup2 sr wakeup enable"]
     #[inline(always)]
-    pub fn wakeup2_wken1(&mut self) -> Wakeup2Wken1W<'_, CtrlSpec> {
+    pub fn wakeup2_wken1(&mut self) -> Wakeup2Wken1W<'_, CrSpec> {
         Wakeup2Wken1W::new(self, 2)
     }
     #[doc = "Bit 3 - Wakeup2 level wakeup enable"]
     #[inline(always)]
-    pub fn wakeup2_wken0(&mut self) -> Wakeup2Wken0W<'_, CtrlSpec> {
+    pub fn wakeup2_wken0(&mut self) -> Wakeup2Wken0W<'_, CrSpec> {
         Wakeup2Wken0W::new(self, 3)
     }
     #[doc = "Bit 4 - Wakeup2 active level selection"]
     #[inline(always)]
-    pub fn wakeup2_level_sel(&mut self) -> Wakeup2LevelSelW<'_, CtrlSpec> {
+    pub fn wakeup2_level_sel(&mut self) -> Wakeup2LevelSelW<'_, CrSpec> {
         Wakeup2LevelSelW::new(self, 4)
     }
     #[doc = "Bit 5 - Wakeup2 enable"]
     #[inline(always)]
-    pub fn wakeup2_en(&mut self) -> Wakeup2EnW<'_, CtrlSpec> {
+    pub fn wakeup2_en(&mut self) -> Wakeup2EnW<'_, CrSpec> {
         Wakeup2EnW::new(self, 5)
     }
     #[doc = "Bits 6:7 - Wakeup1 filter cfg"]
     #[inline(always)]
-    pub fn wakeup1_filter_cfg(&mut self) -> Wakeup1FilterCfgW<'_, CtrlSpec> {
+    pub fn wakeup1_filter_cfg(&mut self) -> Wakeup1FilterCfgW<'_, CrSpec> {
         Wakeup1FilterCfgW::new(self, 6)
     }
     #[doc = "Bit 8 - Wakeup1 sr wakeup enable"]
     #[inline(always)]
-    pub fn wakeup1_wken1(&mut self) -> Wakeup1Wken1W<'_, CtrlSpec> {
+    pub fn wakeup1_wken1(&mut self) -> Wakeup1Wken1W<'_, CrSpec> {
         Wakeup1Wken1W::new(self, 8)
     }
     #[doc = "Bit 9 - Wakeup1 level wakeup enable"]
     #[inline(always)]
-    pub fn wakeup1_wken0(&mut self) -> Wakeup1Wken0W<'_, CtrlSpec> {
+    pub fn wakeup1_wken0(&mut self) -> Wakeup1Wken0W<'_, CrSpec> {
         Wakeup1Wken0W::new(self, 9)
     }
     #[doc = "Bit 10 - Wakeup1 active level selection"]
     #[inline(always)]
-    pub fn wakeup1_level_sel(&mut self) -> Wakeup1LevelSelW<'_, CtrlSpec> {
+    pub fn wakeup1_level_sel(&mut self) -> Wakeup1LevelSelW<'_, CrSpec> {
         Wakeup1LevelSelW::new(self, 10)
     }
     #[doc = "Bit 11 - Wakeup1 enable"]
     #[inline(always)]
-    pub fn wakeup1_en(&mut self) -> Wakeup1EnW<'_, CtrlSpec> {
+    pub fn wakeup1_en(&mut self) -> Wakeup1EnW<'_, CrSpec> {
         Wakeup1EnW::new(self, 11)
     }
     #[doc = "Bits 12:13 - Wakeup0 filter cfg"]
     #[inline(always)]
-    pub fn wakeup0_filter_cfg(&mut self) -> Wakeup0FilterCfgW<'_, CtrlSpec> {
+    pub fn wakeup0_filter_cfg(&mut self) -> Wakeup0FilterCfgW<'_, CrSpec> {
         Wakeup0FilterCfgW::new(self, 12)
     }
     #[doc = "Bit 14 - Wakeup0 sr wakeup enable"]
     #[inline(always)]
-    pub fn wakeup0_wken1(&mut self) -> Wakeup0Wken1W<'_, CtrlSpec> {
+    pub fn wakeup0_wken1(&mut self) -> Wakeup0Wken1W<'_, CrSpec> {
         Wakeup0Wken1W::new(self, 14)
     }
     #[doc = "Bit 15 - Wakeup0 level wakeup enable"]
     #[inline(always)]
-    pub fn wakeup0_wken0(&mut self) -> Wakeup0Wken0W<'_, CtrlSpec> {
+    pub fn wakeup0_wken0(&mut self) -> Wakeup0Wken0W<'_, CrSpec> {
         Wakeup0Wken0W::new(self, 15)
     }
     #[doc = "Bit 16 - Wakeup0 active level selection"]
     #[inline(always)]
-    pub fn wakeup0_level_sel(&mut self) -> Wakeup0LevelSelW<'_, CtrlSpec> {
+    pub fn wakeup0_level_sel(&mut self) -> Wakeup0LevelSelW<'_, CrSpec> {
         Wakeup0LevelSelW::new(self, 16)
     }
     #[doc = "Bit 17 - Wakeup0 enable"]
     #[inline(always)]
-    pub fn wakeup0_en(&mut self) -> Wakeup0EnW<'_, CtrlSpec> {
+    pub fn wakeup0_en(&mut self) -> Wakeup0EnW<'_, CrSpec> {
         Wakeup0EnW::new(self, 17)
     }
     #[doc = "Bits 18:19 - Tamper filter cfg"]
     #[inline(always)]
-    pub fn tamper_filter_cfg(&mut self) -> TamperFilterCfgW<'_, CtrlSpec> {
+    pub fn tamper_filter_cfg(&mut self) -> TamperFilterCfgW<'_, CrSpec> {
         TamperFilterCfgW::new(self, 18)
     }
     #[doc = "Bit 20 - Tamper sr wakeup enable"]
     #[inline(always)]
-    pub fn tamper_wken1(&mut self) -> TamperWken1W<'_, CtrlSpec> {
+    pub fn tamper_wken1(&mut self) -> TamperWken1W<'_, CrSpec> {
         TamperWken1W::new(self, 20)
     }
     #[doc = "Bit 21 - Tamper level wakeup enable"]
     #[inline(always)]
-    pub fn tamper_wken0(&mut self) -> TamperWken0W<'_, CtrlSpec> {
+    pub fn tamper_wken0(&mut self) -> TamperWken0W<'_, CrSpec> {
         TamperWken0W::new(self, 21)
     }
     #[doc = "Bit 22 - Tamper active level selection"]
     #[inline(always)]
-    pub fn tamper_level_sel(&mut self) -> TamperLevelSelW<'_, CtrlSpec> {
+    pub fn tamper_level_sel(&mut self) -> TamperLevelSelW<'_, CrSpec> {
         TamperLevelSelW::new(self, 22)
     }
     #[doc = "Bit 23 - Tamper enable"]
     #[inline(always)]
-    pub fn tamper_en(&mut self) -> TamperEnW<'_, CtrlSpec> {
+    pub fn tamper_en(&mut self) -> TamperEnW<'_, CrSpec> {
         TamperEnW::new(self, 23)
     }
     #[doc = "Bit 24 - Periodic counter enable"]
     #[inline(always)]
-    pub fn cyc_start_counter(&mut self) -> CycStartCounterW<'_, CtrlSpec> {
+    pub fn cyc_start_counter(&mut self) -> CycStartCounterW<'_, CrSpec> {
         CycStartCounterW::new(self, 24)
     }
     #[doc = "Bit 25 - Cyc sr wakeup enable"]
     #[inline(always)]
-    pub fn cyc_wken(&mut self) -> CycWkenW<'_, CtrlSpec> {
+    pub fn cyc_wken(&mut self) -> CycWkenW<'_, CrSpec> {
         CycWkenW::new(self, 25)
     }
     #[doc = "Bit 26 - Alarm1 sr wakeup enable"]
     #[inline(always)]
-    pub fn rtc_alarm1_wken(&mut self) -> RtcAlarm1WkenW<'_, CtrlSpec> {
+    pub fn rtc_alarm1_wken(&mut self) -> RtcAlarm1WkenW<'_, CrSpec> {
         RtcAlarm1WkenW::new(self, 26)
     }
     #[doc = "Bit 27 - Alarm0 sr wakeup enable"]
     #[inline(always)]
-    pub fn rtc_alarm0_wken(&mut self) -> RtcAlarm0WkenW<'_, CtrlSpec> {
+    pub fn rtc_alarm0_wken(&mut self) -> RtcAlarm0WkenW<'_, CrSpec> {
         RtcAlarm0WkenW::new(self, 27)
     }
     #[doc = "Bit 28 - Rtc calendar enable"]
     #[inline(always)]
-    pub fn rtc_start_rtc(&mut self) -> RtcStartRtcW<'_, CtrlSpec> {
+    pub fn rtc_start_rtc(&mut self) -> RtcStartRtcW<'_, CrSpec> {
         RtcStartRtcW::new(self, 28)
     }
 }
-#[doc = "control register\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct CtrlSpec;
-impl crate::RegisterSpec for CtrlSpec {
+#[doc = "control register\n\nYou can [`read`](crate::Reg::read) this register and get [`cr::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct CrSpec;
+impl crate::RegisterSpec for CrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`ctrl::R`](R) reader structure"]
-impl crate::Readable for CtrlSpec {}
-#[doc = "`write(|w| ..)` method takes [`ctrl::W`](W) writer structure"]
-impl crate::Writable for CtrlSpec {
+#[doc = "`read()` method returns [`cr::R`](R) reader structure"]
+impl crate::Readable for CrSpec {}
+#[doc = "`write(|w| ..)` method takes [`cr::W`](W) writer structure"]
+impl crate::Writable for CrSpec {
     type Safety = crate::Unsafe;
 }
