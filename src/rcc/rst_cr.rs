@@ -14,10 +14,10 @@ pub type CpuResetReqEnW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type EfcResetReqEnR = crate::BitReader;
 #[doc = "Field `EFC_RESET_REQ_EN` writer - Efc reset req en"]
 pub type EfcResetReqEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `WDG_RESET_REQ_EN` reader - Wdg reset req en"]
-pub type WdgResetReqEnR = crate::BitReader;
-#[doc = "Field `WDG_RESET_REQ_EN` writer - Wdg reset req en"]
-pub type WdgResetReqEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `WWDG_RESET_REQ_EN` reader - Wwdg reset req en"]
+pub type WwdgResetReqEnR = crate::BitReader;
+#[doc = "Field `WWDG_RESET_REQ_EN` writer - Wwdg reset req en"]
+pub type WwdgResetReqEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IWDG_RESET_REQ_EN` reader - Iwdg reset req en"]
 pub type IwdgResetReqEnR = crate::BitReader;
 #[doc = "Field `IWDG_RESET_REQ_EN` writer - Iwdg reset req en"]
@@ -38,10 +38,10 @@ impl R {
     pub fn efc_reset_req_en(&self) -> EfcResetReqEnR {
         EfcResetReqEnR::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 4 - Wdg reset req en"]
+    #[doc = "Bit 4 - Wwdg reset req en"]
     #[inline(always)]
-    pub fn wdg_reset_req_en(&self) -> WdgResetReqEnR {
-        WdgResetReqEnR::new(((self.bits >> 4) & 1) != 0)
+    pub fn wwdg_reset_req_en(&self) -> WwdgResetReqEnR {
+        WwdgResetReqEnR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Iwdg reset req en"]
     #[inline(always)]
@@ -65,10 +65,10 @@ impl W {
     pub fn efc_reset_req_en(&mut self) -> EfcResetReqEnW<'_, RstCrSpec> {
         EfcResetReqEnW::new(self, 3)
     }
-    #[doc = "Bit 4 - Wdg reset req en"]
+    #[doc = "Bit 4 - Wwdg reset req en"]
     #[inline(always)]
-    pub fn wdg_reset_req_en(&mut self) -> WdgResetReqEnW<'_, RstCrSpec> {
-        WdgResetReqEnW::new(self, 4)
+    pub fn wwdg_reset_req_en(&mut self) -> WwdgResetReqEnW<'_, RstCrSpec> {
+        WwdgResetReqEnW::new(self, 4)
     }
     #[doc = "Bit 5 - Iwdg reset req en"]
     #[inline(always)]

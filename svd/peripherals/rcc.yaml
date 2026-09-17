@@ -235,8 +235,8 @@ registers:
                 - name: XO32K
                   description: Xo32k
                   value: '0x0'
-          - name: LCD_CLK_SEL
-            description: Lcd clk sel
+          - name: LCDCTRL_CLK_SEL
+            description: Lcdctrl clk sel
             bitOffset: '4'
             bitWidth: '2'
             enumeratedValues:
@@ -250,8 +250,8 @@ registers:
                 - name: XO32K
                   description: Xo32k
                   value: '0x0'
-          - name: LPTIMER0_CLK_SEL
-            description: Lptimer0 clk sel
+          - name: LPTIM0_CLK_SEL
+            description: Lptim0 clk sel
             bitOffset: '6'
             bitWidth: '2'
             enumeratedValues:
@@ -268,8 +268,8 @@ registers:
                 - name: XO32K
                   description: Xo32k
                   value: '0x2'
-          - name: LPTIMER1_CLK_SEL
-            description: Lptimer1 clk sel
+          - name: LPTIM1_CLK_SEL
+            description: Lptim1 clk sel
             bitOffset: '8'
             bitWidth: '2'
             enumeratedValues:
@@ -286,12 +286,12 @@ registers:
                 - name: XO32K
                   description: Xo32k
                   value: '0x2'
-          - name: LPTIMER0_EXTCLK_SEL
-            description: Lptimer0 extclk sel
+          - name: LPTIM0_EXT_CLK_SEL
+            description: Lptim0 extclk sel
             bitOffset: '10'
             bitWidth: '1'
-          - name: LPTIMER1_EXTCLK_SEL
-            description: Lptimer1 extclk sel
+          - name: LPTIM1_EXT_CLK_SEL
+            description: Lptim1 extclk sel
             bitOffset: '11'
             bitWidth: '1'
     - name: CR2
@@ -434,28 +434,28 @@ registers:
       access: read-write
       fields:
         field:
-          - name: TIMER3_CLK_EN
-            description: Timer3 clk en
+          - name: GPTIM3_CLK_EN
+            description: Gptim3 clk en
             bitOffset: '0'
             bitWidth: '1'
-          - name: TIMER2_CLK_EN
-            description: Timer2 clk en
+          - name: GPTIM2_CLK_EN
+            description: Gptim2 clk en
             bitOffset: '1'
             bitWidth: '1'
-          - name: TIMER1_CLK_EN
-            description: Timer1 clk en
+          - name: GPTIM1_CLK_EN
+            description: Gptim1 clk en
             bitOffset: '2'
             bitWidth: '1'
-          - name: TIMER0_CLK_EN
-            description: Timer0 clk en
+          - name: GPTIM0_CLK_EN
+            description: Gptim0 clk en
             bitOffset: '3'
             bitWidth: '1'
-          - name: LORA_CLK_EN
-            description: Lora clk en
+          - name: LORAC_CLK_EN
+            description: Lorac clk en
             bitOffset: '4'
             bitWidth: '1'
-          - name: DAC_CLK_EN
-            description: Dac clk en
+          - name: DACCTRL_CLK_EN
+            description: Dacctrl clk en
             bitOffset: '5'
             bitWidth: '1'
           - name: LCD_CLK_EN
@@ -534,12 +534,12 @@ registers:
             description: Iom0 clk en
             bitOffset: '25'
             bitWidth: '1'
-          - name: BSTIMER1_CLK_EN
-            description: Bstimer1 clk en
+          - name: BASICTIM1_CLK_EN
+            description: Basictim1 clk en
             bitOffset: '26'
             bitWidth: '1'
-          - name: BSTIMER0_CLK_EN
-            description: Bstimer0 clk en
+          - name: BASICTIM0_CLK_EN
+            description: Basictim0 clk en
             bitOffset: '27'
             bitWidth: '1'
           - name: CRC_CLK_EN
@@ -573,24 +573,24 @@ registers:
             description: Rtc clk en
             bitOffset: '1'
             bitWidth: '1'
-          - name: WDG_CLK_EN
-            description: Wdg clk en
+          - name: WWDG_CLK_EN
+            description: Wwdg clk en
             bitOffset: '2'
             bitWidth: '1'
           - name: IWDG_CLK_EN
             description: Iwdg clk en
             bitOffset: '3'
             bitWidth: '1'
-          - name: LPTIMER0_CLK_EN
-            description: Lptimer0 clk en
+          - name: LPTIM0_CLK_EN
+            description: Lptim0 clk en
             bitOffset: '4'
             bitWidth: '1'
           - name: QSPI_CLK_EN
             description: Qspi clk en
             bitOffset: '5'
             bitWidth: '1'
-          - name: WDG_CNT_CLK_EN
-            description: Wdg cnt clk en
+          - name: WWDG_CNT_CLK_EN
+            description: Wwdg cnt clk en
             bitOffset: '6'
             bitWidth: '1'
           - name: SAC_CLK_EN
@@ -601,20 +601,20 @@ registers:
             description: I2s clk en
             bitOffset: '8'
             bitWidth: '1'
-          - name: LPTIMER0_PCLK_EN
-            description: Lptimer0 pclk en
+          - name: LPTIM0_INF_CLK_EN
+            description: Lptim0 inf clk en
             bitOffset: '9'
             bitWidth: '1'
           - name: RNGC_CLK_EN
             description: Rngc clk en
             bitOffset: '10'
             bitWidth: '1'
-          - name: LPTIMER1_CLK_EN
-            description: Lptimer1 clk en
+          - name: LPTIM1_CLK_EN
+            description: Lptim1 clk en
             bitOffset: '11'
             bitWidth: '1'
-          - name: LPTIMER1_PCLK_EN
-            description: Lptimer1 pclk en
+          - name: LPTIM1_INF_CLK_EN
+            description: Lptim1 inf clk en
             bitOffset: '12'
             bitWidth: '1'
     - name: CGR2
@@ -640,12 +640,12 @@ registers:
             description: Lcd aon clk en
             bitOffset: '3'
             bitWidth: '1'
-          - name: LPTIMER0_AON_CLK_EN
-            description: Lptimer0 aon clk en
+          - name: LPTIM0_AON_CLK_EN
+            description: Lptim0 aon clk en
             bitOffset: '4'
             bitWidth: '1'
-          - name: LPTIMER1_AON_CLK_EN
-            description: Lptimer1 aon clk en
+          - name: LPTIM1_AON_CLK_EN
+            description: Lptim1 aon clk en
             bitOffset: '5'
             bitWidth: '1'
     - name: RST0
@@ -671,52 +671,52 @@ registers:
             description: Rtc rst n
             bitOffset: '3'
             bitWidth: '1'
-          - name: WDG_RST_N
-            description: Wdg rst n
+          - name: WWDG_RST_N
+            description: Wwdg rst n
             bitOffset: '4'
             bitWidth: '1'
           - name: IWDG_RST_N
             description: Iwdg rst n
             bitOffset: '5'
             bitWidth: '1'
-          - name: LPTIMER0_RST_N
-            description: Lptimer0 rst n
+          - name: LPTIM0_RST_N
+            description: Lptim0 rst n
             bitOffset: '6'
             bitWidth: '1'
-          - name: BSTIMER1_RST_N
-            description: Bstimer1 rst n
+          - name: BASICTIM1_RST_N
+            description: Basictim1 rst n
             bitOffset: '7'
             bitWidth: '1'
-          - name: BSTIMER0_RST_N
-            description: Bstimer0 rst n
+          - name: BASICTIM0_RST_N
+            description: Basictim0 rst n
             bitOffset: '8'
             bitWidth: '1'
-          - name: TIMER3_RST_N
-            description: Timer3 rst n
+          - name: GPTIM3_RST_N
+            description: Gptim3 rst n
             bitOffset: '9'
             bitWidth: '1'
-          - name: TIMER2_RST_N
-            description: Timer2 rst n
+          - name: GPTIM2_RST_N
+            description: Gptim2 rst n
             bitOffset: '10'
             bitWidth: '1'
-          - name: TIMER1_RST_N
-            description: Timer1 rst n
+          - name: GPTIM1_RST_N
+            description: Gptim1 rst n
             bitOffset: '11'
             bitWidth: '1'
-          - name: TIMER0_RST_N
-            description: Timer0 rst n
+          - name: GPTIM0_RST_N
+            description: Gptim0 rst n
             bitOffset: '12'
             bitWidth: '1'
           - name: IOM_RST_N
             description: Iom rst n
             bitOffset: '13'
             bitWidth: '1'
-          - name: LORA_RST_N
-            description: Lora rst n
+          - name: LORAC_RST_N
+            description: Lorac rst n
             bitOffset: '14'
             bitWidth: '1'
-          - name: DAC_RST_N
-            description: Dac rst n
+          - name: DACCTRL_RST_N
+            description: Dacctrl rst n
             bitOffset: '15'
             bitWidth: '1'
           - name: LCD_RST_N
@@ -802,8 +802,8 @@ registers:
             description: Rngc rst n
             bitOffset: '3'
             bitWidth: '1'
-          - name: LPTIMER1_RST_N
-            description: Lptimer1 rst n
+          - name: LPTIM1_RST_N
+            description: Lptim1 rst n
             bitOffset: '4'
             bitWidth: '1'
     - name: RST_SR
@@ -829,8 +829,8 @@ registers:
             description: Efc reset sr
             bitOffset: '3'
             bitWidth: '1'
-          - name: WDG_RESET_SR
-            description: Wdg reset sr
+          - name: WWDG_RESET_SR
+            description: Wwdg reset sr
             bitOffset: '4'
             bitWidth: '1'
           - name: IWDG_RESET_SR
@@ -860,8 +860,8 @@ registers:
             description: Efc reset req en
             bitOffset: '3'
             bitWidth: '1'
-          - name: WDG_RESET_REQ_EN
-            description: Wdg reset req en
+          - name: WWDG_RESET_REQ_EN
+            description: Wwdg reset req en
             bitOffset: '4'
             bitWidth: '1'
           - name: IWDG_RESET_REQ_EN
@@ -875,28 +875,28 @@ registers:
       access: read-only
       fields:
         field:
-          - name: IWDG_AON_CLK_EN_DONE
+          - name: SET_IWDG_AON_CLK_EN_DONE
             description: Iwdg aon clk en done
             bitOffset: '0'
             bitWidth: '1'
-          - name: RTC_AON_CLK_EN_DONE
+          - name: SET_RTC_AON_CLK_EN_DONE
             description: Rtc aon clk en done
             bitOffset: '1'
             bitWidth: '1'
-          - name: LPUART_AON_CLK_EN_DONE
+          - name: SET_LPUART_AON_CLK_EN_DONE
             description: Lpuart aon clk en done
             bitOffset: '2'
             bitWidth: '1'
-          - name: LCD_AON_CLK_EN_DONE
-            description: Lcd aon clk en done
+          - name: SET_LCDCTRL_AON_CLK_EN_DONE
+            description: Lcdctrl aon clk en done
             bitOffset: '3'
             bitWidth: '1'
-          - name: LPTIM_AON_CLK_EN_DONE
-            description: Lptim aon clk en done
+          - name: SET_LPTIM0_AON_CLK_EN_DONE
+            description: Lptim0 aon clk en done
             bitOffset: '4'
             bitWidth: '1'
-          - name: LPTIMER1_AON_CLK_EN_DONE
-            description: Lptimer1 aon clk en done
+          - name: SET_LPTIM1_AON_CLK_EN_DONE
+            description: Lptim1 aon clk en done
             bitOffset: '5'
             bitWidth: '1'
     - name: SR1
@@ -918,12 +918,12 @@ registers:
             description: Lpuart aon clk en sync
             bitOffset: '2'
             bitWidth: '1'
-          - name: LCD_AON_CLK_EN_SYNC
-            description: Lcd aon clk en sync
+          - name: LCDCTRL_AON_CLK_EN_SYNC
+            description: Lcdctrl aon clk en sync
             bitOffset: '3'
             bitWidth: '1'
-          - name: LPTIMER0_AON_CLK_EN_SYNC
-            description: Lptimer0 aon clk en sync
+          - name: LPTIM0_AON_CLK_EN_SYNC
+            description: Lptim0 aon clk en sync
             bitOffset: '4'
             bitWidth: '1'
           - name: I2S_CLK_EN_SYNC
@@ -942,8 +942,8 @@ registers:
             description: Iwdg clk en sync
             bitOffset: '8'
             bitWidth: '1'
-          - name: LCD_CLK_EN_SYNC
-            description: Lcd clk en sync
+          - name: LCDCTRL_CLK_EN_SYNC
+            description: Lcdctrl clk en sync
             bitOffset: '9'
             bitWidth: '1'
           - name: LPUART_CLK_EN_SYNC
@@ -954,12 +954,12 @@ registers:
             description: Qspi clk en sync
             bitOffset: '11'
             bitWidth: '1'
-          - name: LPTIMER0_CLK_EN_SYNC
-            description: Lptimer0 clk en sync
+          - name: LPTIM0_CLK_EN_SYNC
+            description: Lptim0 clk en sync
             bitOffset: '12'
             bitWidth: '1'
-          - name: ADC_CLK_EN_SYNC
-            description: Adc clk en sync
+          - name: ADCCTRL_CLK_EN_SYNC
+            description: Adcctrl clk en sync
             bitOffset: '13'
             bitWidth: '1'
           - name: UART3_CLK_EN_SYNC
@@ -978,12 +978,12 @@ registers:
             description: Uart0 clk en sync
             bitOffset: '18'
             bitWidth: '1'
-          - name: LPTIMER1_AON_CLK_EN_SYNC
-            description: Lptimer1 aon clk en sync
+          - name: LPTIM1_AON_CLK_EN_SYNC
+            description: Lptim1 aon clk en sync
             bitOffset: '19'
             bitWidth: '1'
-          - name: LPTIMER1_CLK_EN_SYNC
-            description: Lptimer1 clk en sync
+          - name: LPTIM1_CLK_EN_SYNC
+            description: Lptim1 clk en sync
             bitOffset: '20'
             bitWidth: '1'
     - name: CR3

@@ -124,7 +124,7 @@ registers:
             description: pin[15:0] output drive strength
             bitOffset: '0'
             bitWidth: '16'
-    - name: ICR
+    - name: INT_CR
       description: 'interrupt control register'
       addressOffset: '0x28'
       size: '32'
@@ -259,7 +259,7 @@ registers:
             description: pin15 falling edge interrupt enable
             bitOffset: '31'
             bitWidth: '1'
-    - name: IFR
+    - name: FR
       description: 'interrupt flag register'
       addressOffset: '0x2C'
       size: '32'
@@ -426,7 +426,7 @@ registers:
             bitOffset: '31'
             bitWidth: '1'
             modifiedWriteValues: oneToClear
-    - name: WUCR
+    - name: WU_EN
       description: 'wakeup control register'
       addressOffset: '0x30'
       size: '32'
@@ -437,7 +437,7 @@ registers:
             description: pin[15:0] wakeup enable from sleep/stop0-2
             bitOffset: '0'
             bitWidth: '16'
-    - name: WULVL
+    - name: WU_LVL
       description: 'wakeup level register'
       addressOffset: '0x34'
       size: '32'
@@ -459,34 +459,242 @@ registers:
             description: pin0 function selection
             bitOffset: '0'
             bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF1
             description: pin1 function selection
             bitOffset: '4'
             bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF2
             description: pin2 function selection
             bitOffset: '8'
             bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF3
             description: pin3 function selection
             bitOffset: '12'
             bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF4
             description: pin4 function selection
             bitOffset: '16'
             bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF5
             description: pin5 function selection
             bitOffset: '20'
             bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF6
             description: pin6 function selection
             bitOffset: '24'
             bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF7
             description: pin7 function selection
             bitOffset: '28'
             bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
     - name: AFRH
       description: 'alternate function high register'
       addressOffset: '0x3C'
@@ -498,35 +706,243 @@ registers:
             description: pin8 function selection
             bitOffset: '0'
             bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF9
             description: pin9 function selection
             bitOffset: '3'
             bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF10
             description: pin10 function selection
             bitOffset: '6'
             bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF11
             description: pin11 function selection
             bitOffset: '9'
             bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF12
             description: pin12 function selection
             bitOffset: '12'
             bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF13
             description: pin13 function selection
             bitOffset: '15'
             bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF14
             description: pin14 function selection
             bitOffset: '18'
             bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
           - name: AF15
             description: pin15 function selection
             bitOffset: '21'
             bitWidth: '3'
-    - name: STOP3_WUCR
+            enumeratedValues:
+              enumeratedValue:
+                - name: FUN0
+                  description: Alternate function 0
+                  value: '0x0'
+                - name: FUN1
+                  description: Alternate function 1
+                  value: '0x1'
+                - name: FUN2
+                  description: Alternate function 2
+                  value: '0x2'
+                - name: FUN3
+                  description: Alternate function 3
+                  value: '0x3'
+                - name: FUN4
+                  description: Alternate function 4
+                  value: '0x4'
+                - name: FUN5
+                  description: Alternate function 5
+                  value: '0x5'
+                - name: FUN6
+                  description: Alternate function 6
+                  value: '0x6'
+                - name: FUN7
+                  description: Alternate function 7
+                  value: '0x7'
+    - name: STOP3_WU_CR
       description: 'stop3 wakeup control register'
       addressOffset: '0x40'
       size: '32'
@@ -537,6 +953,20 @@ registers:
             description: group0 stop3 wakeup source selection
             bitOffset: '0'
             bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PIN0
+                  description: Pin 0
+                  value: '0x0'
+                - name: PIN1
+                  description: Pin 1
+                  value: '0x1'
+                - name: PIN2
+                  description: Pin 2
+                  value: '0x2'
+                - name: PIN3
+                  description: Pin 3
+                  value: '0x3'
           - name: STOP3_WU_LVL_G0
             description: group0 stop3 wakeup level selection
             bitOffset: '2'
@@ -549,6 +979,20 @@ registers:
             description: group1 stop3 wakeup source selection
             bitOffset: '4'
             bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: PIN4
+                  description: Pin 4
+                  value: '0x0'
+                - name: PIN5
+                  description: Pin 5
+                  value: '0x1'
+                - name: PIN6
+                  description: Pin 6
+                  value: '0x2'
+                - name: PIN7
+                  description: Pin 7
+                  value: '0x3'
           - name: STOP3_WU_LVL_G1
             description: group1 stop3 wakeup level selection
             bitOffset: '6'

@@ -181,10 +181,10 @@ where
         self.variant(LpuartClkSel::Xo32k)
     }
 }
-#[doc = "Lcd clk sel"]
+#[doc = "Lcdctrl clk sel"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum LcdClkSel {
+pub enum LcdctrlClkSel {
     #[doc = "1: Rco32k"]
     Rco32k = 1,
     #[doc = "2: Rco4m"]
@@ -192,48 +192,48 @@ pub enum LcdClkSel {
     #[doc = "0: Xo32k"]
     Xo32k = 0,
 }
-impl From<LcdClkSel> for u8 {
+impl From<LcdctrlClkSel> for u8 {
     #[inline(always)]
-    fn from(variant: LcdClkSel) -> Self {
+    fn from(variant: LcdctrlClkSel) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for LcdClkSel {
+impl crate::FieldSpec for LcdctrlClkSel {
     type Ux = u8;
 }
-impl crate::IsEnum for LcdClkSel {}
-#[doc = "Field `LCD_CLK_SEL` reader - Lcd clk sel"]
-pub type LcdClkSelR = crate::FieldReader<LcdClkSel>;
-impl LcdClkSelR {
+impl crate::IsEnum for LcdctrlClkSel {}
+#[doc = "Field `LCDCTRL_CLK_SEL` reader - Lcdctrl clk sel"]
+pub type LcdctrlClkSelR = crate::FieldReader<LcdctrlClkSel>;
+impl LcdctrlClkSelR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Option<LcdClkSel> {
+    pub const fn variant(&self) -> Option<LcdctrlClkSel> {
         match self.bits {
-            1 => Some(LcdClkSel::Rco32k),
-            2 => Some(LcdClkSel::Rco4m),
-            0 => Some(LcdClkSel::Xo32k),
+            1 => Some(LcdctrlClkSel::Rco32k),
+            2 => Some(LcdctrlClkSel::Rco4m),
+            0 => Some(LcdctrlClkSel::Xo32k),
             _ => None,
         }
     }
     #[doc = "Rco32k"]
     #[inline(always)]
     pub fn is_rco32k(&self) -> bool {
-        *self == LcdClkSel::Rco32k
+        *self == LcdctrlClkSel::Rco32k
     }
     #[doc = "Rco4m"]
     #[inline(always)]
     pub fn is_rco4m(&self) -> bool {
-        *self == LcdClkSel::Rco4m
+        *self == LcdctrlClkSel::Rco4m
     }
     #[doc = "Xo32k"]
     #[inline(always)]
     pub fn is_xo32k(&self) -> bool {
-        *self == LcdClkSel::Xo32k
+        *self == LcdctrlClkSel::Xo32k
     }
 }
-#[doc = "Field `LCD_CLK_SEL` writer - Lcd clk sel"]
-pub type LcdClkSelW<'a, REG> = crate::FieldWriter<'a, REG, 2, LcdClkSel>;
-impl<'a, REG> LcdClkSelW<'a, REG>
+#[doc = "Field `LCDCTRL_CLK_SEL` writer - Lcdctrl clk sel"]
+pub type LcdctrlClkSelW<'a, REG> = crate::FieldWriter<'a, REG, 2, LcdctrlClkSel>;
+impl<'a, REG> LcdctrlClkSelW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
@@ -241,23 +241,23 @@ where
     #[doc = "Rco32k"]
     #[inline(always)]
     pub fn rco32k(self) -> &'a mut crate::W<REG> {
-        self.variant(LcdClkSel::Rco32k)
+        self.variant(LcdctrlClkSel::Rco32k)
     }
     #[doc = "Rco4m"]
     #[inline(always)]
     pub fn rco4m(self) -> &'a mut crate::W<REG> {
-        self.variant(LcdClkSel::Rco4m)
+        self.variant(LcdctrlClkSel::Rco4m)
     }
     #[doc = "Xo32k"]
     #[inline(always)]
     pub fn xo32k(self) -> &'a mut crate::W<REG> {
-        self.variant(LcdClkSel::Xo32k)
+        self.variant(LcdctrlClkSel::Xo32k)
     }
 }
-#[doc = "Lptimer0 clk sel"]
+#[doc = "Lptim0 clk sel"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum Lptimer0ClkSel {
+pub enum Lptim0ClkSel {
     #[doc = "0: Pclk0"]
     Pclk0 = 0,
     #[doc = "3: Rco32k"]
@@ -267,54 +267,54 @@ pub enum Lptimer0ClkSel {
     #[doc = "2: Xo32k"]
     Xo32k = 2,
 }
-impl From<Lptimer0ClkSel> for u8 {
+impl From<Lptim0ClkSel> for u8 {
     #[inline(always)]
-    fn from(variant: Lptimer0ClkSel) -> Self {
+    fn from(variant: Lptim0ClkSel) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for Lptimer0ClkSel {
+impl crate::FieldSpec for Lptim0ClkSel {
     type Ux = u8;
 }
-impl crate::IsEnum for Lptimer0ClkSel {}
-#[doc = "Field `LPTIMER0_CLK_SEL` reader - Lptimer0 clk sel"]
-pub type Lptimer0ClkSelR = crate::FieldReader<Lptimer0ClkSel>;
-impl Lptimer0ClkSelR {
+impl crate::IsEnum for Lptim0ClkSel {}
+#[doc = "Field `LPTIM0_CLK_SEL` reader - Lptim0 clk sel"]
+pub type Lptim0ClkSelR = crate::FieldReader<Lptim0ClkSel>;
+impl Lptim0ClkSelR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Lptimer0ClkSel {
+    pub const fn variant(&self) -> Lptim0ClkSel {
         match self.bits {
-            0 => Lptimer0ClkSel::Pclk0,
-            3 => Lptimer0ClkSel::Rco32k,
-            1 => Lptimer0ClkSel::Rco4m,
-            2 => Lptimer0ClkSel::Xo32k,
+            0 => Lptim0ClkSel::Pclk0,
+            3 => Lptim0ClkSel::Rco32k,
+            1 => Lptim0ClkSel::Rco4m,
+            2 => Lptim0ClkSel::Xo32k,
             _ => unreachable!(),
         }
     }
     #[doc = "Pclk0"]
     #[inline(always)]
     pub fn is_pclk0(&self) -> bool {
-        *self == Lptimer0ClkSel::Pclk0
+        *self == Lptim0ClkSel::Pclk0
     }
     #[doc = "Rco32k"]
     #[inline(always)]
     pub fn is_rco32k(&self) -> bool {
-        *self == Lptimer0ClkSel::Rco32k
+        *self == Lptim0ClkSel::Rco32k
     }
     #[doc = "Rco4m"]
     #[inline(always)]
     pub fn is_rco4m(&self) -> bool {
-        *self == Lptimer0ClkSel::Rco4m
+        *self == Lptim0ClkSel::Rco4m
     }
     #[doc = "Xo32k"]
     #[inline(always)]
     pub fn is_xo32k(&self) -> bool {
-        *self == Lptimer0ClkSel::Xo32k
+        *self == Lptim0ClkSel::Xo32k
     }
 }
-#[doc = "Field `LPTIMER0_CLK_SEL` writer - Lptimer0 clk sel"]
-pub type Lptimer0ClkSelW<'a, REG> = crate::FieldWriter<'a, REG, 2, Lptimer0ClkSel, crate::Safe>;
-impl<'a, REG> Lptimer0ClkSelW<'a, REG>
+#[doc = "Field `LPTIM0_CLK_SEL` writer - Lptim0 clk sel"]
+pub type Lptim0ClkSelW<'a, REG> = crate::FieldWriter<'a, REG, 2, Lptim0ClkSel, crate::Safe>;
+impl<'a, REG> Lptim0ClkSelW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
@@ -322,28 +322,28 @@ where
     #[doc = "Pclk0"]
     #[inline(always)]
     pub fn pclk0(self) -> &'a mut crate::W<REG> {
-        self.variant(Lptimer0ClkSel::Pclk0)
+        self.variant(Lptim0ClkSel::Pclk0)
     }
     #[doc = "Rco32k"]
     #[inline(always)]
     pub fn rco32k(self) -> &'a mut crate::W<REG> {
-        self.variant(Lptimer0ClkSel::Rco32k)
+        self.variant(Lptim0ClkSel::Rco32k)
     }
     #[doc = "Rco4m"]
     #[inline(always)]
     pub fn rco4m(self) -> &'a mut crate::W<REG> {
-        self.variant(Lptimer0ClkSel::Rco4m)
+        self.variant(Lptim0ClkSel::Rco4m)
     }
     #[doc = "Xo32k"]
     #[inline(always)]
     pub fn xo32k(self) -> &'a mut crate::W<REG> {
-        self.variant(Lptimer0ClkSel::Xo32k)
+        self.variant(Lptim0ClkSel::Xo32k)
     }
 }
-#[doc = "Lptimer1 clk sel"]
+#[doc = "Lptim1 clk sel"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
-pub enum Lptimer1ClkSel {
+pub enum Lptim1ClkSel {
     #[doc = "0: Pclk0"]
     Pclk0 = 0,
     #[doc = "3: Rco32k"]
@@ -353,54 +353,54 @@ pub enum Lptimer1ClkSel {
     #[doc = "2: Xo32k"]
     Xo32k = 2,
 }
-impl From<Lptimer1ClkSel> for u8 {
+impl From<Lptim1ClkSel> for u8 {
     #[inline(always)]
-    fn from(variant: Lptimer1ClkSel) -> Self {
+    fn from(variant: Lptim1ClkSel) -> Self {
         variant as _
     }
 }
-impl crate::FieldSpec for Lptimer1ClkSel {
+impl crate::FieldSpec for Lptim1ClkSel {
     type Ux = u8;
 }
-impl crate::IsEnum for Lptimer1ClkSel {}
-#[doc = "Field `LPTIMER1_CLK_SEL` reader - Lptimer1 clk sel"]
-pub type Lptimer1ClkSelR = crate::FieldReader<Lptimer1ClkSel>;
-impl Lptimer1ClkSelR {
+impl crate::IsEnum for Lptim1ClkSel {}
+#[doc = "Field `LPTIM1_CLK_SEL` reader - Lptim1 clk sel"]
+pub type Lptim1ClkSelR = crate::FieldReader<Lptim1ClkSel>;
+impl Lptim1ClkSelR {
     #[doc = "Get enumerated values variant"]
     #[inline(always)]
-    pub const fn variant(&self) -> Lptimer1ClkSel {
+    pub const fn variant(&self) -> Lptim1ClkSel {
         match self.bits {
-            0 => Lptimer1ClkSel::Pclk0,
-            3 => Lptimer1ClkSel::Rco32k,
-            1 => Lptimer1ClkSel::Rco4m,
-            2 => Lptimer1ClkSel::Xo32k,
+            0 => Lptim1ClkSel::Pclk0,
+            3 => Lptim1ClkSel::Rco32k,
+            1 => Lptim1ClkSel::Rco4m,
+            2 => Lptim1ClkSel::Xo32k,
             _ => unreachable!(),
         }
     }
     #[doc = "Pclk0"]
     #[inline(always)]
     pub fn is_pclk0(&self) -> bool {
-        *self == Lptimer1ClkSel::Pclk0
+        *self == Lptim1ClkSel::Pclk0
     }
     #[doc = "Rco32k"]
     #[inline(always)]
     pub fn is_rco32k(&self) -> bool {
-        *self == Lptimer1ClkSel::Rco32k
+        *self == Lptim1ClkSel::Rco32k
     }
     #[doc = "Rco4m"]
     #[inline(always)]
     pub fn is_rco4m(&self) -> bool {
-        *self == Lptimer1ClkSel::Rco4m
+        *self == Lptim1ClkSel::Rco4m
     }
     #[doc = "Xo32k"]
     #[inline(always)]
     pub fn is_xo32k(&self) -> bool {
-        *self == Lptimer1ClkSel::Xo32k
+        *self == Lptim1ClkSel::Xo32k
     }
 }
-#[doc = "Field `LPTIMER1_CLK_SEL` writer - Lptimer1 clk sel"]
-pub type Lptimer1ClkSelW<'a, REG> = crate::FieldWriter<'a, REG, 2, Lptimer1ClkSel, crate::Safe>;
-impl<'a, REG> Lptimer1ClkSelW<'a, REG>
+#[doc = "Field `LPTIM1_CLK_SEL` writer - Lptim1 clk sel"]
+pub type Lptim1ClkSelW<'a, REG> = crate::FieldWriter<'a, REG, 2, Lptim1ClkSel, crate::Safe>;
+impl<'a, REG> Lptim1ClkSelW<'a, REG>
 where
     REG: crate::Writable + crate::RegisterSpec,
     REG::Ux: From<u8>,
@@ -408,32 +408,32 @@ where
     #[doc = "Pclk0"]
     #[inline(always)]
     pub fn pclk0(self) -> &'a mut crate::W<REG> {
-        self.variant(Lptimer1ClkSel::Pclk0)
+        self.variant(Lptim1ClkSel::Pclk0)
     }
     #[doc = "Rco32k"]
     #[inline(always)]
     pub fn rco32k(self) -> &'a mut crate::W<REG> {
-        self.variant(Lptimer1ClkSel::Rco32k)
+        self.variant(Lptim1ClkSel::Rco32k)
     }
     #[doc = "Rco4m"]
     #[inline(always)]
     pub fn rco4m(self) -> &'a mut crate::W<REG> {
-        self.variant(Lptimer1ClkSel::Rco4m)
+        self.variant(Lptim1ClkSel::Rco4m)
     }
     #[doc = "Xo32k"]
     #[inline(always)]
     pub fn xo32k(self) -> &'a mut crate::W<REG> {
-        self.variant(Lptimer1ClkSel::Xo32k)
+        self.variant(Lptim1ClkSel::Xo32k)
     }
 }
-#[doc = "Field `LPTIMER0_EXTCLK_SEL` reader - Lptimer0 extclk sel"]
-pub type Lptimer0ExtclkSelR = crate::BitReader;
-#[doc = "Field `LPTIMER0_EXTCLK_SEL` writer - Lptimer0 extclk sel"]
-pub type Lptimer0ExtclkSelW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LPTIMER1_EXTCLK_SEL` reader - Lptimer1 extclk sel"]
-pub type Lptimer1ExtclkSelR = crate::BitReader;
-#[doc = "Field `LPTIMER1_EXTCLK_SEL` writer - Lptimer1 extclk sel"]
-pub type Lptimer1ExtclkSelW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LPTIM0_EXT_CLK_SEL` reader - Lptim0 extclk sel"]
+pub type Lptim0ExtClkSelR = crate::BitReader;
+#[doc = "Field `LPTIM0_EXT_CLK_SEL` writer - Lptim0 extclk sel"]
+pub type Lptim0ExtClkSelW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LPTIM1_EXT_CLK_SEL` reader - Lptim1 extclk sel"]
+pub type Lptim1ExtClkSelR = crate::BitReader;
+#[doc = "Field `LPTIM1_EXT_CLK_SEL` writer - Lptim1 extclk sel"]
+pub type Lptim1ExtClkSelW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Iwdg clk sel"]
     #[inline(always)]
@@ -450,30 +450,30 @@ impl R {
     pub fn lpuart_clk_sel(&self) -> LpuartClkSelR {
         LpuartClkSelR::new(((self.bits >> 2) & 3) as u8)
     }
-    #[doc = "Bits 4:5 - Lcd clk sel"]
+    #[doc = "Bits 4:5 - Lcdctrl clk sel"]
     #[inline(always)]
-    pub fn lcd_clk_sel(&self) -> LcdClkSelR {
-        LcdClkSelR::new(((self.bits >> 4) & 3) as u8)
+    pub fn lcdctrl_clk_sel(&self) -> LcdctrlClkSelR {
+        LcdctrlClkSelR::new(((self.bits >> 4) & 3) as u8)
     }
-    #[doc = "Bits 6:7 - Lptimer0 clk sel"]
+    #[doc = "Bits 6:7 - Lptim0 clk sel"]
     #[inline(always)]
-    pub fn lptimer0_clk_sel(&self) -> Lptimer0ClkSelR {
-        Lptimer0ClkSelR::new(((self.bits >> 6) & 3) as u8)
+    pub fn lptim0_clk_sel(&self) -> Lptim0ClkSelR {
+        Lptim0ClkSelR::new(((self.bits >> 6) & 3) as u8)
     }
-    #[doc = "Bits 8:9 - Lptimer1 clk sel"]
+    #[doc = "Bits 8:9 - Lptim1 clk sel"]
     #[inline(always)]
-    pub fn lptimer1_clk_sel(&self) -> Lptimer1ClkSelR {
-        Lptimer1ClkSelR::new(((self.bits >> 8) & 3) as u8)
+    pub fn lptim1_clk_sel(&self) -> Lptim1ClkSelR {
+        Lptim1ClkSelR::new(((self.bits >> 8) & 3) as u8)
     }
-    #[doc = "Bit 10 - Lptimer0 extclk sel"]
+    #[doc = "Bit 10 - Lptim0 extclk sel"]
     #[inline(always)]
-    pub fn lptimer0_extclk_sel(&self) -> Lptimer0ExtclkSelR {
-        Lptimer0ExtclkSelR::new(((self.bits >> 10) & 1) != 0)
+    pub fn lptim0_ext_clk_sel(&self) -> Lptim0ExtClkSelR {
+        Lptim0ExtClkSelR::new(((self.bits >> 10) & 1) != 0)
     }
-    #[doc = "Bit 11 - Lptimer1 extclk sel"]
+    #[doc = "Bit 11 - Lptim1 extclk sel"]
     #[inline(always)]
-    pub fn lptimer1_extclk_sel(&self) -> Lptimer1ExtclkSelR {
-        Lptimer1ExtclkSelR::new(((self.bits >> 11) & 1) != 0)
+    pub fn lptim1_ext_clk_sel(&self) -> Lptim1ExtClkSelR {
+        Lptim1ExtClkSelR::new(((self.bits >> 11) & 1) != 0)
     }
 }
 impl W {
@@ -492,30 +492,30 @@ impl W {
     pub fn lpuart_clk_sel(&mut self) -> LpuartClkSelW<'_, Cr1Spec> {
         LpuartClkSelW::new(self, 2)
     }
-    #[doc = "Bits 4:5 - Lcd clk sel"]
+    #[doc = "Bits 4:5 - Lcdctrl clk sel"]
     #[inline(always)]
-    pub fn lcd_clk_sel(&mut self) -> LcdClkSelW<'_, Cr1Spec> {
-        LcdClkSelW::new(self, 4)
+    pub fn lcdctrl_clk_sel(&mut self) -> LcdctrlClkSelW<'_, Cr1Spec> {
+        LcdctrlClkSelW::new(self, 4)
     }
-    #[doc = "Bits 6:7 - Lptimer0 clk sel"]
+    #[doc = "Bits 6:7 - Lptim0 clk sel"]
     #[inline(always)]
-    pub fn lptimer0_clk_sel(&mut self) -> Lptimer0ClkSelW<'_, Cr1Spec> {
-        Lptimer0ClkSelW::new(self, 6)
+    pub fn lptim0_clk_sel(&mut self) -> Lptim0ClkSelW<'_, Cr1Spec> {
+        Lptim0ClkSelW::new(self, 6)
     }
-    #[doc = "Bits 8:9 - Lptimer1 clk sel"]
+    #[doc = "Bits 8:9 - Lptim1 clk sel"]
     #[inline(always)]
-    pub fn lptimer1_clk_sel(&mut self) -> Lptimer1ClkSelW<'_, Cr1Spec> {
-        Lptimer1ClkSelW::new(self, 8)
+    pub fn lptim1_clk_sel(&mut self) -> Lptim1ClkSelW<'_, Cr1Spec> {
+        Lptim1ClkSelW::new(self, 8)
     }
-    #[doc = "Bit 10 - Lptimer0 extclk sel"]
+    #[doc = "Bit 10 - Lptim0 extclk sel"]
     #[inline(always)]
-    pub fn lptimer0_extclk_sel(&mut self) -> Lptimer0ExtclkSelW<'_, Cr1Spec> {
-        Lptimer0ExtclkSelW::new(self, 10)
+    pub fn lptim0_ext_clk_sel(&mut self) -> Lptim0ExtClkSelW<'_, Cr1Spec> {
+        Lptim0ExtClkSelW::new(self, 10)
     }
-    #[doc = "Bit 11 - Lptimer1 extclk sel"]
+    #[doc = "Bit 11 - Lptim1 extclk sel"]
     #[inline(always)]
-    pub fn lptimer1_extclk_sel(&mut self) -> Lptimer1ExtclkSelW<'_, Cr1Spec> {
-        Lptimer1ExtclkSelW::new(self, 11)
+    pub fn lptim1_ext_clk_sel(&mut self) -> Lptim1ExtClkSelW<'_, Cr1Spec> {
+        Lptim1ExtClkSelW::new(self, 11)
     }
 }
 #[doc = "control register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`cr1::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

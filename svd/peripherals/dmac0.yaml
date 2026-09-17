@@ -1,0 +1,1795 @@
+name: DMAC0
+description: DMA Controller 0
+baseAddress: '0x40023000'
+addressBlock:
+  offset: '0'
+  size: '0x3F8'
+  usage: registers
+interrupt:
+  name: DMAC0
+  value: '31'
+registers:
+  register:
+    - name: SAR0
+      description: source address register
+      addressOffset: '0x0'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: SAR
+            description: DMA source address
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: DAR0
+      description: destination address register
+      addressOffset: '0x8'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: DAR
+            description: DMA destination address
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: LLP0
+      description: linked list pointer register
+      addressOffset: '0x10'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: LOC
+            description: The first address of the next LLI chain table
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: CTL0
+      description: channel control register
+      addressOffset: '0x18'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_EN
+            description: DMA interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: DST_TR_WIDTH
+            description: DMA destination data width configuration
+            bitOffset: '1'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BITS_8
+                  description: 8 bits
+                  value: '0x0'
+                - name: BITS_16
+                  description: 16 bits
+                  value: '0x1'
+                - name: BITS_32
+                  description: 32 bits
+                  value: '0x2'
+          - name: SRC_TR_WIDTH
+            description: DMA source data width configuration
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BITS_8
+                  description: 8 bits
+                  value: '0x0'
+                - name: BITS_16
+                  description: 16 bits
+                  value: '0x1'
+                - name: BITS_32
+                  description: 32 bits
+                  value: '0x2'
+          - name: DINC
+            description: DMA destination address control
+            bitOffset: '7'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: INCREMENT
+                  description: increment
+                  value: '0x0'
+                - name: DECREMENT
+                  description: decrement
+                  value: '0x1'
+                - name: NO_CHANGE_10
+                  description: no change
+                  value: '0x2'
+                - name: NO_CHANGE_11
+                  description: no change
+                  value: '0x3'
+          - name: SINC
+            description: DMA source address control
+            bitOffset: '9'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: INCREMENT
+                  description: increment
+                  value: '0x0'
+                - name: DECREMENT
+                  description: decrement
+                  value: '0x1'
+                - name: NO_CHANGE_10
+                  description: no change
+                  value: '0x2'
+                - name: NO_CHANGE_11
+                  description: no change
+                  value: '0x3'
+          - name: DEST_MSIZE
+            description: DMA destination burst length
+            bitOffset: '11'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: burst length 1
+                  value: '0x0'
+                - name: VALUE_4
+                  description: burst length 4
+                  value: '0x1'
+                - name: VALUE_8
+                  description: burst length 8
+                  value: '0x2'
+          - name: SRC_MSIZE
+            description: DMA source burst length
+            bitOffset: '14'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: burst length 1
+                  value: '0x0'
+                - name: VALUE_4
+                  description: burst length 4
+                  value: '0x1'
+                - name: VALUE_8
+                  description: burst length 8
+                  value: '0x2'
+          - name: SRC_GATHER_EN
+            description: DMA source gather enable
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: DST_SCATTER_EN
+            description: DMA destination scatter enable
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: TT_FC
+            description: DMA data transfer mode selection
+            bitOffset: '20'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MEM_TO_MEM
+                  description: memory to memory
+                  value: '0x0'
+                - name: MEM_TO_PERIPH
+                  description: memory to peripheral
+                  value: '0x1'
+                - name: PERIPH_TO_MEM
+                  description: peripheral to memory
+                  value: '0x2'
+                - name: PERIPH_TO_PERIPH
+                  description: peripheral to peripheral
+                  value: '0x3'
+          - name: DMS
+            description: DMA destination AHB master selection
+            bitOffset: '23'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MASTER_1
+                  description: AHB master 1
+                  value: '0x0'
+                - name: MASTER_2
+                  description: AHB master 2
+                  value: '0x1'
+                - name: MASTER_3
+                  description: AHB master 3
+                  value: '0x2'
+                - name: MASTER_4
+                  description: AHB master 4
+                  value: '0x3'
+          - name: SMS
+            description: DMA source AHB master selection
+            bitOffset: '25'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MASTER_1
+                  description: AHB master 1
+                  value: '0x0'
+                - name: MASTER_2
+                  description: AHB master 2
+                  value: '0x1'
+                - name: MASTER_3
+                  description: AHB master 3
+                  value: '0x2'
+                - name: MASTER_4
+                  description: AHB master 4
+                  value: '0x3'
+          - name: LLP_DST_EN
+            description: DMA destination LLI chain table enable
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: LLP_SRC_EN
+            description: DMA source LLI chain table enable
+            bitOffset: '28'
+            bitWidth: '1'
+          - name: BLOCK_TS
+            description: block length
+            bitOffset: '32'
+            bitWidth: '12'
+          - name: DONE
+            description: LLI chain table block transfer status
+            bitOffset: '44'
+            bitWidth: '1'
+    - name: CFG0
+      description: channel configuration register
+      addressOffset: '0x40'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: CH_PRIOR
+            description: DMA channel priority configuration
+            bitOffset: '5'
+            bitWidth: '3'
+          - name: CH_SUSP
+            description: DMA channel FIFO suspend indication
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: FIFO_EMPTY
+            description: DMA channel FIFO empty indication
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: HS_SEL_DST
+            description: DMA destination handshake signal selection
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: HS_SEL_SRC
+            description: DMA source handshake signal selection
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: LOCK_CH_L
+            description: DMA channel lock delay
+            bitOffset: '12'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRANSFER_COMPLETED
+                  description: wait until the DMA transfer is completed
+                  value: '0x0'
+                - name: BLOCK_COMPLETED
+                  description: wait until the block transfer is completed
+                  value: '0x1'
+                - name: DMA_PROCESSING_COMPLETED
+                  description: wait until DMA processing is completed
+                  value: '0x2'
+          - name: LOCK_B_L
+            description: Bus lock delay
+            bitOffset: '14'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRANSFER_COMPLETED
+                  description: wait until the DMA transfer is completed
+                  value: '0x0'
+                - name: BLOCK_COMPLETED
+                  description: wait until the block transfer is completed
+                  value: '0x1'
+                - name: DMA_PROCESSING_COMPLETED
+                  description: wait until DMA processing is completed
+                  value: '0x2'
+          - name: LOCK_CH
+            description: DMA channel lock control
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: LOCK_B
+            description: Bus lock control
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: DST_HS_POL
+            description: DMA destination handshake information polarity
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: SRC_HS_POL
+            description: DMA source handshake information polarity
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: RELOAD_SRC
+            description: DMA source auto-reloading enable
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: RELOAD_DST
+            description: DMA destination auto-reloading enable
+            bitOffset: '31'
+            bitWidth: '1'
+          - name: FCMODE
+            description: Source flow control mode selection
+            bitOffset: '32'
+            bitWidth: '1'
+          - name: FIFO_MODE
+            description: FIFO mode selection
+            bitOffset: '33'
+            bitWidth: '1'
+          - name: PROTCTL
+            description: Protection control
+            bitOffset: '34'
+            bitWidth: '3'
+          - name: DS_UPD_EN
+            description: DMA destination status update enable
+            bitOffset: '37'
+            bitWidth: '1'
+          - name: SS_UPD_EN
+            description: DMA source status update enable
+            bitOffset: '38'
+            bitWidth: '1'
+          - name: SRC_PER
+            description: DMA source handshake interface
+            bitOffset: '39'
+            bitWidth: '4'
+          - name: DEST_PER
+            description: DMA destination handshake interface
+            bitOffset: '43'
+            bitWidth: '4'
+    - name: SAR1
+      description: source address register
+      addressOffset: '0x58'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: SAR
+            description: DMA source address
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: DAR1
+      description: destination address register
+      addressOffset: '0x60'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: DAR
+            description: DMA destination address
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: LLP1
+      description: linked list pointer register
+      addressOffset: '0x68'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: LOC
+            description: The first address of the next LLI chain table
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: CTL1
+      description: channel control register
+      addressOffset: '0x70'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_EN
+            description: DMA interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: DST_TR_WIDTH
+            description: DMA destination data width configuration
+            bitOffset: '1'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BITS_8
+                  description: 8 bits
+                  value: '0x0'
+                - name: BITS_16
+                  description: 16 bits
+                  value: '0x1'
+                - name: BITS_32
+                  description: 32 bits
+                  value: '0x2'
+          - name: SRC_TR_WIDTH
+            description: DMA source data width configuration
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BITS_8
+                  description: 8 bits
+                  value: '0x0'
+                - name: BITS_16
+                  description: 16 bits
+                  value: '0x1'
+                - name: BITS_32
+                  description: 32 bits
+                  value: '0x2'
+          - name: DINC
+            description: DMA destination address control
+            bitOffset: '7'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: INCREMENT
+                  description: increment
+                  value: '0x0'
+                - name: DECREMENT
+                  description: decrement
+                  value: '0x1'
+                - name: NO_CHANGE_10
+                  description: no change
+                  value: '0x2'
+                - name: NO_CHANGE_11
+                  description: no change
+                  value: '0x3'
+          - name: SINC
+            description: DMA source address control
+            bitOffset: '9'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: INCREMENT
+                  description: increment
+                  value: '0x0'
+                - name: DECREMENT
+                  description: decrement
+                  value: '0x1'
+                - name: NO_CHANGE_10
+                  description: no change
+                  value: '0x2'
+                - name: NO_CHANGE_11
+                  description: no change
+                  value: '0x3'
+          - name: DEST_MSIZE
+            description: DMA destination burst length
+            bitOffset: '11'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: burst length 1
+                  value: '0x0'
+                - name: VALUE_4
+                  description: burst length 4
+                  value: '0x1'
+                - name: VALUE_8
+                  description: burst length 8
+                  value: '0x2'
+          - name: SRC_MSIZE
+            description: DMA source burst length
+            bitOffset: '14'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: burst length 1
+                  value: '0x0'
+                - name: VALUE_4
+                  description: burst length 4
+                  value: '0x1'
+                - name: VALUE_8
+                  description: burst length 8
+                  value: '0x2'
+          - name: SRC_GATHER_EN
+            description: DMA source gather enable
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: DST_SCATTER_EN
+            description: DMA destination scatter enable
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: TT_FC
+            description: DMA data transfer mode selection
+            bitOffset: '20'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MEM_TO_MEM
+                  description: memory to memory
+                  value: '0x0'
+                - name: MEM_TO_PERIPH
+                  description: memory to peripheral
+                  value: '0x1'
+                - name: PERIPH_TO_MEM
+                  description: peripheral to memory
+                  value: '0x2'
+                - name: PERIPH_TO_PERIPH
+                  description: peripheral to peripheral
+                  value: '0x3'
+          - name: DMS
+            description: DMA destination AHB master selection
+            bitOffset: '23'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MASTER_1
+                  description: AHB master 1
+                  value: '0x0'
+                - name: MASTER_2
+                  description: AHB master 2
+                  value: '0x1'
+                - name: MASTER_3
+                  description: AHB master 3
+                  value: '0x2'
+                - name: MASTER_4
+                  description: AHB master 4
+                  value: '0x3'
+          - name: SMS
+            description: DMA source AHB master selection
+            bitOffset: '25'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MASTER_1
+                  description: AHB master 1
+                  value: '0x0'
+                - name: MASTER_2
+                  description: AHB master 2
+                  value: '0x1'
+                - name: MASTER_3
+                  description: AHB master 3
+                  value: '0x2'
+                - name: MASTER_4
+                  description: AHB master 4
+                  value: '0x3'
+          - name: LLP_DST_EN
+            description: DMA destination LLI chain table enable
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: LLP_SRC_EN
+            description: DMA source LLI chain table enable
+            bitOffset: '28'
+            bitWidth: '1'
+          - name: BLOCK_TS
+            description: block length
+            bitOffset: '32'
+            bitWidth: '12'
+          - name: DONE
+            description: LLI chain table block transfer status
+            bitOffset: '44'
+            bitWidth: '1'
+    - name: CFG1
+      description: channel configuration register
+      addressOffset: '0x98'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: CH_PRIOR
+            description: DMA channel priority configuration
+            bitOffset: '5'
+            bitWidth: '3'
+          - name: CH_SUSP
+            description: DMA channel FIFO suspend indication
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: FIFO_EMPTY
+            description: DMA channel FIFO empty indication
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: HS_SEL_DST
+            description: DMA destination handshake signal selection
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: HS_SEL_SRC
+            description: DMA source handshake signal selection
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: LOCK_CH_L
+            description: DMA channel lock delay
+            bitOffset: '12'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRANSFER_COMPLETED
+                  description: wait until the DMA transfer is completed
+                  value: '0x0'
+                - name: BLOCK_COMPLETED
+                  description: wait until the block transfer is completed
+                  value: '0x1'
+                - name: DMA_PROCESSING_COMPLETED
+                  description: wait until DMA processing is completed
+                  value: '0x2'
+          - name: LOCK_B_L
+            description: Bus lock delay
+            bitOffset: '14'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRANSFER_COMPLETED
+                  description: wait until the DMA transfer is completed
+                  value: '0x0'
+                - name: BLOCK_COMPLETED
+                  description: wait until the block transfer is completed
+                  value: '0x1'
+                - name: DMA_PROCESSING_COMPLETED
+                  description: wait until DMA processing is completed
+                  value: '0x2'
+          - name: LOCK_CH
+            description: DMA channel lock control
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: LOCK_B
+            description: Bus lock control
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: DST_HS_POL
+            description: DMA destination handshake information polarity
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: SRC_HS_POL
+            description: DMA source handshake information polarity
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: RELOAD_SRC
+            description: DMA source auto-reloading enable
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: RELOAD_DST
+            description: DMA destination auto-reloading enable
+            bitOffset: '31'
+            bitWidth: '1'
+          - name: FCMODE
+            description: Source flow control mode selection
+            bitOffset: '32'
+            bitWidth: '1'
+          - name: FIFO_MODE
+            description: FIFO mode selection
+            bitOffset: '33'
+            bitWidth: '1'
+          - name: PROTCTL
+            description: Protection control
+            bitOffset: '34'
+            bitWidth: '3'
+          - name: DS_UPD_EN
+            description: DMA destination status update enable
+            bitOffset: '37'
+            bitWidth: '1'
+          - name: SS_UPD_EN
+            description: DMA source status update enable
+            bitOffset: '38'
+            bitWidth: '1'
+          - name: SRC_PER
+            description: DMA source handshake interface
+            bitOffset: '39'
+            bitWidth: '4'
+          - name: DEST_PER
+            description: DMA destination handshake interface
+            bitOffset: '43'
+            bitWidth: '4'
+    - name: SAR2
+      description: source address register
+      addressOffset: '0xB0'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: SAR
+            description: DMA source address
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: DAR2
+      description: destination address register
+      addressOffset: '0xB8'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: DAR
+            description: DMA destination address
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: LLP2
+      description: linked list pointer register
+      addressOffset: '0xC0'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: LOC
+            description: The first address of the next LLI chain table
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: CTL2
+      description: channel control register
+      addressOffset: '0xC8'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_EN
+            description: DMA interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: DST_TR_WIDTH
+            description: DMA destination data width configuration
+            bitOffset: '1'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BITS_8
+                  description: 8 bits
+                  value: '0x0'
+                - name: BITS_16
+                  description: 16 bits
+                  value: '0x1'
+                - name: BITS_32
+                  description: 32 bits
+                  value: '0x2'
+          - name: SRC_TR_WIDTH
+            description: DMA source data width configuration
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BITS_8
+                  description: 8 bits
+                  value: '0x0'
+                - name: BITS_16
+                  description: 16 bits
+                  value: '0x1'
+                - name: BITS_32
+                  description: 32 bits
+                  value: '0x2'
+          - name: DINC
+            description: DMA destination address control
+            bitOffset: '7'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: INCREMENT
+                  description: increment
+                  value: '0x0'
+                - name: DECREMENT
+                  description: decrement
+                  value: '0x1'
+                - name: NO_CHANGE_10
+                  description: no change
+                  value: '0x2'
+                - name: NO_CHANGE_11
+                  description: no change
+                  value: '0x3'
+          - name: SINC
+            description: DMA source address control
+            bitOffset: '9'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: INCREMENT
+                  description: increment
+                  value: '0x0'
+                - name: DECREMENT
+                  description: decrement
+                  value: '0x1'
+                - name: NO_CHANGE_10
+                  description: no change
+                  value: '0x2'
+                - name: NO_CHANGE_11
+                  description: no change
+                  value: '0x3'
+          - name: DEST_MSIZE
+            description: DMA destination burst length
+            bitOffset: '11'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: burst length 1
+                  value: '0x0'
+                - name: VALUE_4
+                  description: burst length 4
+                  value: '0x1'
+                - name: VALUE_8
+                  description: burst length 8
+                  value: '0x2'
+          - name: SRC_MSIZE
+            description: DMA source burst length
+            bitOffset: '14'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: burst length 1
+                  value: '0x0'
+                - name: VALUE_4
+                  description: burst length 4
+                  value: '0x1'
+                - name: VALUE_8
+                  description: burst length 8
+                  value: '0x2'
+          - name: SRC_GATHER_EN
+            description: DMA source gather enable
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: DST_SCATTER_EN
+            description: DMA destination scatter enable
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: TT_FC
+            description: DMA data transfer mode selection
+            bitOffset: '20'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MEM_TO_MEM
+                  description: memory to memory
+                  value: '0x0'
+                - name: MEM_TO_PERIPH
+                  description: memory to peripheral
+                  value: '0x1'
+                - name: PERIPH_TO_MEM
+                  description: peripheral to memory
+                  value: '0x2'
+                - name: PERIPH_TO_PERIPH
+                  description: peripheral to peripheral
+                  value: '0x3'
+          - name: DMS
+            description: DMA destination AHB master selection
+            bitOffset: '23'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MASTER_1
+                  description: AHB master 1
+                  value: '0x0'
+                - name: MASTER_2
+                  description: AHB master 2
+                  value: '0x1'
+                - name: MASTER_3
+                  description: AHB master 3
+                  value: '0x2'
+                - name: MASTER_4
+                  description: AHB master 4
+                  value: '0x3'
+          - name: SMS
+            description: DMA source AHB master selection
+            bitOffset: '25'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MASTER_1
+                  description: AHB master 1
+                  value: '0x0'
+                - name: MASTER_2
+                  description: AHB master 2
+                  value: '0x1'
+                - name: MASTER_3
+                  description: AHB master 3
+                  value: '0x2'
+                - name: MASTER_4
+                  description: AHB master 4
+                  value: '0x3'
+          - name: LLP_DST_EN
+            description: DMA destination LLI chain table enable
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: LLP_SRC_EN
+            description: DMA source LLI chain table enable
+            bitOffset: '28'
+            bitWidth: '1'
+          - name: BLOCK_TS
+            description: block length
+            bitOffset: '32'
+            bitWidth: '12'
+          - name: DONE
+            description: LLI chain table block transfer status
+            bitOffset: '44'
+            bitWidth: '1'
+    - name: CFG2
+      description: channel configuration register
+      addressOffset: '0xF0'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: CH_PRIOR
+            description: DMA channel priority configuration
+            bitOffset: '5'
+            bitWidth: '3'
+          - name: CH_SUSP
+            description: DMA channel FIFO suspend indication
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: FIFO_EMPTY
+            description: DMA channel FIFO empty indication
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: HS_SEL_DST
+            description: DMA destination handshake signal selection
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: HS_SEL_SRC
+            description: DMA source handshake signal selection
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: LOCK_CH_L
+            description: DMA channel lock delay
+            bitOffset: '12'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRANSFER_COMPLETED
+                  description: wait until the DMA transfer is completed
+                  value: '0x0'
+                - name: BLOCK_COMPLETED
+                  description: wait until the block transfer is completed
+                  value: '0x1'
+                - name: DMA_PROCESSING_COMPLETED
+                  description: wait until DMA processing is completed
+                  value: '0x2'
+          - name: LOCK_B_L
+            description: Bus lock delay
+            bitOffset: '14'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRANSFER_COMPLETED
+                  description: wait until the DMA transfer is completed
+                  value: '0x0'
+                - name: BLOCK_COMPLETED
+                  description: wait until the block transfer is completed
+                  value: '0x1'
+                - name: DMA_PROCESSING_COMPLETED
+                  description: wait until DMA processing is completed
+                  value: '0x2'
+          - name: LOCK_CH
+            description: DMA channel lock control
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: LOCK_B
+            description: Bus lock control
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: DST_HS_POL
+            description: DMA destination handshake information polarity
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: SRC_HS_POL
+            description: DMA source handshake information polarity
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: RELOAD_SRC
+            description: DMA source auto-reloading enable
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: RELOAD_DST
+            description: DMA destination auto-reloading enable
+            bitOffset: '31'
+            bitWidth: '1'
+          - name: FCMODE
+            description: Source flow control mode selection
+            bitOffset: '32'
+            bitWidth: '1'
+          - name: FIFO_MODE
+            description: FIFO mode selection
+            bitOffset: '33'
+            bitWidth: '1'
+          - name: PROTCTL
+            description: Protection control
+            bitOffset: '34'
+            bitWidth: '3'
+          - name: DS_UPD_EN
+            description: DMA destination status update enable
+            bitOffset: '37'
+            bitWidth: '1'
+          - name: SS_UPD_EN
+            description: DMA source status update enable
+            bitOffset: '38'
+            bitWidth: '1'
+          - name: SRC_PER
+            description: DMA source handshake interface
+            bitOffset: '39'
+            bitWidth: '4'
+          - name: DEST_PER
+            description: DMA destination handshake interface
+            bitOffset: '43'
+            bitWidth: '4'
+    - name: SAR3
+      description: source address register
+      addressOffset: '0x108'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: SAR
+            description: DMA source address
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: DAR3
+      description: destination address register
+      addressOffset: '0x110'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: DAR
+            description: DMA destination address
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: LLP3
+      description: linked list pointer register
+      addressOffset: '0x118'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: LOC
+            description: The first address of the next LLI chain table
+            bitOffset: '0'
+            bitWidth: '32'
+    - name: CTL3
+      description: channel control register
+      addressOffset: '0x120'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_EN
+            description: DMA interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: DST_TR_WIDTH
+            description: DMA destination data width configuration
+            bitOffset: '1'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BITS_8
+                  description: 8 bits
+                  value: '0x0'
+                - name: BITS_16
+                  description: 16 bits
+                  value: '0x1'
+                - name: BITS_32
+                  description: 32 bits
+                  value: '0x2'
+          - name: SRC_TR_WIDTH
+            description: DMA source data width configuration
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: BITS_8
+                  description: 8 bits
+                  value: '0x0'
+                - name: BITS_16
+                  description: 16 bits
+                  value: '0x1'
+                - name: BITS_32
+                  description: 32 bits
+                  value: '0x2'
+          - name: DINC
+            description: DMA destination address control
+            bitOffset: '7'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: INCREMENT
+                  description: increment
+                  value: '0x0'
+                - name: DECREMENT
+                  description: decrement
+                  value: '0x1'
+                - name: NO_CHANGE_10
+                  description: no change
+                  value: '0x2'
+                - name: NO_CHANGE_11
+                  description: no change
+                  value: '0x3'
+          - name: SINC
+            description: DMA source address control
+            bitOffset: '9'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: INCREMENT
+                  description: increment
+                  value: '0x0'
+                - name: DECREMENT
+                  description: decrement
+                  value: '0x1'
+                - name: NO_CHANGE_10
+                  description: no change
+                  value: '0x2'
+                - name: NO_CHANGE_11
+                  description: no change
+                  value: '0x3'
+          - name: DEST_MSIZE
+            description: DMA destination burst length
+            bitOffset: '11'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: burst length 1
+                  value: '0x0'
+                - name: VALUE_4
+                  description: burst length 4
+                  value: '0x1'
+                - name: VALUE_8
+                  description: burst length 8
+                  value: '0x2'
+          - name: SRC_MSIZE
+            description: DMA source burst length
+            bitOffset: '14'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: VALUE_1
+                  description: burst length 1
+                  value: '0x0'
+                - name: VALUE_4
+                  description: burst length 4
+                  value: '0x1'
+                - name: VALUE_8
+                  description: burst length 8
+                  value: '0x2'
+          - name: SRC_GATHER_EN
+            description: DMA source gather enable
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: DST_SCATTER_EN
+            description: DMA destination scatter enable
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: TT_FC
+            description: DMA data transfer mode selection
+            bitOffset: '20'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MEM_TO_MEM
+                  description: memory to memory
+                  value: '0x0'
+                - name: MEM_TO_PERIPH
+                  description: memory to peripheral
+                  value: '0x1'
+                - name: PERIPH_TO_MEM
+                  description: peripheral to memory
+                  value: '0x2'
+                - name: PERIPH_TO_PERIPH
+                  description: peripheral to peripheral
+                  value: '0x3'
+          - name: DMS
+            description: DMA destination AHB master selection
+            bitOffset: '23'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MASTER_1
+                  description: AHB master 1
+                  value: '0x0'
+                - name: MASTER_2
+                  description: AHB master 2
+                  value: '0x1'
+                - name: MASTER_3
+                  description: AHB master 3
+                  value: '0x2'
+                - name: MASTER_4
+                  description: AHB master 4
+                  value: '0x3'
+          - name: SMS
+            description: DMA source AHB master selection
+            bitOffset: '25'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: MASTER_1
+                  description: AHB master 1
+                  value: '0x0'
+                - name: MASTER_2
+                  description: AHB master 2
+                  value: '0x1'
+                - name: MASTER_3
+                  description: AHB master 3
+                  value: '0x2'
+                - name: MASTER_4
+                  description: AHB master 4
+                  value: '0x3'
+          - name: LLP_DST_EN
+            description: DMA destination LLI chain table enable
+            bitOffset: '27'
+            bitWidth: '1'
+          - name: LLP_SRC_EN
+            description: DMA source LLI chain table enable
+            bitOffset: '28'
+            bitWidth: '1'
+          - name: BLOCK_TS
+            description: block length
+            bitOffset: '32'
+            bitWidth: '12'
+          - name: DONE
+            description: LLI chain table block transfer status
+            bitOffset: '44'
+            bitWidth: '1'
+    - name: CFG3
+      description: channel configuration register
+      addressOffset: '0x148'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: CH_PRIOR
+            description: DMA channel priority configuration
+            bitOffset: '5'
+            bitWidth: '3'
+          - name: CH_SUSP
+            description: DMA channel FIFO suspend indication
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: FIFO_EMPTY
+            description: DMA channel FIFO empty indication
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: HS_SEL_DST
+            description: DMA destination handshake signal selection
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: HS_SEL_SRC
+            description: DMA source handshake signal selection
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: LOCK_CH_L
+            description: DMA channel lock delay
+            bitOffset: '12'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRANSFER_COMPLETED
+                  description: wait until the DMA transfer is completed
+                  value: '0x0'
+                - name: BLOCK_COMPLETED
+                  description: wait until the block transfer is completed
+                  value: '0x1'
+                - name: DMA_PROCESSING_COMPLETED
+                  description: wait until DMA processing is completed
+                  value: '0x2'
+          - name: LOCK_B_L
+            description: Bus lock delay
+            bitOffset: '14'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRANSFER_COMPLETED
+                  description: wait until the DMA transfer is completed
+                  value: '0x0'
+                - name: BLOCK_COMPLETED
+                  description: wait until the block transfer is completed
+                  value: '0x1'
+                - name: DMA_PROCESSING_COMPLETED
+                  description: wait until DMA processing is completed
+                  value: '0x2'
+          - name: LOCK_CH
+            description: DMA channel lock control
+            bitOffset: '16'
+            bitWidth: '1'
+          - name: LOCK_B
+            description: Bus lock control
+            bitOffset: '17'
+            bitWidth: '1'
+          - name: DST_HS_POL
+            description: DMA destination handshake information polarity
+            bitOffset: '18'
+            bitWidth: '1'
+          - name: SRC_HS_POL
+            description: DMA source handshake information polarity
+            bitOffset: '19'
+            bitWidth: '1'
+          - name: RELOAD_SRC
+            description: DMA source auto-reloading enable
+            bitOffset: '30'
+            bitWidth: '1'
+          - name: RELOAD_DST
+            description: DMA destination auto-reloading enable
+            bitOffset: '31'
+            bitWidth: '1'
+          - name: FCMODE
+            description: Source flow control mode selection
+            bitOffset: '32'
+            bitWidth: '1'
+          - name: FIFO_MODE
+            description: FIFO mode selection
+            bitOffset: '33'
+            bitWidth: '1'
+          - name: PROTCTL
+            description: Protection control
+            bitOffset: '34'
+            bitWidth: '3'
+          - name: DS_UPD_EN
+            description: DMA destination status update enable
+            bitOffset: '37'
+            bitWidth: '1'
+          - name: SS_UPD_EN
+            description: DMA source status update enable
+            bitOffset: '38'
+            bitWidth: '1'
+          - name: SRC_PER
+            description: DMA source handshake interface
+            bitOffset: '39'
+            bitWidth: '4'
+          - name: DEST_PER
+            description: DMA destination handshake interface
+            bitOffset: '43'
+            bitWidth: '4'
+    - name: STATUS_TFR
+      description: DMA transfer complete interrupt status register
+      addressOffset: '0x2E8'
+      size: '64'
+      access: read-only
+      fields:
+        field:
+          - name: CHAN0_STATUS
+            description: Transfer completion status of DMA channel 0
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_STATUS
+            description: Transfer completion status of DMA channel 1
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_STATUS
+            description: Transfer completion status of DMA channel 2
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_STATUS
+            description: Transfer completion status of DMA channel 3
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: STATUS_BLOCK
+      description: DMA block transfer complete interrupt status register
+      addressOffset: '0x2F0'
+      size: '64'
+      access: read-only
+      fields:
+        field:
+          - name: CHAN0_STATUS
+            description: Block transfer completion status of DMA channel 0
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_STATUS
+            description: Block transfer completion status of DMA channel 1
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_STATUS
+            description: Block transfer completion status of DMA channel 2
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_STATUS
+            description: Block transfer completion status of DMA channel 3
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: STATUS_SRC_TRAN
+      description: DMA source processing completed interrupt status register
+      addressOffset: '0x2F8'
+      size: '64'
+      access: read-only
+      fields:
+        field:
+          - name: CHAN0_STATUS
+            description: Source processing completed status of DMA channel 0
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_STATUS
+            description: Source processing completed status of DMA channel 1
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_STATUS
+            description: Source processing completed status of DMA channel 2
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_STATUS
+            description: Source processing completed status of DMA channel 3
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: STATUS_DST_TRAN
+      description: DMA destination processing completed interrupt status register
+      addressOffset: '0x300'
+      size: '64'
+      access: read-only
+      fields:
+        field:
+          - name: CHAN0_STATUS
+            description: Destination processing completed status of DMA channel 0
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_STATUS
+            description: Destination processing completed status of DMA channel 1
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_STATUS
+            description: Destination processing completed status of DMA channel 2
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_STATUS
+            description: Destination processing completed status of DMA channel 3
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: STATUS_ERR
+      description: DMA transmission error status register
+      addressOffset: '0x308'
+      size: '64'
+      access: read-only
+      fields:
+        field:
+          - name: CHAN0_STATUS
+            description: Transmission error status of DMA channel 0
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_STATUS
+            description: Transmission error status of DMA channel 1
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_STATUS
+            description: Transmission error status of DMA channel 2
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_STATUS
+            description: Transmission error status of DMA channel 3
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: MASK_TFR
+      description: DMA transfer complete interrupt enable register
+      addressOffset: '0x310'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_MASK_0
+            description: DMA channel 0 transfer completion interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: INT_MASK_1
+            description: DMA channel 1 transfer completion interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: INT_MASK_2
+            description: DMA channel 2 transfer completion interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: INT_MASK_3
+            description: DMA channel 3 transfer completion interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: INT_MASK_WE_0
+            description: DMA channel 0 transfer completion interrupt mask write enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: INT_MASK_WE_1
+            description: DMA channel 1 transfer completion interrupt mask write enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: INT_MASK_WE_2
+            description: DMA channel 2 transfer completion interrupt mask write enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: INT_MASK_WE_3
+            description: DMA channel 3 transfer completion interrupt mask write enable
+            bitOffset: '11'
+            bitWidth: '1'
+    - name: MASK_BLOCK
+      description: DMA block transfer complete interrupt enable register
+      addressOffset: '0x318'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_MASK_0
+            description: DMA channel 0 block transfer completion interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: INT_MASK_1
+            description: DMA channel 1 block transfer completion interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: INT_MASK_2
+            description: DMA channel 2 block transfer completion interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: INT_MASK_3
+            description: DMA channel 3 block transfer completion interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: INT_MASK_WE_0
+            description: DMA channel 0 block transfer completion interrupt mask write enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: INT_MASK_WE_1
+            description: DMA channel 1 block transfer completion interrupt mask write enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: INT_MASK_WE_2
+            description: DMA channel 2 block transfer completion interrupt mask write enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: INT_MASK_WE_3
+            description: DMA channel 3 block transfer completion interrupt mask write enable
+            bitOffset: '11'
+            bitWidth: '1'
+    - name: MASK_SRC_TRAN
+      description: DMA source processing completed interrupt enable register
+      addressOffset: '0x320'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_MASK_0
+            description: DMA channel 0 source processing completed interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: INT_MASK_1
+            description: DMA channel 1 source processing completed interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: INT_MASK_2
+            description: DMA channel 2 source processing completed interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: INT_MASK_3
+            description: DMA channel 3 source processing completed interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: INT_MASK_WE_0
+            description: DMA channel 0 source processing completed interrupt mask write enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: INT_MASK_WE_1
+            description: DMA channel 1 source processing completed interrupt mask write enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: INT_MASK_WE_2
+            description: DMA channel 2 source processing completed interrupt mask write enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: INT_MASK_WE_3
+            description: DMA channel 3 source processing completed interrupt mask write enable
+            bitOffset: '11'
+            bitWidth: '1'
+    - name: MASK_DST_TRAN
+      description: DMA destination processing completed interrupt enable register
+      addressOffset: '0x328'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_MASK_0
+            description: DMA channel 0 destination processing completed interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: INT_MASK_1
+            description: DMA channel 1 destination processing completed interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: INT_MASK_2
+            description: DMA channel 2 destination processing completed interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: INT_MASK_3
+            description: DMA channel 3 destination processing completed interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: INT_MASK_WE_0
+            description: DMA channel 0 destination processing completed interrupt mask write enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: INT_MASK_WE_1
+            description: DMA channel 1 destination processing completed interrupt mask write enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: INT_MASK_WE_2
+            description: DMA channel 2 destination processing completed interrupt mask write enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: INT_MASK_WE_3
+            description: DMA channel 3 destination processing completed interrupt mask write enable
+            bitOffset: '11'
+            bitWidth: '1'
+    - name: MASK_ERR
+      description: DMA transmission error interrupt enable register
+      addressOffset: '0x330'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: INT_MASK_0
+            description: DMA channel 0 transmission error interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: INT_MASK_1
+            description: DMA channel 1 transmission error interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: INT_MASK_2
+            description: DMA channel 2 transmission error interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: INT_MASK_3
+            description: DMA channel 3 transmission error interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: INT_MASK_WE_0
+            description: DMA channel 0 transmission error interrupt mask write enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: INT_MASK_WE_1
+            description: DMA channel 1 transmission error interrupt mask write enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: INT_MASK_WE_2
+            description: DMA channel 2 transmission error interrupt mask write enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: INT_MASK_WE_3
+            description: DMA channel 3 transmission error interrupt mask write enable
+            bitOffset: '11'
+            bitWidth: '1'
+    - name: CLEAR_TFR
+      description: DMA transfer completion status clear register
+      addressOffset: '0x338'
+      size: '64'
+      access: write-only
+      fields:
+        field:
+          - name: CHAN0_CLEAR
+            description: Clear DMA channel 0 transfer completion status
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_CLEAR
+            description: Clear DMA channel 1 transfer completion status
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_CLEAR
+            description: Clear DMA channel 2 transfer completion status
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_CLEAR
+            description: Clear DMA channel 3 transfer completion status
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: CLEAR_BLOCK
+      description: DMA block transfer completion status clear register
+      addressOffset: '0x340'
+      size: '64'
+      access: write-only
+      fields:
+        field:
+          - name: CHAN0_CLEAR
+            description: Clear DMA channel 0 block transfer completion status
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_CLEAR
+            description: Clear DMA channel 1 block transfer completion status
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_CLEAR
+            description: Clear DMA channel 2 block transfer completion status
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_CLEAR
+            description: Clear DMA channel 3 block transfer completion status
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: CLEAR_SRC_TRAN
+      description: DMA source transfer completion status clear register
+      addressOffset: '0x348'
+      size: '64'
+      access: write-only
+      fields:
+        field:
+          - name: CHAN0_CLEAR
+            description: Clear DMA channel 0 source transfer completion status
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_CLEAR
+            description: Clear DMA channel 1 source transfer completion status
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_CLEAR
+            description: Clear DMA channel 2 source transfer completion status
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_CLEAR
+            description: Clear DMA channel 3 source transfer completion status
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: CLEAR_DST_TRAN
+      description: DMA destination transfer completion status clear register
+      addressOffset: '0x350'
+      size: '64'
+      access: write-only
+      fields:
+        field:
+          - name: CHAN0_CLEAR
+            description: Clear DMA channel 0 destination transfer completion status
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_CLEAR
+            description: Clear DMA channel 1 destination transfer completion status
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_CLEAR
+            description: Clear DMA channel 2 destination transfer completion status
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_CLEAR
+            description: Clear DMA channel 3 destination transfer completion status
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: CLEAR_ERR
+      description: DMA transfer error status clear register
+      addressOffset: '0x358'
+      size: '64'
+      access: write-only
+      fields:
+        field:
+          - name: CHAN0_CLEAR
+            description: Clear DMA channel 0 transfer error status
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_CLEAR
+            description: Clear DMA channel 1 transfer error status
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_CLEAR
+            description: Clear DMA channel 2 transfer error status
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_CLEAR
+            description: Clear DMA channel 3 transfer error status
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: DMACFGREG
+      description: DMA enable register
+      addressOffset: '0x398'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: DMA_EN
+            description: DMA enable control
+            bitOffset: '0'
+            bitWidth: '1'
+    - name: CHENREG
+      description: DMA channel enable register
+      addressOffset: '0x3A0'
+      size: '64'
+      access: read-write
+      fields:
+        field:
+          - name: CH_EN_0
+            description: DMA channel 0 enable control
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CH_EN_1
+            description: DMA channel 1 enable control
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CH_EN_2
+            description: DMA channel 2 enable control
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CH_EN_3
+            description: DMA channel 3 enable control
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: CH_EN_WE_0
+            description: DMA channel 0 enable control information write enable
+            bitOffset: '8'
+            bitWidth: '1'
+          - name: CH_EN_WE_1
+            description: DMA channel 1 enable control information write enable
+            bitOffset: '9'
+            bitWidth: '1'
+          - name: CH_EN_WE_2
+            description: DMA channel 2 enable control information write enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: CH_EN_WE_3
+            description: DMA channel 3 enable control information write enable
+            bitOffset: '11'
+            bitWidth: '1'

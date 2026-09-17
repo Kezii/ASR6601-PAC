@@ -18,10 +18,10 @@ pub type I2sRstNW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type RngcRstNR = crate::BitReader;
 #[doc = "Field `RNGC_RST_N` writer - Rngc rst n"]
 pub type RngcRstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LPTIMER1_RST_N` reader - Lptimer1 rst n"]
-pub type Lptimer1RstNR = crate::BitReader;
-#[doc = "Field `LPTIMER1_RST_N` writer - Lptimer1 rst n"]
-pub type Lptimer1RstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LPTIM1_RST_N` reader - Lptim1 rst n"]
+pub type Lptim1RstNR = crate::BitReader;
+#[doc = "Field `LPTIM1_RST_N` writer - Lptim1 rst n"]
+pub type Lptim1RstNW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Dmac1 rst n"]
     #[inline(always)]
@@ -43,10 +43,10 @@ impl R {
     pub fn rngc_rst_n(&self) -> RngcRstNR {
         RngcRstNR::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 4 - Lptimer1 rst n"]
+    #[doc = "Bit 4 - Lptim1 rst n"]
     #[inline(always)]
-    pub fn lptimer1_rst_n(&self) -> Lptimer1RstNR {
-        Lptimer1RstNR::new(((self.bits >> 4) & 1) != 0)
+    pub fn lptim1_rst_n(&self) -> Lptim1RstNR {
+        Lptim1RstNR::new(((self.bits >> 4) & 1) != 0)
     }
 }
 impl W {
@@ -70,10 +70,10 @@ impl W {
     pub fn rngc_rst_n(&mut self) -> RngcRstNW<'_, Rst1Spec> {
         RngcRstNW::new(self, 3)
     }
-    #[doc = "Bit 4 - Lptimer1 rst n"]
+    #[doc = "Bit 4 - Lptim1 rst n"]
     #[inline(always)]
-    pub fn lptimer1_rst_n(&mut self) -> Lptimer1RstNW<'_, Rst1Spec> {
-        Lptimer1RstNW::new(self, 4)
+    pub fn lptim1_rst_n(&mut self) -> Lptim1RstNW<'_, Rst1Spec> {
+        Lptim1RstNW::new(self, 4)
     }
 }
 #[doc = "reset register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`rst1::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`rst1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

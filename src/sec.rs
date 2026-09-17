@@ -3,9 +3,11 @@
 pub struct RegisterBlock {
     int: Int,
     rst: Rst,
+    _reserved2: [u8; 0x04],
     sr: Sr,
     filter0: Filter0,
     filter1: Filter1,
+    _reserved5: [u8; 0x0c],
     filter2: Filter2,
     filter3: Filter3,
 }
@@ -20,27 +22,27 @@ impl RegisterBlock {
     pub const fn rst(&self) -> &Rst {
         &self.rst
     }
-    #[doc = "0x08 - status"]
+    #[doc = "0x0c - status"]
     #[inline(always)]
     pub const fn sr(&self) -> &Sr {
         &self.sr
     }
-    #[doc = "0x0c - filter0"]
+    #[doc = "0x10 - filter0"]
     #[inline(always)]
     pub const fn filter0(&self) -> &Filter0 {
         &self.filter0
     }
-    #[doc = "0x10 - filter1"]
+    #[doc = "0x14 - filter1"]
     #[inline(always)]
     pub const fn filter1(&self) -> &Filter1 {
         &self.filter1
     }
-    #[doc = "0x14 - filter2"]
+    #[doc = "0x24 - filter2"]
     #[inline(always)]
     pub const fn filter2(&self) -> &Filter2 {
         &self.filter2
     }
-    #[doc = "0x18 - filter3"]
+    #[doc = "0x28 - filter3"]
     #[inline(always)]
     pub const fn filter3(&self) -> &Filter3 {
         &self.filter3

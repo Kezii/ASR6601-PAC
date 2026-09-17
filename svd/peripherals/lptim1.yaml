@@ -1,0 +1,7 @@
+name: LPTIM1
+description: LPTIM1 instance
+baseAddress: '0x4000D800'
+interrupt:
+  name: LPTIM1
+  value: '35'
+_derivedFrom: LPTIM0

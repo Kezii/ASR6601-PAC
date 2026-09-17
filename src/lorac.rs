@@ -10,7 +10,7 @@ pub struct RegisterBlock {
     ssp_ris: SspRis,
     ssp_mis: SspMis,
     ssp_icr: SspIcr,
-    ssp_dma_cr: SspDmaCr,
+    ssp_dmacr: SspDmacr,
     _reserved10: [u8; 0xd8],
     cr0: Cr0,
     cr1: Cr1,
@@ -68,8 +68,8 @@ impl RegisterBlock {
     }
     #[doc = "0x24 - ssp DMA control register"]
     #[inline(always)]
-    pub const fn ssp_dma_cr(&self) -> &SspDmaCr {
-        &self.ssp_dma_cr
+    pub const fn ssp_dmacr(&self) -> &SspDmacr {
+        &self.ssp_dmacr
     }
     #[doc = "0x100 - control register 0"]
     #[inline(always)]
@@ -152,11 +152,11 @@ pub mod ssp_mis;
 pub type SspIcr = crate::Reg<ssp_icr::SspIcrSpec>;
 #[doc = "ssp interrupt clear register"]
 pub mod ssp_icr;
-#[doc = "SSP_DMA_CR (rw) register accessor: ssp DMA control register\n\nYou can [`read`](crate::Reg::read) this register and get [`ssp_dma_cr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ssp_dma_cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ssp_dma_cr`] module"]
-#[doc(alias = "SSP_DMA_CR")]
-pub type SspDmaCr = crate::Reg<ssp_dma_cr::SspDmaCrSpec>;
+#[doc = "SSP_DMACR (rw) register accessor: ssp DMA control register\n\nYou can [`read`](crate::Reg::read) this register and get [`ssp_dmacr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ssp_dmacr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ssp_dmacr`] module"]
+#[doc(alias = "SSP_DMACR")]
+pub type SspDmacr = crate::Reg<ssp_dmacr::SspDmacrSpec>;
 #[doc = "ssp DMA control register"]
-pub mod ssp_dma_cr;
+pub mod ssp_dmacr;
 #[doc = "CR0 (rw) register accessor: control register 0\n\nYou can [`read`](crate::Reg::read) this register and get [`cr0::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cr0`] module"]
 #[doc(alias = "CR0")]
 pub type Cr0 = crate::Reg<cr0::Cr0Spec>;

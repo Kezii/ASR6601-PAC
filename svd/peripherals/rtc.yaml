@@ -10,7 +10,7 @@ interrupt:
   value: '1'
 registers:
   register:
-    - name: CTRL
+    - name: CR
       description: control register
       addressOffset: '0x0'
       size: '32'
@@ -163,7 +163,7 @@ registers:
             description: Alarm 1 enable
             bitOffset: '31'
             bitWidth: '1'
-    - name: PPM_ADJUST
+    - name: PPMADJUST
       description: ppm adjust value
       addressOffset: '0xC'
       size: '32'
@@ -196,7 +196,7 @@ registers:
             description: Calendar high value
             bitOffset: '0'
             bitWidth: '22'
-    - name: CYC_MAX
+    - name: CYC_MAX_VALUE
       description: cyc max value
       addressOffset: '0x18'
       size: '32'
@@ -242,7 +242,7 @@ registers:
             description: Alarm0 status
             bitOffset: '6'
             bitWidth: '1'
-    - name: ASYN_DATA
+    - name: ASYNDATA
       description: asynchronization time hour/minute/second
       addressOffset: '0x20'
       size: '32'
@@ -253,7 +253,7 @@ registers:
             description: Synchronization time hour/minute/second
             bitOffset: '0'
             bitWidth: '20'
-    - name: ASYN_DATA_H
+    - name: ASYNDATA_H
       description: asynchronization time year/month/date
       addressOffset: '0x24'
       size: '32'
@@ -377,7 +377,7 @@ registers:
             description: Rtc output polarity
             bitOffset: '7'
             bitWidth: '1'
-    - name: SUB_SECOND_CNT
+    - name: SUB_SECOND
       description: subsecond counter
       addressOffset: '0x34'
       size: '32'
@@ -388,7 +388,7 @@ registers:
             description: Rtc subsecond value
             bitOffset: '0'
             bitWidth: '15'
-    - name: CYC_CNT
+    - name: CYC_CNT_VALUE
       description: cyc counter
       addressOffset: '0x38'
       size: '32'
@@ -399,7 +399,7 @@ registers:
             description: Cyc count value
             bitOffset: '0'
             bitWidth: '32'
-    - name: ALARM0_SUBSECOND
+    - name: ALARM0_SUB
       description: alarm0 subsecond
       addressOffset: '0x3C'
       size: '32'
@@ -414,7 +414,7 @@ registers:
             description: Alarm0 subsecond mask
             bitOffset: '16'
             bitWidth: '4'
-    - name: ALARM1_SUBSECOND
+    - name: ALARM1_SUB
       description: alarm1 subsecond
       addressOffset: '0x40'
       size: '32'

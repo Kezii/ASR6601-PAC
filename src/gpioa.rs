@@ -11,13 +11,13 @@ pub struct RegisterBlock {
     brr: Brr,
     bsrr: Bsrr,
     dsr: Dsr,
-    icr: Icr,
-    ifr: Ifr,
-    wucr: Wucr,
-    wulvl: Wulvl,
+    int_cr: IntCr,
+    fr: Fr,
+    wu_en: WuEn,
+    wu_lvl: WuLvl,
     afrl: Afrl,
     afrh: Afrh,
-    stop3_wucr: Stop3Wucr,
+    stop3_wu_cr: Stop3WuCr,
 }
 impl RegisterBlock {
     #[doc = "0x00 - output enable register"]
@@ -72,23 +72,23 @@ impl RegisterBlock {
     }
     #[doc = "0x28 - interrupt control register"]
     #[inline(always)]
-    pub const fn icr(&self) -> &Icr {
-        &self.icr
+    pub const fn int_cr(&self) -> &IntCr {
+        &self.int_cr
     }
     #[doc = "0x2c - interrupt flag register"]
     #[inline(always)]
-    pub const fn ifr(&self) -> &Ifr {
-        &self.ifr
+    pub const fn fr(&self) -> &Fr {
+        &self.fr
     }
     #[doc = "0x30 - wakeup control register"]
     #[inline(always)]
-    pub const fn wucr(&self) -> &Wucr {
-        &self.wucr
+    pub const fn wu_en(&self) -> &WuEn {
+        &self.wu_en
     }
     #[doc = "0x34 - wakeup level register"]
     #[inline(always)]
-    pub const fn wulvl(&self) -> &Wulvl {
-        &self.wulvl
+    pub const fn wu_lvl(&self) -> &WuLvl {
+        &self.wu_lvl
     }
     #[doc = "0x38 - alternate function low register"]
     #[inline(always)]
@@ -102,8 +102,8 @@ impl RegisterBlock {
     }
     #[doc = "0x40 - stop3 wakeup control register"]
     #[inline(always)]
-    pub const fn stop3_wucr(&self) -> &Stop3Wucr {
-        &self.stop3_wucr
+    pub const fn stop3_wu_cr(&self) -> &Stop3WuCr {
+        &self.stop3_wu_cr
     }
 }
 #[doc = "OER (rw) register accessor: output enable register\n\nYou can [`read`](crate::Reg::read) this register and get [`oer::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`oer::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@oer`] module"]
@@ -156,26 +156,26 @@ pub mod bsrr;
 pub type Dsr = crate::Reg<dsr::DsrSpec>;
 #[doc = "drive strength register"]
 pub mod dsr;
-#[doc = "ICR (rw) register accessor: interrupt control register\n\nYou can [`read`](crate::Reg::read) this register and get [`icr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@icr`] module"]
-#[doc(alias = "ICR")]
-pub type Icr = crate::Reg<icr::IcrSpec>;
+#[doc = "INT_CR (rw) register accessor: interrupt control register\n\nYou can [`read`](crate::Reg::read) this register and get [`int_cr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@int_cr`] module"]
+#[doc(alias = "INT_CR")]
+pub type IntCr = crate::Reg<int_cr::IntCrSpec>;
 #[doc = "interrupt control register"]
-pub mod icr;
-#[doc = "IFR (rw) register accessor: interrupt flag register\n\nYou can [`read`](crate::Reg::read) this register and get [`ifr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ifr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ifr`] module"]
-#[doc(alias = "IFR")]
-pub type Ifr = crate::Reg<ifr::IfrSpec>;
+pub mod int_cr;
+#[doc = "FR (rw) register accessor: interrupt flag register\n\nYou can [`read`](crate::Reg::read) this register and get [`fr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`fr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@fr`] module"]
+#[doc(alias = "FR")]
+pub type Fr = crate::Reg<fr::FrSpec>;
 #[doc = "interrupt flag register"]
-pub mod ifr;
-#[doc = "WUCR (rw) register accessor: wakeup control register\n\nYou can [`read`](crate::Reg::read) this register and get [`wucr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wucr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wucr`] module"]
-#[doc(alias = "WUCR")]
-pub type Wucr = crate::Reg<wucr::WucrSpec>;
+pub mod fr;
+#[doc = "WU_EN (rw) register accessor: wakeup control register\n\nYou can [`read`](crate::Reg::read) this register and get [`wu_en::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wu_en::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wu_en`] module"]
+#[doc(alias = "WU_EN")]
+pub type WuEn = crate::Reg<wu_en::WuEnSpec>;
 #[doc = "wakeup control register"]
-pub mod wucr;
-#[doc = "WULVL (rw) register accessor: wakeup level register\n\nYou can [`read`](crate::Reg::read) this register and get [`wulvl::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wulvl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wulvl`] module"]
-#[doc(alias = "WULVL")]
-pub type Wulvl = crate::Reg<wulvl::WulvlSpec>;
+pub mod wu_en;
+#[doc = "WU_LVL (rw) register accessor: wakeup level register\n\nYou can [`read`](crate::Reg::read) this register and get [`wu_lvl::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`wu_lvl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@wu_lvl`] module"]
+#[doc(alias = "WU_LVL")]
+pub type WuLvl = crate::Reg<wu_lvl::WuLvlSpec>;
 #[doc = "wakeup level register"]
-pub mod wulvl;
+pub mod wu_lvl;
 #[doc = "AFRL (rw) register accessor: alternate function low register\n\nYou can [`read`](crate::Reg::read) this register and get [`afrl::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`afrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@afrl`] module"]
 #[doc(alias = "AFRL")]
 pub type Afrl = crate::Reg<afrl::AfrlSpec>;
@@ -186,8 +186,8 @@ pub mod afrl;
 pub type Afrh = crate::Reg<afrh::AfrhSpec>;
 #[doc = "alternate function high register"]
 pub mod afrh;
-#[doc = "STOP3_WUCR (rw) register accessor: stop3 wakeup control register\n\nYou can [`read`](crate::Reg::read) this register and get [`stop3_wucr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`stop3_wucr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@stop3_wucr`] module"]
-#[doc(alias = "STOP3_WUCR")]
-pub type Stop3Wucr = crate::Reg<stop3_wucr::Stop3WucrSpec>;
+#[doc = "STOP3_WU_CR (rw) register accessor: stop3 wakeup control register\n\nYou can [`read`](crate::Reg::read) this register and get [`stop3_wu_cr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`stop3_wu_cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@stop3_wu_cr`] module"]
+#[doc(alias = "STOP3_WU_CR")]
+pub type Stop3WuCr = crate::Reg<stop3_wu_cr::Stop3WuCrSpec>;
 #[doc = "stop3 wakeup control register"]
-pub mod stop3_wucr;
+pub mod stop3_wu_cr;

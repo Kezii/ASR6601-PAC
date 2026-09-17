@@ -1,6 +1,6 @@
 name: AFEC
 description: Analog front-end controller digital registers
-baseAddress: '0x40008200'
+baseAddress: '0x40008000'
 addressBlock:
   offset: '0'
   size: '0xC'
@@ -12,17 +12,17 @@ registers:
   register:
     - name: CR
       description: control register
-      addressOffset: '0x0'
+      addressOffset: '0x200'
       size: '32'
       access: read-write
     - name: INT_SR
       description: interrupt status register
-      addressOffset: '0x4'
+      addressOffset: '0x204'
       size: '32'
       access: read-write
     - name: RAW_SR
       description: raw status register
-      addressOffset: '0x8'
+      addressOffset: '0x208'
       size: '32'
       access: read-only
       fields:

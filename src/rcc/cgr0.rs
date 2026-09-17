@@ -2,30 +2,30 @@
 pub type R = crate::R<Cgr0Spec>;
 #[doc = "Register `CGR0` writer"]
 pub type W = crate::W<Cgr0Spec>;
-#[doc = "Field `TIMER3_CLK_EN` reader - Timer3 clk en"]
-pub type Timer3ClkEnR = crate::BitReader;
-#[doc = "Field `TIMER3_CLK_EN` writer - Timer3 clk en"]
-pub type Timer3ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TIMER2_CLK_EN` reader - Timer2 clk en"]
-pub type Timer2ClkEnR = crate::BitReader;
-#[doc = "Field `TIMER2_CLK_EN` writer - Timer2 clk en"]
-pub type Timer2ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TIMER1_CLK_EN` reader - Timer1 clk en"]
-pub type Timer1ClkEnR = crate::BitReader;
-#[doc = "Field `TIMER1_CLK_EN` writer - Timer1 clk en"]
-pub type Timer1ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TIMER0_CLK_EN` reader - Timer0 clk en"]
-pub type Timer0ClkEnR = crate::BitReader;
-#[doc = "Field `TIMER0_CLK_EN` writer - Timer0 clk en"]
-pub type Timer0ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LORA_CLK_EN` reader - Lora clk en"]
-pub type LoraClkEnR = crate::BitReader;
-#[doc = "Field `LORA_CLK_EN` writer - Lora clk en"]
-pub type LoraClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DAC_CLK_EN` reader - Dac clk en"]
-pub type DacClkEnR = crate::BitReader;
-#[doc = "Field `DAC_CLK_EN` writer - Dac clk en"]
-pub type DacClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GPTIM3_CLK_EN` reader - Gptim3 clk en"]
+pub type Gptim3ClkEnR = crate::BitReader;
+#[doc = "Field `GPTIM3_CLK_EN` writer - Gptim3 clk en"]
+pub type Gptim3ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GPTIM2_CLK_EN` reader - Gptim2 clk en"]
+pub type Gptim2ClkEnR = crate::BitReader;
+#[doc = "Field `GPTIM2_CLK_EN` writer - Gptim2 clk en"]
+pub type Gptim2ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GPTIM1_CLK_EN` reader - Gptim1 clk en"]
+pub type Gptim1ClkEnR = crate::BitReader;
+#[doc = "Field `GPTIM1_CLK_EN` writer - Gptim1 clk en"]
+pub type Gptim1ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GPTIM0_CLK_EN` reader - Gptim0 clk en"]
+pub type Gptim0ClkEnR = crate::BitReader;
+#[doc = "Field `GPTIM0_CLK_EN` writer - Gptim0 clk en"]
+pub type Gptim0ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LORAC_CLK_EN` reader - Lorac clk en"]
+pub type LoracClkEnR = crate::BitReader;
+#[doc = "Field `LORAC_CLK_EN` writer - Lorac clk en"]
+pub type LoracClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DACCTRL_CLK_EN` reader - Dacctrl clk en"]
+pub type DacctrlClkEnR = crate::BitReader;
+#[doc = "Field `DACCTRL_CLK_EN` writer - Dacctrl clk en"]
+pub type DacctrlClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `LCD_CLK_EN` reader - Lcd clk en"]
 pub type LcdClkEnR = crate::BitReader;
 #[doc = "Field `LCD_CLK_EN` writer - Lcd clk en"]
@@ -102,14 +102,14 @@ pub type Iom1ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type Iom0ClkEnR = crate::BitReader;
 #[doc = "Field `IOM0_CLK_EN` writer - Iom0 clk en"]
 pub type Iom0ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BSTIMER1_CLK_EN` reader - Bstimer1 clk en"]
-pub type Bstimer1ClkEnR = crate::BitReader;
-#[doc = "Field `BSTIMER1_CLK_EN` writer - Bstimer1 clk en"]
-pub type Bstimer1ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BSTIMER0_CLK_EN` reader - Bstimer0 clk en"]
-pub type Bstimer0ClkEnR = crate::BitReader;
-#[doc = "Field `BSTIMER0_CLK_EN` writer - Bstimer0 clk en"]
-pub type Bstimer0ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `BASICTIM1_CLK_EN` reader - Basictim1 clk en"]
+pub type Basictim1ClkEnR = crate::BitReader;
+#[doc = "Field `BASICTIM1_CLK_EN` writer - Basictim1 clk en"]
+pub type Basictim1ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `BASICTIM0_CLK_EN` reader - Basictim0 clk en"]
+pub type Basictim0ClkEnR = crate::BitReader;
+#[doc = "Field `BASICTIM0_CLK_EN` writer - Basictim0 clk en"]
+pub type Basictim0ClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `CRC_CLK_EN` reader - Crc clk en"]
 pub type CrcClkEnR = crate::BitReader;
 #[doc = "Field `CRC_CLK_EN` writer - Crc clk en"]
@@ -127,35 +127,35 @@ pub type PwrClkEnR = crate::BitReader;
 #[doc = "Field `PWR_CLK_EN` writer - Pwr clk en"]
 pub type PwrClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
-    #[doc = "Bit 0 - Timer3 clk en"]
+    #[doc = "Bit 0 - Gptim3 clk en"]
     #[inline(always)]
-    pub fn timer3_clk_en(&self) -> Timer3ClkEnR {
-        Timer3ClkEnR::new((self.bits & 1) != 0)
+    pub fn gptim3_clk_en(&self) -> Gptim3ClkEnR {
+        Gptim3ClkEnR::new((self.bits & 1) != 0)
     }
-    #[doc = "Bit 1 - Timer2 clk en"]
+    #[doc = "Bit 1 - Gptim2 clk en"]
     #[inline(always)]
-    pub fn timer2_clk_en(&self) -> Timer2ClkEnR {
-        Timer2ClkEnR::new(((self.bits >> 1) & 1) != 0)
+    pub fn gptim2_clk_en(&self) -> Gptim2ClkEnR {
+        Gptim2ClkEnR::new(((self.bits >> 1) & 1) != 0)
     }
-    #[doc = "Bit 2 - Timer1 clk en"]
+    #[doc = "Bit 2 - Gptim1 clk en"]
     #[inline(always)]
-    pub fn timer1_clk_en(&self) -> Timer1ClkEnR {
-        Timer1ClkEnR::new(((self.bits >> 2) & 1) != 0)
+    pub fn gptim1_clk_en(&self) -> Gptim1ClkEnR {
+        Gptim1ClkEnR::new(((self.bits >> 2) & 1) != 0)
     }
-    #[doc = "Bit 3 - Timer0 clk en"]
+    #[doc = "Bit 3 - Gptim0 clk en"]
     #[inline(always)]
-    pub fn timer0_clk_en(&self) -> Timer0ClkEnR {
-        Timer0ClkEnR::new(((self.bits >> 3) & 1) != 0)
+    pub fn gptim0_clk_en(&self) -> Gptim0ClkEnR {
+        Gptim0ClkEnR::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 4 - Lora clk en"]
+    #[doc = "Bit 4 - Lorac clk en"]
     #[inline(always)]
-    pub fn lora_clk_en(&self) -> LoraClkEnR {
-        LoraClkEnR::new(((self.bits >> 4) & 1) != 0)
+    pub fn lorac_clk_en(&self) -> LoracClkEnR {
+        LoracClkEnR::new(((self.bits >> 4) & 1) != 0)
     }
-    #[doc = "Bit 5 - Dac clk en"]
+    #[doc = "Bit 5 - Dacctrl clk en"]
     #[inline(always)]
-    pub fn dac_clk_en(&self) -> DacClkEnR {
-        DacClkEnR::new(((self.bits >> 5) & 1) != 0)
+    pub fn dacctrl_clk_en(&self) -> DacctrlClkEnR {
+        DacctrlClkEnR::new(((self.bits >> 5) & 1) != 0)
     }
     #[doc = "Bit 6 - Lcd clk en"]
     #[inline(always)]
@@ -252,15 +252,15 @@ impl R {
     pub fn iom0_clk_en(&self) -> Iom0ClkEnR {
         Iom0ClkEnR::new(((self.bits >> 25) & 1) != 0)
     }
-    #[doc = "Bit 26 - Bstimer1 clk en"]
+    #[doc = "Bit 26 - Basictim1 clk en"]
     #[inline(always)]
-    pub fn bstimer1_clk_en(&self) -> Bstimer1ClkEnR {
-        Bstimer1ClkEnR::new(((self.bits >> 26) & 1) != 0)
+    pub fn basictim1_clk_en(&self) -> Basictim1ClkEnR {
+        Basictim1ClkEnR::new(((self.bits >> 26) & 1) != 0)
     }
-    #[doc = "Bit 27 - Bstimer0 clk en"]
+    #[doc = "Bit 27 - Basictim0 clk en"]
     #[inline(always)]
-    pub fn bstimer0_clk_en(&self) -> Bstimer0ClkEnR {
-        Bstimer0ClkEnR::new(((self.bits >> 27) & 1) != 0)
+    pub fn basictim0_clk_en(&self) -> Basictim0ClkEnR {
+        Basictim0ClkEnR::new(((self.bits >> 27) & 1) != 0)
     }
     #[doc = "Bit 28 - Crc clk en"]
     #[inline(always)]
@@ -284,35 +284,35 @@ impl R {
     }
 }
 impl W {
-    #[doc = "Bit 0 - Timer3 clk en"]
+    #[doc = "Bit 0 - Gptim3 clk en"]
     #[inline(always)]
-    pub fn timer3_clk_en(&mut self) -> Timer3ClkEnW<'_, Cgr0Spec> {
-        Timer3ClkEnW::new(self, 0)
+    pub fn gptim3_clk_en(&mut self) -> Gptim3ClkEnW<'_, Cgr0Spec> {
+        Gptim3ClkEnW::new(self, 0)
     }
-    #[doc = "Bit 1 - Timer2 clk en"]
+    #[doc = "Bit 1 - Gptim2 clk en"]
     #[inline(always)]
-    pub fn timer2_clk_en(&mut self) -> Timer2ClkEnW<'_, Cgr0Spec> {
-        Timer2ClkEnW::new(self, 1)
+    pub fn gptim2_clk_en(&mut self) -> Gptim2ClkEnW<'_, Cgr0Spec> {
+        Gptim2ClkEnW::new(self, 1)
     }
-    #[doc = "Bit 2 - Timer1 clk en"]
+    #[doc = "Bit 2 - Gptim1 clk en"]
     #[inline(always)]
-    pub fn timer1_clk_en(&mut self) -> Timer1ClkEnW<'_, Cgr0Spec> {
-        Timer1ClkEnW::new(self, 2)
+    pub fn gptim1_clk_en(&mut self) -> Gptim1ClkEnW<'_, Cgr0Spec> {
+        Gptim1ClkEnW::new(self, 2)
     }
-    #[doc = "Bit 3 - Timer0 clk en"]
+    #[doc = "Bit 3 - Gptim0 clk en"]
     #[inline(always)]
-    pub fn timer0_clk_en(&mut self) -> Timer0ClkEnW<'_, Cgr0Spec> {
-        Timer0ClkEnW::new(self, 3)
+    pub fn gptim0_clk_en(&mut self) -> Gptim0ClkEnW<'_, Cgr0Spec> {
+        Gptim0ClkEnW::new(self, 3)
     }
-    #[doc = "Bit 4 - Lora clk en"]
+    #[doc = "Bit 4 - Lorac clk en"]
     #[inline(always)]
-    pub fn lora_clk_en(&mut self) -> LoraClkEnW<'_, Cgr0Spec> {
-        LoraClkEnW::new(self, 4)
+    pub fn lorac_clk_en(&mut self) -> LoracClkEnW<'_, Cgr0Spec> {
+        LoracClkEnW::new(self, 4)
     }
-    #[doc = "Bit 5 - Dac clk en"]
+    #[doc = "Bit 5 - Dacctrl clk en"]
     #[inline(always)]
-    pub fn dac_clk_en(&mut self) -> DacClkEnW<'_, Cgr0Spec> {
-        DacClkEnW::new(self, 5)
+    pub fn dacctrl_clk_en(&mut self) -> DacctrlClkEnW<'_, Cgr0Spec> {
+        DacctrlClkEnW::new(self, 5)
     }
     #[doc = "Bit 6 - Lcd clk en"]
     #[inline(always)]
@@ -409,15 +409,15 @@ impl W {
     pub fn iom0_clk_en(&mut self) -> Iom0ClkEnW<'_, Cgr0Spec> {
         Iom0ClkEnW::new(self, 25)
     }
-    #[doc = "Bit 26 - Bstimer1 clk en"]
+    #[doc = "Bit 26 - Basictim1 clk en"]
     #[inline(always)]
-    pub fn bstimer1_clk_en(&mut self) -> Bstimer1ClkEnW<'_, Cgr0Spec> {
-        Bstimer1ClkEnW::new(self, 26)
+    pub fn basictim1_clk_en(&mut self) -> Basictim1ClkEnW<'_, Cgr0Spec> {
+        Basictim1ClkEnW::new(self, 26)
     }
-    #[doc = "Bit 27 - Bstimer0 clk en"]
+    #[doc = "Bit 27 - Basictim0 clk en"]
     #[inline(always)]
-    pub fn bstimer0_clk_en(&mut self) -> Bstimer0ClkEnW<'_, Cgr0Spec> {
-        Bstimer0ClkEnW::new(self, 27)
+    pub fn basictim0_clk_en(&mut self) -> Basictim0ClkEnW<'_, Cgr0Spec> {
+        Basictim0ClkEnW::new(self, 27)
     }
     #[doc = "Bit 28 - Crc clk en"]
     #[inline(always)]

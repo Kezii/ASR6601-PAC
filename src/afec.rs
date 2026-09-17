@@ -1,22 +1,23 @@
 #[repr(C)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
+    _reserved0: [u8; 0x0200],
     cr: Cr,
     int_sr: IntSr,
     raw_sr: RawSr,
 }
 impl RegisterBlock {
-    #[doc = "0x00 - control register"]
+    #[doc = "0x200 - control register"]
     #[inline(always)]
     pub const fn cr(&self) -> &Cr {
         &self.cr
     }
-    #[doc = "0x04 - interrupt status register"]
+    #[doc = "0x204 - interrupt status register"]
     #[inline(always)]
     pub const fn int_sr(&self) -> &IntSr {
         &self.int_sr
     }
-    #[doc = "0x08 - raw status register"]
+    #[doc = "0x208 - raw status register"]
     #[inline(always)]
     pub const fn raw_sr(&self) -> &RawSr {
         &self.raw_sr

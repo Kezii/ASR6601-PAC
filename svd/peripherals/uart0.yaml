@@ -416,7 +416,7 @@ registers:
             description: Onerr en
             bitOffset: '2'
             bitWidth: '1'
-    - name: PeriphID0
+    - name: PERIPHID0
       description: peripheral ID register 0
       addressOffset: '0xFE0'
       size: '32'
@@ -427,7 +427,7 @@ registers:
             description: part number 0, fixed 0x11
             bitOffset: '0'
             bitWidth: '8'
-    - name: PeriphID1
+    - name: PERIPHID1
       description: peripheral ID register 1
       addressOffset: '0xFE4'
       size: '32'
@@ -442,7 +442,7 @@ registers:
             description: designer 0, fixed 0x1
             bitOffset: '4'
             bitWidth: '4'
-    - name: PeriphID2
+    - name: PERIPHID2
       description: peripheral ID register 2
       addressOffset: '0xFE8'
       size: '32'
@@ -471,7 +471,7 @@ registers:
                 - name: R1P5
                   description: r1p5
                   value: '0x3'
-    - name: PeriphID3
+    - name: PERIPHID3
       description: peripheral ID register 3
       addressOffset: '0xFEC'
       size: '32'
@@ -482,7 +482,7 @@ registers:
             description: configuration, fixed 0x00
             bitOffset: '0'
             bitWidth: '8'
-    - name: PCellID0
+    - name: PCELLID0
       description: primecell ID register 0
       addressOffset: '0xFD0'
       size: '32'
@@ -493,7 +493,7 @@ registers:
             description: primecell ID 0, fixed 0x0d
             bitOffset: '0'
             bitWidth: '8'
-    - name: PCellID1
+    - name: PCELLID1
       description: primecell ID register 1
       addressOffset: '0xFD4'
       size: '32'
@@ -504,7 +504,7 @@ registers:
             description: primecell ID 1, fixed 0xf0
             bitOffset: '0'
             bitWidth: '8'
-    - name: PCellID2
+    - name: PCELLID2
       description: primecell ID register 2
       addressOffset: '0xFD8'
       size: '32'
@@ -515,7 +515,7 @@ registers:
             description: primecell ID 2, fixed 0x05
             bitOffset: '0'
             bitWidth: '8'
-    - name: PCellID3
+    - name: PCELLID3
       description: primecell ID register 3
       addressOffset: '0xFDC'
       size: '32'

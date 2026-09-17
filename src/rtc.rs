@@ -1,31 +1,31 @@
 #[repr(C)]
 #[doc = "Register block"]
 pub struct RegisterBlock {
-    ctrl: Ctrl,
+    cr: Cr,
     alarm0: Alarm0,
     alarm1: Alarm1,
-    ppm_adjust: PpmAdjust,
+    ppmadjust: Ppmadjust,
     calendar: Calendar,
     calendar_h: CalendarH,
-    cyc_max: CycMax,
+    cyc_max_value: CycMaxValue,
     sr: Sr,
-    asyn_data: AsynData,
-    asyn_data_h: AsynDataH,
+    asyndata: Asyndata,
+    asyndata_h: AsyndataH,
     cr1: Cr1,
     sr1: Sr1,
     cr2: Cr2,
-    sub_second_cnt: SubSecondCnt,
-    cyc_cnt: CycCnt,
-    alarm0_subsecond: Alarm0Subsecond,
-    alarm1_subsecond: Alarm1Subsecond,
+    sub_second: SubSecond,
+    cyc_cnt_value: CycCntValue,
+    alarm0_sub: Alarm0Sub,
+    alarm1_sub: Alarm1Sub,
     calendar_r: CalendarR,
     calendar_r_h: CalendarRH,
 }
 impl RegisterBlock {
     #[doc = "0x00 - control register"]
     #[inline(always)]
-    pub const fn ctrl(&self) -> &Ctrl {
-        &self.ctrl
+    pub const fn cr(&self) -> &Cr {
+        &self.cr
     }
     #[doc = "0x04 - alarm 0"]
     #[inline(always)]
@@ -39,8 +39,8 @@ impl RegisterBlock {
     }
     #[doc = "0x0c - ppm adjust value"]
     #[inline(always)]
-    pub const fn ppm_adjust(&self) -> &PpmAdjust {
-        &self.ppm_adjust
+    pub const fn ppmadjust(&self) -> &Ppmadjust {
+        &self.ppmadjust
     }
     #[doc = "0x10 - time hour/minute/second"]
     #[inline(always)]
@@ -54,8 +54,8 @@ impl RegisterBlock {
     }
     #[doc = "0x18 - cyc max value"]
     #[inline(always)]
-    pub const fn cyc_max(&self) -> &CycMax {
-        &self.cyc_max
+    pub const fn cyc_max_value(&self) -> &CycMaxValue {
+        &self.cyc_max_value
     }
     #[doc = "0x1c - status register"]
     #[inline(always)]
@@ -64,13 +64,13 @@ impl RegisterBlock {
     }
     #[doc = "0x20 - asynchronization time hour/minute/second"]
     #[inline(always)]
-    pub const fn asyn_data(&self) -> &AsynData {
-        &self.asyn_data
+    pub const fn asyndata(&self) -> &Asyndata {
+        &self.asyndata
     }
     #[doc = "0x24 - asynchronization time year/month/date"]
     #[inline(always)]
-    pub const fn asyn_data_h(&self) -> &AsynDataH {
-        &self.asyn_data_h
+    pub const fn asyndata_h(&self) -> &AsyndataH {
+        &self.asyndata_h
     }
     #[doc = "0x28 - control register 1"]
     #[inline(always)]
@@ -89,23 +89,23 @@ impl RegisterBlock {
     }
     #[doc = "0x34 - subsecond counter"]
     #[inline(always)]
-    pub const fn sub_second_cnt(&self) -> &SubSecondCnt {
-        &self.sub_second_cnt
+    pub const fn sub_second(&self) -> &SubSecond {
+        &self.sub_second
     }
     #[doc = "0x38 - cyc counter"]
     #[inline(always)]
-    pub const fn cyc_cnt(&self) -> &CycCnt {
-        &self.cyc_cnt
+    pub const fn cyc_cnt_value(&self) -> &CycCntValue {
+        &self.cyc_cnt_value
     }
     #[doc = "0x3c - alarm0 subsecond"]
     #[inline(always)]
-    pub const fn alarm0_subsecond(&self) -> &Alarm0Subsecond {
-        &self.alarm0_subsecond
+    pub const fn alarm0_sub(&self) -> &Alarm0Sub {
+        &self.alarm0_sub
     }
     #[doc = "0x40 - alarm1 subsecond"]
     #[inline(always)]
-    pub const fn alarm1_subsecond(&self) -> &Alarm1Subsecond {
-        &self.alarm1_subsecond
+    pub const fn alarm1_sub(&self) -> &Alarm1Sub {
+        &self.alarm1_sub
     }
     #[doc = "0x44 - read time hour/minute/second"]
     #[inline(always)]
@@ -118,11 +118,11 @@ impl RegisterBlock {
         &self.calendar_r_h
     }
 }
-#[doc = "CTRL (rw) register accessor: control register\n\nYou can [`read`](crate::Reg::read) this register and get [`ctrl::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ctrl::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ctrl`] module"]
-#[doc(alias = "CTRL")]
-pub type Ctrl = crate::Reg<ctrl::CtrlSpec>;
+#[doc = "CR (rw) register accessor: control register\n\nYou can [`read`](crate::Reg::read) this register and get [`cr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cr`] module"]
+#[doc(alias = "CR")]
+pub type Cr = crate::Reg<cr::CrSpec>;
 #[doc = "control register"]
-pub mod ctrl;
+pub mod cr;
 #[doc = "ALARM0 (rw) register accessor: alarm 0\n\nYou can [`read`](crate::Reg::read) this register and get [`alarm0::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`alarm0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@alarm0`] module"]
 #[doc(alias = "ALARM0")]
 pub type Alarm0 = crate::Reg<alarm0::Alarm0Spec>;
@@ -133,11 +133,11 @@ pub mod alarm0;
 pub type Alarm1 = crate::Reg<alarm1::Alarm1Spec>;
 #[doc = "alarm 1"]
 pub mod alarm1;
-#[doc = "PPM_ADJUST (rw) register accessor: ppm adjust value\n\nYou can [`read`](crate::Reg::read) this register and get [`ppm_adjust::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ppm_adjust::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ppm_adjust`] module"]
-#[doc(alias = "PPM_ADJUST")]
-pub type PpmAdjust = crate::Reg<ppm_adjust::PpmAdjustSpec>;
+#[doc = "PPMADJUST (rw) register accessor: ppm adjust value\n\nYou can [`read`](crate::Reg::read) this register and get [`ppmadjust::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ppmadjust::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ppmadjust`] module"]
+#[doc(alias = "PPMADJUST")]
+pub type Ppmadjust = crate::Reg<ppmadjust::PpmadjustSpec>;
 #[doc = "ppm adjust value"]
-pub mod ppm_adjust;
+pub mod ppmadjust;
 #[doc = "CALENDAR (w) register accessor: time hour/minute/second\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`calendar::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar`] module"]
 #[doc(alias = "CALENDAR")]
 pub type Calendar = crate::Reg<calendar::CalendarSpec>;
@@ -148,26 +148,26 @@ pub mod calendar;
 pub type CalendarH = crate::Reg<calendar_h::CalendarHSpec>;
 #[doc = "time year/month/date"]
 pub mod calendar_h;
-#[doc = "CYC_MAX (rw) register accessor: cyc max value\n\nYou can [`read`](crate::Reg::read) this register and get [`cyc_max::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cyc_max::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cyc_max`] module"]
-#[doc(alias = "CYC_MAX")]
-pub type CycMax = crate::Reg<cyc_max::CycMaxSpec>;
+#[doc = "CYC_MAX_VALUE (rw) register accessor: cyc max value\n\nYou can [`read`](crate::Reg::read) this register and get [`cyc_max_value::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cyc_max_value::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cyc_max_value`] module"]
+#[doc(alias = "CYC_MAX_VALUE")]
+pub type CycMaxValue = crate::Reg<cyc_max_value::CycMaxValueSpec>;
 #[doc = "cyc max value"]
-pub mod cyc_max;
+pub mod cyc_max_value;
 #[doc = "SR (rw) register accessor: status register\n\nYou can [`read`](crate::Reg::read) this register and get [`sr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sr`] module"]
 #[doc(alias = "SR")]
 pub type Sr = crate::Reg<sr::SrSpec>;
 #[doc = "status register"]
 pub mod sr;
-#[doc = "ASYN_DATA (r) register accessor: asynchronization time hour/minute/second\n\nYou can [`read`](crate::Reg::read) this register and get [`asyn_data::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@asyn_data`] module"]
-#[doc(alias = "ASYN_DATA")]
-pub type AsynData = crate::Reg<asyn_data::AsynDataSpec>;
+#[doc = "ASYNDATA (r) register accessor: asynchronization time hour/minute/second\n\nYou can [`read`](crate::Reg::read) this register and get [`asyndata::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@asyndata`] module"]
+#[doc(alias = "ASYNDATA")]
+pub type Asyndata = crate::Reg<asyndata::AsyndataSpec>;
 #[doc = "asynchronization time hour/minute/second"]
-pub mod asyn_data;
-#[doc = "ASYN_DATA_H (r) register accessor: asynchronization time year/month/date\n\nYou can [`read`](crate::Reg::read) this register and get [`asyn_data_h::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@asyn_data_h`] module"]
-#[doc(alias = "ASYN_DATA_H")]
-pub type AsynDataH = crate::Reg<asyn_data_h::AsynDataHSpec>;
+pub mod asyndata;
+#[doc = "ASYNDATA_H (r) register accessor: asynchronization time year/month/date\n\nYou can [`read`](crate::Reg::read) this register and get [`asyndata_h::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@asyndata_h`] module"]
+#[doc(alias = "ASYNDATA_H")]
+pub type AsyndataH = crate::Reg<asyndata_h::AsyndataHSpec>;
 #[doc = "asynchronization time year/month/date"]
-pub mod asyn_data_h;
+pub mod asyndata_h;
 #[doc = "CR1 (rw) register accessor: control register 1\n\nYou can [`read`](crate::Reg::read) this register and get [`cr1::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cr1`] module"]
 #[doc(alias = "CR1")]
 pub type Cr1 = crate::Reg<cr1::Cr1Spec>;
@@ -183,26 +183,26 @@ pub mod sr1;
 pub type Cr2 = crate::Reg<cr2::Cr2Spec>;
 #[doc = "control register 2"]
 pub mod cr2;
-#[doc = "SUB_SECOND_CNT (r) register accessor: subsecond counter\n\nYou can [`read`](crate::Reg::read) this register and get [`sub_second_cnt::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sub_second_cnt`] module"]
-#[doc(alias = "SUB_SECOND_CNT")]
-pub type SubSecondCnt = crate::Reg<sub_second_cnt::SubSecondCntSpec>;
+#[doc = "SUB_SECOND (r) register accessor: subsecond counter\n\nYou can [`read`](crate::Reg::read) this register and get [`sub_second::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sub_second`] module"]
+#[doc(alias = "SUB_SECOND")]
+pub type SubSecond = crate::Reg<sub_second::SubSecondSpec>;
 #[doc = "subsecond counter"]
-pub mod sub_second_cnt;
-#[doc = "CYC_CNT (r) register accessor: cyc counter\n\nYou can [`read`](crate::Reg::read) this register and get [`cyc_cnt::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cyc_cnt`] module"]
-#[doc(alias = "CYC_CNT")]
-pub type CycCnt = crate::Reg<cyc_cnt::CycCntSpec>;
+pub mod sub_second;
+#[doc = "CYC_CNT_VALUE (r) register accessor: cyc counter\n\nYou can [`read`](crate::Reg::read) this register and get [`cyc_cnt_value::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cyc_cnt_value`] module"]
+#[doc(alias = "CYC_CNT_VALUE")]
+pub type CycCntValue = crate::Reg<cyc_cnt_value::CycCntValueSpec>;
 #[doc = "cyc counter"]
-pub mod cyc_cnt;
-#[doc = "ALARM0_SUBSECOND (rw) register accessor: alarm0 subsecond\n\nYou can [`read`](crate::Reg::read) this register and get [`alarm0_subsecond::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`alarm0_subsecond::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@alarm0_subsecond`] module"]
-#[doc(alias = "ALARM0_SUBSECOND")]
-pub type Alarm0Subsecond = crate::Reg<alarm0_subsecond::Alarm0SubsecondSpec>;
+pub mod cyc_cnt_value;
+#[doc = "ALARM0_SUB (rw) register accessor: alarm0 subsecond\n\nYou can [`read`](crate::Reg::read) this register and get [`alarm0_sub::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`alarm0_sub::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@alarm0_sub`] module"]
+#[doc(alias = "ALARM0_SUB")]
+pub type Alarm0Sub = crate::Reg<alarm0_sub::Alarm0SubSpec>;
 #[doc = "alarm0 subsecond"]
-pub mod alarm0_subsecond;
-#[doc = "ALARM1_SUBSECOND (rw) register accessor: alarm1 subsecond\n\nYou can [`read`](crate::Reg::read) this register and get [`alarm1_subsecond::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`alarm1_subsecond::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@alarm1_subsecond`] module"]
-#[doc(alias = "ALARM1_SUBSECOND")]
-pub type Alarm1Subsecond = crate::Reg<alarm1_subsecond::Alarm1SubsecondSpec>;
+pub mod alarm0_sub;
+#[doc = "ALARM1_SUB (rw) register accessor: alarm1 subsecond\n\nYou can [`read`](crate::Reg::read) this register and get [`alarm1_sub::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`alarm1_sub::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@alarm1_sub`] module"]
+#[doc(alias = "ALARM1_SUB")]
+pub type Alarm1Sub = crate::Reg<alarm1_sub::Alarm1SubSpec>;
 #[doc = "alarm1 subsecond"]
-pub mod alarm1_subsecond;
+pub mod alarm1_sub;
 #[doc = "CALENDAR_R (r) register accessor: read time hour/minute/second\n\nYou can [`read`](crate::Reg::read) this register and get [`calendar_r::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@calendar_r`] module"]
 #[doc(alias = "CALENDAR_R")]
 pub type CalendarR = crate::Reg<calendar_r::CalendarRSpec>;
