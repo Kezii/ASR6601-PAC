@@ -1,5 +1,5 @@
-#[doc = "Register `PeriphID2` reader"]
-pub type R = crate::R<PeriphId2Spec>;
+#[doc = "Register `PERIPHID2` reader"]
+pub type R = crate::R<Periphid2Spec>;
 #[doc = "Field `DESIGNER1` reader - designer 1, fixed 0x0"]
 pub type Designer1R = crate::FieldReader;
 #[doc = "revision 0"]
@@ -72,10 +72,10 @@ impl R {
         Revision0R::new(((self.bits >> 4) & 0x0f) as u8)
     }
 }
-#[doc = "peripheral ID register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`periph_id2::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct PeriphId2Spec;
-impl crate::RegisterSpec for PeriphId2Spec {
+#[doc = "peripheral ID register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`periphid2::R`](R). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct Periphid2Spec;
+impl crate::RegisterSpec for Periphid2Spec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`periph_id2::R`](R) reader structure"]
-impl crate::Readable for PeriphId2Spec {}
+#[doc = "`read()` method returns [`periphid2::R`](R) reader structure"]
+impl crate::Readable for Periphid2Spec {}
