@@ -37,8 +37,8 @@ device:
     - i2c0.yaml
     - afec.yaml
     - lorac.yaml
-    - timer0.yaml
-    - timer2.yaml
+    - gptim0.yaml
+    - gptim2.yaml
     - bstimer0.yaml
     - lptimer0.yaml
     - lptimer1.yaml
@@ -53,8 +53,8 @@ device:
     - adc.yaml
     - lcd.yaml
     - dac.yaml
-    - timer1.yaml
-    - timer3.yaml
+    - gptim1.yaml
+    - gptim3.yaml
     - bstimer1.yaml
     - iwdg.yaml
     - wdg.yaml

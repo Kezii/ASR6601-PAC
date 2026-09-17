@@ -174,7 +174,7 @@ impl W {
         Cc3npW::new(self, 15)
     }
 }
-#[doc = "TIMER capture/compare enable register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccer::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccer::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPTIM capture/compare enable register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccer::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccer::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CcerSpec;
 impl crate::RegisterSpec for CcerSpec {
     type Ux = u32;

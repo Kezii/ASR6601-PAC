@@ -8,7 +8,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {}
-#[doc = "TIMER DMA address for full transfer register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`dmar::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmar::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPTIM DMA address for full transfer register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`dmar::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmar::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DmarSpec;
 impl crate::RegisterSpec for DmarSpec {
     type Ux = u32;

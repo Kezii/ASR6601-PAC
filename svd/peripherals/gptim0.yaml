@@ -1,32 +1,32 @@
-name: TIMER0
-description: Timer0
+name: GPTIM0
+description: Gptim0
 baseAddress: '0x4000A000'
 addressBlock:
   offset: '0'
   size: '0x54'
   usage: registers
 interrupt:
-  name: TIMER0
+  name: GPTIM0
   value: '23'
 registers:
   register:
     - name: CR1
-      description: TIMER control register 1, Address
+      description: GPTIM control register 1, Address
       addressOffset: '0x0'
       size: '32'
       access: read-write
     - name: CR2
-      description: TIMER control register 2, Address
+      description: GPTIM control register 2, Address
       addressOffset: '0x4'
       size: '32'
       access: read-write
     - name: SMCR
-      description: TIMER slave Mode Control register, Address
+      description: GPTIM slave Mode Control register, Address
       addressOffset: '0x8'
       size: '32'
       access: read-write
     - name: DIER
-      description: TIMER DMA/interrupt enable register, Address
+      description: GPTIM DMA/interrupt enable register, Address
       addressOffset: '0xC'
       size: '32'
       access: read-write
@@ -81,7 +81,7 @@ registers:
             bitOffset: '14'
             bitWidth: '1'
     - name: SR
-      description: TIMER status register, Address
+      description: GPTIM status register, Address
       addressOffset: '0x10'
       size: '32'
       access: read-write
@@ -128,7 +128,7 @@ registers:
             bitOffset: '12'
             bitWidth: '1'
     - name: EGR
-      description: TIMER event generation register, Address
+      description: GPTIM event generation register, Address
       addressOffset: '0x14'
       size: '32'
       access: write-only
@@ -159,17 +159,17 @@ registers:
             bitOffset: '6'
             bitWidth: '1'
     - name: CCMR1
-      description: TIMER capture/compare mode register 1, Address
+      description: GPTIM capture/compare mode register 1, Address
       addressOffset: '0x18'
       size: '32'
       access: read-write
     - name: CCMR2
-      description: TIMER capture/compare mode register 2, Address
+      description: GPTIM capture/compare mode register 2, Address
       addressOffset: '0x1C'
       size: '32'
       access: read-write
     - name: CCER
-      description: TIMER capture/compare enable register, Address
+      description: GPTIM capture/compare enable register, Address
       addressOffset: '0x20'
       size: '32'
       access: read-write
@@ -224,42 +224,42 @@ registers:
             bitOffset: '15'
             bitWidth: '1'
     - name: CNT
-      description: TIMER counter register, Address
+      description: GPTIM counter register, Address
       addressOffset: '0x24'
       size: '32'
       access: read-write
     - name: PSC
-      description: TIMER prescaler register, Address
+      description: GPTIM prescaler register, Address
       addressOffset: '0x28'
       size: '32'
       access: read-write
     - name: ARR
-      description: TIMER auto-reload register, Address
+      description: GPTIM auto-reload register, Address
       addressOffset: '0x2C'
       size: '32'
       access: read-write
     - name: CCR0
-      description: TIMER capture/compare register 0, Address
+      description: GPTIM capture/compare register 0, Address
       addressOffset: '0x34'
       size: '32'
       access: read-write
     - name: CCR1
-      description: TIMER capture/compare register 1, Address
+      description: GPTIM capture/compare register 1, Address
       addressOffset: '0x38'
       size: '32'
       access: read-write
     - name: CCR2
-      description: TIMER capture/compare register 2, Address
+      description: GPTIM capture/compare register 2, Address
       addressOffset: '0x3C'
       size: '32'
       access: read-write
     - name: CCR3
-      description: TIMER capture/compare register 3, Address
+      description: GPTIM capture/compare register 3, Address
       addressOffset: '0x40'
       size: '32'
       access: read-write
     - name: DCR
-      description: TIMER DMA control register, Address
+      description: GPTIM DMA control register, Address
       addressOffset: '0x48'
       size: '32'
       access: read-write
@@ -270,12 +270,12 @@ registers:
           bitOffset: '3'
           bitWidth: '1'
     - name: DMAR
-      description: TIMER DMA address for full transfer register, Address
+      description: GPTIM DMA address for full transfer register, Address
       addressOffset: '0x4C'
       size: '32'
       access: read-write
     - name: OR
-      description: TIMER option register, Address
+      description: GPTIM option register, Address
       addressOffset: '0x50'
       size: '32'
       access: read-write

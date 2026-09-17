@@ -1,0 +1,7 @@
+name: GPTIM2
+description: GPTIM2 instance
+baseAddress: '0x4000B000'
+interrupt:
+  name: GPTIM2
+  value: '25'
+_derivedFrom: GPTIM0

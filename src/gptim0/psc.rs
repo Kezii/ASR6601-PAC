@@ -8,7 +8,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {}
-#[doc = "TIMER prescaler register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`psc::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`psc::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPTIM prescaler register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`psc::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`psc::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct PscSpec;
 impl crate::RegisterSpec for PscSpec {
     type Ux = u32;

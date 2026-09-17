@@ -20,7 +20,7 @@ impl W {
         DblPositionW::new(self, 3)
     }
 }
-#[doc = "TIMER DMA control register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`dcr::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dcr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPTIM DMA control register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`dcr::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dcr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct DcrSpec;
 impl crate::RegisterSpec for DcrSpec {
     type Ux = u32;

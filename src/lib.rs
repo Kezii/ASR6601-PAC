@@ -33,10 +33,10 @@ extern "C" {
     fn DAC();
     fn LORA();
     fn GPIO();
-    fn TIMER0();
-    fn TIMER1();
-    fn TIMER2();
-    fn TIMER3();
+    fn GPTIM0();
+    fn GPTIM1();
+    fn GPTIM2();
+    fn GPTIM3();
     fn BSTIMER0();
     fn BSTIMER1();
     fn LPTIMER0();
@@ -82,10 +82,10 @@ pub static __INTERRUPTS: [Vector; 37] = [
     Vector { _handler: DAC },
     Vector { _handler: LORA },
     Vector { _handler: GPIO },
-    Vector { _handler: TIMER0 },
-    Vector { _handler: TIMER1 },
-    Vector { _handler: TIMER2 },
-    Vector { _handler: TIMER3 },
+    Vector { _handler: GPTIM0 },
+    Vector { _handler: GPTIM1 },
+    Vector { _handler: GPTIM2 },
+    Vector { _handler: GPTIM3 },
     Vector { _handler: BSTIMER0 },
     Vector { _handler: BSTIMER1 },
     Vector { _handler: LPTIMER0 },
@@ -145,14 +145,14 @@ pub enum Interrupt {
     LORA = 21,
     #[doc = "22 - GPIO"]
     GPIO = 22,
-    #[doc = "23 - TIMER0"]
-    TIMER0 = 23,
-    #[doc = "24 - TIMER1"]
-    TIMER1 = 24,
-    #[doc = "25 - TIMER2"]
-    TIMER2 = 25,
-    #[doc = "26 - TIMER3"]
-    TIMER3 = 26,
+    #[doc = "23 - GPTIM0"]
+    GPTIM0 = 23,
+    #[doc = "24 - GPTIM1"]
+    GPTIM1 = 24,
+    #[doc = "25 - GPTIM2"]
+    GPTIM2 = 25,
+    #[doc = "26 - GPTIM3"]
+    GPTIM3 = 26,
     #[doc = "27 - BSTIMER0"]
     BSTIMER0 = 27,
     #[doc = "28 - BSTIMER1"]
@@ -279,24 +279,24 @@ impl core::fmt::Debug for Lorac {
 }
 #[doc = "LoRa controller interface"]
 pub mod lorac;
-#[doc = "Timer0"]
-pub type Timer0 = crate::Periph<timer0::RegisterBlock, 0x4000_a000>;
-impl core::fmt::Debug for Timer0 {
+#[doc = "Gptim0"]
+pub type Gptim0 = crate::Periph<gptim0::RegisterBlock, 0x4000_a000>;
+impl core::fmt::Debug for Gptim0 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Timer0").finish()
+        f.debug_struct("Gptim0").finish()
     }
 }
-#[doc = "Timer0"]
-pub mod timer0;
-#[doc = "TIMER2 instance"]
-pub type Timer2 = crate::Periph<timer0::RegisterBlock, 0x4000_b000>;
-impl core::fmt::Debug for Timer2 {
+#[doc = "Gptim0"]
+pub mod gptim0;
+#[doc = "GPTIM2 instance"]
+pub type Gptim2 = crate::Periph<gptim0::RegisterBlock, 0x4000_b000>;
+impl core::fmt::Debug for Gptim2 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Timer2").finish()
+        f.debug_struct("Gptim2").finish()
     }
 }
-#[doc = "TIMER2 instance"]
-pub use self::timer0 as timer2;
+#[doc = "GPTIM2 instance"]
+pub use self::gptim0 as gptim2;
 #[doc = "Bstimer0"]
 pub type Bstimer0 = crate::Periph<bstimer0::RegisterBlock, 0x4000_c000>;
 impl core::fmt::Debug for Bstimer0 {
@@ -423,24 +423,24 @@ impl core::fmt::Debug for Dac {
 }
 #[doc = "12-bit digital-to-analog converter"]
 pub mod dac;
-#[doc = "TIMER1 instance"]
-pub type Timer1 = crate::Periph<timer0::RegisterBlock, 0x4001_a000>;
-impl core::fmt::Debug for Timer1 {
+#[doc = "GPTIM1 instance"]
+pub type Gptim1 = crate::Periph<gptim0::RegisterBlock, 0x4001_a000>;
+impl core::fmt::Debug for Gptim1 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Timer1").finish()
+        f.debug_struct("Gptim1").finish()
     }
 }
-#[doc = "TIMER1 instance"]
-pub use self::timer0 as timer1;
-#[doc = "TIMER3 instance"]
-pub type Timer3 = crate::Periph<timer0::RegisterBlock, 0x4001_b000>;
-impl core::fmt::Debug for Timer3 {
+#[doc = "GPTIM1 instance"]
+pub use self::gptim0 as gptim1;
+#[doc = "GPTIM3 instance"]
+pub type Gptim3 = crate::Periph<gptim0::RegisterBlock, 0x4001_b000>;
+impl core::fmt::Debug for Gptim3 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Timer3").finish()
+        f.debug_struct("Gptim3").finish()
     }
 }
-#[doc = "TIMER3 instance"]
-pub use self::timer0 as timer3;
+#[doc = "GPTIM3 instance"]
+pub use self::gptim0 as gptim3;
 #[doc = "BSTIMER1 instance"]
 pub type Bstimer1 = crate::Periph<bstimer0::RegisterBlock, 0x4001_c000>;
 impl core::fmt::Debug for Bstimer1 {
@@ -594,10 +594,10 @@ pub struct Peripherals {
     pub afec: Afec,
     #[doc = "LORAC"]
     pub lorac: Lorac,
-    #[doc = "TIMER0"]
-    pub timer0: Timer0,
-    #[doc = "TIMER2"]
-    pub timer2: Timer2,
+    #[doc = "GPTIM0"]
+    pub gptim0: Gptim0,
+    #[doc = "GPTIM2"]
+    pub gptim2: Gptim2,
     #[doc = "BSTIMER0"]
     pub bstimer0: Bstimer0,
     #[doc = "LPTIMER0"]
@@ -626,10 +626,10 @@ pub struct Peripherals {
     pub lcd: Lcd,
     #[doc = "DAC"]
     pub dac: Dac,
-    #[doc = "TIMER1"]
-    pub timer1: Timer1,
-    #[doc = "TIMER3"]
-    pub timer3: Timer3,
+    #[doc = "GPTIM1"]
+    pub gptim1: Gptim1,
+    #[doc = "GPTIM3"]
+    pub gptim3: Gptim3,
     #[doc = "BSTIMER1"]
     pub bstimer1: Bstimer1,
     #[doc = "IWDG"]
@@ -691,8 +691,8 @@ impl Peripherals {
             i2c0: I2c0::steal(),
             afec: Afec::steal(),
             lorac: Lorac::steal(),
-            timer0: Timer0::steal(),
-            timer2: Timer2::steal(),
+            gptim0: Gptim0::steal(),
+            gptim2: Gptim2::steal(),
             bstimer0: Bstimer0::steal(),
             lptimer0: Lptimer0::steal(),
             lptimer1: Lptimer1::steal(),
@@ -707,8 +707,8 @@ impl Peripherals {
             adc: Adc::steal(),
             lcd: Lcd::steal(),
             dac: Dac::steal(),
-            timer1: Timer1::steal(),
-            timer3: Timer3::steal(),
+            gptim1: Gptim1::steal(),
+            gptim3: Gptim3::steal(),
             bstimer1: Bstimer1::steal(),
             iwdg: Iwdg::steal(),
             wdg: Wdg::steal(),

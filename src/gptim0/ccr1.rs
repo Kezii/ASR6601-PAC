@@ -8,7 +8,7 @@ impl core::fmt::Debug for R {
     }
 }
 impl W {}
-#[doc = "TIMER capture/compare register 1, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr1::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPTIM capture/compare register 1, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr1::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr1::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Ccr1Spec;
 impl crate::RegisterSpec for Ccr1Spec {
     type Ux = u32;

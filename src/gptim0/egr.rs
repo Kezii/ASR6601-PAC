@@ -44,7 +44,7 @@ impl W {
         TgW::new(self, 6)
     }
 }
-#[doc = "TIMER event generation register, Address\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`egr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+#[doc = "GPTIM event generation register, Address\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`egr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct EgrSpec;
 impl crate::RegisterSpec for EgrSpec {
     type Ux = u32;
