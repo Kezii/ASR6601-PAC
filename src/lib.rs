@@ -559,14 +559,14 @@ impl core::fmt::Debug for Sac {
 #[doc = "Security algorithm engine"]
 pub mod sac;
 #[doc = "Hardware random-number generator"]
-pub type Rng = crate::Periph<rng::RegisterBlock, 0x4003_3000>;
-impl core::fmt::Debug for Rng {
+pub type Rngc = crate::Periph<rngc::RegisterBlock, 0x4003_3000>;
+impl core::fmt::Debug for Rngc {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Rng").finish()
+        f.debug_struct("Rngc").finish()
     }
 }
 #[doc = "Hardware random-number generator"]
-pub mod rng;
+pub mod rngc;
 #[no_mangle]
 static mut DEVICE_PERIPHERALS: bool = false;
 #[doc = r" All the peripherals."]
@@ -656,8 +656,8 @@ pub struct Peripherals {
     pub dmac1: Dmac1,
     #[doc = "SAC"]
     pub sac: Sac,
-    #[doc = "RNG"]
-    pub rng: Rng,
+    #[doc = "RNGC"]
+    pub rngc: Rngc,
 }
 impl Peripherals {
     #[doc = r" Returns all the peripherals *once*."]
@@ -722,7 +722,7 @@ impl Peripherals {
             dmac0: Dmac0::steal(),
             dmac1: Dmac1::steal(),
             sac: Sac::steal(),
-            rng: Rng::steal(),
+            rngc: Rngc::steal(),
         }
     }
 }

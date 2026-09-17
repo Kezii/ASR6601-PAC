@@ -1,4 +1,4 @@
-name: RNG
+name: RNGC
 description: Hardware random-number generator
 baseAddress: '0x40033000'
 addressBlock:
