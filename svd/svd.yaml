@@ -65,8 +65,8 @@ device:
     - efc.yaml
     - qspi.yaml
     - crc.yaml
-    - dma0.yaml
-    - dma1.yaml
+    - dmac0.yaml
+    - dmac1.yaml
     - sae.yaml
     - rng.yaml
     - crypto_aram_mix.yaml

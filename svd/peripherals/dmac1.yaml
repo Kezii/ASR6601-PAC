@@ -1,0 +1,7 @@
+name: DMAC1
+description: DMAC1 instance
+baseAddress: '0x40024000'
+interrupt:
+  name: DMAC1
+  value: '19'
+_derivedFrom: DMAC0

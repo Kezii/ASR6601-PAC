@@ -29,7 +29,7 @@ extern "C" {
     fn ADC();
     fn AFEC();
     fn SSP2();
-    fn DMA1();
+    fn DMAC1();
     fn DAC();
     fn LORA();
     fn GPIO();
@@ -41,7 +41,7 @@ extern "C" {
     fn BSTIM1();
     fn LPTIM0();
     fn SAC();
-    fn DMA0();
+    fn DMAC0();
     fn I2S();
     fn LCD();
     fn PWR();
@@ -78,7 +78,7 @@ pub static __INTERRUPTS: [Vector; 37] = [
     Vector { _handler: ADC },
     Vector { _handler: AFEC },
     Vector { _handler: SSP2 },
-    Vector { _handler: DMA1 },
+    Vector { _handler: DMAC1 },
     Vector { _handler: DAC },
     Vector { _handler: LORA },
     Vector { _handler: GPIO },
@@ -90,7 +90,7 @@ pub static __INTERRUPTS: [Vector; 37] = [
     Vector { _handler: BSTIM1 },
     Vector { _handler: LPTIM0 },
     Vector { _handler: SAC },
-    Vector { _handler: DMA0 },
+    Vector { _handler: DMAC0 },
     Vector { _handler: I2S },
     Vector { _handler: LCD },
     Vector { _handler: PWR },
@@ -137,8 +137,8 @@ pub enum Interrupt {
     AFEC = 17,
     #[doc = "18 - SSP2"]
     SSP2 = 18,
-    #[doc = "19 - DMA1"]
-    DMA1 = 19,
+    #[doc = "19 - DMAC1"]
+    DMAC1 = 19,
     #[doc = "20 - DAC"]
     DAC = 20,
     #[doc = "21 - LORA"]
@@ -161,8 +161,8 @@ pub enum Interrupt {
     LPTIM0 = 29,
     #[doc = "30 - SDK SAC interrupt vector; SDK does not state MMIO ownership"]
     SAC = 30,
-    #[doc = "31 - DMA0"]
-    DMA0 = 31,
+    #[doc = "31 - DMAC0"]
+    DMAC0 = 31,
     #[doc = "32 - I2S"]
     I2S = 32,
     #[doc = "33 - LCD"]
@@ -532,23 +532,23 @@ impl core::fmt::Debug for Crc {
 #[doc = "CRC calculation unit"]
 pub mod crc;
 #[doc = "DMA Controller 0"]
-pub type Dma0 = crate::Periph<dma0::RegisterBlock, 0x4002_3000>;
-impl core::fmt::Debug for Dma0 {
+pub type Dmac0 = crate::Periph<dmac0::RegisterBlock, 0x4002_3000>;
+impl core::fmt::Debug for Dmac0 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Dma0").finish()
+        f.debug_struct("Dmac0").finish()
     }
 }
 #[doc = "DMA Controller 0"]
-pub mod dma0;
-#[doc = "DMA1 instance"]
-pub type Dma1 = crate::Periph<dma0::RegisterBlock, 0x4002_4000>;
-impl core::fmt::Debug for Dma1 {
+pub mod dmac0;
+#[doc = "DMAC1 instance"]
+pub type Dmac1 = crate::Periph<dmac0::RegisterBlock, 0x4002_4000>;
+impl core::fmt::Debug for Dmac1 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Dma1").finish()
+        f.debug_struct("Dmac1").finish()
     }
 }
-#[doc = "DMA1 instance"]
-pub use self::dma0 as dma1;
+#[doc = "DMAC1 instance"]
+pub use self::dmac0 as dmac1;
 #[doc = "Security algorithm engine"]
 pub type Sae = crate::Periph<sae::RegisterBlock, 0x4003_2000>;
 impl core::fmt::Debug for Sae {
@@ -650,10 +650,10 @@ pub struct Peripherals {
     pub qspi: Qspi,
     #[doc = "CRC"]
     pub crc: Crc,
-    #[doc = "DMA0"]
-    pub dma0: Dma0,
-    #[doc = "DMA1"]
-    pub dma1: Dma1,
+    #[doc = "DMAC0"]
+    pub dmac0: Dmac0,
+    #[doc = "DMAC1"]
+    pub dmac1: Dmac1,
     #[doc = "SAE"]
     pub sae: Sae,
     #[doc = "RNG"]
@@ -719,8 +719,8 @@ impl Peripherals {
             efc: Efc::steal(),
             qspi: Qspi::steal(),
             crc: Crc::steal(),
-            dma0: Dma0::steal(),
-            dma1: Dma1::steal(),
+            dmac0: Dmac0::steal(),
+            dmac1: Dmac1::steal(),
             sae: Sae::steal(),
             rng: Rng::steal(),
         }
