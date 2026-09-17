@@ -1,7 +1,7 @@
-#[doc = "Register `ICR` reader"]
-pub type R = crate::R<IcrSpec>;
-#[doc = "Register `ICR` writer"]
-pub type W = crate::W<IcrSpec>;
+#[doc = "Register `INT_CR` reader"]
+pub type R = crate::R<IntCrSpec>;
+#[doc = "Register `INT_CR` writer"]
+pub type W = crate::W<IntCrSpec>;
 #[doc = "Field `POS_INT_EN0` reader - pin0 rising edge interrupt enable"]
 pub type PosIntEn0R = crate::BitReader;
 #[doc = "Field `POS_INT_EN0` writer - pin0 rising edge interrupt enable"]
@@ -295,173 +295,173 @@ impl R {
 impl W {
     #[doc = "Bit 0 - pin0 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en0(&mut self) -> PosIntEn0W<'_, IcrSpec> {
+    pub fn pos_int_en0(&mut self) -> PosIntEn0W<'_, IntCrSpec> {
         PosIntEn0W::new(self, 0)
     }
     #[doc = "Bit 1 - pin0 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en0(&mut self) -> NegIntEn0W<'_, IcrSpec> {
+    pub fn neg_int_en0(&mut self) -> NegIntEn0W<'_, IntCrSpec> {
         NegIntEn0W::new(self, 1)
     }
     #[doc = "Bit 2 - pin1 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en1(&mut self) -> PosIntEn1W<'_, IcrSpec> {
+    pub fn pos_int_en1(&mut self) -> PosIntEn1W<'_, IntCrSpec> {
         PosIntEn1W::new(self, 2)
     }
     #[doc = "Bit 3 - pin1 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en1(&mut self) -> NegIntEn1W<'_, IcrSpec> {
+    pub fn neg_int_en1(&mut self) -> NegIntEn1W<'_, IntCrSpec> {
         NegIntEn1W::new(self, 3)
     }
     #[doc = "Bit 4 - pin2 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en2(&mut self) -> PosIntEn2W<'_, IcrSpec> {
+    pub fn pos_int_en2(&mut self) -> PosIntEn2W<'_, IntCrSpec> {
         PosIntEn2W::new(self, 4)
     }
     #[doc = "Bit 5 - pin2 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en2(&mut self) -> NegIntEn2W<'_, IcrSpec> {
+    pub fn neg_int_en2(&mut self) -> NegIntEn2W<'_, IntCrSpec> {
         NegIntEn2W::new(self, 5)
     }
     #[doc = "Bit 6 - pin3 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en3(&mut self) -> PosIntEn3W<'_, IcrSpec> {
+    pub fn pos_int_en3(&mut self) -> PosIntEn3W<'_, IntCrSpec> {
         PosIntEn3W::new(self, 6)
     }
     #[doc = "Bit 7 - pin3 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en3(&mut self) -> NegIntEn3W<'_, IcrSpec> {
+    pub fn neg_int_en3(&mut self) -> NegIntEn3W<'_, IntCrSpec> {
         NegIntEn3W::new(self, 7)
     }
     #[doc = "Bit 8 - pin4 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en4(&mut self) -> PosIntEn4W<'_, IcrSpec> {
+    pub fn pos_int_en4(&mut self) -> PosIntEn4W<'_, IntCrSpec> {
         PosIntEn4W::new(self, 8)
     }
     #[doc = "Bit 9 - pin4 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en4(&mut self) -> NegIntEn4W<'_, IcrSpec> {
+    pub fn neg_int_en4(&mut self) -> NegIntEn4W<'_, IntCrSpec> {
         NegIntEn4W::new(self, 9)
     }
     #[doc = "Bit 10 - pin5 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en5(&mut self) -> PosIntEn5W<'_, IcrSpec> {
+    pub fn pos_int_en5(&mut self) -> PosIntEn5W<'_, IntCrSpec> {
         PosIntEn5W::new(self, 10)
     }
     #[doc = "Bit 11 - pin5 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en5(&mut self) -> NegIntEn5W<'_, IcrSpec> {
+    pub fn neg_int_en5(&mut self) -> NegIntEn5W<'_, IntCrSpec> {
         NegIntEn5W::new(self, 11)
     }
     #[doc = "Bit 12 - pin6 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en6(&mut self) -> PosIntEn6W<'_, IcrSpec> {
+    pub fn pos_int_en6(&mut self) -> PosIntEn6W<'_, IntCrSpec> {
         PosIntEn6W::new(self, 12)
     }
     #[doc = "Bit 13 - pin6 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en6(&mut self) -> NegIntEn6W<'_, IcrSpec> {
+    pub fn neg_int_en6(&mut self) -> NegIntEn6W<'_, IntCrSpec> {
         NegIntEn6W::new(self, 13)
     }
     #[doc = "Bit 14 - pin7 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en7(&mut self) -> PosIntEn7W<'_, IcrSpec> {
+    pub fn pos_int_en7(&mut self) -> PosIntEn7W<'_, IntCrSpec> {
         PosIntEn7W::new(self, 14)
     }
     #[doc = "Bit 15 - pin7 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en7(&mut self) -> NegIntEn7W<'_, IcrSpec> {
+    pub fn neg_int_en7(&mut self) -> NegIntEn7W<'_, IntCrSpec> {
         NegIntEn7W::new(self, 15)
     }
     #[doc = "Bit 16 - pin8 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en8(&mut self) -> PosIntEn8W<'_, IcrSpec> {
+    pub fn pos_int_en8(&mut self) -> PosIntEn8W<'_, IntCrSpec> {
         PosIntEn8W::new(self, 16)
     }
     #[doc = "Bit 17 - pin8 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en8(&mut self) -> NegIntEn8W<'_, IcrSpec> {
+    pub fn neg_int_en8(&mut self) -> NegIntEn8W<'_, IntCrSpec> {
         NegIntEn8W::new(self, 17)
     }
     #[doc = "Bit 18 - pin9 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en9(&mut self) -> PosIntEn9W<'_, IcrSpec> {
+    pub fn pos_int_en9(&mut self) -> PosIntEn9W<'_, IntCrSpec> {
         PosIntEn9W::new(self, 18)
     }
     #[doc = "Bit 19 - pin9 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en9(&mut self) -> NegIntEn9W<'_, IcrSpec> {
+    pub fn neg_int_en9(&mut self) -> NegIntEn9W<'_, IntCrSpec> {
         NegIntEn9W::new(self, 19)
     }
     #[doc = "Bit 20 - pin10 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en10(&mut self) -> PosIntEn10W<'_, IcrSpec> {
+    pub fn pos_int_en10(&mut self) -> PosIntEn10W<'_, IntCrSpec> {
         PosIntEn10W::new(self, 20)
     }
     #[doc = "Bit 21 - pin10 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en10(&mut self) -> NegIntEn10W<'_, IcrSpec> {
+    pub fn neg_int_en10(&mut self) -> NegIntEn10W<'_, IntCrSpec> {
         NegIntEn10W::new(self, 21)
     }
     #[doc = "Bit 22 - pin11 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en11(&mut self) -> PosIntEn11W<'_, IcrSpec> {
+    pub fn pos_int_en11(&mut self) -> PosIntEn11W<'_, IntCrSpec> {
         PosIntEn11W::new(self, 22)
     }
     #[doc = "Bit 23 - pin11 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en11(&mut self) -> NegIntEn11W<'_, IcrSpec> {
+    pub fn neg_int_en11(&mut self) -> NegIntEn11W<'_, IntCrSpec> {
         NegIntEn11W::new(self, 23)
     }
     #[doc = "Bit 24 - pin12 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en12(&mut self) -> PosIntEn12W<'_, IcrSpec> {
+    pub fn pos_int_en12(&mut self) -> PosIntEn12W<'_, IntCrSpec> {
         PosIntEn12W::new(self, 24)
     }
     #[doc = "Bit 25 - pin12 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en12(&mut self) -> NegIntEn12W<'_, IcrSpec> {
+    pub fn neg_int_en12(&mut self) -> NegIntEn12W<'_, IntCrSpec> {
         NegIntEn12W::new(self, 25)
     }
     #[doc = "Bit 26 - pin13 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en13(&mut self) -> PosIntEn13W<'_, IcrSpec> {
+    pub fn pos_int_en13(&mut self) -> PosIntEn13W<'_, IntCrSpec> {
         PosIntEn13W::new(self, 26)
     }
     #[doc = "Bit 27 - pin13 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en13(&mut self) -> NegIntEn13W<'_, IcrSpec> {
+    pub fn neg_int_en13(&mut self) -> NegIntEn13W<'_, IntCrSpec> {
         NegIntEn13W::new(self, 27)
     }
     #[doc = "Bit 28 - pin14 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en14(&mut self) -> PosIntEn14W<'_, IcrSpec> {
+    pub fn pos_int_en14(&mut self) -> PosIntEn14W<'_, IntCrSpec> {
         PosIntEn14W::new(self, 28)
     }
     #[doc = "Bit 29 - pin14 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en14(&mut self) -> NegIntEn14W<'_, IcrSpec> {
+    pub fn neg_int_en14(&mut self) -> NegIntEn14W<'_, IntCrSpec> {
         NegIntEn14W::new(self, 29)
     }
     #[doc = "Bit 30 - pin15 rising edge interrupt enable"]
     #[inline(always)]
-    pub fn pos_int_en15(&mut self) -> PosIntEn15W<'_, IcrSpec> {
+    pub fn pos_int_en15(&mut self) -> PosIntEn15W<'_, IntCrSpec> {
         PosIntEn15W::new(self, 30)
     }
     #[doc = "Bit 31 - pin15 falling edge interrupt enable"]
     #[inline(always)]
-    pub fn neg_int_en15(&mut self) -> NegIntEn15W<'_, IcrSpec> {
+    pub fn neg_int_en15(&mut self) -> NegIntEn15W<'_, IntCrSpec> {
         NegIntEn15W::new(self, 31)
     }
 }
-#[doc = "interrupt control register\n\nYou can [`read`](crate::Reg::read) this register and get [`icr::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`icr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
-pub struct IcrSpec;
-impl crate::RegisterSpec for IcrSpec {
+#[doc = "interrupt control register\n\nYou can [`read`](crate::Reg::read) this register and get [`int_cr::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`int_cr::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+pub struct IntCrSpec;
+impl crate::RegisterSpec for IntCrSpec {
     type Ux = u32;
 }
-#[doc = "`read()` method returns [`icr::R`](R) reader structure"]
-impl crate::Readable for IcrSpec {}
-#[doc = "`write(|w| ..)` method takes [`icr::W`](W) writer structure"]
-impl crate::Writable for IcrSpec {
+#[doc = "`read()` method returns [`int_cr::R`](R) reader structure"]
+impl crate::Readable for IntCrSpec {}
+#[doc = "`write(|w| ..)` method takes [`int_cr::W`](W) writer structure"]
+impl crate::Writable for IntCrSpec {
     type Safety = crate::Unsafe;
 }
