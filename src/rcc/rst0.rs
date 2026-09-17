@@ -18,54 +18,54 @@ pub type CrcRstNW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type RtcRstNR = crate::BitReader;
 #[doc = "Field `RTC_RST_N` writer - Rtc rst n"]
 pub type RtcRstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `WDG_RST_N` reader - Wdg rst n"]
-pub type WdgRstNR = crate::BitReader;
-#[doc = "Field `WDG_RST_N` writer - Wdg rst n"]
-pub type WdgRstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `WWDG_RST_N` reader - Wwdg rst n"]
+pub type WwdgRstNR = crate::BitReader;
+#[doc = "Field `WWDG_RST_N` writer - Wwdg rst n"]
+pub type WwdgRstNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IWDG_RST_N` reader - Iwdg rst n"]
 pub type IwdgRstNR = crate::BitReader;
 #[doc = "Field `IWDG_RST_N` writer - Iwdg rst n"]
 pub type IwdgRstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LPTIMER0_RST_N` reader - Lptimer0 rst n"]
-pub type Lptimer0RstNR = crate::BitReader;
-#[doc = "Field `LPTIMER0_RST_N` writer - Lptimer0 rst n"]
-pub type Lptimer0RstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BSTIMER1_RST_N` reader - Bstimer1 rst n"]
-pub type Bstimer1RstNR = crate::BitReader;
-#[doc = "Field `BSTIMER1_RST_N` writer - Bstimer1 rst n"]
-pub type Bstimer1RstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BSTIMER0_RST_N` reader - Bstimer0 rst n"]
-pub type Bstimer0RstNR = crate::BitReader;
-#[doc = "Field `BSTIMER0_RST_N` writer - Bstimer0 rst n"]
-pub type Bstimer0RstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TIMER3_RST_N` reader - Timer3 rst n"]
-pub type Timer3RstNR = crate::BitReader;
-#[doc = "Field `TIMER3_RST_N` writer - Timer3 rst n"]
-pub type Timer3RstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TIMER2_RST_N` reader - Timer2 rst n"]
-pub type Timer2RstNR = crate::BitReader;
-#[doc = "Field `TIMER2_RST_N` writer - Timer2 rst n"]
-pub type Timer2RstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TIMER1_RST_N` reader - Timer1 rst n"]
-pub type Timer1RstNR = crate::BitReader;
-#[doc = "Field `TIMER1_RST_N` writer - Timer1 rst n"]
-pub type Timer1RstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `TIMER0_RST_N` reader - Timer0 rst n"]
-pub type Timer0RstNR = crate::BitReader;
-#[doc = "Field `TIMER0_RST_N` writer - Timer0 rst n"]
-pub type Timer0RstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LPTIM0_RST_N` reader - Lptim0 rst n"]
+pub type Lptim0RstNR = crate::BitReader;
+#[doc = "Field `LPTIM0_RST_N` writer - Lptim0 rst n"]
+pub type Lptim0RstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `BASICTIM1_RST_N` reader - Basictim1 rst n"]
+pub type Basictim1RstNR = crate::BitReader;
+#[doc = "Field `BASICTIM1_RST_N` writer - Basictim1 rst n"]
+pub type Basictim1RstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `BASICTIM0_RST_N` reader - Basictim0 rst n"]
+pub type Basictim0RstNR = crate::BitReader;
+#[doc = "Field `BASICTIM0_RST_N` writer - Basictim0 rst n"]
+pub type Basictim0RstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GPTIM3_RST_N` reader - Gptim3 rst n"]
+pub type Gptim3RstNR = crate::BitReader;
+#[doc = "Field `GPTIM3_RST_N` writer - Gptim3 rst n"]
+pub type Gptim3RstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GPTIM2_RST_N` reader - Gptim2 rst n"]
+pub type Gptim2RstNR = crate::BitReader;
+#[doc = "Field `GPTIM2_RST_N` writer - Gptim2 rst n"]
+pub type Gptim2RstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GPTIM1_RST_N` reader - Gptim1 rst n"]
+pub type Gptim1RstNR = crate::BitReader;
+#[doc = "Field `GPTIM1_RST_N` writer - Gptim1 rst n"]
+pub type Gptim1RstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `GPTIM0_RST_N` reader - Gptim0 rst n"]
+pub type Gptim0RstNR = crate::BitReader;
+#[doc = "Field `GPTIM0_RST_N` writer - Gptim0 rst n"]
+pub type Gptim0RstNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IOM_RST_N` reader - Iom rst n"]
 pub type IomRstNR = crate::BitReader;
 #[doc = "Field `IOM_RST_N` writer - Iom rst n"]
 pub type IomRstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LORA_RST_N` reader - Lora rst n"]
-pub type LoraRstNR = crate::BitReader;
-#[doc = "Field `LORA_RST_N` writer - Lora rst n"]
-pub type LoraRstNW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DAC_RST_N` reader - Dac rst n"]
-pub type DacRstNR = crate::BitReader;
-#[doc = "Field `DAC_RST_N` writer - Dac rst n"]
-pub type DacRstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LORAC_RST_N` reader - Lorac rst n"]
+pub type LoracRstNR = crate::BitReader;
+#[doc = "Field `LORAC_RST_N` writer - Lorac rst n"]
+pub type LoracRstNW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `DACCTRL_RST_N` reader - Dacctrl rst n"]
+pub type DacctrlRstNR = crate::BitReader;
+#[doc = "Field `DACCTRL_RST_N` writer - Dacctrl rst n"]
+pub type DacctrlRstNW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `LCD_RST_N` reader - Lcd rst n"]
 pub type LcdRstNR = crate::BitReader;
 #[doc = "Field `LCD_RST_N` writer - Lcd rst n"]
@@ -147,65 +147,65 @@ impl R {
     pub fn rtc_rst_n(&self) -> RtcRstNR {
         RtcRstNR::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 4 - Wdg rst n"]
+    #[doc = "Bit 4 - Wwdg rst n"]
     #[inline(always)]
-    pub fn wdg_rst_n(&self) -> WdgRstNR {
-        WdgRstNR::new(((self.bits >> 4) & 1) != 0)
+    pub fn wwdg_rst_n(&self) -> WwdgRstNR {
+        WwdgRstNR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Iwdg rst n"]
     #[inline(always)]
     pub fn iwdg_rst_n(&self) -> IwdgRstNR {
         IwdgRstNR::new(((self.bits >> 5) & 1) != 0)
     }
-    #[doc = "Bit 6 - Lptimer0 rst n"]
+    #[doc = "Bit 6 - Lptim0 rst n"]
     #[inline(always)]
-    pub fn lptimer0_rst_n(&self) -> Lptimer0RstNR {
-        Lptimer0RstNR::new(((self.bits >> 6) & 1) != 0)
+    pub fn lptim0_rst_n(&self) -> Lptim0RstNR {
+        Lptim0RstNR::new(((self.bits >> 6) & 1) != 0)
     }
-    #[doc = "Bit 7 - Bstimer1 rst n"]
+    #[doc = "Bit 7 - Basictim1 rst n"]
     #[inline(always)]
-    pub fn bstimer1_rst_n(&self) -> Bstimer1RstNR {
-        Bstimer1RstNR::new(((self.bits >> 7) & 1) != 0)
+    pub fn basictim1_rst_n(&self) -> Basictim1RstNR {
+        Basictim1RstNR::new(((self.bits >> 7) & 1) != 0)
     }
-    #[doc = "Bit 8 - Bstimer0 rst n"]
+    #[doc = "Bit 8 - Basictim0 rst n"]
     #[inline(always)]
-    pub fn bstimer0_rst_n(&self) -> Bstimer0RstNR {
-        Bstimer0RstNR::new(((self.bits >> 8) & 1) != 0)
+    pub fn basictim0_rst_n(&self) -> Basictim0RstNR {
+        Basictim0RstNR::new(((self.bits >> 8) & 1) != 0)
     }
-    #[doc = "Bit 9 - Timer3 rst n"]
+    #[doc = "Bit 9 - Gptim3 rst n"]
     #[inline(always)]
-    pub fn timer3_rst_n(&self) -> Timer3RstNR {
-        Timer3RstNR::new(((self.bits >> 9) & 1) != 0)
+    pub fn gptim3_rst_n(&self) -> Gptim3RstNR {
+        Gptim3RstNR::new(((self.bits >> 9) & 1) != 0)
     }
-    #[doc = "Bit 10 - Timer2 rst n"]
+    #[doc = "Bit 10 - Gptim2 rst n"]
     #[inline(always)]
-    pub fn timer2_rst_n(&self) -> Timer2RstNR {
-        Timer2RstNR::new(((self.bits >> 10) & 1) != 0)
+    pub fn gptim2_rst_n(&self) -> Gptim2RstNR {
+        Gptim2RstNR::new(((self.bits >> 10) & 1) != 0)
     }
-    #[doc = "Bit 11 - Timer1 rst n"]
+    #[doc = "Bit 11 - Gptim1 rst n"]
     #[inline(always)]
-    pub fn timer1_rst_n(&self) -> Timer1RstNR {
-        Timer1RstNR::new(((self.bits >> 11) & 1) != 0)
+    pub fn gptim1_rst_n(&self) -> Gptim1RstNR {
+        Gptim1RstNR::new(((self.bits >> 11) & 1) != 0)
     }
-    #[doc = "Bit 12 - Timer0 rst n"]
+    #[doc = "Bit 12 - Gptim0 rst n"]
     #[inline(always)]
-    pub fn timer0_rst_n(&self) -> Timer0RstNR {
-        Timer0RstNR::new(((self.bits >> 12) & 1) != 0)
+    pub fn gptim0_rst_n(&self) -> Gptim0RstNR {
+        Gptim0RstNR::new(((self.bits >> 12) & 1) != 0)
     }
     #[doc = "Bit 13 - Iom rst n"]
     #[inline(always)]
     pub fn iom_rst_n(&self) -> IomRstNR {
         IomRstNR::new(((self.bits >> 13) & 1) != 0)
     }
-    #[doc = "Bit 14 - Lora rst n"]
+    #[doc = "Bit 14 - Lorac rst n"]
     #[inline(always)]
-    pub fn lora_rst_n(&self) -> LoraRstNR {
-        LoraRstNR::new(((self.bits >> 14) & 1) != 0)
+    pub fn lorac_rst_n(&self) -> LoracRstNR {
+        LoracRstNR::new(((self.bits >> 14) & 1) != 0)
     }
-    #[doc = "Bit 15 - Dac rst n"]
+    #[doc = "Bit 15 - Dacctrl rst n"]
     #[inline(always)]
-    pub fn dac_rst_n(&self) -> DacRstNR {
-        DacRstNR::new(((self.bits >> 15) & 1) != 0)
+    pub fn dacctrl_rst_n(&self) -> DacctrlRstNR {
+        DacctrlRstNR::new(((self.bits >> 15) & 1) != 0)
     }
     #[doc = "Bit 16 - Lcd rst n"]
     #[inline(always)]
@@ -304,65 +304,65 @@ impl W {
     pub fn rtc_rst_n(&mut self) -> RtcRstNW<'_, Rst0Spec> {
         RtcRstNW::new(self, 3)
     }
-    #[doc = "Bit 4 - Wdg rst n"]
+    #[doc = "Bit 4 - Wwdg rst n"]
     #[inline(always)]
-    pub fn wdg_rst_n(&mut self) -> WdgRstNW<'_, Rst0Spec> {
-        WdgRstNW::new(self, 4)
+    pub fn wwdg_rst_n(&mut self) -> WwdgRstNW<'_, Rst0Spec> {
+        WwdgRstNW::new(self, 4)
     }
     #[doc = "Bit 5 - Iwdg rst n"]
     #[inline(always)]
     pub fn iwdg_rst_n(&mut self) -> IwdgRstNW<'_, Rst0Spec> {
         IwdgRstNW::new(self, 5)
     }
-    #[doc = "Bit 6 - Lptimer0 rst n"]
+    #[doc = "Bit 6 - Lptim0 rst n"]
     #[inline(always)]
-    pub fn lptimer0_rst_n(&mut self) -> Lptimer0RstNW<'_, Rst0Spec> {
-        Lptimer0RstNW::new(self, 6)
+    pub fn lptim0_rst_n(&mut self) -> Lptim0RstNW<'_, Rst0Spec> {
+        Lptim0RstNW::new(self, 6)
     }
-    #[doc = "Bit 7 - Bstimer1 rst n"]
+    #[doc = "Bit 7 - Basictim1 rst n"]
     #[inline(always)]
-    pub fn bstimer1_rst_n(&mut self) -> Bstimer1RstNW<'_, Rst0Spec> {
-        Bstimer1RstNW::new(self, 7)
+    pub fn basictim1_rst_n(&mut self) -> Basictim1RstNW<'_, Rst0Spec> {
+        Basictim1RstNW::new(self, 7)
     }
-    #[doc = "Bit 8 - Bstimer0 rst n"]
+    #[doc = "Bit 8 - Basictim0 rst n"]
     #[inline(always)]
-    pub fn bstimer0_rst_n(&mut self) -> Bstimer0RstNW<'_, Rst0Spec> {
-        Bstimer0RstNW::new(self, 8)
+    pub fn basictim0_rst_n(&mut self) -> Basictim0RstNW<'_, Rst0Spec> {
+        Basictim0RstNW::new(self, 8)
     }
-    #[doc = "Bit 9 - Timer3 rst n"]
+    #[doc = "Bit 9 - Gptim3 rst n"]
     #[inline(always)]
-    pub fn timer3_rst_n(&mut self) -> Timer3RstNW<'_, Rst0Spec> {
-        Timer3RstNW::new(self, 9)
+    pub fn gptim3_rst_n(&mut self) -> Gptim3RstNW<'_, Rst0Spec> {
+        Gptim3RstNW::new(self, 9)
     }
-    #[doc = "Bit 10 - Timer2 rst n"]
+    #[doc = "Bit 10 - Gptim2 rst n"]
     #[inline(always)]
-    pub fn timer2_rst_n(&mut self) -> Timer2RstNW<'_, Rst0Spec> {
-        Timer2RstNW::new(self, 10)
+    pub fn gptim2_rst_n(&mut self) -> Gptim2RstNW<'_, Rst0Spec> {
+        Gptim2RstNW::new(self, 10)
     }
-    #[doc = "Bit 11 - Timer1 rst n"]
+    #[doc = "Bit 11 - Gptim1 rst n"]
     #[inline(always)]
-    pub fn timer1_rst_n(&mut self) -> Timer1RstNW<'_, Rst0Spec> {
-        Timer1RstNW::new(self, 11)
+    pub fn gptim1_rst_n(&mut self) -> Gptim1RstNW<'_, Rst0Spec> {
+        Gptim1RstNW::new(self, 11)
     }
-    #[doc = "Bit 12 - Timer0 rst n"]
+    #[doc = "Bit 12 - Gptim0 rst n"]
     #[inline(always)]
-    pub fn timer0_rst_n(&mut self) -> Timer0RstNW<'_, Rst0Spec> {
-        Timer0RstNW::new(self, 12)
+    pub fn gptim0_rst_n(&mut self) -> Gptim0RstNW<'_, Rst0Spec> {
+        Gptim0RstNW::new(self, 12)
     }
     #[doc = "Bit 13 - Iom rst n"]
     #[inline(always)]
     pub fn iom_rst_n(&mut self) -> IomRstNW<'_, Rst0Spec> {
         IomRstNW::new(self, 13)
     }
-    #[doc = "Bit 14 - Lora rst n"]
+    #[doc = "Bit 14 - Lorac rst n"]
     #[inline(always)]
-    pub fn lora_rst_n(&mut self) -> LoraRstNW<'_, Rst0Spec> {
-        LoraRstNW::new(self, 14)
+    pub fn lorac_rst_n(&mut self) -> LoracRstNW<'_, Rst0Spec> {
+        LoracRstNW::new(self, 14)
     }
-    #[doc = "Bit 15 - Dac rst n"]
+    #[doc = "Bit 15 - Dacctrl rst n"]
     #[inline(always)]
-    pub fn dac_rst_n(&mut self) -> DacRstNW<'_, Rst0Spec> {
-        DacRstNW::new(self, 15)
+    pub fn dacctrl_rst_n(&mut self) -> DacctrlRstNW<'_, Rst0Spec> {
+        DacctrlRstNW::new(self, 15)
     }
     #[doc = "Bit 16 - Lcd rst n"]
     #[inline(always)]

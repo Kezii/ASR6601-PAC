@@ -18,14 +18,14 @@ pub type LpuartAonClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type LcdAonClkEnR = crate::BitReader;
 #[doc = "Field `LCD_AON_CLK_EN` writer - Lcd aon clk en"]
 pub type LcdAonClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LPTIMER0_AON_CLK_EN` reader - Lptimer0 aon clk en"]
-pub type Lptimer0AonClkEnR = crate::BitReader;
-#[doc = "Field `LPTIMER0_AON_CLK_EN` writer - Lptimer0 aon clk en"]
-pub type Lptimer0AonClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `LPTIMER1_AON_CLK_EN` reader - Lptimer1 aon clk en"]
-pub type Lptimer1AonClkEnR = crate::BitReader;
-#[doc = "Field `LPTIMER1_AON_CLK_EN` writer - Lptimer1 aon clk en"]
-pub type Lptimer1AonClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LPTIM0_AON_CLK_EN` reader - Lptim0 aon clk en"]
+pub type Lptim0AonClkEnR = crate::BitReader;
+#[doc = "Field `LPTIM0_AON_CLK_EN` writer - Lptim0 aon clk en"]
+pub type Lptim0AonClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `LPTIM1_AON_CLK_EN` reader - Lptim1 aon clk en"]
+pub type Lptim1AonClkEnR = crate::BitReader;
+#[doc = "Field `LPTIM1_AON_CLK_EN` writer - Lptim1 aon clk en"]
+pub type Lptim1AonClkEnW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
     #[doc = "Bit 0 - Iwdg clk en"]
     #[inline(always)]
@@ -47,15 +47,15 @@ impl R {
     pub fn lcd_aon_clk_en(&self) -> LcdAonClkEnR {
         LcdAonClkEnR::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 4 - Lptimer0 aon clk en"]
+    #[doc = "Bit 4 - Lptim0 aon clk en"]
     #[inline(always)]
-    pub fn lptimer0_aon_clk_en(&self) -> Lptimer0AonClkEnR {
-        Lptimer0AonClkEnR::new(((self.bits >> 4) & 1) != 0)
+    pub fn lptim0_aon_clk_en(&self) -> Lptim0AonClkEnR {
+        Lptim0AonClkEnR::new(((self.bits >> 4) & 1) != 0)
     }
-    #[doc = "Bit 5 - Lptimer1 aon clk en"]
+    #[doc = "Bit 5 - Lptim1 aon clk en"]
     #[inline(always)]
-    pub fn lptimer1_aon_clk_en(&self) -> Lptimer1AonClkEnR {
-        Lptimer1AonClkEnR::new(((self.bits >> 5) & 1) != 0)
+    pub fn lptim1_aon_clk_en(&self) -> Lptim1AonClkEnR {
+        Lptim1AonClkEnR::new(((self.bits >> 5) & 1) != 0)
     }
 }
 impl W {
@@ -79,15 +79,15 @@ impl W {
     pub fn lcd_aon_clk_en(&mut self) -> LcdAonClkEnW<'_, Cgr2Spec> {
         LcdAonClkEnW::new(self, 3)
     }
-    #[doc = "Bit 4 - Lptimer0 aon clk en"]
+    #[doc = "Bit 4 - Lptim0 aon clk en"]
     #[inline(always)]
-    pub fn lptimer0_aon_clk_en(&mut self) -> Lptimer0AonClkEnW<'_, Cgr2Spec> {
-        Lptimer0AonClkEnW::new(self, 4)
+    pub fn lptim0_aon_clk_en(&mut self) -> Lptim0AonClkEnW<'_, Cgr2Spec> {
+        Lptim0AonClkEnW::new(self, 4)
     }
-    #[doc = "Bit 5 - Lptimer1 aon clk en"]
+    #[doc = "Bit 5 - Lptim1 aon clk en"]
     #[inline(always)]
-    pub fn lptimer1_aon_clk_en(&mut self) -> Lptimer1AonClkEnW<'_, Cgr2Spec> {
-        Lptimer1AonClkEnW::new(self, 5)
+    pub fn lptim1_aon_clk_en(&mut self) -> Lptim1AonClkEnW<'_, Cgr2Spec> {
+        Lptim1AonClkEnW::new(self, 5)
     }
 }
 #[doc = "clock generation register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`cgr2::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cgr2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]

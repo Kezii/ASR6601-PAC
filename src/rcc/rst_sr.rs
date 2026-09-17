@@ -18,10 +18,10 @@ pub type CpuResetSrW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type EfcResetSrR = crate::BitReader;
 #[doc = "Field `EFC_RESET_SR` writer - Efc reset sr"]
 pub type EfcResetSrW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `WDG_RESET_SR` reader - Wdg reset sr"]
-pub type WdgResetSrR = crate::BitReader;
-#[doc = "Field `WDG_RESET_SR` writer - Wdg reset sr"]
-pub type WdgResetSrW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `WWDG_RESET_SR` reader - Wwdg reset sr"]
+pub type WwdgResetSrR = crate::BitReader;
+#[doc = "Field `WWDG_RESET_SR` writer - Wwdg reset sr"]
+pub type WwdgResetSrW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `IWDG_RESET_SR` reader - Iwdg reset sr"]
 pub type IwdgResetSrR = crate::BitReader;
 #[doc = "Field `IWDG_RESET_SR` writer - Iwdg reset sr"]
@@ -51,10 +51,10 @@ impl R {
     pub fn efc_reset_sr(&self) -> EfcResetSrR {
         EfcResetSrR::new(((self.bits >> 3) & 1) != 0)
     }
-    #[doc = "Bit 4 - Wdg reset sr"]
+    #[doc = "Bit 4 - Wwdg reset sr"]
     #[inline(always)]
-    pub fn wdg_reset_sr(&self) -> WdgResetSrR {
-        WdgResetSrR::new(((self.bits >> 4) & 1) != 0)
+    pub fn wwdg_reset_sr(&self) -> WwdgResetSrR {
+        WwdgResetSrR::new(((self.bits >> 4) & 1) != 0)
     }
     #[doc = "Bit 5 - Iwdg reset sr"]
     #[inline(always)]
@@ -88,10 +88,10 @@ impl W {
     pub fn efc_reset_sr(&mut self) -> EfcResetSrW<'_, RstSrSpec> {
         EfcResetSrW::new(self, 3)
     }
-    #[doc = "Bit 4 - Wdg reset sr"]
+    #[doc = "Bit 4 - Wwdg reset sr"]
     #[inline(always)]
-    pub fn wdg_reset_sr(&mut self) -> WdgResetSrW<'_, RstSrSpec> {
-        WdgResetSrW::new(self, 4)
+    pub fn wwdg_reset_sr(&mut self) -> WwdgResetSrW<'_, RstSrSpec> {
+        WwdgResetSrW::new(self, 4)
     }
     #[doc = "Bit 5 - Iwdg reset sr"]
     #[inline(always)]
