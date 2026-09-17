@@ -1,12 +1,12 @@
-name: WDG
-description: Watchdog timer
+name: WWDG
+description: Window watchdog timer
 baseAddress: '0x4001E000'
 addressBlock:
   offset: '0'
   size: '0x1000'
   usage: registers
 interrupt:
-  name: WDG
+  name: WWDG
   value: '2'
 registers:
   register:

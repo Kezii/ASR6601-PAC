@@ -1,6 +1,6 @@
 PROVIDE(SEC = DefaultHandler);
 PROVIDE(RTC = DefaultHandler);
-PROVIDE(WDG = DefaultHandler);
+PROVIDE(WWDG = DefaultHandler);
 PROVIDE(EFC = DefaultHandler);
 PROVIDE(UART3 = DefaultHandler);
 PROVIDE(I2C2 = DefaultHandler);

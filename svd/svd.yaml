@@ -57,7 +57,7 @@ device:
     - gptim3.yaml
     - bstim1.yaml
     - iwdg.yaml
-    - wdg.yaml
+    - wwdg.yaml
     - gpioa.yaml
     - gpiob.yaml
     - gpioc.yaml

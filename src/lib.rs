@@ -13,7 +13,7 @@ pub mod generic;
 extern "C" {
     fn SEC();
     fn RTC();
-    fn WDG();
+    fn WWDG();
     fn EFC();
     fn UART3();
     fn I2C2();
@@ -61,7 +61,7 @@ pub union Vector {
 pub static __INTERRUPTS: [Vector; 37] = [
     Vector { _handler: SEC },
     Vector { _handler: RTC },
-    Vector { _handler: WDG },
+    Vector { _handler: WWDG },
     Vector { _handler: EFC },
     Vector { _handler: UART3 },
     Vector { _handler: I2C2 },
@@ -105,8 +105,8 @@ pub enum Interrupt {
     SEC = 0,
     #[doc = "1 - RTC"]
     RTC = 1,
-    #[doc = "2 - WDG"]
-    WDG = 2,
+    #[doc = "2 - WWDG"]
+    WWDG = 2,
     #[doc = "3 - EFC"]
     EFC = 3,
     #[doc = "4 - UART3"]
@@ -459,15 +459,15 @@ impl core::fmt::Debug for Iwdg {
 }
 #[doc = "Independent watchdog"]
 pub mod iwdg;
-#[doc = "Watchdog timer"]
-pub type Wdg = crate::Periph<wdg::RegisterBlock, 0x4001_e000>;
-impl core::fmt::Debug for Wdg {
+#[doc = "Window watchdog timer"]
+pub type Wwdg = crate::Periph<wwdg::RegisterBlock, 0x4001_e000>;
+impl core::fmt::Debug for Wwdg {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        f.debug_struct("Wdg").finish()
+        f.debug_struct("Wwdg").finish()
     }
 }
-#[doc = "Watchdog timer"]
-pub mod wdg;
+#[doc = "Window watchdog timer"]
+pub mod wwdg;
 #[doc = "Gpioa"]
 pub type Gpioa = crate::Periph<gpioa::RegisterBlock, 0x4001_f000>;
 impl core::fmt::Debug for Gpioa {
@@ -634,8 +634,8 @@ pub struct Peripherals {
     pub bstim1: Bstim1,
     #[doc = "IWDG"]
     pub iwdg: Iwdg,
-    #[doc = "WDG"]
-    pub wdg: Wdg,
+    #[doc = "WWDG"]
+    pub wwdg: Wwdg,
     #[doc = "GPIOA"]
     pub gpioa: Gpioa,
     #[doc = "GPIOB"]
@@ -711,7 +711,7 @@ impl Peripherals {
             gptim3: Gptim3::steal(),
             bstim1: Bstim1::steal(),
             iwdg: Iwdg::steal(),
-            wdg: Wdg::steal(),
+            wwdg: Wwdg::steal(),
             gpioa: Gpioa::steal(),
             gpiob: Gpiob::steal(),
             gpioc: Gpioc::steal(),
