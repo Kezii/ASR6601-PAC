@@ -2,12 +2,93 @@
 pub type R = crate::R<Cr2Spec>;
 #[doc = "Register `CR2` writer"]
 pub type W = crate::W<Cr2Spec>;
-impl core::fmt::Debug for R {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(f, "{}", self.bits())
+#[doc = "Master mode selection, TRGO output"]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[repr(u8)]
+pub enum Mms {
+    #[doc = "0: Reset mode, UG output as TRGO signal"]
+    Reset = 0,
+    #[doc = "1: Enable mode, CEN output as TRGO signal"]
+    Enable = 1,
+    #[doc = "2: Update mode, update event output as TRGO signal"]
+    Update = 2,
+}
+impl From<Mms> for u8 {
+    #[inline(always)]
+    fn from(variant: Mms) -> Self {
+        variant as _
     }
 }
-impl W {}
+impl crate::FieldSpec for Mms {
+    type Ux = u8;
+}
+impl crate::IsEnum for Mms {}
+#[doc = "Field `MMS` reader - Master mode selection, TRGO output"]
+pub type MmsR = crate::FieldReader<Mms>;
+impl MmsR {
+    #[doc = "Get enumerated values variant"]
+    #[inline(always)]
+    pub const fn variant(&self) -> Option<Mms> {
+        match self.bits {
+            0 => Some(Mms::Reset),
+            1 => Some(Mms::Enable),
+            2 => Some(Mms::Update),
+            _ => None,
+        }
+    }
+    #[doc = "Reset mode, UG output as TRGO signal"]
+    #[inline(always)]
+    pub fn is_reset(&self) -> bool {
+        *self == Mms::Reset
+    }
+    #[doc = "Enable mode, CEN output as TRGO signal"]
+    #[inline(always)]
+    pub fn is_enable(&self) -> bool {
+        *self == Mms::Enable
+    }
+    #[doc = "Update mode, update event output as TRGO signal"]
+    #[inline(always)]
+    pub fn is_update(&self) -> bool {
+        *self == Mms::Update
+    }
+}
+#[doc = "Field `MMS` writer - Master mode selection, TRGO output"]
+pub type MmsW<'a, REG> = crate::FieldWriter<'a, REG, 3, Mms>;
+impl<'a, REG> MmsW<'a, REG>
+where
+    REG: crate::Writable + crate::RegisterSpec,
+    REG::Ux: From<u8>,
+{
+    #[doc = "Reset mode, UG output as TRGO signal"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut crate::W<REG> {
+        self.variant(Mms::Reset)
+    }
+    #[doc = "Enable mode, CEN output as TRGO signal"]
+    #[inline(always)]
+    pub fn enable(self) -> &'a mut crate::W<REG> {
+        self.variant(Mms::Enable)
+    }
+    #[doc = "Update mode, update event output as TRGO signal"]
+    #[inline(always)]
+    pub fn update(self) -> &'a mut crate::W<REG> {
+        self.variant(Mms::Update)
+    }
+}
+impl R {
+    #[doc = "Bits 4:6 - Master mode selection, TRGO output"]
+    #[inline(always)]
+    pub fn mms(&self) -> MmsR {
+        MmsR::new(((self.bits >> 4) & 7) as u8)
+    }
+}
+impl W {
+    #[doc = "Bits 4:6 - Master mode selection, TRGO output"]
+    #[inline(always)]
+    pub fn mms(&mut self) -> MmsW<'_, Cr2Spec> {
+        MmsW::new(self, 4)
+    }
+}
 #[doc = "control register 2\n\nYou can [`read`](crate::Reg::read) this register and get [`cr2::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cr2::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Cr2Spec;
 impl crate::RegisterSpec for Cr2Spec {

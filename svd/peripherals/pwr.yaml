@@ -15,11 +15,33 @@ registers:
       addressOffset: '0x0'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: LOW_POWER_MODE
+            description: Low-power mode selection
+            bitOffset: '0'
+            bitWidth: '2'
+          - name: WFE
+            description: Wait for event selection, set for WFE, clear for WFI
+            bitOffset: '5'
+            bitWidth: '1'
+
     - name: CR1
       description: control register 1
       addressOffset: '0x4'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: TRIM
+            description: Regulator trim value
+            bitOffset: '20'
+            bitWidth: '4'
+          - name: LP_MODE_EXT
+            description: Low-power mode extension, Stop3 versus Standby select
+            bitOffset: '24'
+            bitWidth: '1'
+
     - name: SR0
       description: status register 0
       addressOffset: '0x8'

@@ -1,11 +1,14 @@
 #[doc = "Register `SWTRIGR` writer"]
 pub type W = crate::W<SwtrigrSpec>;
-impl core::fmt::Debug for crate::generic::Reg<SwtrigrSpec> {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(f, "(not readable)")
+#[doc = "Field `SWTRIG` writer - Software trigger, write 1 to trigger conversion"]
+pub type SwtrigW<'a, REG> = crate::BitWriter<'a, REG>;
+impl W {
+    #[doc = "Bit 0 - Software trigger, write 1 to trigger conversion"]
+    #[inline(always)]
+    pub fn swtrig(&mut self) -> SwtrigW<'_, SwtrigrSpec> {
+        SwtrigW::new(self, 0)
     }
 }
-impl W {}
 #[doc = "software trigger register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`swtrigr::W`](W). See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct SwtrigrSpec;
 impl crate::RegisterSpec for SwtrigrSpec {

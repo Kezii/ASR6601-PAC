@@ -15,16 +15,41 @@ registers:
       addressOffset: '0x0'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: LOAD
+            description: Watchdog reload value, 32-bit
+            bitOffset: '0'
+            bitWidth: '32'
+
     - name: VALUE
       description: value register
       addressOffset: '0x4'
       size: '32'
       access: read-only
+      fields:
+        field:
+          - name: VALUE
+            description: Current down-counter value, 32-bit
+            bitOffset: '0'
+            bitWidth: '32'
+
     - name: CONTROL
       description: control register
       addressOffset: '0x8'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: INTEN
+            description: Watchdog interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: RESEN
+            description: Watchdog reset enable
+            bitOffset: '1'
+            bitWidth: '1'
+
     - name: INTCLR
       description: clear interrupt register
       addressOffset: '0xC'

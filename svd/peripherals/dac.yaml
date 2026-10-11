@@ -138,18 +138,49 @@ registers:
       addressOffset: '0x4'
       size: '32'
       access: write-only
+      fields:
+        field:
+          - name: SWTRIG
+            description: Software trigger, write 1 to trigger conversion
+            bitOffset: '0'
+            bitWidth: '1'
+
     - name: DHR
       description: data holding register
       addressOffset: '0x8'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: DATA
+            description: 12-bit conversion data
+            bitOffset: '0'
+            bitWidth: '12'
+
     - name: DOR
       description: data output register
       addressOffset: '0xC'
       size: '32'
       access: read-only
+      fields:
+        field:
+          - name: DATA
+            description: Converted output data, 12-bit
+            bitOffset: '0'
+            bitWidth: '12'
+
     - name: SR
       description: status register
       addressOffset: '0x10'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: UNDERFLOW
+            description: DAC buffer underflow flag
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: EMPTY
+            description: DAC buffer empty flag
+            bitOffset: '1'
+            bitWidth: '1'
