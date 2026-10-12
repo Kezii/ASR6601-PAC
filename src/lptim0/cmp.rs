@@ -2,12 +2,24 @@
 pub type R = crate::R<CmpSpec>;
 #[doc = "Register `CMP` writer"]
 pub type W = crate::W<CmpSpec>;
-impl core::fmt::Debug for R {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(f, "{}", self.bits())
+#[doc = "Field `CMP` reader - Comparison value, 16-bit"]
+pub type CmpR = crate::FieldReader<u16>;
+#[doc = "Field `CMP` writer - Comparison value, 16-bit"]
+pub type CmpW<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+impl R {
+    #[doc = "Bits 0:15 - Comparison value, 16-bit"]
+    #[inline(always)]
+    pub fn cmp(&self) -> CmpR {
+        CmpR::new((self.bits & 0xffff) as u16)
     }
 }
-impl W {}
+impl W {
+    #[doc = "Bits 0:15 - Comparison value, 16-bit"]
+    #[inline(always)]
+    pub fn cmp(&mut self) -> CmpW<'_, CmpSpec> {
+        CmpW::new(self, 0)
+    }
+}
 #[doc = "LPTIM compare register\n\nYou can [`read`](crate::Reg::read) this register and get [`cmp::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cmp::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct CmpSpec;
 impl crate::RegisterSpec for CmpSpec {

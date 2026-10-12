@@ -56,10 +56,15 @@ registers:
       access: read-write
       fields:
         field:
-          name: CLOCK_ENABLE
-          description: Clock enable
-          bitOffset: '7'
-          bitWidth: '1'
+          - name: DIV
+            description: Clock divider value, SDK rng_init div parameter
+            bitOffset: '0'
+            bitWidth: '7'
+          - name: CLOCK_ENABLE
+            description: Clock enable
+            bitOffset: '7'
+            bitWidth: '1'
+
     - name: RNGCR
       description: Control register
       addressOffset: '0xC'
@@ -85,6 +90,13 @@ registers:
       addressOffset: '0x14'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: DATA
+            description: Random data byte, valid per DATARDY; SDK reads the low byte
+            bitOffset: '0'
+            bitWidth: '8'
+
     - name: RNGPKNUM
       description: Poker test sample count
       addressOffset: '0x18'

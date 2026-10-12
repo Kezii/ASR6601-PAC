@@ -58,11 +58,71 @@ registers:
       addressOffset: '0x4'
       size: '32'
       access: write-only
+      fields:
+        field:
+          - name: CMPMCF
+            description: Clear compare match flag
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: ARRMCF
+            description: Clear autoreload match flag
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: EXTTRIGCF
+            description: Clear external trigger flag
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CMPOKCF
+            description: Clear compare register update ok flag
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: ARROKCF
+            description: Clear autoreload register update ok flag
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: UPCF
+            description: Clear direction change to up flag
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: DOWNCF
+            description: Clear direction change to down flag
+            bitOffset: '6'
+            bitWidth: '1'
     - name: IER
       description: LPTIM interrupt enable register
       addressOffset: '0x8'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CMPMIE
+            description: Compare match interrupt enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: ARRMIE
+            description: Autoreload match interrupt enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: EXTTRIGIE
+            description: External trigger interrupt enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CMPOKIE
+            description: Compare register update ok interrupt enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: ARROKIE
+            description: Autoreload register update ok interrupt enable
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: UPIE
+            description: Direction change to up interrupt enable
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: DOWNIE
+            description: Direction change to down interrupt enable
+            bitOffset: '6'
+            bitWidth: '1'
     - name: CFGR
       description: LPTIM configuration register
       addressOffset: '0xC'
@@ -142,16 +202,34 @@ registers:
       addressOffset: '0x14'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CMP
+            description: Comparison value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
     - name: ARR
       description: LPTIM autoreload register
       addressOffset: '0x18'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: ARR
+            description: Reload value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
     - name: CNT
       description: LPTIM counter register
       addressOffset: '0x1C'
       size: '32'
       access: read-only
+      fields:
+        field:
+          - name: CNT
+            description: Counting result, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
     - name: CSR
       description: LPTIM CSR register
       addressOffset: '0x20'
@@ -184,3 +262,33 @@ registers:
       addressOffset: '0x24'
       size: '32'
       access: read-only
+      fields:
+        field:
+          - name: CMPM
+            description: Counter value matching CMP value detection
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: ARRM
+            description: Counter value reaching ARR value detection
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: EXTTRIG
+            description: Valid trigger edge detection
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CMPOK
+            description: CMP value loading status
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: ARROK
+            description: ARR value loading status
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: UP
+            description: Counting direction change to up
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: DOWN
+            description: Counting direction change to down
+            bitOffset: '6'
+            bitWidth: '1'

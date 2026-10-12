@@ -15,16 +15,211 @@ registers:
       addressOffset: '0x0'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CEN
+            description: Counter enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: UDIS
+            description: Update events disable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: URS
+            description: Update event source selection
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: OPM
+            description: Single pulse mode enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: DIR
+            description: Counting direction selection
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: CMS
+            description: Center alignment mode selection
+            bitOffset: '5'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: EDGE_ALIGNED
+                  description: Edge-aligned, DIR controls direction
+                  value: '0x0'
+                - name: CENTER1
+                  description: Center alignment mode 1
+                  value: '0x1'
+                - name: CENTER2
+                  description: Center alignment mode 2
+                  value: '0x2'
+                - name: CENTER3
+                  description: Center alignment mode 3
+                  value: '0x3'
+          - name: ARPE
+            description: Reload shadow register enable
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: CKD
+            description: Sample clock divider
+            bitOffset: '8'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: DIV1
+                  description: fDTS equals fpclk
+                  value: '0x0'
+                - name: DIV2
+                  description: fDTS equals fpclk divided by 2
+                  value: '0x1'
+                - name: DIV4
+                  description: fDTS equals fpclk divided by 4
+                  value: '0x2'
+
     - name: CR2
       description: GPTIM control register 2, Address
       addressOffset: '0x4'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CCDS
+            description: Channel DMA request source selection
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: MMS
+            description: Master mode selection, TRGO output
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: RESET
+                  description: UG output as TRGO
+                  value: '0x0'
+                - name: ENABLE
+                  description: CNT_EN output as TRGO
+                  value: '0x1'
+                - name: UPDATE
+                  description: Update event output as TRGO
+                  value: '0x2'
+                - name: COMPARE_PULSE
+                  description: Pulse on CC0IF about to set
+                  value: '0x3'
+                - name: COMPARE_OC0REF
+                  description: OC0REF output as TRGO
+                  value: '0x4'
+                - name: COMPARE_OC1REF
+                  description: OC1REF output as TRGO
+                  value: '0x5'
+                - name: COMPARE_OC2REF
+                  description: OC2REF output as TRGO
+                  value: '0x6'
+                - name: COMPARE_OC3REF
+                  description: OC3REF output as TRGO
+                  value: '0x7'
+          - name: TI0S
+            description: Channel 0 source XOR selection
+            bitOffset: '7'
+            bitWidth: '1'
+
     - name: SMCR
       description: GPTIM slave Mode Control register, Address
       addressOffset: '0x8'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: SMS
+            description: Slave mode selection
+            bitOffset: '0'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: DISABLED
+                  description: Slave mode disabled
+                  value: '0x0'
+                - name: ENCODER1
+                  description: Encoder mode 1
+                  value: '0x1'
+                - name: ENCODER2
+                  description: Encoder mode 2
+                  value: '0x2'
+                - name: ENCODER3
+                  description: Encoder mode 3
+                  value: '0x3'
+                - name: RESET_MODE
+                  description: Reset mode, TRGI rising edge resets counter
+                  value: '0x4'
+                - name: GATED
+                  description: Gated mode
+                  value: '0x5'
+                - name: TRIGGER
+                  description: Trigger mode
+                  value: '0x6'
+                - name: EXTERNAL1
+                  description: External clock mode 1
+                  value: '0x7'
+          - name: TS
+            description: Trigger source selection, TRGI source
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: ITR0
+                  description: Internal trigger 0
+                  value: '0x0'
+                - name: ITR1
+                  description: Internal trigger 1
+                  value: '0x1'
+                - name: ITR2
+                  description: Internal trigger 2
+                  value: '0x2'
+                - name: TI0F_ED
+                  description: TI0 edge detector
+                  value: '0x4'
+                - name: TI0FP0
+                  description: Filtered timer input 0
+                  value: '0x5'
+                - name: TI1FP1
+                  description: Filtered timer input 1
+                  value: '0x6'
+                - name: ETRF
+                  description: Filtered external trigger input
+                  value: '0x7'
+          - name: MSM
+            description: Master-slave mode synchronization
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: ETF
+            description: External trigger input filter
+            bitOffset: '8'
+            bitWidth: '4'
+          - name: ETPS
+            description: External trigger input prescaler
+            bitOffset: '12'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: DIV1
+                  description: No frequency division
+                  value: '0x0'
+                - name: DIV2
+                  description: Frequency divided by 2
+                  value: '0x1'
+                - name: DIV4
+                  description: Frequency divided by 4
+                  value: '0x2'
+                - name: DIV8
+                  description: Frequency divided by 8
+                  value: '0x3'
+          - name: ECE
+            description: External clock mode 2 enable
+            bitOffset: '14'
+            bitWidth: '1'
+          - name: ETP
+            description: External trigger polarity selection
+            bitOffset: '15'
+            bitWidth: '1'
+
     - name: DIER
       description: GPTIM DMA/interrupt enable register, Address
       addressOffset: '0xC'
@@ -163,11 +358,257 @@ registers:
       addressOffset: '0x18'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CC0S
+            description: Capture compare 0 selection
+            bitOffset: '0'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: OUTPUT
+                  description: Channel configured in output mode
+                  value: '0x0'
+                - name: INPUT_TI1
+                  description: Input mode, capture input mapped to channel 1
+                  value: '0x1'
+                - name: INPUT_TI0
+                  description: Input mode, capture input mapped to channel 0
+                  value: '0x2'
+                - name: INPUT_TRC
+                  description: Input mode, capture input mapped to trigger input
+                  value: '0x3'
+          - name: OC0FE
+            description: Channel 0 fast output enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: OC0PE
+            description: Channel 0 output compare shadow register enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: OC0M
+            description: Channel 0 output compare mode selection
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FROZEN
+                  description: Freeze mode, channel output does not change
+                  value: '0x0'
+                - name: ACTIVE_ON_MATCH
+                  description: Channel output valid level after matching
+                  value: '0x1'
+                - name: INACTIVE_ON_MATCH
+                  description: Channel output failure level after matching
+                  value: '0x2'
+                - name: TOGGLE
+                  description: Channel output flipped after matching
+                  value: '0x3'
+                - name: FORCE_INACTIVE
+                  description: Forced failure level output
+                  value: '0x4'
+                - name: FORCE_ACTIVE
+                  description: Forced valid level output
+                  value: '0x5'
+                - name: PWM1
+                  description: PWM mode 1
+                  value: '0x6'
+                - name: PWM2
+                  description: PWM mode 2
+                  value: '0x7'
+          - name: OC0CE
+            description: Channel 0 output compare clear enable
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: CC1S
+            description: Capture compare 1 selection
+            bitOffset: '8'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: OUTPUT
+                  description: Channel configured in output mode
+                  value: '0x0'
+                - name: INPUT_TI1
+                  description: Input mode, capture input mapped to channel 1
+                  value: '0x1'
+                - name: INPUT_TI0
+                  description: Input mode, capture input mapped to channel 0
+                  value: '0x2'
+                - name: INPUT_TRC
+                  description: Input mode, capture input mapped to trigger input
+                  value: '0x3'
+          - name: OC1FE
+            description: Channel 1 fast output enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: OC1PE
+            description: Channel 1 output compare shadow register enable
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: OC1M
+            description: Channel 1 output compare mode selection
+            bitOffset: '12'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FROZEN
+                  description: Freeze mode, channel output does not change
+                  value: '0x0'
+                - name: ACTIVE_ON_MATCH
+                  description: Channel output valid level after matching
+                  value: '0x1'
+                - name: INACTIVE_ON_MATCH
+                  description: Channel output failure level after matching
+                  value: '0x2'
+                - name: TOGGLE
+                  description: Channel output flipped after matching
+                  value: '0x3'
+                - name: FORCE_INACTIVE
+                  description: Forced failure level output
+                  value: '0x4'
+                - name: FORCE_ACTIVE
+                  description: Forced valid level output
+                  value: '0x5'
+                - name: PWM1
+                  description: PWM mode 1
+                  value: '0x6'
+                - name: PWM2
+                  description: PWM mode 2
+                  value: '0x7'
+          - name: OC1CE
+            description: Channel 1 output compare clear enable
+            bitOffset: '15'
+            bitWidth: '1'
+
     - name: CCMR2
       description: GPTIM capture/compare mode register 2, Address
       addressOffset: '0x1C'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CC2S
+            description: Capture compare 2 selection
+            bitOffset: '0'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: OUTPUT
+                  description: Channel configured in output mode
+                  value: '0x0'
+                - name: INPUT_TI1
+                  description: Input mode, capture input mapped to channel 1
+                  value: '0x1'
+                - name: INPUT_TI0
+                  description: Input mode, capture input mapped to channel 0
+                  value: '0x2'
+                - name: INPUT_TRC
+                  description: Input mode, capture input mapped to trigger input
+                  value: '0x3'
+          - name: OC2FE
+            description: Channel 2 fast output enable
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: OC2PE
+            description: Channel 2 output compare shadow register enable
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: OC2M
+            description: Channel 2 output compare mode selection
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FROZEN
+                  description: Freeze mode, channel output does not change
+                  value: '0x0'
+                - name: ACTIVE_ON_MATCH
+                  description: Channel output valid level after matching
+                  value: '0x1'
+                - name: INACTIVE_ON_MATCH
+                  description: Channel output failure level after matching
+                  value: '0x2'
+                - name: TOGGLE
+                  description: Channel output flipped after matching
+                  value: '0x3'
+                - name: FORCE_INACTIVE
+                  description: Forced failure level output
+                  value: '0x4'
+                - name: FORCE_ACTIVE
+                  description: Forced valid level output
+                  value: '0x5'
+                - name: PWM1
+                  description: PWM mode 1
+                  value: '0x6'
+                - name: PWM2
+                  description: PWM mode 2
+                  value: '0x7'
+          - name: OC2CE
+            description: Channel 2 output compare clear enable
+            bitOffset: '7'
+            bitWidth: '1'
+          - name: CC3S
+            description: Capture compare 3 selection
+            bitOffset: '8'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: OUTPUT
+                  description: Channel configured in output mode
+                  value: '0x0'
+                - name: INPUT_TI1
+                  description: Input mode, capture input mapped to channel 1
+                  value: '0x1'
+                - name: INPUT_TI0
+                  description: Input mode, capture input mapped to channel 0
+                  value: '0x2'
+                - name: INPUT_TRC
+                  description: Input mode, capture input mapped to trigger input
+                  value: '0x3'
+          - name: OC3FE
+            description: Channel 3 fast output enable
+            bitOffset: '10'
+            bitWidth: '1'
+          - name: OC3PE
+            description: Channel 3 output compare shadow register enable
+            bitOffset: '11'
+            bitWidth: '1'
+          - name: OC3M
+            description: Channel 3 output compare mode selection
+            bitOffset: '12'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: FROZEN
+                  description: Freeze mode, channel output does not change
+                  value: '0x0'
+                - name: ACTIVE_ON_MATCH
+                  description: Channel output valid level after matching
+                  value: '0x1'
+                - name: INACTIVE_ON_MATCH
+                  description: Channel output failure level after matching
+                  value: '0x2'
+                - name: TOGGLE
+                  description: Channel output flipped after matching
+                  value: '0x3'
+                - name: FORCE_INACTIVE
+                  description: Forced failure level output
+                  value: '0x4'
+                - name: FORCE_ACTIVE
+                  description: Forced valid level output
+                  value: '0x5'
+                - name: PWM1
+                  description: PWM mode 1
+                  value: '0x6'
+                - name: PWM2
+                  description: PWM mode 2
+                  value: '0x7'
+          - name: OC3CE
+            description: Channel 3 output compare clear enable
+            bitOffset: '15'
+            bitWidth: '1'
+
     - name: CCER
       description: GPTIM capture/compare enable register, Address
       addressOffset: '0x20'
@@ -176,88 +617,138 @@ registers:
       fields:
         field:
           - name: CC0E
-            description: Cc0e
+            description: Channel 0 enable
             bitOffset: '0'
             bitWidth: '1'
           - name: CC0P
-            description: Cc0p
+            description: Channel 0 output polarity
             bitOffset: '1'
             bitWidth: '1'
           - name: CC0NP
-            description: Cc0np
+            description: Channel 0 complementary output polarity
             bitOffset: '3'
             bitWidth: '1'
           - name: CC1E
-            description: Cc1e
+            description: Channel 1 enable
             bitOffset: '4'
             bitWidth: '1'
           - name: CC1P
-            description: Cc1p
+            description: Channel 1 output polarity
             bitOffset: '5'
             bitWidth: '1'
           - name: CC1NP
-            description: Cc1np
+            description: Channel 1 complementary output polarity
             bitOffset: '7'
             bitWidth: '1'
           - name: CC2E
-            description: Cc2e
+            description: Channel 2 enable
             bitOffset: '8'
             bitWidth: '1'
           - name: CC2P
-            description: Cc2p
+            description: Channel 2 output polarity
             bitOffset: '9'
             bitWidth: '1'
           - name: CC2NP
-            description: Cc2np
+            description: Channel 2 complementary output polarity
             bitOffset: '11'
             bitWidth: '1'
           - name: CC3E
-            description: Cc3e
+            description: Channel 3 enable
             bitOffset: '12'
             bitWidth: '1'
           - name: CC3P
-            description: Cc3p
+            description: Channel 3 output polarity
             bitOffset: '13'
             bitWidth: '1'
           - name: CC3NP
-            description: Cc3np
+            description: Channel 3 complementary output polarity
             bitOffset: '15'
             bitWidth: '1'
+
     - name: CNT
-      description: GPTIM counter register, Address
+      description: GPTIM counter count value, Address
       addressOffset: '0x24'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CNT
+            description: counter count value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: PSC
-      description: GPTIM prescaler register, Address
+      description: GPTIM prescaler value, counter clock is PSC plus 1, Address
       addressOffset: '0x28'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: PSC
+            description: prescaler value, counter clock is PSC plus 1, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: ARR
-      description: GPTIM auto-reload register, Address
+      description: GPTIM counter reload value, Address
       addressOffset: '0x2C'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: ARR
+            description: counter reload value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: CCR0
-      description: GPTIM capture/compare register 0, Address
+      description: GPTIM capture compare 0 value, Address
       addressOffset: '0x34'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CCR0
+            description: capture compare 0 value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: CCR1
-      description: GPTIM capture/compare register 1, Address
+      description: GPTIM capture compare 1 value, Address
       addressOffset: '0x38'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CCR1
+            description: capture compare 1 value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: CCR2
-      description: GPTIM capture/compare register 2, Address
+      description: GPTIM capture compare 2 value, Address
       addressOffset: '0x3C'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CCR2
+            description: capture compare 2 value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: CCR3
-      description: GPTIM capture/compare register 3, Address
+      description: GPTIM capture compare 3 value, Address
       addressOffset: '0x40'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CCR3
+            description: capture compare 3 value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: DCR
       description: GPTIM DMA control register, Address
       addressOffset: '0x48'

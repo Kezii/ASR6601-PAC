@@ -2,11 +2,20 @@
 pub type R = crate::R<RngclkSpec>;
 #[doc = "Register `RNGCLK` writer"]
 pub type W = crate::W<RngclkSpec>;
+#[doc = "Field `DIV` reader - Clock divider value, SDK rng_init div parameter"]
+pub type DivR = crate::FieldReader;
+#[doc = "Field `DIV` writer - Clock divider value, SDK rng_init div parameter"]
+pub type DivW<'a, REG> = crate::FieldWriter<'a, REG, 7>;
 #[doc = "Field `CLOCK_ENABLE` reader - Clock enable"]
 pub type ClockEnableR = crate::BitReader;
 #[doc = "Field `CLOCK_ENABLE` writer - Clock enable"]
 pub type ClockEnableW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
+    #[doc = "Bits 0:6 - Clock divider value, SDK rng_init div parameter"]
+    #[inline(always)]
+    pub fn div(&self) -> DivR {
+        DivR::new((self.bits & 0x7f) as u8)
+    }
     #[doc = "Bit 7 - Clock enable"]
     #[inline(always)]
     pub fn clock_enable(&self) -> ClockEnableR {
@@ -14,6 +23,11 @@ impl R {
     }
 }
 impl W {
+    #[doc = "Bits 0:6 - Clock divider value, SDK rng_init div parameter"]
+    #[inline(always)]
+    pub fn div(&mut self) -> DivW<'_, RngclkSpec> {
+        DivW::new(self, 0)
+    }
     #[doc = "Bit 7 - Clock enable"]
     #[inline(always)]
     pub fn clock_enable(&mut self) -> ClockEnableW<'_, RngclkSpec> {

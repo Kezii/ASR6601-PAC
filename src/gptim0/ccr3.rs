@@ -2,13 +2,25 @@
 pub type R = crate::R<Ccr3Spec>;
 #[doc = "Register `CCR3` writer"]
 pub type W = crate::W<Ccr3Spec>;
-impl core::fmt::Debug for R {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(f, "{}", self.bits())
+#[doc = "Field `CCR3` reader - capture compare 3 value, 16-bit"]
+pub type Ccr3R = crate::FieldReader<u16>;
+#[doc = "Field `CCR3` writer - capture compare 3 value, 16-bit"]
+pub type Ccr3W<'a, REG> = crate::FieldWriter<'a, REG, 16, u16>;
+impl R {
+    #[doc = "Bits 0:15 - capture compare 3 value, 16-bit"]
+    #[inline(always)]
+    pub fn ccr3(&self) -> Ccr3R {
+        Ccr3R::new((self.bits & 0xffff) as u16)
     }
 }
-impl W {}
-#[doc = "GPTIM capture/compare register 3, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr3::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
+impl W {
+    #[doc = "Bits 0:15 - capture compare 3 value, 16-bit"]
+    #[inline(always)]
+    pub fn ccr3(&mut self) -> Ccr3W<'_, Ccr3Spec> {
+        Ccr3W::new(self, 0)
+    }
+}
+#[doc = "GPTIM capture compare 3 value, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr3::R`](R). You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr3::W`](W). You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api)."]
 pub struct Ccr3Spec;
 impl crate::RegisterSpec for Ccr3Spec {
     type Ux = u32;

@@ -69,37 +69,37 @@ impl RegisterBlock {
     pub const fn ccer(&self) -> &Ccer {
         &self.ccer
     }
-    #[doc = "0x24 - GPTIM counter register, Address"]
+    #[doc = "0x24 - GPTIM counter count value, Address"]
     #[inline(always)]
     pub const fn cnt(&self) -> &Cnt {
         &self.cnt
     }
-    #[doc = "0x28 - GPTIM prescaler register, Address"]
+    #[doc = "0x28 - GPTIM prescaler value, counter clock is PSC plus 1, Address"]
     #[inline(always)]
     pub const fn psc(&self) -> &Psc {
         &self.psc
     }
-    #[doc = "0x2c - GPTIM auto-reload register, Address"]
+    #[doc = "0x2c - GPTIM counter reload value, Address"]
     #[inline(always)]
     pub const fn arr(&self) -> &Arr {
         &self.arr
     }
-    #[doc = "0x34 - GPTIM capture/compare register 0, Address"]
+    #[doc = "0x34 - GPTIM capture compare 0 value, Address"]
     #[inline(always)]
     pub const fn ccr0(&self) -> &Ccr0 {
         &self.ccr0
     }
-    #[doc = "0x38 - GPTIM capture/compare register 1, Address"]
+    #[doc = "0x38 - GPTIM capture compare 1 value, Address"]
     #[inline(always)]
     pub const fn ccr1(&self) -> &Ccr1 {
         &self.ccr1
     }
-    #[doc = "0x3c - GPTIM capture/compare register 2, Address"]
+    #[doc = "0x3c - GPTIM capture compare 2 value, Address"]
     #[inline(always)]
     pub const fn ccr2(&self) -> &Ccr2 {
         &self.ccr2
     }
-    #[doc = "0x40 - GPTIM capture/compare register 3, Address"]
+    #[doc = "0x40 - GPTIM capture compare 3 value, Address"]
     #[inline(always)]
     pub const fn ccr3(&self) -> &Ccr3 {
         &self.ccr3
@@ -165,40 +165,40 @@ pub mod ccmr2;
 pub type Ccer = crate::Reg<ccer::CcerSpec>;
 #[doc = "GPTIM capture/compare enable register, Address"]
 pub mod ccer;
-#[doc = "CNT (rw) register accessor: GPTIM counter register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`cnt::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cnt`] module"]
+#[doc = "CNT (rw) register accessor: GPTIM counter count value, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`cnt::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`cnt::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@cnt`] module"]
 #[doc(alias = "CNT")]
 pub type Cnt = crate::Reg<cnt::CntSpec>;
-#[doc = "GPTIM counter register, Address"]
+#[doc = "GPTIM counter count value, Address"]
 pub mod cnt;
-#[doc = "PSC (rw) register accessor: GPTIM prescaler register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`psc::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`psc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@psc`] module"]
+#[doc = "PSC (rw) register accessor: GPTIM prescaler value, counter clock is PSC plus 1, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`psc::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`psc::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@psc`] module"]
 #[doc(alias = "PSC")]
 pub type Psc = crate::Reg<psc::PscSpec>;
-#[doc = "GPTIM prescaler register, Address"]
+#[doc = "GPTIM prescaler value, counter clock is PSC plus 1, Address"]
 pub mod psc;
-#[doc = "ARR (rw) register accessor: GPTIM auto-reload register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`arr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`arr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@arr`] module"]
+#[doc = "ARR (rw) register accessor: GPTIM counter reload value, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`arr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`arr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@arr`] module"]
 #[doc(alias = "ARR")]
 pub type Arr = crate::Reg<arr::ArrSpec>;
-#[doc = "GPTIM auto-reload register, Address"]
+#[doc = "GPTIM counter reload value, Address"]
 pub mod arr;
-#[doc = "CCR0 (rw) register accessor: GPTIM capture/compare register 0, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr0::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr0`] module"]
+#[doc = "CCR0 (rw) register accessor: GPTIM capture compare 0 value, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr0::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr0::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr0`] module"]
 #[doc(alias = "CCR0")]
 pub type Ccr0 = crate::Reg<ccr0::Ccr0Spec>;
-#[doc = "GPTIM capture/compare register 0, Address"]
+#[doc = "GPTIM capture compare 0 value, Address"]
 pub mod ccr0;
-#[doc = "CCR1 (rw) register accessor: GPTIM capture/compare register 1, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr1::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr1`] module"]
+#[doc = "CCR1 (rw) register accessor: GPTIM capture compare 1 value, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr1::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr1::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr1`] module"]
 #[doc(alias = "CCR1")]
 pub type Ccr1 = crate::Reg<ccr1::Ccr1Spec>;
-#[doc = "GPTIM capture/compare register 1, Address"]
+#[doc = "GPTIM capture compare 1 value, Address"]
 pub mod ccr1;
-#[doc = "CCR2 (rw) register accessor: GPTIM capture/compare register 2, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr2::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr2`] module"]
+#[doc = "CCR2 (rw) register accessor: GPTIM capture compare 2 value, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr2::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr2::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr2`] module"]
 #[doc(alias = "CCR2")]
 pub type Ccr2 = crate::Reg<ccr2::Ccr2Spec>;
-#[doc = "GPTIM capture/compare register 2, Address"]
+#[doc = "GPTIM capture compare 2 value, Address"]
 pub mod ccr2;
-#[doc = "CCR3 (rw) register accessor: GPTIM capture/compare register 3, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr3::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr3`] module"]
+#[doc = "CCR3 (rw) register accessor: GPTIM capture compare 3 value, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`ccr3::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`ccr3::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@ccr3`] module"]
 #[doc(alias = "CCR3")]
 pub type Ccr3 = crate::Reg<ccr3::Ccr3Spec>;
-#[doc = "GPTIM capture/compare register 3, Address"]
+#[doc = "GPTIM capture compare 3 value, Address"]
 pub mod ccr3;
 #[doc = "DCR (rw) register accessor: GPTIM DMA control register, Address\n\nYou can [`read`](crate::Reg::read) this register and get [`dcr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dcr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dcr`] module"]
 #[doc(alias = "DCR")]

@@ -42,6 +42,24 @@ registers:
       addressOffset: '0x4'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: MMS
+            description: Master mode selection, TRGO output
+            bitOffset: '4'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: RESET
+                  description: Reset mode, UG output as TRGO signal
+                  value: '0x0'
+                - name: ENABLE
+                  description: Enable mode, CEN output as TRGO signal
+                  value: '0x1'
+                - name: UPDATE
+                  description: Update mode, update event output as TRGO signal
+                  value: '0x2'
+
     - name: DIER
       description: DMA/interrupt enable register
       addressOffset: '0xC'
@@ -84,13 +102,34 @@ registers:
       addressOffset: '0x24'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: CNT
+            description: Counter count value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: PSC
       description: prescaler
       addressOffset: '0x28'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: PSC
+            description: Clock division value is PSC plus 1, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
     - name: ARR
       description: auto-reload register
       addressOffset: '0x2C'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: ARR
+            description: Counter auto-reload value, 16-bit
+            bitOffset: '0'
+            bitWidth: '16'
+
