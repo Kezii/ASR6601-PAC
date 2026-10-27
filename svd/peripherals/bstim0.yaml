@@ -76,16 +76,17 @@ registers:
             bitOffset: '8'
             bitWidth: '1'
     - name: SR
-      description: status register
+      description: status register; UIF is cleared by writing 0
       addressOffset: '0x10'
       size: '32'
-      access: read-only
+      access: read-write
       fields:
         field:
           name: UIF
-          description: Uif
+          description: Update interrupt flag; write 0 to clear
           bitOffset: '0'
           bitWidth: '1'
+          modifiedWriteValues: zeroToClear
     - name: EGR
       description: event generation register
       addressOffset: '0x14'

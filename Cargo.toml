@@ -1,6 +1,6 @@
 [package]
 name = "asr6601-pac"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 description = "Peripheral Access Crate for ASRmicro ASR6601 series microcontroller"
 license = "MIT"

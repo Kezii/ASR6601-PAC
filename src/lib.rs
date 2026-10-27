@@ -286,14 +286,14 @@ impl core::fmt::Debug for Gptim0 {
 #[doc = "Gptim0"]
 pub mod gptim0;
 #[doc = "GPTIM2 instance"]
-pub type Gptim2 = crate::Periph<gptim0::RegisterBlock, 0x4000_b000>;
+pub type Gptim2 = crate::Periph<gptim2::RegisterBlock, 0x4000_b000>;
 impl core::fmt::Debug for Gptim2 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("Gptim2").finish()
     }
 }
 #[doc = "GPTIM2 instance"]
-pub use self::gptim0 as gptim2;
+pub mod gptim2;
 #[doc = "Bstim0"]
 pub type Bstim0 = crate::Periph<bstim0::RegisterBlock, 0x4000_c000>;
 impl core::fmt::Debug for Bstim0 {
@@ -421,23 +421,23 @@ impl core::fmt::Debug for Dac {
 #[doc = "12-bit digital-to-analog converter"]
 pub mod dac;
 #[doc = "GPTIM1 instance"]
-pub type Gptim1 = crate::Periph<gptim0::RegisterBlock, 0x4001_a000>;
+pub type Gptim1 = crate::Periph<gptim1::RegisterBlock, 0x4001_a000>;
 impl core::fmt::Debug for Gptim1 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("Gptim1").finish()
     }
 }
 #[doc = "GPTIM1 instance"]
-pub use self::gptim0 as gptim1;
+pub mod gptim1;
 #[doc = "GPTIM3 instance"]
-pub type Gptim3 = crate::Periph<gptim0::RegisterBlock, 0x4001_b000>;
+pub type Gptim3 = crate::Periph<gptim3::RegisterBlock, 0x4001_b000>;
 impl core::fmt::Debug for Gptim3 {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_struct("Gptim3").finish()
     }
 }
 #[doc = "GPTIM3 instance"]
-pub use self::gptim0 as gptim3;
+pub mod gptim3;
 #[doc = "BSTIM1 instance"]
 pub type Bstim1 = crate::Periph<bstim0::RegisterBlock, 0x4001_c000>;
 impl core::fmt::Debug for Bstim1 {

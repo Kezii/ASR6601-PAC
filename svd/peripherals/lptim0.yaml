@@ -130,14 +130,115 @@ registers:
       access: read-write
       fields:
         field:
+          - name: CKPOL
+            description: Encoder mode control
+            bitOffset: '1'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: ENCODER_MODE_1
+                  description: Encoder mode 1, rising edge counting
+                  value: '0x0'
+                - name: ENCODER_MODE_2
+                  description: Encoder mode 2, falling edge counting
+                  value: '0x1'
+                - name: ENCODER_MODE_3
+                  description: Encoder mode 3, double-edge counting
+                  value: '0x2'
+          - name: CKFLT
+            description: External clock filter configuration
+            bitOffset: '3'
+            bitWidth: '2'
           - name: CKFLT_EN
-            description: Ckflt en
+            description: Enable the external clock filter
             bitOffset: '5'
             bitWidth: '1'
+          - name: TRGFLT
+            description: Trigger input filter configuration
+            bitOffset: '6'
+            bitWidth: '2'
           - name: TRGFLT_EN
-            description: Trgflt en
+            description: Enable the trigger input filter
             bitOffset: '8'
             bitWidth: '1'
+          - name: PRESC
+            description: Clock frequency division
+            bitOffset: '9'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: DIV1
+                  description: Divide by 1
+                  value: '0x0'
+                - name: DIV2
+                  description: Divide by 2
+                  value: '0x1'
+                - name: DIV4
+                  description: Divide by 4
+                  value: '0x2'
+                - name: DIV8
+                  description: Divide by 8
+                  value: '0x3'
+                - name: DIV16
+                  description: Divide by 16
+                  value: '0x4'
+                - name: DIV32
+                  description: Divide by 32
+                  value: '0x5'
+                - name: DIV64
+                  description: Divide by 64
+                  value: '0x6'
+                - name: DIV128
+                  description: Divide by 128
+                  value: '0x7'
+          - name: TRIGSEL
+            description: External trigger source selection
+            bitOffset: '13'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: TRIG0
+                  description: lptim_ext_trig0
+                  value: '0x0'
+                - name: TRIG1
+                  description: lptim_ext_trig1
+                  value: '0x1'
+                - name: TRIG2
+                  description: lptim_ext_trig2
+                  value: '0x2'
+                - name: TRIG3
+                  description: lptim_ext_trig3
+                  value: '0x3'
+                - name: TRIG4
+                  description: lptim_ext_trig4
+                  value: '0x4'
+                - name: TRIG5
+                  description: lptim_ext_trig5
+                  value: '0x5'
+                - name: TRIG6
+                  description: lptim_ext_trig6
+                  value: '0x6'
+                - name: TRIG7
+                  description: lptim_ext_trig7
+                  value: '0x7'
+          - name: TRIGEN
+            description: External trigger enable and polarity selection
+            bitOffset: '17'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: SOFTWARE
+                  description: Software trigger
+                  value: '0x0'
+                - name: RISING
+                  description: External trigger rising edge
+                  value: '0x1'
+                - name: FALLING
+                  description: External trigger falling edge
+                  value: '0x2'
+                - name: BOTH
+                  description: External trigger double edge
+                  value: '0x3'
           - name: TIMEOUT
             description: Timeout
             bitOffset: '19'
@@ -193,10 +294,18 @@ registers:
       access: read-write
       fields:
         field:
-          name: ENABLE
-          description: Enable
-          bitOffset: '0'
-          bitWidth: '1'
+          - name: ENABLE
+            description: Enable
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: SNGSTRT
+            description: Single counting mode enable
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CNTSTRT
+            description: Continuous counting mode enable
+            bitOffset: '2'
+            bitWidth: '1'
     - name: CMP
       description: LPTIM compare register
       addressOffset: '0x14'

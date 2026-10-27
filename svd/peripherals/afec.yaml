@@ -3,13 +3,175 @@ description: Analog front-end controller digital registers
 baseAddress: '0x40008000'
 addressBlock:
   offset: '0'
-  size: '0xC'
+  size: '0x20C'
   usage: registers
 interrupt:
   name: AFEC
   value: '17'
 registers:
   register:
+    # Analog control window. Register index n is at byte offset n * 4; only
+    # the indices referenced by the vendor RCC, ADC, DAC, power and LCD
+    # drivers are named here.
+    - name: ANALOG_02
+      description: Analog register 0x02 (RCO32K/XO32K control)
+      addressOffset: '0x08'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: XO32K_POWER_DOWN
+            description: XO32K power-down control (vendor tremo_rcc.c clears both bits to enable)
+            bitOffset: '13'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: ENABLED
+                  description: XO32K enabled
+                  value: '0x0'
+                - name: POWERED_DOWN
+                  description: XO32K powered down
+                  value: '0x3'
+          - name: RCO32K_POWER_DOWN
+            description: RCO32K power-down control (1 = powered down, vendor tremo_rcc.c)
+            bitOffset: '15'
+            bitWidth: '1'
+    - name: ANALOG_03
+      description: Analog register 0x03 (XO32K low-power control)
+      addressOffset: '0x0C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: XO32K_LOW_POWER_ENABLE
+            description: XO32K low-power mode enable (vendor tremo_pwr.c)
+            bitOffset: '7'
+            bitWidth: '1'
+    - name: ANALOG_05
+      description: Analog register 0x05 (low-power-run control 0)
+      addressOffset: '0x14'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: LOW_POWER_RUN_ENABLE
+            description: Low-power-run control 0 (vendor tremo_pwr.c)
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: ANALOG_06
+      description: Analog register 0x06 (oscillator/low-power-run/LCD analog control)
+      addressOffset: '0x18'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: XO24M_ENABLE
+            description: XO24M enable (1 = enabled, vendor tremo_rcc.c)
+            bitOffset: '3'
+            bitWidth: '1'
+          - name: XO24M_POWER_DOWN
+            description: XO24M power-down control (1 = powered down, vendor tremo_rcc.c)
+            bitOffset: '4'
+            bitWidth: '1'
+          - name: RCO48M_POWER_DOWN
+            description: RCO48M power-down control (1 = powered down, vendor tremo_rcc.c)
+            bitOffset: '5'
+            bitWidth: '1'
+          - name: RCO4M_POWER_DOWN
+            description: RCO4M power-down control (1 = powered down, vendor tremo_rcc.c)
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: LOW_POWER_RUN_ENABLE_1
+            description: Low-power-run control 1 (vendor tremo_pwr.c)
+            bitOffset: '20'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: DISABLED
+                  description: Low-power-run control 1 disabled
+                  value: '0x0'
+                - name: ENABLED
+                  description: Low-power-run control 1 enabled
+                  value: '0x3'
+    - name: ANALOG_0C
+      description: Analog register 0x0C (STOP3 analog control)
+      addressOffset: '0x30'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: STOP3_ANALOG_ENABLE
+            description: STOP3 analog enable (vendor tremo_pwr.c)
+            bitOffset: '14'
+            bitWidth: '1'
+    - name: ANALOG_11
+      description: Analog register 0x11 (ADC/DAC analog control)
+      addressOffset: '0x44'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: ADC_INIT
+            description: ADC initialization bits cleared by vendor adc_init()
+            bitOffset: '6'
+            bitWidth: '4'
+          - name: DAC_POWER_DOWN
+            description: DAC power-down control (vendor tremo_dac.c clears both bits to enable)
+            bitOffset: '24'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: ENABLED
+                  description: DAC enabled
+                  value: '0x0'
+                - name: POWERED_DOWN
+                  description: DAC powered down
+                  value: '0x3'
+    - name: ANALOG_12
+      description: Analog register 0x12 (ADC reference/DAC analog control)
+      addressOffset: '0x48'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: ADC_INTERNAL_REF
+            description: Select internal ADC reference voltage (vendor tremo_adc.c)
+            bitOffset: '6'
+            bitWidth: '1'
+          - name: DAC_POWER_DOWN
+            description: DAC power-down control (1 = powered down, vendor tremo_dac.c)
+            bitOffset: '8'
+            bitWidth: '1'
+    - name: ANALOG_27
+      description: Analog register 0x27 (DAC analog output control)
+      addressOffset: '0x9C'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: DAC_OUTPUT_ENABLE
+            description: DAC analog output enable (vendor tremo_dac.c sets both bits to enable)
+            bitOffset: '11'
+            bitWidth: '2'
+            enumeratedValues:
+              enumeratedValue:
+                - name: DISABLED
+                  description: DAC analog output disabled
+                  value: '0x0'
+                - name: ENABLED
+                  description: DAC analog output enabled
+                  value: '0x3'
+    - name: ANALOG_2C
+      description: Analog register 0x2C (VBAT/3 measurement-path control)
+      addressOffset: '0xB0'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: VBAT_MEASURE_ENABLE
+            description: VBAT/3 measurement enable (vendor tremo_adc.c)
+            bitOffset: '25'
+            bitWidth: '1'
     - name: CR
       description: control register
       addressOffset: '0x200'

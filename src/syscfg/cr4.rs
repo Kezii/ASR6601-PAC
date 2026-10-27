@@ -2,11 +2,20 @@
 pub type R = crate::R<Cr4Spec>;
 #[doc = "Register `CR4` writer"]
 pub type W = crate::W<Cr4Spec>;
+#[doc = "Field `BOOT_MODE` reader - Software boot-mode flag used by the vendor OTA bootloader"]
+pub type BootModeR = crate::BitReader;
+#[doc = "Field `BOOT_MODE` writer - Software boot-mode flag used by the vendor OTA bootloader"]
+pub type BootModeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `SYSCFG_CR4_REG` reader - lptim1 in2 remapping enable"]
 pub type SyscfgCr4RegR = crate::BitReader;
 #[doc = "Field `SYSCFG_CR4_REG` writer - lptim1 in2 remapping enable"]
 pub type SyscfgCr4RegW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
+    #[doc = "Bit 29 - Software boot-mode flag used by the vendor OTA bootloader"]
+    #[inline(always)]
+    pub fn boot_mode(&self) -> BootModeR {
+        BootModeR::new(((self.bits >> 29) & 1) != 0)
+    }
     #[doc = "Bit 31 - lptim1 in2 remapping enable"]
     #[inline(always)]
     pub fn syscfg_cr4_reg(&self) -> SyscfgCr4RegR {
@@ -14,6 +23,11 @@ impl R {
     }
 }
 impl W {
+    #[doc = "Bit 29 - Software boot-mode flag used by the vendor OTA bootloader"]
+    #[inline(always)]
+    pub fn boot_mode(&mut self) -> BootModeW<'_, Cr4Spec> {
+        BootModeW::new(self, 29)
+    }
     #[doc = "Bit 31 - lptim1 in2 remapping enable"]
     #[inline(always)]
     pub fn syscfg_cr4_reg(&mut self) -> SyscfgCr4RegW<'_, Cr4Spec> {

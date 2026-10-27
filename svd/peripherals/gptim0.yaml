@@ -283,45 +283,55 @@ registers:
       fields:
         field:
           - name: UIF
-            description: Uif
+            description: Update event flag; write 0 to clear
             bitOffset: '0'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: CC0IF
-            description: Cc0if
+            description: Channel 0 capture/compare event flag; write 0 to clear
             bitOffset: '1'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: CC1IF
-            description: Cc1if
+            description: Channel 1 capture/compare event flag; write 0 to clear
             bitOffset: '2'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: CC2IF
-            description: Cc2if
+            description: Channel 2 capture/compare event flag; write 0 to clear
             bitOffset: '3'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: CC3IF
-            description: Cc3if
+            description: Channel 3 capture/compare event flag; write 0 to clear
             bitOffset: '4'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: TIF
-            description: Tif
+            description: Trigger event flag; write 0 to clear
             bitOffset: '6'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: CC0OF
-            description: Cc0of
+            description: Channel 0 overcapture flag; write 0 to clear
             bitOffset: '9'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: CC1OF
-            description: Cc1of
+            description: Channel 1 overcapture flag; write 0 to clear
             bitOffset: '10'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: CC2OF
-            description: Cc2of
+            description: Channel 2 overcapture flag; write 0 to clear
             bitOffset: '11'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
           - name: CC3OF
-            description: Cc3of
+            description: Channel 3 overcapture flag; write 0 to clear
             bitOffset: '12'
             bitWidth: '1'
+            modifiedWriteValues: zeroToClear
     - name: EGR
       description: GPTIM event generation register, Address
       addressOffset: '0x14'
@@ -378,6 +388,10 @@ registers:
                 - name: INPUT_TRC
                   description: Input mode, capture input mapped to trigger input
                   value: '0x3'
+          - name: IC0PSC
+            description: Channel 0 input capture prescaler, active when CC0S selects an input
+            bitOffset: '2'
+            bitWidth: '2'
           - name: OC0FE
             description: Channel 0 fast output enable
             bitOffset: '2'
@@ -386,6 +400,10 @@ registers:
             description: Channel 0 output compare shadow register enable
             bitOffset: '3'
             bitWidth: '1'
+          - name: IC0F
+            description: Channel 0 input filter, active when CC0S selects an input
+            bitOffset: '4'
+            bitWidth: '4'
           - name: OC0M
             description: Channel 0 output compare mode selection
             bitOffset: '4'
@@ -438,6 +456,10 @@ registers:
                 - name: INPUT_TRC
                   description: Input mode, capture input mapped to trigger input
                   value: '0x3'
+          - name: IC1PSC
+            description: Channel 1 input capture prescaler, active when CC1S selects an input
+            bitOffset: '10'
+            bitWidth: '2'
           - name: OC1FE
             description: Channel 1 fast output enable
             bitOffset: '10'
@@ -446,6 +468,10 @@ registers:
             description: Channel 1 output compare shadow register enable
             bitOffset: '11'
             bitWidth: '1'
+          - name: IC1F
+            description: Channel 1 input filter, active when CC1S selects an input
+            bitOffset: '12'
+            bitWidth: '4'
           - name: OC1M
             description: Channel 1 output compare mode selection
             bitOffset: '12'
@@ -506,6 +532,10 @@ registers:
                 - name: INPUT_TRC
                   description: Input mode, capture input mapped to trigger input
                   value: '0x3'
+          - name: IC2PSC
+            description: Channel 2 input capture prescaler, active when CC2S selects an input
+            bitOffset: '2'
+            bitWidth: '2'
           - name: OC2FE
             description: Channel 2 fast output enable
             bitOffset: '2'
@@ -514,6 +544,10 @@ registers:
             description: Channel 2 output compare shadow register enable
             bitOffset: '3'
             bitWidth: '1'
+          - name: IC2F
+            description: Channel 2 input filter, active when CC2S selects an input
+            bitOffset: '4'
+            bitWidth: '4'
           - name: OC2M
             description: Channel 2 output compare mode selection
             bitOffset: '4'
@@ -566,6 +600,10 @@ registers:
                 - name: INPUT_TRC
                   description: Input mode, capture input mapped to trigger input
                   value: '0x3'
+          - name: IC3PSC
+            description: Channel 3 input capture prescaler, active when CC3S selects an input
+            bitOffset: '10'
+            bitWidth: '2'
           - name: OC3FE
             description: Channel 3 fast output enable
             bitOffset: '10'
@@ -574,6 +612,10 @@ registers:
             description: Channel 3 output compare shadow register enable
             bitOffset: '11'
             bitWidth: '1'
+          - name: IC3F
+            description: Channel 3 input filter, active when CC3S selects an input
+            bitOffset: '12'
+            bitWidth: '4'
           - name: OC3M
             description: Channel 3 output compare mode selection
             bitOffset: '12'

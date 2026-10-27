@@ -2,6 +2,18 @@
 pub type R = crate::R<RngcrSpec>;
 #[doc = "Register `RNGCR` writer"]
 pub type W = crate::W<RngcrSpec>;
+#[doc = "Field `POSTPROSEL` reader - Post-process selection"]
+pub type PostproselR = crate::FieldReader;
+#[doc = "Field `POSTPROSEL` writer - Post-process selection"]
+pub type PostproselW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `PRECODESEL` reader - Pre-process selection"]
+pub type PrecodeselR = crate::FieldReader;
+#[doc = "Field `PRECODESEL` writer - Pre-process selection"]
+pub type PrecodeselW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
+#[doc = "Field `ENTROPYSEL` reader - Entropy selection"]
+pub type EntropyselR = crate::FieldReader;
+#[doc = "Field `ENTROPYSEL` writer - Entropy selection"]
+pub type EntropyselW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `TRUE_RANDOM_MODE` reader - True random mode"]
 pub type TrueRandomModeR = crate::BitReader;
 #[doc = "Field `TRUE_RANDOM_MODE` writer - True random mode"]
@@ -11,6 +23,21 @@ pub type EnableR = crate::BitReader;
 #[doc = "Field `ENABLE` writer - Enable"]
 pub type EnableW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
+    #[doc = "Bits 0:1 - Post-process selection"]
+    #[inline(always)]
+    pub fn postprosel(&self) -> PostproselR {
+        PostproselR::new((self.bits & 3) as u8)
+    }
+    #[doc = "Bits 2:3 - Pre-process selection"]
+    #[inline(always)]
+    pub fn precodesel(&self) -> PrecodeselR {
+        PrecodeselR::new(((self.bits >> 2) & 3) as u8)
+    }
+    #[doc = "Bits 4:5 - Entropy selection"]
+    #[inline(always)]
+    pub fn entropysel(&self) -> EntropyselR {
+        EntropyselR::new(((self.bits >> 4) & 3) as u8)
+    }
     #[doc = "Bit 6 - True random mode"]
     #[inline(always)]
     pub fn true_random_mode(&self) -> TrueRandomModeR {
@@ -23,6 +50,21 @@ impl R {
     }
 }
 impl W {
+    #[doc = "Bits 0:1 - Post-process selection"]
+    #[inline(always)]
+    pub fn postprosel(&mut self) -> PostproselW<'_, RngcrSpec> {
+        PostproselW::new(self, 0)
+    }
+    #[doc = "Bits 2:3 - Pre-process selection"]
+    #[inline(always)]
+    pub fn precodesel(&mut self) -> PrecodeselW<'_, RngcrSpec> {
+        PrecodeselW::new(self, 2)
+    }
+    #[doc = "Bits 4:5 - Entropy selection"]
+    #[inline(always)]
+    pub fn entropysel(&mut self) -> EntropyselW<'_, RngcrSpec> {
+        EntropyselW::new(self, 4)
+    }
     #[doc = "Bit 6 - True random mode"]
     #[inline(always)]
     pub fn true_random_mode(&mut self) -> TrueRandomModeW<'_, RngcrSpec> {

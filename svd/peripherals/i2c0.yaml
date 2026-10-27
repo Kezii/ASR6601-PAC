@@ -136,6 +136,10 @@ registers:
       access: read-write
       fields:
         field:
+          - name: RW_MODE
+            description: Set when the matched address had the R/W bit set (master read / slave transmit)
+            bitOffset: '13'
+            bitWidth: '1'
           - name: ACK_STATUS
             description: Ack status
             bitOffset: '14'
@@ -149,21 +153,25 @@ registers:
             bitOffset: '16'
             bitWidth: '1'
           - name: ARB_LOSS_DET
-            description: Arb loss det
+            description: Arbitration loss detected; write 1 to clear
             bitOffset: '18'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: IDBR_EMPTY
-            description: Idbr empty
+            description: Data buffer transmit empty; write 1 to clear
             bitOffset: '19'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: DBR_FULL
-            description: Dbr full
+            description: Data buffer receive full; write 1 to clear
             bitOffset: '20'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: BUS_ERROR
-            description: Bus error
+            description: Bus error detected; write 1 to clear
             bitOffset: '22'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: SLAVE_ADDR_DET
             description: Slave addr det
             bitOffset: '23'

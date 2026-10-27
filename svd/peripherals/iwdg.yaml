@@ -61,11 +61,23 @@ registers:
       addressOffset: '0x4'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: MAX
+            description: Reload value, 12-bit (vendor SDK clamps to 0x0FFF)
+            bitOffset: '0'
+            bitWidth: '12'
     - name: WIN
       description: window value register
       addressOffset: '0x8'
       size: '32'
       access: read-write
+      fields:
+        field:
+          - name: WIN
+            description: Window value, 12-bit (vendor SDK clamps to 0x0FFF)
+            bitOffset: '0'
+            bitWidth: '12'
     - name: SR
       description: status register
       addressOffset: '0xC'

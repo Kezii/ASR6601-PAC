@@ -814,33 +814,40 @@ registers:
       fields:
         field:
           - name: STANDBY_RESET_SR
-            description: Standby reset sr
+            description: Standby reset status; write 1 to clear
             bitOffset: '0'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: SEC_RESET_SR
-            description: Sec reset sr
+            description: Security subsystem reset status; write 1 to clear
             bitOffset: '1'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: CPU_RESET_SR
-            description: Cpu reset sr
+            description: CPU reset status; write 1 to clear
             bitOffset: '2'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: EFC_RESET_SR
-            description: Efc reset sr
+            description: Embedded flash controller reset status; write 1 to clear
             bitOffset: '3'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: WWDG_RESET_SR
-            description: Wwdg reset sr
+            description: Window watchdog reset status; write 1 to clear
             bitOffset: '4'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: IWDG_RESET_SR
-            description: Iwdg reset sr
+            description: Independent watchdog reset status; write 1 to clear
             bitOffset: '5'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: BOR_RESET_SR
-            description: Bor reset sr
+            description: Brown-out reset status; write 1 to clear
             bitOffset: '6'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
     - name: RST_CR
       description: reset control register 0
       addressOffset: '0x24'

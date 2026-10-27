@@ -88,6 +88,10 @@ where
         self.variant(Cc0s::InputTrc)
     }
 }
+#[doc = "Field `IC0PSC` reader - Channel 0 input capture prescaler, active when CC0S selects an input"]
+pub type Ic0pscR = crate::FieldReader;
+#[doc = "Field `IC0PSC` writer - Channel 0 input capture prescaler, active when CC0S selects an input"]
+pub type Ic0pscW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `OC0FE` reader - Channel 0 fast output enable"]
 pub type Oc0feR = crate::BitReader;
 #[doc = "Field `OC0FE` writer - Channel 0 fast output enable"]
@@ -96,6 +100,10 @@ pub type Oc0feW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type Oc0peR = crate::BitReader;
 #[doc = "Field `OC0PE` writer - Channel 0 output compare shadow register enable"]
 pub type Oc0peW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `IC0F` reader - Channel 0 input filter, active when CC0S selects an input"]
+pub type Ic0fR = crate::FieldReader;
+#[doc = "Field `IC0F` writer - Channel 0 input filter, active when CC0S selects an input"]
+pub type Ic0fW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Channel 0 output compare mode selection"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -324,6 +332,10 @@ where
         self.variant(Cc1s::InputTrc)
     }
 }
+#[doc = "Field `IC1PSC` reader - Channel 1 input capture prescaler, active when CC1S selects an input"]
+pub type Ic1pscR = crate::FieldReader;
+#[doc = "Field `IC1PSC` writer - Channel 1 input capture prescaler, active when CC1S selects an input"]
+pub type Ic1pscW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `OC1FE` reader - Channel 1 fast output enable"]
 pub type Oc1feR = crate::BitReader;
 #[doc = "Field `OC1FE` writer - Channel 1 fast output enable"]
@@ -332,6 +344,10 @@ pub type Oc1feW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type Oc1peR = crate::BitReader;
 #[doc = "Field `OC1PE` writer - Channel 1 output compare shadow register enable"]
 pub type Oc1peW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `IC1F` reader - Channel 1 input filter, active when CC1S selects an input"]
+pub type Ic1fR = crate::FieldReader;
+#[doc = "Field `IC1F` writer - Channel 1 input filter, active when CC1S selects an input"]
+pub type Ic1fW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Channel 1 output compare mode selection"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -480,6 +496,11 @@ impl R {
     pub fn cc0s(&self) -> Cc0sR {
         Cc0sR::new((self.bits & 3) as u8)
     }
+    #[doc = "Bits 2:3 - Channel 0 input capture prescaler, active when CC0S selects an input"]
+    #[inline(always)]
+    pub fn ic0psc(&self) -> Ic0pscR {
+        Ic0pscR::new(((self.bits >> 2) & 3) as u8)
+    }
     #[doc = "Bit 2 - Channel 0 fast output enable"]
     #[inline(always)]
     pub fn oc0fe(&self) -> Oc0feR {
@@ -489,6 +510,11 @@ impl R {
     #[inline(always)]
     pub fn oc0pe(&self) -> Oc0peR {
         Oc0peR::new(((self.bits >> 3) & 1) != 0)
+    }
+    #[doc = "Bits 4:7 - Channel 0 input filter, active when CC0S selects an input"]
+    #[inline(always)]
+    pub fn ic0f(&self) -> Ic0fR {
+        Ic0fR::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 4:6 - Channel 0 output compare mode selection"]
     #[inline(always)]
@@ -505,6 +531,11 @@ impl R {
     pub fn cc1s(&self) -> Cc1sR {
         Cc1sR::new(((self.bits >> 8) & 3) as u8)
     }
+    #[doc = "Bits 10:11 - Channel 1 input capture prescaler, active when CC1S selects an input"]
+    #[inline(always)]
+    pub fn ic1psc(&self) -> Ic1pscR {
+        Ic1pscR::new(((self.bits >> 10) & 3) as u8)
+    }
     #[doc = "Bit 10 - Channel 1 fast output enable"]
     #[inline(always)]
     pub fn oc1fe(&self) -> Oc1feR {
@@ -514,6 +545,11 @@ impl R {
     #[inline(always)]
     pub fn oc1pe(&self) -> Oc1peR {
         Oc1peR::new(((self.bits >> 11) & 1) != 0)
+    }
+    #[doc = "Bits 12:15 - Channel 1 input filter, active when CC1S selects an input"]
+    #[inline(always)]
+    pub fn ic1f(&self) -> Ic1fR {
+        Ic1fR::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 12:14 - Channel 1 output compare mode selection"]
     #[inline(always)]
@@ -532,6 +568,11 @@ impl W {
     pub fn cc0s(&mut self) -> Cc0sW<'_, Ccmr1Spec> {
         Cc0sW::new(self, 0)
     }
+    #[doc = "Bits 2:3 - Channel 0 input capture prescaler, active when CC0S selects an input"]
+    #[inline(always)]
+    pub fn ic0psc(&mut self) -> Ic0pscW<'_, Ccmr1Spec> {
+        Ic0pscW::new(self, 2)
+    }
     #[doc = "Bit 2 - Channel 0 fast output enable"]
     #[inline(always)]
     pub fn oc0fe(&mut self) -> Oc0feW<'_, Ccmr1Spec> {
@@ -541,6 +582,11 @@ impl W {
     #[inline(always)]
     pub fn oc0pe(&mut self) -> Oc0peW<'_, Ccmr1Spec> {
         Oc0peW::new(self, 3)
+    }
+    #[doc = "Bits 4:7 - Channel 0 input filter, active when CC0S selects an input"]
+    #[inline(always)]
+    pub fn ic0f(&mut self) -> Ic0fW<'_, Ccmr1Spec> {
+        Ic0fW::new(self, 4)
     }
     #[doc = "Bits 4:6 - Channel 0 output compare mode selection"]
     #[inline(always)]
@@ -557,6 +603,11 @@ impl W {
     pub fn cc1s(&mut self) -> Cc1sW<'_, Ccmr1Spec> {
         Cc1sW::new(self, 8)
     }
+    #[doc = "Bits 10:11 - Channel 1 input capture prescaler, active when CC1S selects an input"]
+    #[inline(always)]
+    pub fn ic1psc(&mut self) -> Ic1pscW<'_, Ccmr1Spec> {
+        Ic1pscW::new(self, 10)
+    }
     #[doc = "Bit 10 - Channel 1 fast output enable"]
     #[inline(always)]
     pub fn oc1fe(&mut self) -> Oc1feW<'_, Ccmr1Spec> {
@@ -566,6 +617,11 @@ impl W {
     #[inline(always)]
     pub fn oc1pe(&mut self) -> Oc1peW<'_, Ccmr1Spec> {
         Oc1peW::new(self, 11)
+    }
+    #[doc = "Bits 12:15 - Channel 1 input filter, active when CC1S selects an input"]
+    #[inline(always)]
+    pub fn ic1f(&mut self) -> Ic1fW<'_, Ccmr1Spec> {
+        Ic1fW::new(self, 12)
     }
     #[doc = "Bits 12:14 - Channel 1 output compare mode selection"]
     #[inline(always)]

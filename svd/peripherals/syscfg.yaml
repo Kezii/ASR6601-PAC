@@ -170,6 +170,10 @@ registers:
       access: read-write
       fields:
         field:
+          - name: BOOT_MODE
+            description: Software boot-mode flag used by the vendor OTA bootloader
+            bitOffset: '29'
+            bitWidth: '1'
           - name: SYSCFG_CR4_REG
             description: lptim1 in2 remapping enable
             bitOffset: '31'

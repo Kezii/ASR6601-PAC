@@ -112,34 +112,39 @@ registers:
       fields:
         field:
           - name: OPERATION_DONE
-            description: Operation done
+            description: Operation done; write 1 to clear
             bitOffset: '0'
             bitWidth: '1'
             modifiedWriteValues: oneToClear
           - name: READ_NUM_DONE
-            description: Read num done
+            description: Read num done; cleared by hardware
             bitOffset: '1'
             bitWidth: '1'
           - name: PROG_DATA_WAIT
-            description: Prog data wait
+            description: Program data wait; write 1 to clear
             bitOffset: '2'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: FLASHBUSY_ERR
-            description: Flash busy error
+            description: Flash busy error; write 1 to clear
             bitOffset: '3'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: OPTION_WR_ERR
-            description: Option write error
+            description: Option write error; write 1 to clear
             bitOffset: '4'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: PAGE_ERASE_ERR
-            description: Page erase error
+            description: Page erase error; write 1 to clear
             bitOffset: '5'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: PROG_ERR
-            description: Prog error
+            description: Program error; write 1 to clear
             bitOffset: '6'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: ONE_BIT_CORRECT
             description: One bit correct
             bitOffset: '7'

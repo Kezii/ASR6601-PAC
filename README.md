@@ -91,15 +91,60 @@ The manual, the vendor SVD/headers, and the SDK disagree in places. Notable case
 * **Peripheral prefix is stripped** (`RCC_CR0` → `rcc::cr0`, `GPIOx_OER` →
   `gpioa::oer`), following STM32 PAC practice and the SDK. Modules already
   namespace registers, so the prefix would only stutter.
-* **Shared instances use `derivedFrom`** (`UART1–3` from `UART0`, `GPTIM1–3`
-  from `GPTIM0`, …).
+* **Shared instances use `derivedFrom`** (`UART1–3` from `UART0`, …).
+  `GPTIM1–3` are an exception at the peripheral level because their `OR`
+  remap layout differs; their other registers derive individually from
+  `GPTIM0`.
 * **64-bit layout where the manual defines it** (DMA `SAR/DAR/LLP/CTL/CFG`,
   status/mask/clear words generate `u64` accessors).
 * **Uniform numeric enums are shared** (`stm32f4` precedent): GPIO `FUN0–7`
   (MUX-table values; per-pin meaning stays in the MUX document),
   `STOP3_WU_SEL` pin groups, DMA transfer modes/sizes/widths/masters/locks.
+* **Overlapping alternate-function fields are published together.** GPTIM
+  `CCMR1/2` exposes both the input-capture (`ICxPSC`, `ICxF`) and
+  output-compare (`OCxFE`, `OCxPE`, `OCxM`, `OCxCE`) views of the same bits;
+  `CCxS` selects which view is active.
+* **Write-clear semantics come from the reference manual.** GPTIM `SR` flags
+  are `zeroToClear`; ADC `ISR`, I2C `SR` error/status flags, RCC `RST_SR`,
+  EFC `SR`, and GPIO `FR` flags are `oneToClear` where the manual states it.
+* **Used AFEC analog-window registers are named individually** (`ANALOG_02`,
+  `ANALOG_03`, …) at `base + index * 4`. Only the indices referenced by vendor
+  drivers are published. Their bit fields are named from the literal shifts in
+  `tremo_rcc.c`, `tremo_pwr.c`, `tremo_adc.c`, and `tremo_dac.c`; those names
+  are descriptive and do not come from the manual or vendor SVD.
 * **No invented documentation.** Registers without a trusted field source stay
   bare; reserved regions are not published as registers.
+
+## Hardware verification
+
+The following was checked on an ASR6601SE:
+
+* **GPTIM `OR` layouts differ by instance** and match RM v1.5.0:
+  GPTIM0 `ETR_RMP[10:7]`, `TI3_RMP[6:4]`, `TI0_RMP[3:0]`;
+  GPTIM1 `TI2_RMP[1:0]`;
+  GPTIM2 `ETR_RMP[9:7]`, `TI1_RMP[6:5]`, `TI0_RMP[4:0]`;
+  GPTIM3 `ETR_RMP[6:3]`, `TI0_RMP[2:0]`.
+  Each instance therefore has its own PAC register block: non-`OR` registers
+  are derived from `GPTIM0`, while `OR` carries the instance-specific field
+  layout.
+* **GPTIM `SR`** zero-to-clear behavior confirmed.
+* **ADC `ISR`** write-1-to-clear behavior confirmed.
+* **RCC `RST_SR`** write-1-to-clear behavior confirmed after a real power
+  cycle (the brown-out reset flag was set, then cleared by writing 1).
+* **I2C `SR`** write-1-to-clear helpers were exercised by a full I2C0
+  master ↔ I2C1 slave write/read loopback.
+* **SYSCFG `CR5`** behaves as a full 32-bit user scratch register.
+* **WDG** requires unlock before `INTCLR`; `MIS` is set while `RIS` remains
+  clear in the tested interrupt configuration.
+* **IWDG** `MAX`/`WIN` accept 12-bit values only after `SR[3:0] == 0xF`; both
+  registers are now modeled as 12-bit fields.
+* **DMA** memory-to-memory transfers and 64-bit controller register accesses
+  work.
+* **AFEC** ADC reference, DAC power/output, and VBAT measurement fields
+  behave as modeled. With VDD = 2.96 V, the DAC produced 8.8 mV at code 0,
+  0.743 V at 1024, 1.480 V at 2048, 2.220 V at 3072, and 2.960 V at 4095
+  on GPIO09, confirming the rail-to-rail analog output path.
+* **CRC** byte and word feeds run and are stable.
 
 ## Exceptions adopted (deliberate deviations)
 
