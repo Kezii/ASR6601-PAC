@@ -146,7 +146,9 @@ The following was checked on an ASR6601SE:
   registers work through the controller interrupt; polling after a channel
   auto-disables can miss the latched status.
 * **DMA `LLP`** masks the low two address bits (descriptors are 4-byte
-  aligned).
+  aligned). Only channel 0 of each controller implements a writable `LLP`:
+  `LLP1-3` read zero, ignore writes, and do not follow a descriptor chain.
+  The driver rejects linked-list transfers on channels 1-3.
 * **DMA `CFG`** `SRC_PER`/`DEST_PER` read back as 2-bit values, and
   `CTL` `TT_FC` read back as a 2-bit value. The upper vendor-declared bits
   read zero; the driver only uses values 0–3.
