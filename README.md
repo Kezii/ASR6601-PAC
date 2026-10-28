@@ -150,6 +150,14 @@ The following was checked on an ASR6601SE:
 * **DMA request-status registers** `REQ_SRC`, `REQ_DST`, `SGL_REQ_SRC`, and
   `SGL_REQ_DST` exist at the vendor offsets but read zero even while an SSP2
   TX/RX request is active; they are modeled as bare read-only registers.
+* **SSP DMA** TX/RX requests route correctly through the SYSCFG mux. The RX
+  request is generated on four-byte FIFO boundaries, so a one-item DMA burst
+  leaves up to three bytes in the RX FIFO. Four-item bursts transfer every
+  length, including lengths below four. Verified with SSP2 internal loopback.
+* **DMA error status** could not be induced safely: misaligned and unmapped
+  addresses either completed or stalled, and an invalid `LLP` in unmapped
+  space wedged the channel. `STATUS_ERR`/`RAW_ERR`/`CLEAR_ERR` therefore
+  remain unverified; the other status, mask and clear bits were verified.
 * **DMA `LLP`** masks the low two address bits (descriptors are 4-byte
   aligned). Only channel 0 of each controller implements a writable `LLP`:
   `LLP1-3` read zero, ignore writes, and do not follow a descriptor chain.
