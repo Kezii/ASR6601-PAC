@@ -744,10 +744,10 @@ pub type LlpDstEnW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type LlpSrcEnR = crate::BitReader;
 #[doc = "Field `LLP_SRC_EN` writer - DMA source LLI chain table enable"]
 pub type LlpSrcEnW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BLOCK_TS` reader - block length"]
+#[doc = "Field `BLOCK_TS` reader - block length (11 bits on hardware; bit 43 reads zero)"]
 pub type BlockTsR = crate::FieldReader<u16>;
-#[doc = "Field `BLOCK_TS` writer - block length"]
-pub type BlockTsW<'a, REG> = crate::FieldWriter<'a, REG, 12, u16>;
+#[doc = "Field `BLOCK_TS` writer - block length (11 bits on hardware; bit 43 reads zero)"]
+pub type BlockTsW<'a, REG> = crate::FieldWriter<'a, REG, 11, u16>;
 #[doc = "Field `DONE` reader - LLI chain table block transfer status"]
 pub type DoneR = crate::BitReader;
 #[doc = "Field `DONE` writer - LLI chain table block transfer status"]
@@ -823,10 +823,10 @@ impl R {
     pub fn llp_src_en(&self) -> LlpSrcEnR {
         LlpSrcEnR::new(((self.bits >> 28) & 1) != 0)
     }
-    #[doc = "Bits 32:43 - block length"]
+    #[doc = "Bits 32:42 - block length (11 bits on hardware; bit 43 reads zero)"]
     #[inline(always)]
     pub fn block_ts(&self) -> BlockTsR {
-        BlockTsR::new(((self.bits >> 32) & 0x0fff) as u16)
+        BlockTsR::new(((self.bits >> 32) & 0x07ff) as u16)
     }
     #[doc = "Bit 44 - LLI chain table block transfer status"]
     #[inline(always)]
@@ -905,7 +905,7 @@ impl W {
     pub fn llp_src_en(&mut self) -> LlpSrcEnW<'_, Ctl0Spec> {
         LlpSrcEnW::new(self, 28)
     }
-    #[doc = "Bits 32:43 - block length"]
+    #[doc = "Bits 32:42 - block length (11 bits on hardware; bit 43 reads zero)"]
     #[inline(always)]
     pub fn block_ts(&mut self) -> BlockTsW<'_, Ctl0Spec> {
         BlockTsW::new(self, 32)

@@ -139,7 +139,17 @@ The following was checked on an ASR6601SE:
 * **IWDG** `MAX`/`WIN` accept 12-bit values only after `SR[3:0] == 0xF`; both
   registers are now modeled as 12-bit fields.
 * **DMA** memory-to-memory transfers and 64-bit controller register accesses
-  work.
+  work. `CTL.BLOCK_TS` is **11 bits**, not the 12 bits in `TREMO.h`: bit 43
+  reads zero, count 2048 transfers zero items, and 4095 transfers 2047.
+  The PAC field is 11 bits and the driver rejects counts above 2047.
+* **DMA status** `STATUS_TFR`/`STATUS_BLOCK` and their `MASK_*`/`CLEAR_*`
+  registers work through the controller interrupt; polling after a channel
+  auto-disables can miss the latched status.
+* **DMA `LLP`** masks the low two address bits (descriptors are 4-byte
+  aligned).
+* **DMA `CFG`** `SRC_PER`/`DEST_PER` read back as 2-bit values, and
+  `CTL` `TT_FC` read back as a 2-bit value. The upper vendor-declared bits
+  read zero; the driver only uses values 0–3.
 * **AFEC** ADC reference, DAC power/output, and VBAT measurement fields
   behave as modeled. With VDD = 2.96 V, the DAC produced 8.8 mV at code 0,
   0.743 V at 1024, 1.480 V at 2048, 2.220 V at 3072, and 2.960 V at 4095

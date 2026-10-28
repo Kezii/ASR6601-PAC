@@ -221,9 +221,9 @@ registers:
             bitOffset: '28'
             bitWidth: '1'
           - name: BLOCK_TS
-            description: block length
+            description: block length (11 bits on hardware; bit 43 reads zero)
             bitOffset: '32'
-            bitWidth: '12'
+            bitWidth: '11'
           - name: DONE
             description: LLI chain table block transfer status
             bitOffset: '44'
@@ -548,9 +548,9 @@ registers:
             bitOffset: '28'
             bitWidth: '1'
           - name: BLOCK_TS
-            description: block length
+            description: block length (11 bits on hardware; bit 43 reads zero)
             bitOffset: '32'
-            bitWidth: '12'
+            bitWidth: '11'
           - name: DONE
             description: LLI chain table block transfer status
             bitOffset: '44'
@@ -875,9 +875,9 @@ registers:
             bitOffset: '28'
             bitWidth: '1'
           - name: BLOCK_TS
-            description: block length
+            description: block length (11 bits on hardware; bit 43 reads zero)
             bitOffset: '32'
-            bitWidth: '12'
+            bitWidth: '11'
           - name: DONE
             description: LLI chain table block transfer status
             bitOffset: '44'
@@ -1202,9 +1202,9 @@ registers:
             bitOffset: '28'
             bitWidth: '1'
           - name: BLOCK_TS
-            description: block length
+            description: block length (11 bits on hardware; bit 43 reads zero)
             bitOffset: '32'
-            bitWidth: '12'
+            bitWidth: '11'
           - name: DONE
             description: LLI chain table block transfer status
             bitOffset: '44'
