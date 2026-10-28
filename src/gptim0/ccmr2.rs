@@ -88,6 +88,10 @@ where
         self.variant(Cc2s::InputTrc)
     }
 }
+#[doc = "Field `IC2PSC` reader - Channel 2 input capture prescaler, active when CC2S selects an input"]
+pub type Ic2pscR = crate::FieldReader;
+#[doc = "Field `IC2PSC` writer - Channel 2 input capture prescaler, active when CC2S selects an input"]
+pub type Ic2pscW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `OC2FE` reader - Channel 2 fast output enable"]
 pub type Oc2feR = crate::BitReader;
 #[doc = "Field `OC2FE` writer - Channel 2 fast output enable"]
@@ -96,6 +100,10 @@ pub type Oc2feW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type Oc2peR = crate::BitReader;
 #[doc = "Field `OC2PE` writer - Channel 2 output compare shadow register enable"]
 pub type Oc2peW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `IC2F` reader - Channel 2 input filter, active when CC2S selects an input"]
+pub type Ic2fR = crate::FieldReader;
+#[doc = "Field `IC2F` writer - Channel 2 input filter, active when CC2S selects an input"]
+pub type Ic2fW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Channel 2 output compare mode selection"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -324,6 +332,10 @@ where
         self.variant(Cc3s::InputTrc)
     }
 }
+#[doc = "Field `IC3PSC` reader - Channel 3 input capture prescaler, active when CC3S selects an input"]
+pub type Ic3pscR = crate::FieldReader;
+#[doc = "Field `IC3PSC` writer - Channel 3 input capture prescaler, active when CC3S selects an input"]
+pub type Ic3pscW<'a, REG> = crate::FieldWriter<'a, REG, 2>;
 #[doc = "Field `OC3FE` reader - Channel 3 fast output enable"]
 pub type Oc3feR = crate::BitReader;
 #[doc = "Field `OC3FE` writer - Channel 3 fast output enable"]
@@ -332,6 +344,10 @@ pub type Oc3feW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type Oc3peR = crate::BitReader;
 #[doc = "Field `OC3PE` writer - Channel 3 output compare shadow register enable"]
 pub type Oc3peW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `IC3F` reader - Channel 3 input filter, active when CC3S selects an input"]
+pub type Ic3fR = crate::FieldReader;
+#[doc = "Field `IC3F` writer - Channel 3 input filter, active when CC3S selects an input"]
+pub type Ic3fW<'a, REG> = crate::FieldWriter<'a, REG, 4>;
 #[doc = "Channel 3 output compare mode selection"]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 #[repr(u8)]
@@ -480,6 +496,11 @@ impl R {
     pub fn cc2s(&self) -> Cc2sR {
         Cc2sR::new((self.bits & 3) as u8)
     }
+    #[doc = "Bits 2:3 - Channel 2 input capture prescaler, active when CC2S selects an input"]
+    #[inline(always)]
+    pub fn ic2psc(&self) -> Ic2pscR {
+        Ic2pscR::new(((self.bits >> 2) & 3) as u8)
+    }
     #[doc = "Bit 2 - Channel 2 fast output enable"]
     #[inline(always)]
     pub fn oc2fe(&self) -> Oc2feR {
@@ -489,6 +510,11 @@ impl R {
     #[inline(always)]
     pub fn oc2pe(&self) -> Oc2peR {
         Oc2peR::new(((self.bits >> 3) & 1) != 0)
+    }
+    #[doc = "Bits 4:7 - Channel 2 input filter, active when CC2S selects an input"]
+    #[inline(always)]
+    pub fn ic2f(&self) -> Ic2fR {
+        Ic2fR::new(((self.bits >> 4) & 0x0f) as u8)
     }
     #[doc = "Bits 4:6 - Channel 2 output compare mode selection"]
     #[inline(always)]
@@ -505,6 +531,11 @@ impl R {
     pub fn cc3s(&self) -> Cc3sR {
         Cc3sR::new(((self.bits >> 8) & 3) as u8)
     }
+    #[doc = "Bits 10:11 - Channel 3 input capture prescaler, active when CC3S selects an input"]
+    #[inline(always)]
+    pub fn ic3psc(&self) -> Ic3pscR {
+        Ic3pscR::new(((self.bits >> 10) & 3) as u8)
+    }
     #[doc = "Bit 10 - Channel 3 fast output enable"]
     #[inline(always)]
     pub fn oc3fe(&self) -> Oc3feR {
@@ -514,6 +545,11 @@ impl R {
     #[inline(always)]
     pub fn oc3pe(&self) -> Oc3peR {
         Oc3peR::new(((self.bits >> 11) & 1) != 0)
+    }
+    #[doc = "Bits 12:15 - Channel 3 input filter, active when CC3S selects an input"]
+    #[inline(always)]
+    pub fn ic3f(&self) -> Ic3fR {
+        Ic3fR::new(((self.bits >> 12) & 0x0f) as u8)
     }
     #[doc = "Bits 12:14 - Channel 3 output compare mode selection"]
     #[inline(always)]
@@ -532,6 +568,11 @@ impl W {
     pub fn cc2s(&mut self) -> Cc2sW<'_, Ccmr2Spec> {
         Cc2sW::new(self, 0)
     }
+    #[doc = "Bits 2:3 - Channel 2 input capture prescaler, active when CC2S selects an input"]
+    #[inline(always)]
+    pub fn ic2psc(&mut self) -> Ic2pscW<'_, Ccmr2Spec> {
+        Ic2pscW::new(self, 2)
+    }
     #[doc = "Bit 2 - Channel 2 fast output enable"]
     #[inline(always)]
     pub fn oc2fe(&mut self) -> Oc2feW<'_, Ccmr2Spec> {
@@ -541,6 +582,11 @@ impl W {
     #[inline(always)]
     pub fn oc2pe(&mut self) -> Oc2peW<'_, Ccmr2Spec> {
         Oc2peW::new(self, 3)
+    }
+    #[doc = "Bits 4:7 - Channel 2 input filter, active when CC2S selects an input"]
+    #[inline(always)]
+    pub fn ic2f(&mut self) -> Ic2fW<'_, Ccmr2Spec> {
+        Ic2fW::new(self, 4)
     }
     #[doc = "Bits 4:6 - Channel 2 output compare mode selection"]
     #[inline(always)]
@@ -557,6 +603,11 @@ impl W {
     pub fn cc3s(&mut self) -> Cc3sW<'_, Ccmr2Spec> {
         Cc3sW::new(self, 8)
     }
+    #[doc = "Bits 10:11 - Channel 3 input capture prescaler, active when CC3S selects an input"]
+    #[inline(always)]
+    pub fn ic3psc(&mut self) -> Ic3pscW<'_, Ccmr2Spec> {
+        Ic3pscW::new(self, 10)
+    }
     #[doc = "Bit 10 - Channel 3 fast output enable"]
     #[inline(always)]
     pub fn oc3fe(&mut self) -> Oc3feW<'_, Ccmr2Spec> {
@@ -566,6 +617,11 @@ impl W {
     #[inline(always)]
     pub fn oc3pe(&mut self) -> Oc3peW<'_, Ccmr2Spec> {
         Oc3peW::new(self, 11)
+    }
+    #[doc = "Bits 12:15 - Channel 3 input filter, active when CC3S selects an input"]
+    #[inline(always)]
+    pub fn ic3f(&mut self) -> Ic3fW<'_, Ccmr2Spec> {
+        Ic3fW::new(self, 12)
     }
     #[doc = "Bits 12:14 - Channel 3 output compare mode selection"]
     #[inline(always)]

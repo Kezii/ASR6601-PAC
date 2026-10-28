@@ -72,13 +72,25 @@ registers:
       access: read-write
       fields:
         field:
-          - name: ENABLE
-            description: Enable
-            bitOffset: '7'
-            bitWidth: '1'
+          - name: POSTPROSEL
+            description: Post-process selection
+            bitOffset: '0'
+            bitWidth: '2'
+          - name: PRECODESEL
+            description: Pre-process selection
+            bitOffset: '2'
+            bitWidth: '2'
+          - name: ENTROPYSEL
+            description: Entropy selection
+            bitOffset: '4'
+            bitWidth: '2'
           - name: TRUE_RANDOM_MODE
             description: True random mode
             bitOffset: '6'
+            bitWidth: '1'
+          - name: ENABLE
+            description: Enable
+            bitOffset: '7'
             bitWidth: '1'
     - name: RNGRESEED
       description: Reseed register

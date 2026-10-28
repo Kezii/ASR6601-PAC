@@ -226,22 +226,27 @@ registers:
       fields:
         field:
           - name: EOC
-            description: end of conversion flag
+            description: End of conversion flag; write 1 to clear
             bitOffset: '0'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: EOS
-            description: end of sequence flag
+            description: End of sequence flag; write 1 to clear
             bitOffset: '1'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
           - name: OVERRUN
-            description: overrun flag
+            description: Overrun flag; write 1 to clear
             bitOffset: '2'
             bitWidth: '1'
+            modifiedWriteValues: oneToClear
     - name: IER
       description: interrupt enable register
       addressOffset: '0x18'
       size: '32'
       access: read-write
+      _resetValue: '0x00000000'
+      _resetMask: '0x00000007'
       fields:
         field:
           - name: EOC_INT_EN

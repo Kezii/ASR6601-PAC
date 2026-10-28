@@ -28,7 +28,7 @@ impl RegisterBlock {
     pub const fn dier(&self) -> &Dier {
         &self.dier
     }
-    #[doc = "0x10 - status register"]
+    #[doc = "0x10 - status register; UIF is cleared by writing 0"]
     #[inline(always)]
     pub const fn sr(&self) -> &Sr {
         &self.sr
@@ -69,10 +69,10 @@ pub mod cr2;
 pub type Dier = crate::Reg<dier::DierSpec>;
 #[doc = "DMA/interrupt enable register"]
 pub mod dier;
-#[doc = "SR (r) register accessor: status register\n\nYou can [`read`](crate::Reg::read) this register and get [`sr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sr`] module"]
+#[doc = "SR (rw) register accessor: status register; UIF is cleared by writing 0\n\nYou can [`read`](crate::Reg::read) this register and get [`sr::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`sr::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sr`] module"]
 #[doc(alias = "SR")]
 pub type Sr = crate::Reg<sr::SrSpec>;
-#[doc = "status register"]
+#[doc = "status register; UIF is cleared by writing 0"]
 pub mod sr;
 #[doc = "EGR (w) register accessor: event generation register\n\nYou can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`egr::W`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@egr`] module"]
 #[doc(alias = "EGR")]

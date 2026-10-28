@@ -4,4 +4,129 @@ baseAddress: '0x4001B000'
 interrupt:
   name: GPTIM3
   value: '26'
-_derivedFrom: GPTIM0
+registers:
+  register:
+    - name: CR1
+      _derivedFrom: GPTIM0.CR1
+      addressOffset: '0x0'
+    - name: CR2
+      _derivedFrom: GPTIM0.CR2
+      addressOffset: '0x4'
+    - name: SMCR
+      _derivedFrom: GPTIM0.SMCR
+      addressOffset: '0x8'
+    - name: DIER
+      _derivedFrom: GPTIM0.DIER
+      addressOffset: '0xC'
+    - name: SR
+      _derivedFrom: GPTIM0.SR
+      addressOffset: '0x10'
+    - name: EGR
+      _derivedFrom: GPTIM0.EGR
+      addressOffset: '0x14'
+    - name: CCMR1
+      _derivedFrom: GPTIM0.CCMR1
+      addressOffset: '0x18'
+    - name: CCMR2
+      _derivedFrom: GPTIM0.CCMR2
+      addressOffset: '0x1C'
+    - name: CCER
+      _derivedFrom: GPTIM0.CCER
+      addressOffset: '0x20'
+    - name: CNT
+      _derivedFrom: GPTIM0.CNT
+      addressOffset: '0x24'
+    - name: PSC
+      _derivedFrom: GPTIM0.PSC
+      addressOffset: '0x28'
+    - name: ARR
+      _derivedFrom: GPTIM0.ARR
+      addressOffset: '0x2C'
+    - name: CCR0
+      _derivedFrom: GPTIM0.CCR0
+      addressOffset: '0x34'
+    - name: CCR1
+      _derivedFrom: GPTIM0.CCR1
+      addressOffset: '0x38'
+    - name: CCR2
+      _derivedFrom: GPTIM0.CCR2
+      addressOffset: '0x3C'
+    - name: CCR3
+      _derivedFrom: GPTIM0.CCR3
+      addressOffset: '0x40'
+    - name: DCR
+      _derivedFrom: GPTIM0.DCR
+      addressOffset: '0x48'
+    - name: DMAR
+      _derivedFrom: GPTIM0.DMAR
+      addressOffset: '0x4C'
+    - name: OR
+      description: GPTIM option register (GPTIM3 remap layout)
+      addressOffset: '0x50'
+      size: '32'
+      access: read-write
+      fields:
+        field:
+          - name: TI0_RMP
+            description: Channel 0 remapping
+            bitOffset: '0'
+            bitWidth: '3'
+            enumeratedValues:
+              enumeratedValue:
+                - name: IOM
+                  description: IOM
+                  value: '0x0'
+                - name: COMP0
+                  description: comp0
+                  value: '0x1'
+                - name: COMP1
+                  description: comp1
+                  value: '0x2'
+                - name: UART_RX_0
+                  description: uart_rx[0]
+                  value: '0x3'
+                - name: UART_RX_1
+                  description: uart_rx[1]
+                  value: '0x4'
+                - name: UART_RX_2
+                  description: uart_rx[2]
+                  value: '0x5'
+                - name: UART_RX_3
+                  description: uart_rx[3]
+                  value: '0x6'
+                - name: UART_RX_4
+                  description: uart_rx[4]
+                  value: '0x7'
+          - name: ETR_RMP
+            description: ETR remapping
+            bitOffset: '3'
+            bitWidth: '4'
+            enumeratedValues:
+              enumeratedValue:
+                - name: IOM
+                  description: IOM
+                  value: '0x0'
+                - name: COMP0
+                  description: comp0
+                  value: '0x1'
+                - name: COMP1
+                  description: comp1
+                  value: '0x2'
+                - name: XO32K
+                  description: xo32k
+                  value: '0x3'
+                - name: UART_RX_0
+                  description: uart_rx[0]
+                  value: '0x4'
+                - name: UART_RX_1
+                  description: uart_rx[1]
+                  value: '0x5'
+                - name: UART_RX_2
+                  description: uart_rx[2]
+                  value: '0x6'
+                - name: UART_RX_3
+                  description: uart_rx[3]
+                  value: '0x7'
+                - name: UART_RX_4
+                  description: uart_rx[4]
+                  value: '0x8'

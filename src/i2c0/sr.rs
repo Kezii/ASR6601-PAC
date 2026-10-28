@@ -2,6 +2,10 @@
 pub type R = crate::R<SrSpec>;
 #[doc = "Register `SR` writer"]
 pub type W = crate::W<SrSpec>;
+#[doc = "Field `RW_MODE` reader - Set when the matched address had the R/W bit set (master read / slave transmit)"]
+pub type RwModeR = crate::BitReader;
+#[doc = "Field `RW_MODE` writer - Set when the matched address had the R/W bit set (master read / slave transmit)"]
+pub type RwModeW<'a, REG> = crate::BitWriter<'a, REG>;
 #[doc = "Field `ACK_STATUS` reader - Ack status"]
 pub type AckStatusR = crate::BitReader;
 #[doc = "Field `ACK_STATUS` writer - Ack status"]
@@ -14,22 +18,22 @@ pub type UnitBusyW<'a, REG> = crate::BitWriter<'a, REG>;
 pub type BusBusyR = crate::BitReader;
 #[doc = "Field `BUS_BUSY` writer - Bus busy"]
 pub type BusBusyW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `ARB_LOSS_DET` reader - Arb loss det"]
+#[doc = "Field `ARB_LOSS_DET` reader - Arbitration loss detected; write 1 to clear"]
 pub type ArbLossDetR = crate::BitReader;
-#[doc = "Field `ARB_LOSS_DET` writer - Arb loss det"]
-pub type ArbLossDetW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `IDBR_EMPTY` reader - Idbr empty"]
+#[doc = "Field `ARB_LOSS_DET` writer - Arbitration loss detected; write 1 to clear"]
+pub type ArbLossDetW<'a, REG> = crate::BitWriter1C<'a, REG>;
+#[doc = "Field `IDBR_EMPTY` reader - Data buffer transmit empty; write 1 to clear"]
 pub type IdbrEmptyR = crate::BitReader;
-#[doc = "Field `IDBR_EMPTY` writer - Idbr empty"]
-pub type IdbrEmptyW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `DBR_FULL` reader - Dbr full"]
+#[doc = "Field `IDBR_EMPTY` writer - Data buffer transmit empty; write 1 to clear"]
+pub type IdbrEmptyW<'a, REG> = crate::BitWriter1C<'a, REG>;
+#[doc = "Field `DBR_FULL` reader - Data buffer receive full; write 1 to clear"]
 pub type DbrFullR = crate::BitReader;
-#[doc = "Field `DBR_FULL` writer - Dbr full"]
-pub type DbrFullW<'a, REG> = crate::BitWriter<'a, REG>;
-#[doc = "Field `BUS_ERROR` reader - Bus error"]
+#[doc = "Field `DBR_FULL` writer - Data buffer receive full; write 1 to clear"]
+pub type DbrFullW<'a, REG> = crate::BitWriter1C<'a, REG>;
+#[doc = "Field `BUS_ERROR` reader - Bus error detected; write 1 to clear"]
 pub type BusErrorR = crate::BitReader;
-#[doc = "Field `BUS_ERROR` writer - Bus error"]
-pub type BusErrorW<'a, REG> = crate::BitWriter<'a, REG>;
+#[doc = "Field `BUS_ERROR` writer - Bus error detected; write 1 to clear"]
+pub type BusErrorW<'a, REG> = crate::BitWriter1C<'a, REG>;
 #[doc = "Field `SLAVE_ADDR_DET` reader - Slave addr det"]
 pub type SlaveAddrDetR = crate::BitReader;
 #[doc = "Field `SLAVE_ADDR_DET` writer - Slave addr det"]
@@ -63,6 +67,11 @@ pub type RfifoOverrunR = crate::BitReader;
 #[doc = "Field `RFIFO_OVERRUN` writer - Rfifo overrun"]
 pub type RfifoOverrunW<'a, REG> = crate::BitWriter<'a, REG>;
 impl R {
+    #[doc = "Bit 13 - Set when the matched address had the R/W bit set (master read / slave transmit)"]
+    #[inline(always)]
+    pub fn rw_mode(&self) -> RwModeR {
+        RwModeR::new(((self.bits >> 13) & 1) != 0)
+    }
     #[doc = "Bit 14 - Ack status"]
     #[inline(always)]
     pub fn ack_status(&self) -> AckStatusR {
@@ -78,22 +87,22 @@ impl R {
     pub fn bus_busy(&self) -> BusBusyR {
         BusBusyR::new(((self.bits >> 16) & 1) != 0)
     }
-    #[doc = "Bit 18 - Arb loss det"]
+    #[doc = "Bit 18 - Arbitration loss detected; write 1 to clear"]
     #[inline(always)]
     pub fn arb_loss_det(&self) -> ArbLossDetR {
         ArbLossDetR::new(((self.bits >> 18) & 1) != 0)
     }
-    #[doc = "Bit 19 - Idbr empty"]
+    #[doc = "Bit 19 - Data buffer transmit empty; write 1 to clear"]
     #[inline(always)]
     pub fn idbr_empty(&self) -> IdbrEmptyR {
         IdbrEmptyR::new(((self.bits >> 19) & 1) != 0)
     }
-    #[doc = "Bit 20 - Dbr full"]
+    #[doc = "Bit 20 - Data buffer receive full; write 1 to clear"]
     #[inline(always)]
     pub fn dbr_full(&self) -> DbrFullR {
         DbrFullR::new(((self.bits >> 20) & 1) != 0)
     }
-    #[doc = "Bit 22 - Bus error"]
+    #[doc = "Bit 22 - Bus error detected; write 1 to clear"]
     #[inline(always)]
     pub fn bus_error(&self) -> BusErrorR {
         BusErrorR::new(((self.bits >> 22) & 1) != 0)
@@ -140,6 +149,11 @@ impl R {
     }
 }
 impl W {
+    #[doc = "Bit 13 - Set when the matched address had the R/W bit set (master read / slave transmit)"]
+    #[inline(always)]
+    pub fn rw_mode(&mut self) -> RwModeW<'_, SrSpec> {
+        RwModeW::new(self, 13)
+    }
     #[doc = "Bit 14 - Ack status"]
     #[inline(always)]
     pub fn ack_status(&mut self) -> AckStatusW<'_, SrSpec> {
@@ -155,22 +169,22 @@ impl W {
     pub fn bus_busy(&mut self) -> BusBusyW<'_, SrSpec> {
         BusBusyW::new(self, 16)
     }
-    #[doc = "Bit 18 - Arb loss det"]
+    #[doc = "Bit 18 - Arbitration loss detected; write 1 to clear"]
     #[inline(always)]
     pub fn arb_loss_det(&mut self) -> ArbLossDetW<'_, SrSpec> {
         ArbLossDetW::new(self, 18)
     }
-    #[doc = "Bit 19 - Idbr empty"]
+    #[doc = "Bit 19 - Data buffer transmit empty; write 1 to clear"]
     #[inline(always)]
     pub fn idbr_empty(&mut self) -> IdbrEmptyW<'_, SrSpec> {
         IdbrEmptyW::new(self, 19)
     }
-    #[doc = "Bit 20 - Dbr full"]
+    #[doc = "Bit 20 - Data buffer receive full; write 1 to clear"]
     #[inline(always)]
     pub fn dbr_full(&mut self) -> DbrFullW<'_, SrSpec> {
         DbrFullW::new(self, 20)
     }
-    #[doc = "Bit 22 - Bus error"]
+    #[doc = "Bit 22 - Bus error detected; write 1 to clear"]
     #[inline(always)]
     pub fn bus_error(&mut self) -> BusErrorW<'_, SrSpec> {
         BusErrorW::new(self, 22)
@@ -226,4 +240,5 @@ impl crate::Readable for SrSpec {}
 #[doc = "`write(|w| ..)` method takes [`sr::W`](W) writer structure"]
 impl crate::Writable for SrSpec {
     type Safety = crate::Unsafe;
+    const ONE_TO_MODIFY_FIELDS_BITMAP: u32 = 0x005c_0000;
 }
