@@ -144,7 +144,12 @@ The following was checked on an ASR6601SE:
   The PAC field is 11 bits and the driver rejects counts above 2047.
 * **DMA status** `STATUS_TFR`/`STATUS_BLOCK` and their `MASK_*`/`CLEAR_*`
   registers work through the controller interrupt; polling after a channel
-  auto-disables can miss the latched status.
+  auto-disables can miss the latched status. `RAW_TFR`/`RAW_BLOCK` sit at
+  `0x2C0`/`0x2C8` and carry the same four channel bits. `STATUS_INT` at
+  `0x360` reports transfer-complete in bit 0 and block-complete in bit 1.
+* **DMA request-status registers** `REQ_SRC`, `REQ_DST`, `SGL_REQ_SRC`, and
+  `SGL_REQ_DST` exist at the vendor offsets but read zero even while an SSP2
+  TX/RX request is active; they are modeled as bare read-only registers.
 * **DMA `LLP`** masks the low two address bits (descriptors are 4-byte
   aligned). Only channel 0 of each controller implements a writable `LLP`:
   `LLP1-3` read zero, ignore writes, and do not follow a descriptor chain.
