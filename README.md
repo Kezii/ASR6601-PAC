@@ -139,7 +139,32 @@ The following was checked on an ASR6601SE:
 * **IWDG** `MAX`/`WIN` accept 12-bit values only after `SR[3:0] == 0xF`; both
   registers are now modeled as 12-bit fields.
 * **DMA** memory-to-memory transfers and 64-bit controller register accesses
-  work.
+  work. `CTL.BLOCK_TS` is **11 bits**, not the 12 bits in `TREMO.h`: bit 43
+  reads zero, count 2048 transfers zero items, and 4095 transfers 2047.
+  The PAC field is 11 bits and the driver rejects counts above 2047.
+* **DMA status** `STATUS_TFR`/`STATUS_BLOCK` and their `MASK_*`/`CLEAR_*`
+  registers work through the controller interrupt; polling after a channel
+  auto-disables can miss the latched status. `RAW_TFR`/`RAW_BLOCK` sit at
+  `0x2C0`/`0x2C8` and carry the same four channel bits. `STATUS_INT` at
+  `0x360` reports transfer-complete in bit 0 and block-complete in bit 1.
+* **DMA request-status registers** `REQ_SRC`, `REQ_DST`, `SGL_REQ_SRC`, and
+  `SGL_REQ_DST` exist at the vendor offsets but read zero even while an SSP2
+  TX/RX request is active; they are modeled as bare read-only registers.
+* **SSP DMA** TX/RX requests route correctly through the SYSCFG mux. The RX
+  request is generated on four-byte FIFO boundaries, so a one-item DMA burst
+  leaves up to three bytes in the RX FIFO. Four-item bursts transfer every
+  length, including lengths below four. Verified with SSP2 internal loopback.
+* **DMA error status** could not be induced safely: misaligned and unmapped
+  addresses either completed or stalled, and an invalid `LLP` in unmapped
+  space wedged the channel. `STATUS_ERR`/`RAW_ERR`/`CLEAR_ERR` therefore
+  remain unverified; the other status, mask and clear bits were verified.
+* **DMA `LLP`** masks the low two address bits (descriptors are 4-byte
+  aligned). Only channel 0 of each controller implements a writable `LLP`:
+  `LLP1-3` read zero, ignore writes, and do not follow a descriptor chain.
+  The driver rejects linked-list transfers on channels 1-3.
+* **DMA `CFG`** `SRC_PER`/`DEST_PER` read back as 2-bit values, and
+  `CTL` `TT_FC` read back as a 2-bit value. The upper vendor-declared bits
+  read zero; the driver only uses values 0–3.
 * **AFEC** ADC reference, DAC power/output, and VBAT measurement fields
   behave as modeled. With VDD = 2.96 V, the DAC produced 8.8 mV at code 0,
   0.743 V at 1024, 1.480 V at 2048, 2.220 V at 3072, and 2.960 V at 4095

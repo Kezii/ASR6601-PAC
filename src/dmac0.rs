@@ -28,7 +28,10 @@ pub struct RegisterBlock {
     ctl3: Ctl3,
     _reserved19: [u8; 0x20],
     cfg3: Cfg3,
-    _reserved20: [u8; 0x0198],
+    _reserved20: [u8; 0x0170],
+    raw_tfr: RawTfr,
+    raw_block: RawBlock,
+    _reserved22: [u8; 0x18],
     status_tfr: StatusTfr,
     status_block: StatusBlock,
     status_src_tran: StatusSrcTran,
@@ -44,7 +47,16 @@ pub struct RegisterBlock {
     clear_src_tran: ClearSrcTran,
     clear_dst_tran: ClearDstTran,
     clear_err: ClearErr,
-    _reserved35: [u8; 0x38],
+    status_int: StatusInt,
+    _reserved38: [u8; 0x04],
+    req_src: ReqSrc,
+    _reserved39: [u8; 0x04],
+    req_dst: ReqDst,
+    _reserved40: [u8; 0x04],
+    sgl_req_src: SglReqSrc,
+    _reserved41: [u8; 0x04],
+    sgl_req_dst: SglReqDst,
+    _reserved42: [u8; 0x14],
     dmacfgreg: Dmacfgreg,
     chenreg: Chenreg,
 }
@@ -149,6 +161,16 @@ impl RegisterBlock {
     pub const fn cfg3(&self) -> &Cfg3 {
         &self.cfg3
     }
+    #[doc = "0x2c0..0x2c8 - raw DMA transfer complete interrupt status"]
+    #[inline(always)]
+    pub const fn raw_tfr(&self) -> &RawTfr {
+        &self.raw_tfr
+    }
+    #[doc = "0x2c8..0x2d0 - raw DMA block transfer complete interrupt status"]
+    #[inline(always)]
+    pub const fn raw_block(&self) -> &RawBlock {
+        &self.raw_block
+    }
     #[doc = "0x2e8..0x2f0 - DMA transfer complete interrupt status register"]
     #[inline(always)]
     pub const fn status_tfr(&self) -> &StatusTfr {
@@ -223,6 +245,31 @@ impl RegisterBlock {
     #[inline(always)]
     pub const fn clear_err(&self) -> &ClearErr {
         &self.clear_err
+    }
+    #[doc = "0x360 - combined DMA interrupt status; bit 0 transfer, bit 1 block"]
+    #[inline(always)]
+    pub const fn status_int(&self) -> &StatusInt {
+        &self.status_int
+    }
+    #[doc = "0x368 - DMA source request status"]
+    #[inline(always)]
+    pub const fn req_src(&self) -> &ReqSrc {
+        &self.req_src
+    }
+    #[doc = "0x370 - DMA destination request status"]
+    #[inline(always)]
+    pub const fn req_dst(&self) -> &ReqDst {
+        &self.req_dst
+    }
+    #[doc = "0x378 - DMA single source request status"]
+    #[inline(always)]
+    pub const fn sgl_req_src(&self) -> &SglReqSrc {
+        &self.sgl_req_src
+    }
+    #[doc = "0x380 - DMA single destination request status"]
+    #[inline(always)]
+    pub const fn sgl_req_dst(&self) -> &SglReqDst {
+        &self.sgl_req_dst
     }
     #[doc = "0x398..0x3a0 - DMA enable register"]
     #[inline(always)]
@@ -335,6 +382,16 @@ pub mod ctl3;
 pub type Cfg3 = crate::Reg<cfg3::Cfg3Spec>;
 #[doc = "channel configuration register"]
 pub mod cfg3;
+#[doc = "RAW_TFR (r) register accessor: raw DMA transfer complete interrupt status\n\nYou can [`read`](crate::Reg::read) this register and get [`raw_tfr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@raw_tfr`] module"]
+#[doc(alias = "RAW_TFR")]
+pub type RawTfr = crate::Reg<raw_tfr::RawTfrSpec>;
+#[doc = "raw DMA transfer complete interrupt status"]
+pub mod raw_tfr;
+#[doc = "RAW_BLOCK (r) register accessor: raw DMA block transfer complete interrupt status\n\nYou can [`read`](crate::Reg::read) this register and get [`raw_block::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@raw_block`] module"]
+#[doc(alias = "RAW_BLOCK")]
+pub type RawBlock = crate::Reg<raw_block::RawBlockSpec>;
+#[doc = "raw DMA block transfer complete interrupt status"]
+pub mod raw_block;
 #[doc = "STATUS_TFR (r) register accessor: DMA transfer complete interrupt status register\n\nYou can [`read`](crate::Reg::read) this register and get [`status_tfr::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@status_tfr`] module"]
 #[doc(alias = "STATUS_TFR")]
 pub type StatusTfr = crate::Reg<status_tfr::StatusTfrSpec>;
@@ -410,6 +467,31 @@ pub mod clear_dst_tran;
 pub type ClearErr = crate::Reg<clear_err::ClearErrSpec>;
 #[doc = "DMA transfer error status clear register"]
 pub mod clear_err;
+#[doc = "STATUS_INT (r) register accessor: combined DMA interrupt status; bit 0 transfer, bit 1 block\n\nYou can [`read`](crate::Reg::read) this register and get [`status_int::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@status_int`] module"]
+#[doc(alias = "STATUS_INT")]
+pub type StatusInt = crate::Reg<status_int::StatusIntSpec>;
+#[doc = "combined DMA interrupt status; bit 0 transfer, bit 1 block"]
+pub mod status_int;
+#[doc = "REQ_SRC (r) register accessor: DMA source request status\n\nYou can [`read`](crate::Reg::read) this register and get [`req_src::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@req_src`] module"]
+#[doc(alias = "REQ_SRC")]
+pub type ReqSrc = crate::Reg<req_src::ReqSrcSpec>;
+#[doc = "DMA source request status"]
+pub mod req_src;
+#[doc = "REQ_DST (r) register accessor: DMA destination request status\n\nYou can [`read`](crate::Reg::read) this register and get [`req_dst::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@req_dst`] module"]
+#[doc(alias = "REQ_DST")]
+pub type ReqDst = crate::Reg<req_dst::ReqDstSpec>;
+#[doc = "DMA destination request status"]
+pub mod req_dst;
+#[doc = "SGL_REQ_SRC (r) register accessor: DMA single source request status\n\nYou can [`read`](crate::Reg::read) this register and get [`sgl_req_src::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sgl_req_src`] module"]
+#[doc(alias = "SGL_REQ_SRC")]
+pub type SglReqSrc = crate::Reg<sgl_req_src::SglReqSrcSpec>;
+#[doc = "DMA single source request status"]
+pub mod sgl_req_src;
+#[doc = "SGL_REQ_DST (r) register accessor: DMA single destination request status\n\nYou can [`read`](crate::Reg::read) this register and get [`sgl_req_dst::R`]. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@sgl_req_dst`] module"]
+#[doc(alias = "SGL_REQ_DST")]
+pub type SglReqDst = crate::Reg<sgl_req_dst::SglReqDstSpec>;
+#[doc = "DMA single destination request status"]
+pub mod sgl_req_dst;
 #[doc = "DMACFGREG (rw) register accessor: DMA enable register\n\nYou can [`read`](crate::Reg::read) this register and get [`dmacfgreg::R`]. You can [`write_with_zero`](crate::Reg::write_with_zero) this register using [`dmacfgreg::W`]. You can also [`modify`](crate::Reg::modify) this register. See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [`mod@dmacfgreg`] module"]
 #[doc(alias = "DMACFGREG")]
 pub type Dmacfgreg = crate::Reg<dmacfgreg::DmacfgregSpec>;

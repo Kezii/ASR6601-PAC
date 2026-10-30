@@ -221,9 +221,9 @@ registers:
             bitOffset: '28'
             bitWidth: '1'
           - name: BLOCK_TS
-            description: block length
+            description: block length (11 bits on hardware; bit 43 reads zero)
             bitOffset: '32'
-            bitWidth: '12'
+            bitWidth: '11'
           - name: DONE
             description: LLI chain table block transfer status
             bitOffset: '44'
@@ -548,9 +548,9 @@ registers:
             bitOffset: '28'
             bitWidth: '1'
           - name: BLOCK_TS
-            description: block length
+            description: block length (11 bits on hardware; bit 43 reads zero)
             bitOffset: '32'
-            bitWidth: '12'
+            bitWidth: '11'
           - name: DONE
             description: LLI chain table block transfer status
             bitOffset: '44'
@@ -875,9 +875,9 @@ registers:
             bitOffset: '28'
             bitWidth: '1'
           - name: BLOCK_TS
-            description: block length
+            description: block length (11 bits on hardware; bit 43 reads zero)
             bitOffset: '32'
-            bitWidth: '12'
+            bitWidth: '11'
           - name: DONE
             description: LLI chain table block transfer status
             bitOffset: '44'
@@ -1202,9 +1202,9 @@ registers:
             bitOffset: '28'
             bitWidth: '1'
           - name: BLOCK_TS
-            description: block length
+            description: block length (11 bits on hardware; bit 43 reads zero)
             bitOffset: '32'
-            bitWidth: '12'
+            bitWidth: '11'
           - name: DONE
             description: LLI chain table block transfer status
             bitOffset: '44'
@@ -1318,6 +1318,52 @@ registers:
             description: DMA destination handshake interface
             bitOffset: '43'
             bitWidth: '4'
+    - name: RAW_TFR
+      description: raw DMA transfer complete interrupt status
+      addressOffset: '0x2C0'
+      size: '64'
+      access: read-only
+      fields:
+        field:
+          - name: CHAN0_STATUS
+            description: Raw transfer completion status of DMA channel 0
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_STATUS
+            description: Raw transfer completion status of DMA channel 1
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_STATUS
+            description: Raw transfer completion status of DMA channel 2
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_STATUS
+            description: Raw transfer completion status of DMA channel 3
+            bitOffset: '3'
+            bitWidth: '1'
+    - name: RAW_BLOCK
+      description: raw DMA block transfer complete interrupt status
+      addressOffset: '0x2C8'
+      size: '64'
+      access: read-only
+      fields:
+        field:
+          - name: CHAN0_STATUS
+            description: Raw block completion status of DMA channel 0
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: CHAN1_STATUS
+            description: Raw block completion status of DMA channel 1
+            bitOffset: '1'
+            bitWidth: '1'
+          - name: CHAN2_STATUS
+            description: Raw block completion status of DMA channel 2
+            bitOffset: '2'
+            bitWidth: '1'
+          - name: CHAN3_STATUS
+            description: Raw block completion status of DMA channel 3
+            bitOffset: '3'
+            bitWidth: '1'
     - name: STATUS_TFR
       description: DMA transfer complete interrupt status register
       addressOffset: '0x2E8'
@@ -1743,6 +1789,41 @@ registers:
             description: Clear DMA channel 3 transfer error status
             bitOffset: '3'
             bitWidth: '1'
+    - name: STATUS_INT
+      description: combined DMA interrupt status; bit 0 transfer, bit 1 block
+      addressOffset: '0x360'
+      size: '32'
+      access: read-only
+      fields:
+        field:
+          - name: TFR
+            description: Transfer-complete interrupt status
+            bitOffset: '0'
+            bitWidth: '1'
+          - name: BLOCK
+            description: Block-complete interrupt status
+            bitOffset: '1'
+            bitWidth: '1'
+    - name: REQ_SRC
+      description: DMA source request status
+      addressOffset: '0x368'
+      size: '32'
+      access: read-only
+    - name: REQ_DST
+      description: DMA destination request status
+      addressOffset: '0x370'
+      size: '32'
+      access: read-only
+    - name: SGL_REQ_SRC
+      description: DMA single source request status
+      addressOffset: '0x378'
+      size: '32'
+      access: read-only
+    - name: SGL_REQ_DST
+      description: DMA single destination request status
+      addressOffset: '0x380'
+      size: '32'
+      access: read-only
     - name: DMACFGREG
       description: DMA enable register
       addressOffset: '0x398'
